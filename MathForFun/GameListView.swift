@@ -12,24 +12,31 @@ struct GameListView: View {
     
     @State private var showCountingGameView = false
     
+    var gameType: GameType
+        
     var body: some View {
         
         VStack {
-            ForEach(CountingGame.CountingLimit.allCases) { limit in
+            ForEach(gameType.itemCounts, id: \.self) { count in
                 
                 Button(action: {
-                    CountingGameModel.highestCount = limit.rawValue
+                    CountingGameModel.highestCount = count
                     self.showCountingGameView = true
                     
                 }, label: {
-                    CardView(title: "Counting upto \(limit.rawValue)")
+                    CardView(title: "\(self.gameType.rawValue) upto \(count)")
                 })
                     .padding()
                 
             }
         }
         .popover(isPresented: $showCountingGameView) {
-            CountingGameView(game: CountingGameModel())
+            if self.gameType == .counting {
+                CountingGameView(game: CountingGameModel())
+            }
+            else {
+                ComparingGameView()
+            }
         }
     }
    
@@ -37,7 +44,7 @@ struct GameListView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        GameListView()
+        GameListView(gameType: .comparing)
     }
 }
 

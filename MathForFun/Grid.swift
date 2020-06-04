@@ -32,14 +32,9 @@ struct Grid<Item, ItemView>: View where Item: Identifiable, ItemView: View {
     
     private func body(for item: Item, in layout: GridLayout) -> some View {
         let chosenIndex = items.firstIndex(matching: item)
-        return Group {
-            if chosenIndex != nil {
-                viewForItem(item)
-                    .frame(width: layout.itemSize.width, height: layout.itemSize.height)
-                    .position(layout.location(ofItemAt: chosenIndex!))
-            }
-             
-        }
+        return viewForItem(item)
+            .frame(width: layout.itemSize.width, height: layout.itemSize.height)
+            .position(layout.location(ofItemAt: chosenIndex!))
         
     }
 }

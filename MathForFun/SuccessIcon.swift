@@ -10,27 +10,27 @@ import SwiftUI
 
 struct SuccessIcon: View {
     
-    @Binding var success: Bool
+    @Binding var correct: Bool
     
     var body: some View {
         
         ZStack {
             
-            Image(systemName: "checkmark.circle.fill")
-                .font(.largeTitle)
-                .foregroundColor(Color.green)
-                .opacity(success ? 1 : 0)
-                .rotationEffect(.degrees(success ? 360 : 0))
-                .scaleEffect(success ? 2 : 1)
-                .animation(Animation.easeInOut)
             
+            Text("👏🏻")
+            
+                .font(Font.system(size: 100))
+                .opacity(correct ? 1 : 0)
+                .offset(x: 0, y: 10)
+                .rotationEffect(.degrees(correct ? 2*360 : 0))
+                .animation(Animation.easeInOut(duration: 1.0))
         }
-            
+        
     }
 }
 
 struct SuccessIcon_Previews: PreviewProvider {
     static var previews: some View {
-        SuccessIcon(success: .constant(true))
+        SuccessIcon(correct: .constant(true))
     }
 }

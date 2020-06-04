@@ -9,13 +9,30 @@
 import SwiftUI
 
 struct CardView: View {
+    
+    let title: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        GeometryReader { geometry in
+            ZStack {
+                
+                RoundedRectangle(cornerRadius: self.cornerRadius).stroke(lineWidth: self.lineWidth)
+                
+                Text(self.title)
+                    .font(self.title.count > 1 ? .largeTitle : Font.system(size: min(geometry.size.width, geometry.size.height) * 0.50))
+                    .foregroundColor(.black)
+                
+            }
+            .foregroundColor(.blue)
+            .shadow(radius: 1.0)
+        }
     }
+    
+    // MARK: DRAWING CONSTANTS
+    private let cornerRadius: CGFloat = 10.0
+    private let lineWidth: CGFloat = 3.0
+    
 }
 
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView()
-    }
-}
+
