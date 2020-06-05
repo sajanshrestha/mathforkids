@@ -1,5 +1,5 @@
 //
-//  CompareGameModel.swift
+//  CompareGame.swift
 //  MathForFun
 //
 //  Created by Sajan Shrestha on 6/4/20.
@@ -7,9 +7,3 @@
 //
 
 import Foundation
-
-class CompareGameModel {
-    
-    
-    
-}

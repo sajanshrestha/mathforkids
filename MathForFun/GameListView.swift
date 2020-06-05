@@ -12,15 +12,43 @@ struct GameListView: View {
     
     @State private var showCountingGameView = false
     
-    var gameType: GameType
+    var gameType: KinderGardenGameType
         
     var body: some View {
-        
+                
+        return Group {
+            
+            if gameType.itemCounts != nil {
+                
+                listView(for: gameType.itemCounts!)
+                    .popover(isPresented: $showCountingGameView) {
+                    
+                    if self.gameType == .counting {
+                        CountingGameView(game: CountingGameModel())
+                    }
+                    else {
+                        ComparingGameView()
+                    }
+                }
+            }
+            else {
+                if gameType == .identifyingColors {
+                    ColorGameView(game: IdentifyingColorGameModel())
+                }
+                else {
+                    ShapeGameView()
+                }
+            }
+        }
+    }
+    
+    func listView(for itemListCount: [Int]) -> some View {
         VStack {
-            ForEach(gameType.itemCounts, id: \.self) { count in
+            
+            ForEach(gameType.itemCounts!, id: \.self) { count in
                 
                 Button(action: {
-                    CountingGameModel.highestCount = count
+                    self.setHighestCountForGames(count: count)
                     self.showCountingGameView = true
                     
                 }, label: {
@@ -30,14 +58,11 @@ struct GameListView: View {
                 
             }
         }
-        .popover(isPresented: $showCountingGameView) {
-            if self.gameType == .counting {
-                CountingGameView(game: CountingGameModel())
-            }
-            else {
-                ComparingGameView()
-            }
-        }
+    }
+    
+    
+    func setHighestCountForGames(count: Int) {
+        CountingGameModel.highestCount = count
     }
    
 }
