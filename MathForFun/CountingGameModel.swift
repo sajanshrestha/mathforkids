@@ -15,9 +15,23 @@ class CountingGameModel: ObservableObject {
     static var highestCount = 3
     
     private static func createCountingGame() -> CountingGame {
-        let emojis = ["🐶", "🐰", "🐻", "🦁"]
+        let emojisDictionary = [
+            "🐶": "dogs",
+            "🐰": "bunnies",
+            "🐻": "bears",
+            "🦁": "lions",
+            "🐵": "monkeys",
+            "🦉": "owls",
+            "🐢": "turtle",
+            "🐬": "dolphins",
+            "🦒": "giraffes",
+            "🐑": "sheeps",
+            "🐿": "squirrels",
+            "🐓": "chickens",
+            "🐫": "camels"
+        ]
         
-        return CountingGame(numberOfProblems: 10, highestNumberOfItems: highestCount, emojis: emojis)
+        return CountingGame(numberOfProblems: 10, highestNumberOfItems: highestCount, emojisDictionary: emojisDictionary)
         
     }
     

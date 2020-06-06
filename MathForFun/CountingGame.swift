@@ -19,14 +19,14 @@ struct CountingGame {
     
     private(set) var gameOver = false
         
-    init(numberOfProblems: Int, highestNumberOfItems: Int, emojis: [String]) {
+    init(numberOfProblems: Int, highestNumberOfItems: Int, emojisDictionary: [String: String]) {
                 
         problems = [CountingGameProblem]()
         
         for _ in 0..<numberOfProblems {
-            let randomEmoji = emojis.randomElement()!
+            let randomEmoji = emojisDictionary.randomElement()!
             let count = Int.random(in: 1...highestNumberOfItems)
-            problems.append(CountingGameProblem(emoji: randomEmoji, countOfItems: count))
+            problems.append(CountingGameProblem(content: randomEmoji.key, contentName: randomEmoji.value, contentCount: count))
         }
         
     }
@@ -57,7 +57,6 @@ struct CountingGame {
         }
             
         else {
-            print("Score is \(score)")
             gameOver = true
         }
     }
@@ -65,8 +64,9 @@ struct CountingGame {
     
     struct CountingGameProblem {
         
-        var emoji: String
-        var countOfItems: Int
+        var content: String
+        var contentName: String
+        var contentCount: Int
         var options: [Int] {
             
             var options = [Int]()
@@ -80,7 +80,7 @@ struct CountingGame {
             return options.shuffled()
             
         }
-        var rightAnswer: Int { countOfItems }
+        var rightAnswer: Int { contentCount }
     }
     
 }

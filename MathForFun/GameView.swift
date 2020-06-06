@@ -8,44 +8,46 @@
 
 import SwiftUI
 
-struct GameListView: View {
+struct GameView: View {
     
     @State private var showCountingGameView = false
     
-    var gameType: KinderGardenGameType
-        
+    var gameType: KinderGardenGameList.GameType
+    
     var body: some View {
                 
         return Group {
             
-            if gameType.itemCounts != nil {
+            if gameType.limitSelections != nil {
                 
-                listView(for: gameType.itemCounts!)
+                self.listView(for: gameType.limitSelections!)
                     .popover(isPresented: $showCountingGameView) {
-                    
-                    if self.gameType == .counting {
-                        CountingGameView(game: CountingGameModel())
-                    }
-                    else {
-                        ComparingGameView()
-                    }
+                        
+                        if self.gameType == .counting {
+                            CountingGameView(countingGame: CountingGameModel())
+                        }
+                        else {
+                            ComparingGameView()
+                        }
                 }
             }
+                
             else {
-                if gameType == .identifyingColors {
+                if gameType == .identifyingColor {
                     ColorGameView(game: IdentifyingColorGameModel())
                 }
-                else {
+                else if gameType == .identifyingShape {
                     ShapeGameView()
                 }
             }
         }
     }
     
-    func listView(for itemListCount: [Int]) -> some View {
-        VStack {
+    func listView(for selections: [Int]) -> some View {
+                
+        return VStack {
             
-            ForEach(gameType.itemCounts!, id: \.self) { count in
+            ForEach(gameType.limitSelections!, id: \.self) { count in
                 
                 Button(action: {
                     self.setHighestCountForGames(count: count)
@@ -60,16 +62,15 @@ struct GameListView: View {
         }
     }
     
-    
     func setHighestCountForGames(count: Int) {
         CountingGameModel.highestCount = count
     }
-   
+    
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        GameListView(gameType: .comparing)
+        GameView(gameType: KinderGardenGameList.GameType.comparing)
     }
 }
 

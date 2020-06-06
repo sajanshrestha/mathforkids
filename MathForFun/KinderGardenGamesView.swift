@@ -10,25 +10,24 @@ import SwiftUI
 
 struct KinderGardenGamesView: View {
     
-    var gameTypes: [KinderGardenGameType]
+    var gameList: KinderGardenGameList
     
     var body: some View {
         
         NavigationView {
-            List(KinderGardenGameType.allCases) { gameType in
-                NavigationLink(destination: GameListView(gameType: gameType), label: {
-                    Text(gameType.rawValue)
+            List(gameList.games) { game in
+                NavigationLink(destination: GameView(gameType: game.gameType), label: {
+                    Text(game.name)
                 })
             }
-
-        .navigationBarTitle(Text("Games"))
+        .navigationBarTitle(Text("Exercises"))
         }
     }
 }
 
 struct PreKHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        KinderGardenGamesView(gameTypes: [.comparing, .counting])
+        KinderGardenGamesView(gameList: KinderGardenGameList())
     }
 }
 

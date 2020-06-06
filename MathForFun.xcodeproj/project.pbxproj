@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A135AAD0248A965200EBC8C2 /* CountingGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AACF248A965200EBC8C2 /* CountingGameModel.swift */; };
-		A135AAD4248A9FBF00EBC8C2 /* KinderGardenGameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD3248A9FBF00EBC8C2 /* KinderGardenGameType.swift */; };
 		A135AAD6248AAC9B00EBC8C2 /* ShapeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */; };
 		A135AAD8248AACA300EBC8C2 /* ColorGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */; };
-		A135AADA248AAD3600EBC8C2 /* IdentifyGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD9248AAD3600EBC8C2 /* IdentifyGameModel.swift */; };
+		A135AADA248AAD3600EBC8C2 /* IdentifyColorGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD9248AAD3600EBC8C2 /* IdentifyColorGameModel.swift */; };
 		A135AADC248AC6E600EBC8C2 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AADB248AC6E600EBC8C2 /* GameModel.swift */; };
 		A137C2252487EEC900BEC96D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C2242487EEC900BEC96D /* AppDelegate.swift */; };
 		A137C2272487EEC900BEC96D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C2262487EEC900BEC96D /* SceneDelegate.swift */; };
@@ -25,12 +24,13 @@
 		A137C26B2488177700BEC96D /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C26A2488177700BEC96D /* GridLayout.swift */; };
 		A137C26D2488177E00BEC96D /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C26C2488177E00BEC96D /* Grid.swift */; };
 		A137C26F2488381A00BEC96D /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C26E2488381A00BEC96D /* Array+Identifiable.swift */; };
-		A137C27124883D9D00BEC96D /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C27024883D9D00BEC96D /* GameListView.swift */; };
+		A137C27124883D9D00BEC96D /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C27024883D9D00BEC96D /* GameView.swift */; };
 		A1AE1035248963900039F068 /* SuccessIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE1034248963900039F068 /* SuccessIcon.swift */; };
 		A1AE10372489705F0039F068 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE10362489705F0039F068 /* CardView.swift */; };
 		A1AE1039248977130039F068 /* CountingGameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE1038248977130039F068 /* CountingGameModelTests.swift */; };
 		A1AE103B248988520039F068 /* KinderGardenGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE103A248988520039F068 /* KinderGardenGamesView.swift */; };
 		A1CEAF9A2489AF6C00AE7425 /* ComparingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEAF992489AF6C00AE7425 /* ComparingGameView.swift */; };
+		A1D11F63248B0B35005674CF /* KinderGardenGameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D11F62248B0B35005674CF /* KinderGardenGameList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,10 +52,9 @@
 
 /* Begin PBXFileReference section */
 		A135AACF248A965200EBC8C2 /* CountingGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingGameModel.swift; sourceTree = "<group>"; };
-		A135AAD3248A9FBF00EBC8C2 /* KinderGardenGameType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinderGardenGameType.swift; sourceTree = "<group>"; };
 		A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeGameView.swift; sourceTree = "<group>"; };
 		A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGameView.swift; sourceTree = "<group>"; };
-		A135AAD9248AAD3600EBC8C2 /* IdentifyGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyGameModel.swift; sourceTree = "<group>"; };
+		A135AAD9248AAD3600EBC8C2 /* IdentifyColorGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyColorGameModel.swift; sourceTree = "<group>"; };
 		A135AADB248AC6E600EBC8C2 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		A137C2212487EEC800BEC96D /* MathForFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathForFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A137C2242487EEC900BEC96D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,12 +74,13 @@
 		A137C26A2488177700BEC96D /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		A137C26C2488177E00BEC96D /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		A137C26E2488381A00BEC96D /* Array+Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
-		A137C27024883D9D00BEC96D /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
+		A137C27024883D9D00BEC96D /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		A1AE1034248963900039F068 /* SuccessIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessIcon.swift; sourceTree = "<group>"; };
 		A1AE10362489705F0039F068 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A1AE1038248977130039F068 /* CountingGameModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingGameModelTests.swift; sourceTree = "<group>"; };
 		A1AE103A248988520039F068 /* KinderGardenGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinderGardenGamesView.swift; sourceTree = "<group>"; };
 		A1CEAF992489AF6C00AE7425 /* ComparingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparingGameView.swift; sourceTree = "<group>"; };
+		A1D11F62248B0B35005674CF /* KinderGardenGameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinderGardenGameList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,26 +133,26 @@
 			children = (
 				A137C2242487EEC900BEC96D /* AppDelegate.swift */,
 				A137C2262487EEC900BEC96D /* SceneDelegate.swift */,
+				A1D11F62248B0B35005674CF /* KinderGardenGameList.swift */,
 				A1AE103A248988520039F068 /* KinderGardenGamesView.swift */,
-				A135AAD3248A9FBF00EBC8C2 /* KinderGardenGameType.swift */,
-				A137C27024883D9D00BEC96D /* GameListView.swift */,
+				A137C27024883D9D00BEC96D /* GameView.swift */,
 				A137C264248802CD00BEC96D /* CountingGameView.swift */,
+				A137C2662488149600BEC96D /* CountingGame.swift */,
+				A135AACF248A965200EBC8C2 /* CountingGameModel.swift */,
 				A1CEAF992489AF6C00AE7425 /* ComparingGameView.swift */,
 				A137C22A2487EECA00BEC96D /* Assets.xcassets */,
 				A137C22F2487EECA00BEC96D /* LaunchScreen.storyboard */,
 				A137C2322487EECA00BEC96D /* Info.plist */,
 				A137C22C2487EECA00BEC96D /* Preview Content */,
-				A137C2662488149600BEC96D /* CountingGame.swift */,
+				A135AADB248AC6E600EBC8C2 /* GameModel.swift */,
+				A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */,
+				A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */,
+				A135AAD9248AAD3600EBC8C2 /* IdentifyColorGameModel.swift */,
 				A137C26C2488177E00BEC96D /* Grid.swift */,
 				A137C26A2488177700BEC96D /* GridLayout.swift */,
 				A137C26E2488381A00BEC96D /* Array+Identifiable.swift */,
 				A1AE1034248963900039F068 /* SuccessIcon.swift */,
 				A1AE10362489705F0039F068 /* CardView.swift */,
-				A135AACF248A965200EBC8C2 /* CountingGameModel.swift */,
-				A135AADB248AC6E600EBC8C2 /* GameModel.swift */,
-				A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */,
-				A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */,
-				A135AAD9248AAD3600EBC8C2 /* IdentifyGameModel.swift */,
 			);
 			path = MathForFun;
 			sourceTree = "<group>";
@@ -315,20 +315,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A137C27124883D9D00BEC96D /* GameListView.swift in Sources */,
+				A137C27124883D9D00BEC96D /* GameView.swift in Sources */,
 				A137C2252487EEC900BEC96D /* AppDelegate.swift in Sources */,
 				A135AAD8248AACA300EBC8C2 /* ColorGameView.swift in Sources */,
-				A135AADA248AAD3600EBC8C2 /* IdentifyGameModel.swift in Sources */,
+				A135AADA248AAD3600EBC8C2 /* IdentifyColorGameModel.swift in Sources */,
 				A137C2272487EEC900BEC96D /* SceneDelegate.swift in Sources */,
 				A1AE103B248988520039F068 /* KinderGardenGamesView.swift in Sources */,
 				A137C2672488149600BEC96D /* CountingGame.swift in Sources */,
 				A135AAD0248A965200EBC8C2 /* CountingGameModel.swift in Sources */,
+				A1D11F63248B0B35005674CF /* KinderGardenGameList.swift in Sources */,
 				A137C26B2488177700BEC96D /* GridLayout.swift in Sources */,
 				A137C265248802CD00BEC96D /* CountingGameView.swift in Sources */,
 				A137C26F2488381A00BEC96D /* Array+Identifiable.swift in Sources */,
 				A135AADC248AC6E600EBC8C2 /* GameModel.swift in Sources */,
 				A135AAD6248AAC9B00EBC8C2 /* ShapeGameView.swift in Sources */,
-				A135AAD4248A9FBF00EBC8C2 /* KinderGardenGameType.swift in Sources */,
 				A137C26D2488177E00BEC96D /* Grid.swift in Sources */,
 				A1AE1035248963900039F068 /* SuccessIcon.swift in Sources */,
 				A1AE10372489705F0039F068 /* CardView.swift in Sources */,

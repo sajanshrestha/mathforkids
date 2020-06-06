@@ -13,17 +13,24 @@ struct ColorGameView: View {
     @ObservedObject var game: IdentifyingColorGameModel
     
     @State private var answerSelected = ""
+    
+    @State private var answerCorrect = false
         
     var body: some View {
-        VStack {
-            Spacer()
-            Circle()
-                .foregroundColor(Color(game.colors[game.index].color))
-                .frame(width: 200, height: 200)
-            Spacer()
-            
-            optionsView()
+        ZStack {
+            VStack {
+                Spacer()
+                Circle()
+                    .foregroundColor(Color(game.colors[game.index].color))
+                    .frame(width: 200, height: 200)
+                Spacer()
+                
+                optionsView()
+            }
+            .opacity(game.gameOver ? 0.3 : 1)
+            SuccessIcon(correct: $answerCorrect)
         }
+        
     }
     
     func optionsView() -> some View {
@@ -31,8 +38,11 @@ struct ColorGameView: View {
             ForEach(game.colors[game.index].options, id: \.self) { option in
                 Button(action: {
                     self.answerSelected = option
-                    let _ = self.game.submitAnswer(answer: self.answerSelected)
+                    self.answerCorrect  = self.game.submitAnswer(answer: self.answerSelected)
                     
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.answerCorrect = false
+                    }
                     
                 }, label: {
                     Text(option)

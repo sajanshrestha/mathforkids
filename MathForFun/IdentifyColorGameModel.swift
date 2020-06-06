@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class IdentifyingColorGameModel: ObservableObject {
     
     @Published private var game: IdentifyingColorGame = IdentifyingColorGame()
@@ -49,11 +50,20 @@ struct IdentifyingColorGame {
         
         colors = [Color]()
         
-        let colorList: [UIColor] = [.red, .black, .green, .yellow, .brown, .cyan, .gray, .purple, .red, .systemPink]
+        let colorWithNames: [UIColor: String] = [
+            .red: "Red",
+            .black: "Black",
+            .purple: "Purple",
+            .green: "Green",
+            .orange: "Orange",
+            .systemPink: "Pink",
+            .gray: "Gray"
+        ]
         
-        for color in colorList {
-            colors.append(Color(name: color.description, color: color))
+        for (color, name) in colorWithNames {
+            colors.append(Color(name: name, color: color))
         }
+        
         
     }
     
@@ -85,16 +95,22 @@ struct IdentifyingColorGame {
         
         var name: String
         var color: UIColor
-        
-        // MARK: FIX THIS
+
         var options: [String] {
             
             var options = [String]()
+                    
+            var colorNames = ["Red", "Green", "Yello", "Blue", "Pink", "Black"]
             
-            options.append("Red")
-            options.append("Green")
-            options.append("Blue")
-            options.append("Yellow")
+            options.append(name)
+            
+            colorNames.removeAll { $0 == name }
+            
+            for _ in 0..<3 {
+                options.append(colorNames.remove(at: Int.random(in: 0..<colorNames.count)))
+            }
+            
+            options.shuffle()
 
             return options
         }
