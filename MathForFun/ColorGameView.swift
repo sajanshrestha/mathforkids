@@ -10,35 +10,54 @@ import SwiftUI
 
 struct ColorGameView: View {
     
-    @ObservedObject var game: IdentifyingColorGameModel
+    @ObservedObject var game: GameModel
     
     @State private var answerSelected = ""
     
     @State private var answerCorrect = false
-        
+    
     var body: some View {
-        ZStack {
+        
+        let colorProblem = game.problems[game.index] as! IdentifyingColorProblem
+        
+        return ZStack {
             VStack {
+                
+                Text("Score: \(game.score)").padding().font(.title)
+                
                 Spacer()
-                Circle()
-                    .foregroundColor(Color(game.colors[game.index].color))
-                    .frame(width: 200, height: 200)
+                ZStack {
+                    Circle()
+                        .opacity(0.3)
+                    
+                    Circle()
+                        .padding(10)
+                    
+                }
+                .padding(40)
+                .foregroundColor(Color(colorProblem.color))
+                
+                Text("What color is this?").font(.title).padding(20)
+                
                 Spacer()
                 
-                optionsView()
+                optionsView(for: colorProblem)
             }
-            .opacity(game.gameOver ? 0.3 : 1)
+            .opacity(game.gameCompleted ? 0.3 : 1)
             SuccessIcon(correct: $answerCorrect)
         }
         
     }
     
-    func optionsView() -> some View {
+    func optionsView(for problem: IdentifyingColorProblem) -> some View {
         HStack(spacing: 20) {
-            ForEach(game.colors[game.index].options, id: \.self) { option in
+            ForEach(problem.options, id: \.self) { option in
                 Button(action: {
                     self.answerSelected = option
-                    self.answerCorrect  = self.game.submitAnswer(answer: self.answerSelected)
+                    withAnimation(Animation.spring()) {
+                        
+                        self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
+                    }
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         self.answerCorrect = false
@@ -46,14 +65,14 @@ struct ColorGameView: View {
                     
                 }, label: {
                     Text(option)
-                    .padding()
+                        .padding()
                         .background(Color.blue)
                         .cornerRadius(10)
                         
                         .foregroundColor(.white)
                     
                     
-                }).disabled(self.game.gameOver)
+                }).disabled(self.game.gameCompleted)
             }
         }
     }
@@ -61,6 +80,6 @@ struct ColorGameView: View {
 
 struct ColorGameView_Previews: PreviewProvider {
     static var previews: some View {
-        ColorGameView(game: IdentifyingColorGameModel())
+        ColorGameView(game: GameModel())
     }
 }

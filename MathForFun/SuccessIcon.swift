@@ -17,12 +17,13 @@ struct SuccessIcon: View {
         ZStack {
             
             
-            Text("Correct")
+            Text("👏🏻👏🏻👏🏻")
         
                 .font(Font.system(size: 80))
-                .opacity(correct ? 1 : 0)
-                .offset(x: 0, y: correct ? 0 : -UIScreen.main.bounds.height)
-                .animation(Animation.easeInOut(duration: 1.0))
+                .opacity(0)
+                //.opacity(correct ? 1 : 0)
+                .offset(x: 0, y: -300)
+                .animation(Animation.easeInOut(duration: 2.0))
         }
         
     }

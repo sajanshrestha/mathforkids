@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A135AAD0248A965200EBC8C2 /* CountingGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AACF248A965200EBC8C2 /* CountingGameModel.swift */; };
+		A109520E248B2EF100234225 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109520D248B2EF100234225 /* GameModel.swift */; };
+		A11C2869248BFA9B0036D1AB /* CountingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2868248BFA9B0036D1AB /* CountingProblem.swift */; };
+		A11C286B248BFABA0036D1AB /* IdentifyingColorProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C286A248BFABA0036D1AB /* IdentifyingColorProblem.swift */; };
+		A11C286D248C352D0036D1AB /* IdentifyingShapeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C286C248C352D0036D1AB /* IdentifyingShapeProblem.swift */; };
+		A11C286F248C4B320036D1AB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C286E248C4B320036D1AB /* Game.swift */; };
+		A11C2871248C75F20036D1AB /* ComparingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2870248C75F20036D1AB /* ComparingProblem.swift */; };
 		A135AAD6248AAC9B00EBC8C2 /* ShapeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */; };
 		A135AAD8248AACA300EBC8C2 /* ColorGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */; };
-		A135AADA248AAD3600EBC8C2 /* IdentifyColorGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD9248AAD3600EBC8C2 /* IdentifyColorGameModel.swift */; };
-		A135AADC248AC6E600EBC8C2 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AADB248AC6E600EBC8C2 /* GameModel.swift */; };
 		A137C2252487EEC900BEC96D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C2242487EEC900BEC96D /* AppDelegate.swift */; };
 		A137C2272487EEC900BEC96D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C2262487EEC900BEC96D /* SceneDelegate.swift */; };
 		A137C22B2487EECA00BEC96D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A137C22A2487EECA00BEC96D /* Assets.xcassets */; };
@@ -20,7 +23,6 @@
 		A137C23C2487EECA00BEC96D /* MathForFunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C23B2487EECA00BEC96D /* MathForFunTests.swift */; };
 		A137C2472487EECA00BEC96D /* MathForFunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C2462487EECA00BEC96D /* MathForFunUITests.swift */; };
 		A137C265248802CD00BEC96D /* CountingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C264248802CD00BEC96D /* CountingGameView.swift */; };
-		A137C2672488149600BEC96D /* CountingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C2662488149600BEC96D /* CountingGame.swift */; };
 		A137C26B2488177700BEC96D /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C26A2488177700BEC96D /* GridLayout.swift */; };
 		A137C26D2488177E00BEC96D /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C26C2488177E00BEC96D /* Grid.swift */; };
 		A137C26F2488381A00BEC96D /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C26E2488381A00BEC96D /* Array+Identifiable.swift */; };
@@ -51,11 +53,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A135AACF248A965200EBC8C2 /* CountingGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingGameModel.swift; sourceTree = "<group>"; };
+		A109520D248B2EF100234225 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		A11C2868248BFA9B0036D1AB /* CountingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingProblem.swift; sourceTree = "<group>"; };
+		A11C286A248BFABA0036D1AB /* IdentifyingColorProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyingColorProblem.swift; sourceTree = "<group>"; };
+		A11C286C248C352D0036D1AB /* IdentifyingShapeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyingShapeProblem.swift; sourceTree = "<group>"; };
+		A11C286E248C4B320036D1AB /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		A11C2870248C75F20036D1AB /* ComparingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparingProblem.swift; sourceTree = "<group>"; };
 		A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeGameView.swift; sourceTree = "<group>"; };
 		A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGameView.swift; sourceTree = "<group>"; };
-		A135AAD9248AAD3600EBC8C2 /* IdentifyColorGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyColorGameModel.swift; sourceTree = "<group>"; };
-		A135AADB248AC6E600EBC8C2 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		A137C2212487EEC800BEC96D /* MathForFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathForFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A137C2242487EEC900BEC96D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A137C2262487EEC900BEC96D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +75,6 @@
 		A137C2462487EECA00BEC96D /* MathForFunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathForFunUITests.swift; sourceTree = "<group>"; };
 		A137C2482487EECA00BEC96D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A137C264248802CD00BEC96D /* CountingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingGameView.swift; sourceTree = "<group>"; };
-		A137C2662488149600BEC96D /* CountingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingGame.swift; sourceTree = "<group>"; };
 		A137C26A2488177700BEC96D /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		A137C26C2488177E00BEC96D /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		A137C26E2488381A00BEC96D /* Array+Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
@@ -108,6 +112,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A109520C248B2DBE00234225 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A137C2242487EEC900BEC96D /* AppDelegate.swift */,
+				A137C2262487EEC900BEC96D /* SceneDelegate.swift */,
+				A137C22F2487EECA00BEC96D /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		A137C2182487EEC800BEC96D = {
 			isa = PBXGroup;
 			children = (
@@ -131,23 +145,23 @@
 		A137C2232487EEC800BEC96D /* MathForFun */ = {
 			isa = PBXGroup;
 			children = (
-				A137C2242487EEC900BEC96D /* AppDelegate.swift */,
-				A137C2262487EEC900BEC96D /* SceneDelegate.swift */,
+				A109520C248B2DBE00234225 /* SupportingFiles */,
 				A1D11F62248B0B35005674CF /* KinderGardenGameList.swift */,
 				A1AE103A248988520039F068 /* KinderGardenGamesView.swift */,
 				A137C27024883D9D00BEC96D /* GameView.swift */,
+				A11C286E248C4B320036D1AB /* Game.swift */,
+				A109520D248B2EF100234225 /* GameModel.swift */,
 				A137C264248802CD00BEC96D /* CountingGameView.swift */,
-				A137C2662488149600BEC96D /* CountingGame.swift */,
-				A135AACF248A965200EBC8C2 /* CountingGameModel.swift */,
+				A11C2868248BFA9B0036D1AB /* CountingProblem.swift */,
 				A1CEAF992489AF6C00AE7425 /* ComparingGameView.swift */,
+				A11C2870248C75F20036D1AB /* ComparingProblem.swift */,
+				A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */,
+				A11C286A248BFABA0036D1AB /* IdentifyingColorProblem.swift */,
+				A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */,
+				A11C286C248C352D0036D1AB /* IdentifyingShapeProblem.swift */,
 				A137C22A2487EECA00BEC96D /* Assets.xcassets */,
-				A137C22F2487EECA00BEC96D /* LaunchScreen.storyboard */,
 				A137C2322487EECA00BEC96D /* Info.plist */,
 				A137C22C2487EECA00BEC96D /* Preview Content */,
-				A135AADB248AC6E600EBC8C2 /* GameModel.swift */,
-				A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */,
-				A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */,
-				A135AAD9248AAD3600EBC8C2 /* IdentifyColorGameModel.swift */,
 				A137C26C2488177E00BEC96D /* Grid.swift */,
 				A137C26A2488177700BEC96D /* GridLayout.swift */,
 				A137C26E2488381A00BEC96D /* Array+Identifiable.swift */,
@@ -317,21 +331,23 @@
 			files = (
 				A137C27124883D9D00BEC96D /* GameView.swift in Sources */,
 				A137C2252487EEC900BEC96D /* AppDelegate.swift in Sources */,
+				A11C286D248C352D0036D1AB /* IdentifyingShapeProblem.swift in Sources */,
 				A135AAD8248AACA300EBC8C2 /* ColorGameView.swift in Sources */,
-				A135AADA248AAD3600EBC8C2 /* IdentifyColorGameModel.swift in Sources */,
 				A137C2272487EEC900BEC96D /* SceneDelegate.swift in Sources */,
 				A1AE103B248988520039F068 /* KinderGardenGamesView.swift in Sources */,
-				A137C2672488149600BEC96D /* CountingGame.swift in Sources */,
-				A135AAD0248A965200EBC8C2 /* CountingGameModel.swift in Sources */,
 				A1D11F63248B0B35005674CF /* KinderGardenGameList.swift in Sources */,
 				A137C26B2488177700BEC96D /* GridLayout.swift in Sources */,
 				A137C265248802CD00BEC96D /* CountingGameView.swift in Sources */,
+				A109520E248B2EF100234225 /* GameModel.swift in Sources */,
+				A11C2869248BFA9B0036D1AB /* CountingProblem.swift in Sources */,
 				A137C26F2488381A00BEC96D /* Array+Identifiable.swift in Sources */,
-				A135AADC248AC6E600EBC8C2 /* GameModel.swift in Sources */,
 				A135AAD6248AAC9B00EBC8C2 /* ShapeGameView.swift in Sources */,
 				A137C26D2488177E00BEC96D /* Grid.swift in Sources */,
+				A11C286F248C4B320036D1AB /* Game.swift in Sources */,
 				A1AE1035248963900039F068 /* SuccessIcon.swift in Sources */,
 				A1AE10372489705F0039F068 /* CardView.swift in Sources */,
+				A11C286B248BFABA0036D1AB /* IdentifyingColorProblem.swift in Sources */,
+				A11C2871248C75F20036D1AB /* ComparingProblem.swift in Sources */,
 				A1CEAF9A2489AF6C00AE7425 /* ComparingGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

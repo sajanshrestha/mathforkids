@@ -7,99 +7,40 @@
 //
 
 import Foundation
-import UIKit
 
 
-
-struct ExerciseSession {
+class GameModel: ObservableObject {
     
-    var problems: [Problem]
     
-    var index = 0
+    static var gameType: KinderGardenGameList.GameType = .comparing
+    static var highestNumberOfItems = 20
     
-    var score = 0
+    @Published private var game: Game = GameModel.createGame()
     
-    var gameCompleted = false
-    
-    init(numberOfProblems: Int) {
-        
-        problems = [
-            
-        ]
+    private static func createGame() -> Game {
+        Game(numberOfProblems: 10, highestNumberOfItems: highestNumberOfItems, gameType: gameType)
     }
     
-    func isCorrect(_ answer: String) -> Bool {
-        
-        let currentProblem = problems[index]
-        return currentProblem.answer == answer
-        
-    }
-    
-    mutating func submitAnswer(_ answer: String) {
-        
-        if isCorrect(answer) {
-            score += 1
-        }
-        incrementIndex()
-    }
-    
-    mutating func incrementIndex() {
-        if index < problems.count - 1{
-            index += 1
-        }
-        else {
-            gameCompleted = true
-        }
-    }
-    
-    
-    struct CountingProblem: Problem {
-        
-        let content: String
-        let count: Int
-        
-        var answer: String {
-            String(count)
-        }
-        
-        var options: [String] { return ["a", "b", "c", "d"] }
-    }
-    
-}
-
-protocol Problem {
-    var answer: String { get }
-    var options: [String] { get }
-}
-
-
-class ExerciseSessionModel: ObservableObject {
-    
-    // this part should decide what kind of problem to send
-    @Published private var session = ExerciseSessionModel.createExerciseSession()
-    
-    private static func createExerciseSession() -> ExerciseSession {
-        ExerciseSession(numberOfProblems: 10)
-    }
+    // MARK: ACCESS(ES)
     
     var problems: [Problem] {
-        session.problems
+        game.problems
     }
     
-    var score: Int {
-        session.score
-    }
+    var index: Int { game.index }
     
-    var index: Int {
-        session.index
-    }
+    var score: Int { game.score }
     
-    var gameCompleted: Bool {
-        session.gameCompleted
-    }
+    var gameCompleted: Bool { game.gameCompleted }
     
-    func submitAnswer(_ answer: String) {
-        session.submitAnswer(answer)
+    func submitAnswer(with answer: String) -> Bool {
+        game.submitAnswer(with: answer)
     }
     
 }
+
+
+
+
+
+

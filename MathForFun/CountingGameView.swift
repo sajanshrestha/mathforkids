@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CountingGameView: View {
     
-    @ObservedObject var countingGame: CountingGameModel
+    @ObservedObject var game: GameModel
     
     @State private var selectedAnswer = "0"
     
@@ -18,13 +18,16 @@ struct CountingGameView: View {
     
     var body: some View {
         
-        let countingProblem = countingGame.problems[countingGame.index]
+        let problem = game.problems[game.index]
+        
+        let countingProblem = problem as! CountingProblem
+
         
         return ZStack {
             
             VStack {
                 
-                Text("Score: \(countingGame.score)")
+                Text("Score: \(game.score)")
                     .foregroundColor(.black)
                 
                 QuestionView(for: countingProblem)
@@ -33,26 +36,30 @@ struct CountingGameView: View {
                     
                 Spacer()
                 
-                optionsView(for: countingProblem)
+                optionsView(for: problem)
                 
                 
             }
             .foregroundColor(.black)
             .font(.title)
-            .opacity(countingGame.gameOver ? 0.3 : 1)
+            .opacity(game.gameCompleted ? 0.3 : 1)
             
             SuccessIcon(correct: $answerCorrect)
 
         }
     }
     
-    func optionsView(for countingProblem: CountingGame.CountingGameProblem) -> some View {
+    func optionsView(for countingProblem: Problem) -> some View {
         HStack(spacing: 20) {
             ForEach(countingProblem.options, id: \.self) { option in
                 Button(action: {
                     self.selectedAnswer = "\(option)"
-                    self.answerCorrect = self.countingGame.submitAnswer(with: self.selectedAnswer)
                     
+                    withAnimation(Animation.spring()) {
+                        self.answerCorrect = self.game.submitAnswer(with: self.selectedAnswer)
+
+                    }
+
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         self.answerCorrect = false
                     }
@@ -65,7 +72,7 @@ struct CountingGameView: View {
                         .font(.title)
                         .foregroundColor(.white)
                     
-                }).disabled(self.countingGame.gameOver)
+                }).disabled(self.game.gameCompleted)
             }
         }
     }
@@ -74,25 +81,25 @@ struct CountingGameView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CountingGameView(countingGame: CountingGameModel())
+        CountingGameView(game: GameModel())
     }
 }
 
 
 struct QuestionView: View {
     
-    let problem: CountingGame.CountingGameProblem
+    let countingProblem: CountingProblem
     
-    init(for problem: CountingGame.CountingGameProblem) {
-        self.problem = problem
+    init(for problem: CountingProblem) {
+        self.countingProblem = problem
     }
     
     var body: some View {
         
         var emojiViews = [EmojiView]()
-        
-        for index in 1...problem.contentCount {
-            emojiViews.append(EmojiView(id: index, emoji: problem.content))
+                
+        for index in 1...countingProblem.contentCount {
+            emojiViews.append(EmojiView(id: index, emoji: countingProblem.content))
         }
         
         return Grid(emojiViews) { emojiView in
