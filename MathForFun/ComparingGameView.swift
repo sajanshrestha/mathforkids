@@ -24,26 +24,34 @@ struct ComparingGameView: View {
                 
                 VStack(spacing: 30) {
                     
-                    Text("Score: \(self.game.score)")
-                    
-                    self.questionView(for: comparingProblem)
+                    ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
+
+                    self.optionsView(for: comparingProblem)
+                        .disabled(self.game.gameCompleted || self.game.processingAnswer)
+                        .opacity(self.game.processingAnswer ? 0.5 : 1)
+                        
                     
                     Text("Which box has more?")
                     
                 }
+                .font(.title)
+                .opacity(self.game.gameCompleted ? 0.3 : 1)
+                
                 
                 CorrectIcon(correct: self.$answerCorrect)
+                
+                ResultView(score: self.game.score).opacity(self.game.gameCompleted ? 1 : 0)
                 
             }
             .padding()
             .frame(height: geometry.size.height * 0.75)
-            .font(.title)
-            .opacity(self.game.gameCompleted ? 0.3 : 1)
+            
+            
         }
         
     }
     
-    func questionView(for problem: ComparingProblem) -> some View {
+    func optionsView(for problem: ComparingProblem) -> some View {
         
         VStack {
             

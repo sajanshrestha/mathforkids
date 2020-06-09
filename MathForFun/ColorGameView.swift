@@ -23,9 +23,7 @@ struct ColorGameView: View {
         return ZStack {
             VStack {
                 
-                Text("Score: \(game.score)").padding().font(.title)
-                
-                Spacer()
+                ScoreView(answerCorrect: $answerCorrect, score: game.score)
                 
                 questionView(for: colorProblem)
                 
@@ -34,9 +32,14 @@ struct ColorGameView: View {
                 Spacer()
                 
                 optionsView(for: colorProblem)
+                    .frame(height: 60)
+                    .disabled(self.game.gameCompleted || self.game.processingAnswer)
+                    .opacity(self.game.processingAnswer ? 0.5 : 1)
             }
             .opacity(game.gameCompleted ? 0.3 : 1)
             
+            ResultView(score: game.score).opacity(game.gameCompleted ? 1 : 0)
+
             CorrectIcon(correct: $answerCorrect)
         }
         
@@ -56,33 +59,18 @@ struct ColorGameView: View {
     }
     
     func optionsView(for problem: IdentifyingColorProblem) -> some View {
-        
-        HStack(spacing: 20) {
+        OptionsView(options: problem.options) { option in
             
-            ForEach(problem.options, id: \.self) { option in
+            self.answerSelected = option
+            
+            withAnimation(Animation.spring()) {
                 
-                Button(action: {
-                    self.answerSelected = option
-                    
-                    withAnimation(Animation.spring()) {
-                        
-                        self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
-                    }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.game.next()
-                        self.answerCorrect = false
-                    }
-                    
-                }, label: {
-                    Text(option)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
-                    
-                    
-                }).disabled(self.game.gameCompleted)
+                self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self.game.next()
+                self.answerCorrect = false
             }
         }
     }
@@ -93,3 +81,5 @@ struct ColorGameView_Previews: PreviewProvider {
         ColorGameView(game: GameModel())
     }
 }
+
+

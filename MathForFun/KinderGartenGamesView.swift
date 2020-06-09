@@ -20,7 +20,7 @@ struct KinderGartenGamesView: View {
                     Text(game.name)
                 })
             }
-        .navigationBarTitle(Text("Exercises"))
+            .navigationBarTitle(Text("Pre Kindergarten Exercises"), displayMode: .inline)
         }
     }
 }

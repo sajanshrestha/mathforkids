@@ -21,6 +21,7 @@ struct Game {
     var index = 0
     var score = 0
     var gameCompleted = false
+    var processingAnswer = false
     
     init(numberOfProblems: Int, highestNumberOfItems: Int, gameType: KinderGartenGameList.GameType) {
                 
@@ -46,7 +47,7 @@ struct Game {
         }
     }
     
-    mutating func createCountingGame(_ numberOfProblems: Int, _ highestNumberOfItems: Int) {
+    private mutating func createCountingGame(_ numberOfProblems: Int, _ highestNumberOfItems: Int) {
         for _ in 0..<numberOfProblems {
             let randomEmoji = emojisDictionary.randomElement()!
             let count = Int.random(in: 1...highestNumberOfItems)
@@ -54,19 +55,19 @@ struct Game {
         }
     }
     
-    mutating func createIdentifyingColorGame() {
+    private mutating func createIdentifyingColorGame() {
         for (color, name) in colorWithNames {
             problems.append(IdentifyingColorProblem(color: color, colorName: name))
         }
     }
     
-    mutating func createIdentifyingShapeGame() {
+    private mutating func createIdentifyingShapeGame() {
         for (shape, name) in shapeWithNames {
             problems.append(IdentifyingShapeProblem(shapeEmoji: shape, shape: name))
         }
     }
     
-    mutating func createComparingGame(_ numberOfProblems: Int, _ highestNumberOfItems: Int) {
+    private mutating func createComparingGame(_ numberOfProblems: Int, _ highestNumberOfItems: Int) {
         for _ in 0..<numberOfProblems {
             
             var array = Array(1...highestNumberOfItems)
@@ -82,13 +83,13 @@ struct Game {
         }
     }
     
-    mutating func createPositionGame(_ numberOfProblems: Int) {
+    private mutating func createPositionGame(_ numberOfProblems: Int) {
         for _ in 0..<numberOfProblems {
             problems.append(PositionProblem())
         }
     }
     
-    mutating func createClassifyingGame(_ numberOfProblems: Int) {
+    private mutating func createClassifyingGame(_ numberOfProblems: Int) {
         for _ in 0..<numberOfProblems {
             problems.append(ClassifyingProblem())
         }
@@ -96,12 +97,12 @@ struct Game {
     
     
     // MARK: CONSTANTS
-    let emojisDictionary = ["🐶": "dogs", "🐰": "bunnies", "🐻": "bears", "🦁": "lions", "🐵": "monkeys", "🦉": "owls", "🐢": "turtle", "🐬": "dolphins", "🦒": "giraffes", "🐑": "sheeps", "🐿": "squirrels", "🐓": "chickens", "🐫": "camels"]
+    private let emojisDictionary = ["🐶": "dogs", "🐰": "bunnies", "🐻": "bears", "🦁": "lions", "🐵": "monkeys", "🦉": "owls", "🐢": "turtle", "🐬": "dolphins", "🦒": "giraffes", "🐑": "sheeps", "🐿": "squirrels", "🐓": "chickens", "🐫": "camels"]
     
-    let colorWithNames: [UIColor: String] = [.red: "Red", .black: "Black", .purple: "Purple", .green: "Green", .orange: "Orange", .systemPink: "Pink", .gray: "Gray", .yellow: "Yellow", .brown: "Brown", .magenta: "Magenta", .systemTeal: "Teal"]
+    private let colorWithNames: [UIColor: String] = [.red: "Red", .black: "Black", .purple: "Purple", .green: "Green", .orange: "Orange", .systemPink: "Pink", .gray: "Gray", .yellow: "Yellow", .brown: "Brown", .magenta: "Magenta", .systemTeal: "Teal"]
     
     
-    let shapeWithNames = ["🔴": "Circle", "🚫": "Circle", "⚪️": "Circle", "💿": "Circle", "⬜️": "Square", "🔳": "Square", "🖼": "Square", "🚺": "Square","📐": "Triangle", "⚠️": "Triangle", "🔺": "Triangle", "💳": "Rectangle", "🧰": "Rectangle" ]
+    private let shapeWithNames = ["🔴": "Circle", "🚫": "Circle", "⚪️": "Circle", "💿": "Circle", "⬜️": "Square", "🔳": "Square", "🖼": "Square", "🚺": "Square","📐": "Triangle", "⚠️": "Triangle", "🔺": "Triangle", "💳": "Rectangle", "🧰": "Rectangle" ]
 }
 
 

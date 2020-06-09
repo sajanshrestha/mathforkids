@@ -28,9 +28,6 @@ struct KinderGartenGameList {
         case position = "Positions"
         case classifying = "Classifying"
 
-
-        
-        
         var title: String {
             self.rawValue
         }

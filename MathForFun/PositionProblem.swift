@@ -23,9 +23,13 @@ struct PositionProblem: Problem {
         
         self.orientation = [Orientation.vertical, Orientation.horizontal].randomElement()!
         
-        let first = emojis.randomElement()!
-        let second = emojis.randomElement()!
-        let third = emojis.randomElement()!
+        let emojiList = Array(emojis)
+        
+        let randomEmojis = emojiList.randomElements(3)
+        
+        let first = randomEmojis[0]
+        let second = randomEmojis[1]
+        let third = randomEmojis[2]
 
         
         switch orientation {

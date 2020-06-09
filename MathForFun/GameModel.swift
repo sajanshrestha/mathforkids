@@ -22,6 +22,7 @@ class GameModel: ObservableObject {
     }
     
     // MARK: ACCESS(ES)
+
     
     var problems: [Problem] {
         game.problems
@@ -33,11 +34,16 @@ class GameModel: ObservableObject {
     
     var gameCompleted: Bool { game.gameCompleted }
     
+    var processingAnswer: Bool { game.processingAnswer }
+    
     func submitAnswer(with answer: String) -> Bool {
-        game.submitAnswer(with: answer)
+        game.processingAnswer = true
+        return game.submitAnswer(with: answer)
+        
     }
     
     func next()  {
+        game.processingAnswer = false
         game.incrementIndex()
     }
 

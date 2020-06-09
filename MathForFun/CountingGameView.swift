@@ -15,7 +15,7 @@ struct CountingGameView: View {
     @State private var selectedAnswer = "0"
     
     @State private var answerCorrect = false
-    
+        
     var body: some View {
         
         let countingProblem = game.problems[game.index] as! CountingProblem
@@ -25,16 +25,17 @@ struct CountingGameView: View {
             
             VStack {
                 
-                Text("Score: \(game.score)")
-                    .foregroundColor(.black)
+                ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
+                
+                Spacer()
                 
                 QuestionView(countingProblem: countingProblem)
                 
                 Text("How many \(countingProblem.contentName) are there?").padding(20)
-                
-                Spacer()
-                
-                optionsView(for: countingProblem)
+                                
+                optionsView(for: countingProblem).frame(height: 60)
+                    .disabled(self.game.gameCompleted || self.game.processingAnswer)
+                    .opacity(self.game.processingAnswer ? 0.5 : 1)
                 
                 
             }
@@ -44,42 +45,40 @@ struct CountingGameView: View {
             
             CorrectIcon(correct: $answerCorrect)
             
+            ResultView(score: game.score).opacity(game.gameCompleted ? 1 : 0)
+            
         }
     }
     
     func optionsView(for countingProblem: CountingProblem) -> some View {
-        HStack(spacing: 20) {
-            ForEach(countingProblem.options, id: \.self) { option in
-                Button(action: {
-                    self.selectedAnswer = "\(option)"
-                    
-                    self.answerCorrect = self.game.submitAnswer(with: self.selectedAnswer)
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        withAnimation(Animation.spring()) {
-                            self.answerCorrect = false
-                            self.game.next()
-                        }
-                    }
-                    
-                }, label: {
-                    Text("\(option)")
-                        .padding(20)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                        .font(.title)
-                        .foregroundColor(.white)
-                    
-                }).disabled(self.game.gameCompleted)
+        
+        OptionsView(options: countingProblem.options) { option in
+            
+            self.selectedAnswer = option
+            
+            self.answerCorrect = self.game.submitAnswer(with: self.selectedAnswer)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                withAnimation(Animation.spring()) {
+                    self.answerCorrect = false
+                    self.game.next()
+                }
             }
         }
     }
+    
+    //  MARK: CONSTANTS
+    private let spacing: CGFloat = 4
+    private let padding: CGFloat = 8
+    
     
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CountingGameView(game: GameModel())
+        let game = GameModel()
+        GameModel.gameType = .counting
+        return CountingGameView(game: game)
     }
 }
 

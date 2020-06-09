@@ -16,22 +16,16 @@ struct ClassifyingProblem: Problem {
     
     init() {
         
-        let emojis = emojiDict.keys
+        let emojis = Array(emojiDict.keys)
         
-        let randomEmoji = emojis.randomElement()!
-        
-        var anotherRandomEmoji = emojis.randomElement()!
-        
-        while anotherRandomEmoji == randomEmoji {
-            anotherRandomEmoji = emojis.randomElement()!
-        }
+        let randomEmojis = emojis.randomElements(2)
         
         let randomNumber = Int.random(in: 2...3)
         
-        items.append(Item(content: randomEmoji))
+        items.append(Item(content: randomEmojis[0]))
         
         for _ in 0..<randomNumber {
-            items.append(Item(content: anotherRandomEmoji))
+            items.append(Item(content: randomEmojis[1]))
         }
         
         items.shuffle()

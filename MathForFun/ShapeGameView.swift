@@ -26,7 +26,7 @@ struct ShapeGameView: View {
                 
                 VStack {
                     
-                    Text("Score: \(self.game.score)").padding().font(.title)
+                    ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
 
                     Spacer()
                     
@@ -38,9 +38,14 @@ struct ShapeGameView: View {
                     Text("What shape is this?").font(.title).padding(20)
 
                     self.optionsView(for: shapeProblem)
+                        .frame(height: 60)
+                        .disabled(self.game.gameCompleted || self.game.processingAnswer)
+                        .opacity(self.game.processingAnswer ? 0.5 : 1)
                     
                 }
                 .opacity(self.game.gameCompleted ? 0.3 : 1)
+                
+                ResultView(score: self.game.score).opacity(self.game.gameCompleted ? 1 : 0)
                 
                 CorrectIcon(correct: self.$answerCorrect)
             }
@@ -50,35 +55,20 @@ struct ShapeGameView: View {
     
     func optionsView(for problem: IdentifyingShapeProblem) -> some View {
         
-        HStack(spacing: 20) {
+        OptionsView(options: problem.options) { selectedOption in
             
-            ForEach(problem.options, id: \.self) { option in
-                
-                Button(action: {
-                    
-                    self.answerSelected = option
-                    withAnimation(Animation.spring()) {
+            self.answerSelected = selectedOption
+            
+            withAnimation(Animation.spring()) {
 
-                        self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
-                    }
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.game.next()
-                        self.answerCorrect = false
-                    }
-
-                }, label: {
-                    Text(option)
-                        .font(Font.system(size: 13))
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
-
-
-                }).disabled(self.game.gameCompleted)
+                self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
             }
-        }.padding()
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self.game.next()
+                self.answerCorrect = false
+            }
+        }
     }
     
     

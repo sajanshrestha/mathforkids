@@ -22,8 +22,8 @@ struct ClassifyingGameView: View {
             
             VStack {
                 
-                Text("Score: \(self.game.score)").font(.title).padding()
-                
+                ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
+
                 Spacer()
                 
                 self.body(for: problem)
@@ -32,12 +32,14 @@ struct ClassifyingGameView: View {
                 
                 Text("Tap The different item!").font(.title).padding()
                 
-            }
+            }.opacity(self.game.gameCompleted ? 0.3 : 1)
+            
+            ResultView(score: game.score).opacity(game.gameCompleted ? 1 : 0)
             
             CorrectIcon(correct: self.$answerCorrect)
                         
             
-        }.opacity(self.game.gameCompleted ? 0.3 : 1)
+        }
         
     }
     
@@ -75,7 +77,9 @@ struct ClassifyingGameView: View {
                     
                     
                 })
-                    .disabled(self.game.gameCompleted)
+                    .disabled(self.game.gameCompleted || self.game.processingAnswer)
+                    .opacity(self.game.processingAnswer ? 0.5 : 1)
+                    
             }
         }
     }

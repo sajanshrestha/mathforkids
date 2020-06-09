@@ -24,25 +24,31 @@ struct PositionProblemGameView: View {
                 
                 VStack {
                     
-                    Text("Score: \(self.game.score)").padding().font(.title)
+                    ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
                     
                     Spacer()
-                    
+                                            
                     self.questionView(for: positionProblem, of: geometry.size)
+                    Spacer()
                                         
                     Text(positionProblem.questionText).padding().font(.title)
-                    
-                    Spacer()
-                    
+                                        
                     self.optionsView(for: positionProblem)
-                    
-                    Spacer()
-                    
+                        .frame(height: 60)
+                        .disabled(self.game.gameCompleted || self.game.processingAnswer)
+                        .opacity(self.game.processingAnswer ? 0.5 : 1)
+                                        
                 }
+                .padding()
+                .opacity(self.game.gameCompleted ? 0.3 : 1)
+                
+
                 CorrectIcon(correct: self.$answerCorrect)
+                
+                ResultView(score: self.game.score).opacity(self.game.gameCompleted ? 1 : 0)
+
             }
-            .padding()
-            .opacity(self.game.gameCompleted ? 0.3 : 1)
+            
             
         }
         
@@ -72,29 +78,15 @@ struct PositionProblemGameView: View {
     
     func optionsView(for problem: PositionProblem) -> some View {
         
-        HStack {
+        OptionsView(options: problem.options) { selectedOption in
             
-            ForEach(problem.options, id: \.self) { name in
-                
-                Button(action: {
-                        
-                        withAnimation(Animation.spring()) {
-                            self.answerCorrect = self.game.submitAnswer(with: name)
-                        }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            self.game.next()
-                            self.answerCorrect = false
-                        }
-                    
-                }, label: {
-                    Text(name)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
-                    
-                }).disabled(self.game.gameCompleted)
+            withAnimation(Animation.spring()) {
+                self.answerCorrect = self.game.submitAnswer(with: selectedOption)
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self.game.next()
+                self.answerCorrect = false
             }
         }
     }
