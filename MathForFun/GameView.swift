@@ -12,10 +12,10 @@ struct GameView: View {
     
     @State private var showGameView = false
     
-    var gameType: KinderGardenGameList.GameType
+    var gameType: KinderGartenGameList.GameType
     
     var body: some View {
-                
+        
         
         return Group {
             
@@ -33,26 +33,9 @@ struct GameView: View {
         }
     }
     
-    func view(for gameType: KinderGardenGameList.GameType) -> some View {
-                
-        switch gameType {
-            
-        case .counting:
-            GameModel.gameType = .counting
-            
-        case .identifyingColor:
-            GameModel.gameType = .identifyingColor
-            
-        case .identifyingShape:
-            GameModel.gameType = .identifyingShape
-            
-        case .comparing:
-            GameModel.gameType = .comparing
-        case .position:
-            break
-        case .money:
-            break
-        }
+    func view(for gameType: KinderGartenGameList.GameType) -> some View {
+        
+        GameModel.gameType = gameType
         
         return Group {
             if gameType == .counting {
@@ -64,15 +47,24 @@ struct GameView: View {
             else if gameType == .identifyingShape {
                 ShapeGameView(game: GameModel())
             }
-            else {
+            else if gameType == .position {
+                PositionProblemGameView(game: GameModel())
+            }
+            else if gameType == .classifying {
+                ClassifyingGameView(game: GameModel())
+            }
+            else if gameType == .comparing {
                 ComparingGameView(game: GameModel())
+            }
+            else {
+                Text("Game Coming Soon")
             }
         }
         
     }
     
     func listView(for selections: [Int]) -> some View {
-                
+        
         return VStack {
             
             ForEach(gameType.limitSelections!, id: \.self) { count in
@@ -90,13 +82,11 @@ struct GameView: View {
             }
         }
     }
-   
-    
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(gameType: KinderGardenGameList.GameType.comparing)
+        GameView(gameType: KinderGartenGameList.GameType.comparing)
     }
 }
 

@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct KinderGardenGamesView: View {
+struct KinderGartenGamesView: View {
     
-    var gameList: KinderGardenGameList
+    var gameList: KinderGartenGameList
     
     var body: some View {
         
@@ -27,7 +27,7 @@ struct KinderGardenGamesView: View {
 
 struct PreKHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        KinderGardenGamesView(gameList: KinderGardenGameList())
+        KinderGartenGamesView(gameList: KinderGartenGameList())
     }
 }
 

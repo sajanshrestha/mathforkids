@@ -18,10 +18,8 @@ struct CountingGameView: View {
     
     var body: some View {
         
-        let problem = game.problems[game.index]
+        let countingProblem = game.problems[game.index] as! CountingProblem
         
-        let countingProblem = problem as! CountingProblem
-
         
         return ZStack {
             
@@ -30,13 +28,13 @@ struct CountingGameView: View {
                 Text("Score: \(game.score)")
                     .foregroundColor(.black)
                 
-                QuestionView(for: countingProblem)
+                QuestionView(countingProblem: countingProblem)
                 
-                Text("How many \(countingProblem.contentName)?").padding(20)
-                    
+                Text("How many \(countingProblem.contentName) are there?").padding(20)
+                
                 Spacer()
                 
-                optionsView(for: problem)
+                optionsView(for: countingProblem)
                 
                 
             }
@@ -44,24 +42,24 @@ struct CountingGameView: View {
             .font(.title)
             .opacity(game.gameCompleted ? 0.3 : 1)
             
-            SuccessIcon(correct: $answerCorrect)
-
+            CorrectIcon(correct: $answerCorrect)
+            
         }
     }
     
-    func optionsView(for countingProblem: Problem) -> some View {
+    func optionsView(for countingProblem: CountingProblem) -> some View {
         HStack(spacing: 20) {
             ForEach(countingProblem.options, id: \.self) { option in
                 Button(action: {
                     self.selectedAnswer = "\(option)"
                     
-                    withAnimation(Animation.spring()) {
-                        self.answerCorrect = self.game.submitAnswer(with: self.selectedAnswer)
+                    self.answerCorrect = self.game.submitAnswer(with: self.selectedAnswer)
 
-                    }
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.answerCorrect = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        withAnimation(Animation.spring()) {
+                            self.answerCorrect = false
+                            self.game.next()
+                        }
                     }
                     
                 }, label: {
@@ -90,14 +88,10 @@ struct QuestionView: View {
     
     let countingProblem: CountingProblem
     
-    init(for problem: CountingProblem) {
-        self.countingProblem = problem
-    }
-    
     var body: some View {
         
         var emojiViews = [EmojiView]()
-                
+        
         for index in 1...countingProblem.contentCount {
             emojiViews.append(EmojiView(id: index, emoji: countingProblem.content))
         }

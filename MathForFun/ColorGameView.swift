@@ -26,16 +26,8 @@ struct ColorGameView: View {
                 Text("Score: \(game.score)").padding().font(.title)
                 
                 Spacer()
-                ZStack {
-                    Circle()
-                        .opacity(0.3)
-                    
-                    Circle()
-                        .padding(10)
-                    
-                }
-                .padding(40)
-                .foregroundColor(Color(colorProblem.color))
+                
+                questionView(for: colorProblem)
                 
                 Text("What color is this?").font(.title).padding(20)
                 
@@ -44,22 +36,41 @@ struct ColorGameView: View {
                 optionsView(for: colorProblem)
             }
             .opacity(game.gameCompleted ? 0.3 : 1)
-            SuccessIcon(correct: $answerCorrect)
+            
+            CorrectIcon(correct: $answerCorrect)
         }
         
     }
     
+    func questionView(for problem: IdentifyingColorProblem) -> some View {
+        ZStack {
+            Circle()
+                .opacity(0.3)
+            
+            Circle()
+                .padding(10)
+            
+        }
+        .padding(40)
+        .foregroundColor(Color(problem.color))
+    }
+    
     func optionsView(for problem: IdentifyingColorProblem) -> some View {
+        
         HStack(spacing: 20) {
+            
             ForEach(problem.options, id: \.self) { option in
+                
                 Button(action: {
                     self.answerSelected = option
+                    
                     withAnimation(Animation.spring()) {
                         
                         self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
                     }
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.game.next()
                         self.answerCorrect = false
                     }
                     
@@ -68,7 +79,6 @@ struct ColorGameView: View {
                         .padding()
                         .background(Color.blue)
                         .cornerRadius(10)
-                        
                         .foregroundColor(.white)
                     
                     

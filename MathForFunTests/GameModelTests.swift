@@ -1,19 +1,16 @@
 //
-//  CountingGameModelTests.swift
+//  GameModelTests.swift
 //  MathForFunTests
 //
-//  Created by Sajan Shrestha on 6/4/20.
+//  Created by Sajan Shrestha on 6/7/20.
 //  Copyright © 2020 Sajan Shrestha. All rights reserved.
 //
 
-import Foundation
-
-
-
 import XCTest
+
 @testable import MathForFun
 
-class CountingGameModelTests: XCTestCase {
+class GameModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,15 +20,31 @@ class CountingGameModelTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testIndex() throws {
+    func testIndexShouldBeOne() throws {
         
         // given
-        let gameModel = CountingGameModel()
-        gameModel.submitAnswer(with: "2")
+        let sut = GameModel()
         
         // when
-        XCTAssertEqual(gameModel.index, 1)
+        let _ = sut.next()
         
+        // then
+        XCTAssertEqual(sut.index, 1)
+        
+    }
+    
+    func testGameShouldBeCompleted() throws {
+        // given
+        let sut = GameModel()
+        
+        // when
+        for _ in 0..<sut.problems.count {
+            let _ = sut.submitAnswer(with: "")
+            sut.next()
+        }
+        
+        // then
+        XCTAssert(sut.gameCompleted)
     }
 
     func testPerformanceExample() throws {

@@ -12,7 +12,7 @@ import Foundation
 class GameModel: ObservableObject {
     
     
-    static var gameType: KinderGardenGameList.GameType = .comparing
+    static var gameType: KinderGartenGameList.GameType = .comparing
     static var highestNumberOfItems = 20
     
     @Published private var game: Game = GameModel.createGame()
@@ -36,6 +36,11 @@ class GameModel: ObservableObject {
     func submitAnswer(with answer: String) -> Bool {
         game.submitAnswer(with: answer)
     }
+    
+    func next()  {
+        game.incrementIndex()
+    }
+
     
 }
 

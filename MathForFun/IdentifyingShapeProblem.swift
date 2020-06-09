@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 struct IdentifyingShapeProblem: Problem {
     
     var shapeEmoji: String
@@ -20,27 +18,3 @@ struct IdentifyingShapeProblem: Problem {
     var options: [String] { ["Square", "Triangle", "Rectangle", "Circle"] }
     
 }
-
-
-
-
-
-
-
-
-
-//        var options = [String]()
-//
-//        var colorNames = ["Square", "Triangle", "Rectangle", "Circle"]
-//
-//        options.append(rightAnswer)
-//
-//        colorNames.removeAll { $0 == colorName }
-//
-//        for _ in 0..<3 {
-//            options.append(colorNames.remove(at: Int.random(in: 0..<colorNames.count)))
-//        }
-//
-//        options.shuffle()
-//
-//        return options

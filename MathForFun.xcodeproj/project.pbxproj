@@ -13,6 +13,9 @@
 		A11C286D248C352D0036D1AB /* IdentifyingShapeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C286C248C352D0036D1AB /* IdentifyingShapeProblem.swift */; };
 		A11C286F248C4B320036D1AB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C286E248C4B320036D1AB /* Game.swift */; };
 		A11C2871248C75F20036D1AB /* ComparingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2870248C75F20036D1AB /* ComparingProblem.swift */; };
+		A11C2873248D41E70036D1AB /* PositionProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2872248D41E70036D1AB /* PositionProblem.swift */; };
+		A11C2875248D5B580036D1AB /* PositionProblemGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2874248D5B580036D1AB /* PositionProblemGameView.swift */; };
+		A11C2879248DA5C60036D1AB /* GameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2878248DA5C60036D1AB /* GameModelTests.swift */; };
 		A135AAD6248AAC9B00EBC8C2 /* ShapeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */; };
 		A135AAD8248AACA300EBC8C2 /* ColorGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */; };
 		A137C2252487EEC900BEC96D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C2242487EEC900BEC96D /* AppDelegate.swift */; };
@@ -27,12 +30,13 @@
 		A137C26D2488177E00BEC96D /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C26C2488177E00BEC96D /* Grid.swift */; };
 		A137C26F2488381A00BEC96D /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C26E2488381A00BEC96D /* Array+Identifiable.swift */; };
 		A137C27124883D9D00BEC96D /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C27024883D9D00BEC96D /* GameView.swift */; };
-		A1AE1035248963900039F068 /* SuccessIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE1034248963900039F068 /* SuccessIcon.swift */; };
+		A1AE1035248963900039F068 /* CorrectIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE1034248963900039F068 /* CorrectIcon.swift */; };
 		A1AE10372489705F0039F068 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE10362489705F0039F068 /* CardView.swift */; };
-		A1AE1039248977130039F068 /* CountingGameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE1038248977130039F068 /* CountingGameModelTests.swift */; };
-		A1AE103B248988520039F068 /* KinderGardenGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE103A248988520039F068 /* KinderGardenGamesView.swift */; };
+		A1AE103B248988520039F068 /* KinderGartenGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE103A248988520039F068 /* KinderGartenGamesView.swift */; };
 		A1CEAF9A2489AF6C00AE7425 /* ComparingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEAF992489AF6C00AE7425 /* ComparingGameView.swift */; };
-		A1D11F63248B0B35005674CF /* KinderGardenGameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D11F62248B0B35005674CF /* KinderGardenGameList.swift */; };
+		A1D11F63248B0B35005674CF /* KinderGartenGameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D11F62248B0B35005674CF /* KinderGartenGameList.swift */; };
+		A1F288A4248E60AE004F0C40 /* ClassifyingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F288A3248E60AE004F0C40 /* ClassifyingProblem.swift */; };
+		A1F288A6248E69D7004F0C40 /* ClassifyingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F288A5248E69D7004F0C40 /* ClassifyingGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,9 @@
 		A11C286C248C352D0036D1AB /* IdentifyingShapeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyingShapeProblem.swift; sourceTree = "<group>"; };
 		A11C286E248C4B320036D1AB /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		A11C2870248C75F20036D1AB /* ComparingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparingProblem.swift; sourceTree = "<group>"; };
+		A11C2872248D41E70036D1AB /* PositionProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionProblem.swift; sourceTree = "<group>"; };
+		A11C2874248D5B580036D1AB /* PositionProblemGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionProblemGameView.swift; sourceTree = "<group>"; };
+		A11C2878248DA5C60036D1AB /* GameModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModelTests.swift; sourceTree = "<group>"; };
 		A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeGameView.swift; sourceTree = "<group>"; };
 		A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGameView.swift; sourceTree = "<group>"; };
 		A137C2212487EEC800BEC96D /* MathForFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathForFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,12 +86,13 @@
 		A137C26C2488177E00BEC96D /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		A137C26E2488381A00BEC96D /* Array+Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
 		A137C27024883D9D00BEC96D /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		A1AE1034248963900039F068 /* SuccessIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessIcon.swift; sourceTree = "<group>"; };
+		A1AE1034248963900039F068 /* CorrectIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorrectIcon.swift; sourceTree = "<group>"; };
 		A1AE10362489705F0039F068 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		A1AE1038248977130039F068 /* CountingGameModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingGameModelTests.swift; sourceTree = "<group>"; };
-		A1AE103A248988520039F068 /* KinderGardenGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinderGardenGamesView.swift; sourceTree = "<group>"; };
+		A1AE103A248988520039F068 /* KinderGartenGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinderGartenGamesView.swift; sourceTree = "<group>"; };
 		A1CEAF992489AF6C00AE7425 /* ComparingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparingGameView.swift; sourceTree = "<group>"; };
-		A1D11F62248B0B35005674CF /* KinderGardenGameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinderGardenGameList.swift; sourceTree = "<group>"; };
+		A1D11F62248B0B35005674CF /* KinderGartenGameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinderGartenGameList.swift; sourceTree = "<group>"; };
+		A1F288A3248E60AE004F0C40 /* ClassifyingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyingProblem.swift; sourceTree = "<group>"; };
+		A1F288A5248E69D7004F0C40 /* ClassifyingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyingGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				A109520C248B2DBE00234225 /* SupportingFiles */,
-				A1D11F62248B0B35005674CF /* KinderGardenGameList.swift */,
-				A1AE103A248988520039F068 /* KinderGardenGamesView.swift */,
+				A1D11F62248B0B35005674CF /* KinderGartenGameList.swift */,
+				A1AE103A248988520039F068 /* KinderGartenGamesView.swift */,
 				A137C27024883D9D00BEC96D /* GameView.swift */,
 				A11C286E248C4B320036D1AB /* Game.swift */,
 				A109520D248B2EF100234225 /* GameModel.swift */,
@@ -159,13 +167,17 @@
 				A11C286A248BFABA0036D1AB /* IdentifyingColorProblem.swift */,
 				A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */,
 				A11C286C248C352D0036D1AB /* IdentifyingShapeProblem.swift */,
+				A11C2874248D5B580036D1AB /* PositionProblemGameView.swift */,
+				A11C2872248D41E70036D1AB /* PositionProblem.swift */,
+				A1F288A5248E69D7004F0C40 /* ClassifyingGameView.swift */,
+				A1F288A3248E60AE004F0C40 /* ClassifyingProblem.swift */,
 				A137C22A2487EECA00BEC96D /* Assets.xcassets */,
 				A137C2322487EECA00BEC96D /* Info.plist */,
 				A137C22C2487EECA00BEC96D /* Preview Content */,
 				A137C26C2488177E00BEC96D /* Grid.swift */,
 				A137C26A2488177700BEC96D /* GridLayout.swift */,
 				A137C26E2488381A00BEC96D /* Array+Identifiable.swift */,
-				A1AE1034248963900039F068 /* SuccessIcon.swift */,
+				A1AE1034248963900039F068 /* CorrectIcon.swift */,
 				A1AE10362489705F0039F068 /* CardView.swift */,
 			);
 			path = MathForFun;
@@ -182,9 +194,9 @@
 		A137C23A2487EECA00BEC96D /* MathForFunTests */ = {
 			isa = PBXGroup;
 			children = (
+				A11C2878248DA5C60036D1AB /* GameModelTests.swift */,
 				A137C23B2487EECA00BEC96D /* MathForFunTests.swift */,
 				A137C23D2487EECA00BEC96D /* Info.plist */,
-				A1AE1038248977130039F068 /* CountingGameModelTests.swift */,
 			);
 			path = MathForFunTests;
 			sourceTree = "<group>";
@@ -334,8 +346,10 @@
 				A11C286D248C352D0036D1AB /* IdentifyingShapeProblem.swift in Sources */,
 				A135AAD8248AACA300EBC8C2 /* ColorGameView.swift in Sources */,
 				A137C2272487EEC900BEC96D /* SceneDelegate.swift in Sources */,
-				A1AE103B248988520039F068 /* KinderGardenGamesView.swift in Sources */,
-				A1D11F63248B0B35005674CF /* KinderGardenGameList.swift in Sources */,
+				A1AE103B248988520039F068 /* KinderGartenGamesView.swift in Sources */,
+				A11C2873248D41E70036D1AB /* PositionProblem.swift in Sources */,
+				A11C2875248D5B580036D1AB /* PositionProblemGameView.swift in Sources */,
+				A1D11F63248B0B35005674CF /* KinderGartenGameList.swift in Sources */,
 				A137C26B2488177700BEC96D /* GridLayout.swift in Sources */,
 				A137C265248802CD00BEC96D /* CountingGameView.swift in Sources */,
 				A109520E248B2EF100234225 /* GameModel.swift in Sources */,
@@ -344,11 +358,13 @@
 				A135AAD6248AAC9B00EBC8C2 /* ShapeGameView.swift in Sources */,
 				A137C26D2488177E00BEC96D /* Grid.swift in Sources */,
 				A11C286F248C4B320036D1AB /* Game.swift in Sources */,
-				A1AE1035248963900039F068 /* SuccessIcon.swift in Sources */,
+				A1F288A4248E60AE004F0C40 /* ClassifyingProblem.swift in Sources */,
+				A1AE1035248963900039F068 /* CorrectIcon.swift in Sources */,
 				A1AE10372489705F0039F068 /* CardView.swift in Sources */,
 				A11C286B248BFABA0036D1AB /* IdentifyingColorProblem.swift in Sources */,
 				A11C2871248C75F20036D1AB /* ComparingProblem.swift in Sources */,
 				A1CEAF9A2489AF6C00AE7425 /* ComparingGameView.swift in Sources */,
+				A1F288A6248E69D7004F0C40 /* ClassifyingGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,8 +372,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1AE1039248977130039F068 /* CountingGameModelTests.swift in Sources */,
 				A137C23C2487EECA00BEC96D /* MathForFunTests.swift in Sources */,
+				A11C2879248DA5C60036D1AB /* GameModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

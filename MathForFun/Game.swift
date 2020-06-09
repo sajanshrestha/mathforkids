@@ -22,7 +22,7 @@ struct Game {
     var score = 0
     var gameCompleted = false
     
-    init(numberOfProblems: Int, highestNumberOfItems: Int, gameType: KinderGardenGameList.GameType) {
+    init(numberOfProblems: Int, highestNumberOfItems: Int, gameType: KinderGartenGameList.GameType) {
                 
         switch gameType {
             
@@ -37,10 +37,12 @@ struct Game {
              
         case .comparing:
             self.createComparingGame(numberOfProblems, highestNumberOfItems)
+            
         case .position:
-            break
-        case .money:
-            break
+            self.createPositionGame(numberOfProblems)
+            
+        case .classifying:
+            self.createClassifyingGame(numberOfProblems)
         }
     }
     
@@ -80,6 +82,18 @@ struct Game {
         }
     }
     
+    mutating func createPositionGame(_ numberOfProblems: Int) {
+        for _ in 0..<numberOfProblems {
+            problems.append(PositionProblem())
+        }
+    }
+    
+    mutating func createClassifyingGame(_ numberOfProblems: Int) {
+        for _ in 0..<numberOfProblems {
+            problems.append(ClassifyingProblem())
+        }
+    }
+    
     
     // MARK: CONSTANTS
     let emojisDictionary = ["🐶": "dogs", "🐰": "bunnies", "🐻": "bears", "🦁": "lions", "🐵": "monkeys", "🦉": "owls", "🐢": "turtle", "🐬": "dolphins", "🦒": "giraffes", "🐑": "sheeps", "🐿": "squirrels", "🐓": "chickens", "🐫": "camels"]
@@ -102,17 +116,15 @@ extension Game {
         if answerCorrect(answer) {
             
             score += 1
-            incrementIndex()
             return true
         }
             
         else {
-            incrementIndex()
             return false
         }
     }
     
-    private mutating func incrementIndex() {
+    mutating func incrementIndex() {
         
         if index < problems.count - 1 {
             index += 1

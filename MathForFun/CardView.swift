@@ -19,14 +19,13 @@ struct CardView: View {
                 
                 RoundedRectangle(cornerRadius: self.cornerRadius).stroke(lineWidth: self.lineWidth)
                 
-                Color.green
+                Color.blue
                 
                 Text(self.title)
                     .font(self.title.count > 1 ? .largeTitle : Font.system(size: min(geometry.size.width, geometry.size.height) * 0.50))
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
                 
             }
-            .foregroundColor(.blue)
             .shadow(radius: 1.0)
         }
     }

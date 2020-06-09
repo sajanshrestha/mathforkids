@@ -20,16 +20,14 @@ struct ShapeGameView: View {
         
         let shapeProblem = game.problems[game.index] as! IdentifyingShapeProblem
         
-        
-        
         return GeometryReader { geometry in
             
             ZStack {
+                
                 VStack {
                     
                     Text("Score: \(self.game.score)").padding().font(.title)
 
-                    
                     Spacer()
                     
                     Text(shapeProblem.shapeEmoji)
@@ -39,21 +37,25 @@ struct ShapeGameView: View {
                     
                     Text("What shape is this?").font(.title).padding(20)
 
-
-                    
                     self.optionsView(for: shapeProblem)
+                    
                 }
                 .opacity(self.game.gameCompleted ? 0.3 : 1)
-                SuccessIcon(correct: self.$answerCorrect)
+                
+                CorrectIcon(correct: self.$answerCorrect)
             }
         }
         
     }
     
     func optionsView(for problem: IdentifyingShapeProblem) -> some View {
+        
         HStack(spacing: 20) {
+            
             ForEach(problem.options, id: \.self) { option in
+                
                 Button(action: {
+                    
                     self.answerSelected = option
                     withAnimation(Animation.spring()) {
 
@@ -61,6 +63,7 @@ struct ShapeGameView: View {
                     }
 
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.game.next()
                         self.answerCorrect = false
                     }
 
@@ -77,6 +80,9 @@ struct ShapeGameView: View {
             }
         }.padding()
     }
+    
+    
+    
 }
 
 struct ShapeGameView_Previews: PreviewProvider {
