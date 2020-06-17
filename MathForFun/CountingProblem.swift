@@ -10,11 +10,11 @@ import Foundation
 
 struct CountingProblem: Problem {
     
-    let content: String
-    let contentCount: Int
-    let contentName: String
+    let emoji: String
+    let emojiCount: Int
+    let emojiName: String
     
-    var rightAnswer: String { String(contentCount) }
+    var rightAnswer: String { String(emojiCount) }
     
     var options: [String] {
         

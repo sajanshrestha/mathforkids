@@ -51,7 +51,7 @@ struct ClassifyingProblem: Problem {
         []
     }
     
-    private let emojiDict =  ["🐶": "Dog", "🐰": "Bunny", "🐻": "Bear", "🦁": "Lion", "🐵": "Monkey", "🦉": "Owl", "🐢": "Turtle", "🐬": "Dolphin", "🦒": "Giraffe", "🐑": "Sheep", "🐿": "Squirrel", "🐓": "Chicken", "🐫": "Camel", "🦍": "Gorilla", "🦘": "Kangaroo", "🌻": "Sunflower", "🌈": "Rainbow", "🍎": "Apple", "🥦": "Brocolli", "🥨": "Pretzel", "🍔": "Burger", "🍕": "Pizza", "🍩": "Donut", "🏀": "Basket Ball", "🚗": "Car", "🚌": "Bus", "✈️": "Airplane", "🏠": "House", "🧸": "Teddy Bear"]
+    private let emojiDict =  ["🐶": "Dog", "🐰": "Mouse", "🐻": "Bear", "🦁": "Lion", "🐵": "Monkey", "🦉": "Owl", "🐢": "Turtle", "🐬": "Dolphin", "🦒": "Giraffe", "🐑": "Sheep", "🐿": "Squirrel", "🐓": "Chicken", "🐫": "Camel", "🦍": "Gorilla", "🦘": "Kangaroo", "🌻": "Sunflower", "🌈": "Rainbow", "🍎": "Apple", "🥦": "Brocolli", "🥨": "Pretzel", "🍔": "Burger", "🍕": "Pizza", "🍩": "Donut", "🏀": "Basket Ball", "🚗": "Car", "🚌": "Bus", "✈️": "Airplane", "🏠": "House", "🧸": "Teddy Bear"]
     
     struct Item: Identifiable {
         var id = UUID()

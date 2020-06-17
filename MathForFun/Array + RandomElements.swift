@@ -25,3 +25,23 @@ extension Array {
     }
      
 }
+
+extension Dictionary {
+    
+    func randomElements(_ count: Int) -> [Element] {
+        
+        var result = [Element]()
+        
+        var elementsPool = self
+        
+        for _ in 0..<count {
+            if let randomElement = elementsPool.randomElement() {
+                elementsPool = elementsPool.filter {$0.key != randomElement.key}
+                result.append(randomElement)
+            }
+        }
+        
+        return result
+    }
+    
+}

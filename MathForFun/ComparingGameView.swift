@@ -22,20 +22,20 @@ struct ComparingGameView: View {
             
             ZStack {
                 
-                VStack(spacing: 30) {
+                VStack(spacing: self.spacing) {
                     
                     ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
-
+                    
                     self.optionsView(for: comparingProblem)
                         .disabled(self.game.gameCompleted || self.game.processingAnswer)
-                        .opacity(self.game.processingAnswer ? 0.5 : 1)
-                        
+                        .opacity(self.game.processingAnswer ? self.opacity : 1)
+                    
                     
                     Text("Which box has more?")
                     
                 }
                 .font(.title)
-                .opacity(self.game.gameCompleted ? 0.3 : 1)
+                .opacity(self.game.gameCompleted ? self.opacity : 1)
                 
                 
                 CorrectIcon(correct: self.$answerCorrect)
@@ -44,7 +44,7 @@ struct ComparingGameView: View {
                 
             }
             .padding()
-            .frame(height: geometry.size.height * 0.75)
+            .frame(height: geometry.size.height * self.scalingFactor)
             
             
         }
@@ -53,17 +53,22 @@ struct ComparingGameView: View {
     
     func optionsView(for problem: ComparingProblem) -> some View {
         
-        VStack {
+        
+        HStack {
             
-            self.view(for: problem.firstSetEmoji, problem.firstSetCount).onTapGesture {
-                
-                self.submitAnswer(with: ComparingProblem.ComparingSet.firstSet.rawValue)
-                
+            self.view(for: problem.firstSetEmoji, problem.firstSetCount)
+                .background(Color.white)
+                .onTapGesture {
+                    
+                    self.submitAnswer(with: ComparingProblem.ComparingSet.firstSet.rawValue)
+                    
             }
             
-            self.view(for: problem.secondSetEmoji, problem.secondSetCount).onTapGesture {
-                
-                self.submitAnswer(with: ComparingProblem.ComparingSet.secondSet.rawValue)
+            self.view(for: problem.secondSetEmoji, problem.secondSetCount)
+                .background(Color.white)
+                .onTapGesture {
+                    
+                    self.submitAnswer(with: ComparingProblem.ComparingSet.secondSet.rawValue)
             }
             
         }
@@ -80,15 +85,12 @@ struct ComparingGameView: View {
         
         return ZStack {
             
-            
-            
             Grid(emojisViewOne) { emojiView in
                 CardView(title: emojiView.emoji).padding()
             }
             
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(lineWidth: 4)
-                .foregroundColor(.green)
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .stroke(Color.blue, lineWidth: lineWidth)
             
         }
         
@@ -107,6 +109,14 @@ struct ComparingGameView: View {
     }
     
     
+    // MARK: COSNTANTS
+    private let opacity = 0.3
+    private let spacing: CGFloat = 30
+    private let scalingFactor: CGFloat = 0.75
+    private let cornerRadius: CGFloat = 10
+    private let lineWidth: CGFloat = 3
+
+
 }
 
 struct ComparingGameView_Previews: PreviewProvider {

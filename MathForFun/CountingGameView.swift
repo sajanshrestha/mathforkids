@@ -31,17 +31,19 @@ struct CountingGameView: View {
                 
                 QuestionView(countingProblem: countingProblem)
                 
-                Text("How many \(countingProblem.contentName) are there?").padding(20)
+                Text("How many \(countingProblem.emojiName) are there?")
+                    .padding(padding)
+                    .animation(nil)
                                 
-                optionsView(for: countingProblem).frame(height: 60)
+                optionsView(for: countingProblem).frame(height: optionsSectionHeight)
                     .disabled(self.game.gameCompleted || self.game.processingAnswer)
-                    .opacity(self.game.processingAnswer ? 0.5 : 1)
+                    .opacity(self.game.processingAnswer ? opacity : 1)
                 
                 
             }
             .foregroundColor(.black)
             .font(.title)
-            .opacity(game.gameCompleted ? 0.3 : 1)
+            .opacity(game.gameCompleted ? opacity : 1)
             
             CorrectIcon(correct: $answerCorrect)
             
@@ -69,7 +71,9 @@ struct CountingGameView: View {
     
     //  MARK: CONSTANTS
     private let spacing: CGFloat = 4
-    private let padding: CGFloat = 8
+    private let padding: CGFloat = 20
+    private let optionsSectionHeight: CGFloat = 60
+    private let opacity = 0.3
     
     
 }
@@ -91,12 +95,11 @@ struct QuestionView: View {
         
         var emojiViews = [EmojiView]()
         
-        for index in 1...countingProblem.contentCount {
-            emojiViews.append(EmojiView(id: index, emoji: countingProblem.content))
+        for index in 1...countingProblem.emojiCount {
+            emojiViews.append(EmojiView(id: index, emoji: countingProblem.emoji))
         }
         
         return Grid(emojiViews) { emojiView in
-            
             CardView(title: emojiView.emoji).padding()
         }
         

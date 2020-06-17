@@ -16,7 +16,6 @@ struct GameView: View {
     
     var body: some View {
         
-        
         return Group {
             
             if gameType.hasLimitSelections {
@@ -35,6 +34,7 @@ struct GameView: View {
     
     func view(for gameType: KinderGartenGameList.GameType) -> some View {
         
+        // sets the game to the selected game type
         GameModel.gameType = gameType
         
         return Group {
@@ -75,7 +75,7 @@ struct GameView: View {
                     self.showGameView = true
                     
                 }, label: {
-                    CardView(title: "\(self.gameType.title) upto \(count)")
+                    CardView(title: "\(self.gameType.name) upto \(count)")
                 })
                     .padding()
                 

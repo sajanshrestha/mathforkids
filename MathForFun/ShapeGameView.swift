@@ -31,19 +31,19 @@ struct ShapeGameView: View {
                     Spacer()
                     
                     Text(shapeProblem.shapeEmoji)
-                        .font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.60))
+                        .font(Font.system(size: min(geometry.size.width, geometry.size.height) * self.shapeScalingFactor))
                     
                     Spacer()
                     
-                    Text("What shape is this?").font(.title).padding(20)
+                    Text("What shape is this?").font(.title).padding(self.padding)
 
                     self.optionsView(for: shapeProblem)
-                        .frame(height: 60)
+                        .frame(height: self.optionsSectionHeight)
                         .disabled(self.game.gameCompleted || self.game.processingAnswer)
-                        .opacity(self.game.processingAnswer ? 0.5 : 1)
+                        .opacity(self.game.processingAnswer ? self.opacity : 1)
                     
                 }
-                .opacity(self.game.gameCompleted ? 0.3 : 1)
+                .opacity(self.game.gameCompleted ? self.opacity : 1)
                 
                 ResultView(score: self.game.score).opacity(self.game.gameCompleted ? 1 : 0)
                 
@@ -64,14 +64,21 @@ struct ShapeGameView: View {
                 self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
             }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.game.next()
                 self.answerCorrect = false
             }
         }
     }
     
+    // MARK: CONSTANTS
     
+    private let shapeScalingFactor: CGFloat = 0.6
+    private let opacity = 0.3
+    private let optionsSectionHeight: CGFloat = 60
+    private let padding: CGFloat = 20
+
+
     
 }
 

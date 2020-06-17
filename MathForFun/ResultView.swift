@@ -13,9 +13,17 @@ struct ResultView: View {
     let score: Int
     
     var body: some View {
-        Text("Your Score is \(score)")
-            .font(.largeTitle)
-            .scaleEffect(1.5)
+        Group {
+            if score > 6 {
+                
+                    Text("Great job, your score is \(score)")
+                    .font(.largeTitle)
+                
+            }
+            else {
+                Text("Good try, your score is \(score)")
+            }
+        }
             
     }
 }
@@ -25,3 +33,4 @@ struct ResultView_Previews: PreviewProvider {
         ResultView(score: 8)
     }
 }
+

@@ -27,16 +27,16 @@ struct ColorGameView: View {
                 
                 questionView(for: colorProblem)
                 
-                Text("What color is this?").font(.title).padding(20)
+                Text("What color is this?").font(.title).padding()
                 
                 Spacer()
                 
                 optionsView(for: colorProblem)
-                    .frame(height: 60)
+                    .frame(height: optionsSectionHeight)
                     .disabled(self.game.gameCompleted || self.game.processingAnswer)
-                    .opacity(self.game.processingAnswer ? 0.5 : 1)
+                    .opacity(self.game.processingAnswer ? opacity : 1)
             }
-            .opacity(game.gameCompleted ? 0.3 : 1)
+            .opacity(game.gameCompleted ? opacity : 1)
             
             ResultView(score: game.score).opacity(game.gameCompleted ? 1 : 0)
 
@@ -46,15 +46,18 @@ struct ColorGameView: View {
     }
     
     func questionView(for problem: IdentifyingColorProblem) -> some View {
-        ZStack {
-            Circle()
-                .opacity(0.3)
-            
-            Circle()
-                .padding(10)
-            
+        GeometryReader { geometry in
+            ZStack {
+                
+                Circle()
+                    .opacity(self.opacity)
+                
+                Circle()
+                    .padding()
+                
+            }.frame(width: min(geometry.size.width, geometry.size.height) * self.circleScalingFactor, height: min(geometry.size.width, geometry.size.height) * self.circleScalingFactor)
         }
-        .padding(40)
+        .padding()
         .foregroundColor(Color(problem.color))
     }
     
@@ -68,12 +71,20 @@ struct ColorGameView: View {
                 self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.game.next()
                 self.answerCorrect = false
             }
         }
     }
+    
+    
+    // MARK: CONSTANTS
+    
+    private let circleScalingFactor: CGFloat = 0.6
+    private let opacity = 0.3
+    private let optionsSectionHeight: CGFloat = 60
+
 }
 
 struct ColorGameView_Previews: PreviewProvider {

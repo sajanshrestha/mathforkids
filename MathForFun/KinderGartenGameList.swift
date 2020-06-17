@@ -9,15 +9,14 @@
 import Foundation
 
 struct KinderGartenGameList {
-    
+        
     var games: [Game] {
-        return GameType.allCases.map { Game(gameType: $0, name: $0.rawValue) }
+        getGames()
     }
     
     struct Game: Identifiable {
-        var id = UUID()
+        var id: Int
         var gameType: GameType
-        var name: String
     }
     
     enum GameType: String, CaseIterable {
@@ -28,7 +27,7 @@ struct KinderGartenGameList {
         case position = "Positions"
         case classifying = "Classifying"
 
-        var title: String {
+        var name: String {
             self.rawValue
         }
         
@@ -55,4 +54,18 @@ struct KinderGartenGameList {
         }
     }
     
+    private func getGames() -> [Game] {
+        
+        var games = [Game]()
+        
+        var id = 0
+        
+        for gameType in GameType.allCases {
+            games.append(Game(id: id, gameType: gameType))
+            id += 1
+            
+        }
+        
+        return games
+    }
 }

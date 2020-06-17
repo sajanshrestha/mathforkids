@@ -27,43 +27,40 @@ struct PositionProblemGameView: View {
                     ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
                     
                     Spacer()
-                                            
+                    
                     self.questionView(for: positionProblem, of: geometry.size)
                     Spacer()
-                                        
+                    
                     Text(positionProblem.questionText).padding().font(.title)
-                                        
+                    
                     self.optionsView(for: positionProblem)
-                        .frame(height: 60)
+                        .frame(height: self.optionsSectionHeight)
                         .disabled(self.game.gameCompleted || self.game.processingAnswer)
-                        .opacity(self.game.processingAnswer ? 0.5 : 1)
-                                        
+                        .opacity(self.game.processingAnswer ? self.opacity : 1)
+                    
                 }
                 .padding()
-                .opacity(self.game.gameCompleted ? 0.3 : 1)
+                .opacity(self.game.gameCompleted ? self.opacity : 1)
                 
-
+                
                 CorrectIcon(correct: self.$answerCorrect)
                 
                 ResultView(score: self.game.score).opacity(self.game.gameCompleted ? 1 : 0)
-
+                
             }
-            
-            
         }
-        
     }
     
     func questionView(for problem: PositionProblem, of size: CGSize) -> some View {
         
         Group {
             if problem.orientation == .vertical {
-                VStack(spacing: 20) {
+                VStack(spacing: spacing) {
                     self.view(for: problem.contents, size: size)
                 }
             }
             else {
-                HStack(spacing: 20) {
+                HStack(spacing: spacing) {
                     self.view(for: problem.contents, size: size)
                 }
             }
@@ -72,7 +69,7 @@ struct PositionProblemGameView: View {
     
     func view(for positionalElements: [String], size: CGSize) -> some View {
         ForEach(positionalElements, id: \.self) { content in
-            Text(content).font(Font.system(size: size.width * 0.25)).border(Color.blue)
+            Text(content).font(Font.system(size: min(size.width, size.height) * self.textScalingFactor)).padding().border(Color.blue)
         }
     }
     
@@ -84,12 +81,20 @@ struct PositionProblemGameView: View {
                 self.answerCorrect = self.game.submitAnswer(with: selectedOption)
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.game.next()
                 self.answerCorrect = false
             }
         }
     }
+    
+    // MARK: CONSTANTS
+    private let opacity = 0.3
+    private let optionsSectionHeight: CGFloat = 60
+    private let spacing: CGFloat = 20
+    private let textScalingFactor: CGFloat = 0.2
+    
+    
     
 }
 

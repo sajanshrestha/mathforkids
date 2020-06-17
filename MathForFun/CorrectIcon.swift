@@ -16,7 +16,7 @@ struct CorrectIcon: View {
         
         GeometryReader { geometry in
             Image(systemName: "checkmark.circle.fill")
-                .font(Font.system(size: geometry.size.width * 0.2))
+                .font(Font.system(size: min(geometry.size.width, geometry.size.height) * self.scaleFactor))
                 .foregroundColor(Color.green)
                 .opacity(self.correct ? 1 : 0)
                 .rotationEffect(.degrees(self.correct ? 360 : 0))
@@ -27,6 +27,9 @@ struct CorrectIcon: View {
         
         
     }
+    
+    // MARK: CONSTANTS
+    private let scaleFactor: CGFloat = 0.1
 }
 
 struct CorrectIcon_Previews: PreviewProvider {

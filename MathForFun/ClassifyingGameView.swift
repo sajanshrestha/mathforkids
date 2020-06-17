@@ -32,7 +32,7 @@ struct ClassifyingGameView: View {
                 
                 Text("Tap The different item!").font(.title).padding()
                 
-            }.opacity(self.game.gameCompleted ? 0.3 : 1)
+            }.opacity(self.game.gameCompleted ? opacity : 1)
             
             ResultView(score: game.score).opacity(game.gameCompleted ? 1 : 0)
             
@@ -53,7 +53,7 @@ struct ClassifyingGameView: View {
     
     func body(for problem: ClassifyingProblem, of size: CGSize) -> some View {
         
-        VStack(spacing: spacing) {
+        HStack(spacing: spacing) {
             
             ForEach(problem.items) { item in
                 
@@ -69,16 +69,12 @@ struct ClassifyingGameView: View {
                     }
                     
                 }, label: {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 10).fill(Color.blue.opacity(0.5))
-                            .frame(width: size.width * self.cardScalingFactor)
-                        Text(item.content).font(Font.system(size: size.width * self.scalingFactor))
-                    }
                     
+                    Text(item.content).font(Font.system(size: size.width * self.textScalingFactor)).padding().border(Color.blue)
                     
                 })
                     .disabled(self.game.gameCompleted || self.game.processingAnswer)
-                    .opacity(self.game.processingAnswer ? 0.5 : 1)
+                    .opacity(self.game.processingAnswer ? self.opacity : 1)
                     
             }
         }
@@ -86,8 +82,8 @@ struct ClassifyingGameView: View {
     
     // MARK: CONSTANTS
     private let spacing: CGFloat = 8
-    private let scalingFactor: CGFloat = 0.25
-    private let cardScalingFactor: CGFloat = 0.3
+    private let opacity = 0.3
+    private let textScalingFactor: CGFloat = 0.18
 }
 
 struct ClassifyingProblemView_Previews: PreviewProvider {

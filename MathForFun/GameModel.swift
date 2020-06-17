@@ -14,16 +14,15 @@ class GameModel: ObservableObject {
     
     static var gameType: KinderGartenGameList.GameType = .comparing
     static var highestNumberOfItems = 20
-    
+
     @Published private var game: Game = GameModel.createGame()
     
     private static func createGame() -> Game {
-        Game(numberOfProblems: 10, highestNumberOfItems: highestNumberOfItems, gameType: gameType)
+        Game(highestNumberOfItems: highestNumberOfItems, gameType: gameType)
     }
     
     // MARK: ACCESS(ES)
 
-    
     var problems: [Problem] {
         game.problems
     }

@@ -23,12 +23,14 @@ struct Game {
     var gameCompleted = false
     var processingAnswer = false
     
-    init(numberOfProblems: Int, highestNumberOfItems: Int, gameType: KinderGartenGameList.GameType) {
+    private let numberOfProblems = 5
+    
+    init(highestNumberOfItems: Int, gameType: KinderGartenGameList.GameType) {
                 
         switch gameType {
             
         case .counting:
-            self.createCountingGame(numberOfProblems, highestNumberOfItems)
+            self.createCountingGame(highestNumberOfItems)
             
         case .identifyingColor:
             self.createIdentifyingColorGame()
@@ -37,59 +39,64 @@ struct Game {
             self.createIdentifyingShapeGame()
              
         case .comparing:
-            self.createComparingGame(numberOfProblems, highestNumberOfItems)
+            self.createComparingGame(highestNumberOfItems)
             
         case .position:
-            self.createPositionGame(numberOfProblems)
+            self.createPositionGame()
             
         case .classifying:
-            self.createClassifyingGame(numberOfProblems)
+            self.createClassifyingGame()
         }
     }
     
-    private mutating func createCountingGame(_ numberOfProblems: Int, _ highestNumberOfItems: Int) {
+    private mutating func createCountingGame(_ highestNumberOfItems: Int) {
+        
         for _ in 0..<numberOfProblems {
             let randomEmoji = emojisDictionary.randomElement()!
             let count = Int.random(in: 1...highestNumberOfItems)
-            problems.append(CountingProblem(content: randomEmoji.key, contentCount: count, contentName: randomEmoji.value))
+            problems.append(CountingProblem(emoji: randomEmoji.key, emojiCount: count, emojiName: randomEmoji.value))
         }
     }
     
     private mutating func createIdentifyingColorGame() {
-        for (color, name) in colorWithNames {
+        
+        let colors = colorWithNames.randomElements(numberOfProblems)
+        
+        for (color, name) in colors {
             problems.append(IdentifyingColorProblem(color: color, colorName: name))
         }
     }
     
     private mutating func createIdentifyingShapeGame() {
-        for (shape, name) in shapeWithNames {
+        
+        let shapes = shapeWithNames.randomElements(numberOfProblems)
+        
+        for (shape, name) in shapes {
             problems.append(IdentifyingShapeProblem(shapeEmoji: shape, shape: name))
         }
     }
     
-    private mutating func createComparingGame(_ numberOfProblems: Int, _ highestNumberOfItems: Int) {
+    private mutating func createComparingGame(_ highestNumberOfItems: Int) {
         for _ in 0..<numberOfProblems {
             
-            var array = Array(1...highestNumberOfItems)
+            let randomCounts = Array(1...highestNumberOfItems).randomElements(2)
             
-            let firstSetCount = array.remove(at: Int.random(in: 0..<highestNumberOfItems))
-            let secondSetCount = array.randomElement() ?? 0
+            guard randomCounts.count == 2 else { return }
             
-            let firstRandomEmoji = emojisDictionary.keys.randomElement()!
-            let secondRandomEmoji = emojisDictionary.keys.randomElement()!
+            let randomEmojis = emojisDictionary.randomElements(2)
             
-            problems.append(ComparingProblem(firstSetCount: firstSetCount, secondSetCount: secondSetCount, firstSetEmoji: firstRandomEmoji, secondSetEmoji: secondRandomEmoji))
+            problems.append(ComparingProblem(firstSetCount: randomCounts[0], secondSetCount: randomCounts[1], firstSetEmoji: randomEmojis[0].key, secondSetEmoji: randomEmojis[1].key))
 
         }
     }
     
-    private mutating func createPositionGame(_ numberOfProblems: Int) {
+    private mutating func createPositionGame() {
         for _ in 0..<numberOfProblems {
             problems.append(PositionProblem())
         }
     }
     
-    private mutating func createClassifyingGame(_ numberOfProblems: Int) {
+    private mutating func createClassifyingGame() {
         for _ in 0..<numberOfProblems {
             problems.append(ClassifyingProblem())
         }
