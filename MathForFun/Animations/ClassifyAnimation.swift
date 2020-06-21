@@ -29,7 +29,7 @@ struct ClassifyAnimation: View {
                     
             }
             .offset(x: -70, y: -10)
-                .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true))
+                .animation(Animation.easeInOut(duration: 1).repeatCount(3, autoreverses: true))
 
             
         }.font(.largeTitle)

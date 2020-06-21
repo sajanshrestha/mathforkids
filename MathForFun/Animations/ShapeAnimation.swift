@@ -25,7 +25,7 @@ struct ShapeAnimation: View {
                     .offset(x: self.move ? -60 : 0)
                 
                 
-                RoundedRectangle(cornerRadius: 20)
+                RoundedRectangle(cornerRadius: 5)
                     .foregroundColor(.blue)
                     .padding()
                     .frame(width: self.getMinWidthOrHeight(for: geometry.size), height: self.getMinWidthOrHeight(for: geometry.size))
@@ -34,11 +34,11 @@ struct ShapeAnimation: View {
                 Capsule()
                     .foregroundColor(.orange)
                     .padding()
-                    .frame(width: self.getMinWidthOrHeight(for: geometry.size), height: self.getMinWidthOrHeight(for: geometry.size))
+                    .frame(width: self.getMinWidthOrHeight(for: geometry.size), height: self.getMinWidthOrHeight(for: geometry.size) / 2)
                     .offset(y: self.move ? 50 : -50)
                 
                 
-            }.animation(Animation.linear(duration: 2).repeatForever(autoreverses: true))
+            }.animation(Animation.linear(duration: 2).repeatCount(3, autoreverses: true))
                 .onAppear {
                     self.move = true
                     

@@ -37,8 +37,8 @@ struct CountingAnimation: View {
                 
             }
             .shadow(radius: self.radius)
-            .font(.system(size: min(geometry.size.width, geometry.size.height) / CGFloat(self.imageNames.count)))
-            .animation(Animation.linear(duration: 1).repeatForever(autoreverses: true))
+            .font(Font.system(size: min(geometry.size.width, geometry.size.height) / CGFloat(self.imageNames.count + 1)))
+            .animation(Animation.linear(duration: 1).repeatCount(3, autoreverses: true))
             .onAppear {
                 self.move.toggle()
             }

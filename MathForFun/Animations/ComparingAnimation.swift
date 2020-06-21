@@ -20,15 +20,15 @@ struct ComparingAnimation: View {
                 Image(systemName: "ant.fill")
             }
             .opacity(self.appear ? 1 : 0)
-            .animation(Animation.easeInOut(duration: 1.4).delay(0.4).repeatForever(autoreverses: true))
+            .animation(Animation.easeInOut(duration: 1.4).delay(0.4).repeatCount(3, autoreverses: true))
             
             Image(systemName: "greaterthan")
                 .opacity(self.appear ? 1 : 0)
-                .animation(Animation.spring().delay(2).repeatForever(autoreverses: true))
+                .animation(Animation.spring().delay(2).repeatCount(3, autoreverses: true))
             
             Image(systemName: "ant.fill")
                 .opacity(self.appear ? 1 : 0)
-                .animation(Animation.spring().delay(0.9).repeatForever(autoreverses: true))
+                .animation(Animation.spring().delay(0.9).repeatCount(3, autoreverses: true))
         }
         .font(Font.largeTitle)
         .foregroundColor(.purple)

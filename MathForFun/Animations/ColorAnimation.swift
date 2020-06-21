@@ -29,7 +29,7 @@ struct ColorAnimation: View {
                 }
             
             }
-            .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true))
+            .animation(Animation.easeInOut(duration: 2).repeatCount(3, autoreverses: true))
             .onAppear {
                 self.appear = true
             }

@@ -12,13 +12,14 @@ import Foundation
 class GameModel: ObservableObject {
     
     
-    static var gameType: KinderGartenGameList.GameType = .comparing
-    static var highestNumberOfItems = 20
+    static var gameType: GameList.GameType = .comparing
+    static var gameLevel = 1
 
-    @Published private var game: Game = GameModel.createGame()
+
+    @Published private var game: GameSession = GameModel.createGame()
     
-    private static func createGame() -> Game {
-        Game(highestNumberOfItems: highestNumberOfItems, gameType: gameType)
+    private static func createGame() -> GameSession {
+        GameSession(gameType: gameType, gameLevel: gameLevel)
     }
     
     // MARK: ACCESS(ES)
@@ -27,11 +28,11 @@ class GameModel: ObservableObject {
         game.problems
     }
     
-    var index: Int { game.index }
+    var index: Int { game.currentIndex }
     
     var score: Int { game.score }
     
-    var gameCompleted: Bool { game.gameCompleted }
+    var gameCompleted: Bool { game.sessionCompleted }
     
     var processingAnswer: Bool { game.processingAnswer }
     

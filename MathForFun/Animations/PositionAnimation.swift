@@ -49,7 +49,7 @@ struct PositionAnimation: View {
         }
         .opacity(0.6)
         .foregroundColor(.black)
-        .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true))
+        .animation(Animation.easeInOut(duration: 2).repeatCount(3, autoreverses: true))
         .onAppear {
                 self.expand = true
         }
@@ -60,7 +60,7 @@ struct PositionAnimation: View {
     private let width: CGFloat = 70
     private let height: CGFloat = 70
     private let cornerRadius: CGFloat = 10.0
-    private let offsetFactor: CGFloat = 100
+    private let offsetFactor: CGFloat = 75
 }
 
 struct PositionAnimation_Previews: PreviewProvider {

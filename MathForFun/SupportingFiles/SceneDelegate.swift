@@ -21,14 +21,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         
+        let playerLevel = PlayerLevel()
         
-        let gameList = KinderGartenGameList()
-        let kinderGardenGamesView = KinderGartenGamesView(gameList: gameList)
+        let gameList = GameList()
+        let gamesView = GamesView(gameList: gameList).environmentObject(playerLevel)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: kinderGardenGamesView)
+            window.rootViewController = UIHostingController(rootView: gamesView)
             self.window = window
             window.makeKeyAndVisible()
         }

@@ -12,40 +12,33 @@ struct GameView: View {
     
     @State private var showGameView = false
     
-    var gameType: KinderGartenGameList.GameType
+    var gameType: GameList.GameType
+        
+    var level: Int
     
     var body: some View {
         
-        return Group {
-            
-            if gameType.hasLimitSelections {
-                
-                self.listView(for: gameType.limitSelections!)
-                    .popover(isPresented: $showGameView) {
-                        self.view(for: self.gameType)
-                }
-            }
-                
-            else {
-                self.view(for: gameType)
-            }
-        }
+        self.view(for: gameType)
     }
     
-    func view(for gameType: KinderGartenGameList.GameType) -> some View {
+    func view(for gameType: GameList.GameType) -> some View {
         
         // sets the game to the selected game type
         GameModel.gameType = gameType
+        GameModel.gameLevel = level
         
         return Group {
             if gameType == .counting {
-                CountingGameView(game: GameModel())
+                CountingGameView(game: GameModel(), level: level)
+            }
+            else if gameType == .comparing {
+                ComparingGameView(game: GameModel(), level: level)
             }
             else if gameType == .identifyingColor {
-                ColorGameView(game: GameModel())
+                ColorGameView(game: GameModel(), level: level)
             }
             else if gameType == .identifyingShape {
-                ShapeGameView(game: GameModel())
+                ShapeGameView(game: GameModel(), level: level)
             }
             else if gameType == .position {
                 PositionProblemGameView(game: GameModel())
@@ -53,40 +46,18 @@ struct GameView: View {
             else if gameType == .classifying {
                 ClassifyingGameView(game: GameModel())
             }
-            else if gameType == .comparing {
-                ComparingGameView(game: GameModel())
-            }
+            
             else {
                 Text("Game Coming Soon")
             }
         }
-        
-    }
-    
-    func listView(for selections: [Int]) -> some View {
-        
-        return VStack {
-            
-            ForEach(gameType.limitSelections!, id: \.self) { count in
-                
-                Button(action: {
-                    
-                    GameModel.highestNumberOfItems = count
-                    self.showGameView = true
-                    
-                }, label: {
-                    CardView(title: "\(self.gameType.name) upto \(count)")
-                })
-                    .padding()
-                
-            }
-        }
+         
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(gameType: KinderGartenGameList.GameType.comparing)
+        GameView(gameType: GameList.GameType.comparing, level: 2)
     }
 }
 
