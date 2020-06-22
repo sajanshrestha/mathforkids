@@ -38,7 +38,7 @@ struct ComparingProblem: Problem {
             
             let randomCounts = Array(1...highestNumberOfElements).randomElements(2)
                         
-            let randomEmojis = emojisDictionary.randomElements(2)
+            let randomEmojis = EmojiBank.emojis.randomElements(2)
             
             problems.append(ComparingProblem(firstSetCount: randomCounts[0], secondSetCount: randomCounts[1], firstSetEmoji: randomEmojis[0].key, secondSetEmoji: randomEmojis[1].key))
 
@@ -62,8 +62,7 @@ struct ComparingProblem: Problem {
         }
     }
     
-    // MARK: CONSTANTS
-    private static let emojisDictionary = ["🐶": "dogs", "🐰": "bunnies", "🐻": "bears", "🦁": "lions", "🐵": "monkeys", "🦉": "owls", "🐢": "turtle", "🐬": "dolphins", "🦒": "giraffes", "🐑": "sheeps", "🐿": "squirrels", "🐓": "chickens", "🐫": "camels"]
+    
     
 }
 

@@ -37,7 +37,7 @@ struct CountingGameView: View {
                 
                 QuestionView(countingProblem: countingProblem)
                 
-                Text("How many \(countingProblem.emojiName) are there?")
+                Text("How many \(countingProblem.emojiName.lowercased())s are there?")
                     .padding(padding)
                     .animation(nil)
                                 

@@ -40,7 +40,7 @@ struct CountingProblem: Problem {
         let highestNumberOfItems = getHighestNumberOfItems(for: gameLevel)
         
         for _ in 0..<count {
-            let randomEmoji = emojisDictionary.randomElement()!
+            let randomEmoji = EmojiBank.emojis.randomElement()!
             let count = Int.random(in: 1...highestNumberOfItems)
             problems.append(CountingProblem(emoji: randomEmoji.key, emojiCount: count, emojiName: randomEmoji.value))
         }
@@ -62,9 +62,6 @@ struct CountingProblem: Problem {
             return 25
         }
     }
-    
-    private static let emojisDictionary = ["🐶": "dogs", "🐰": "bunnies", "🐻": "bears", "🦁": "lions", "🐵": "monkeys", "🦉": "owls", "🐢": "turtle", "🐬": "dolphins", "🦒": "giraffes", "🐑": "sheeps", "🐿": "squirrels", "🐓": "chickens", "🐫": "camels"]
-    
 }
 
 

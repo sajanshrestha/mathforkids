@@ -11,64 +11,116 @@ import Foundation
 
 struct ClassifyingProblem: Problem {
     
+    struct Item: Identifiable {
+        
+        var id = UUID()
+        var content: String
+        var isUnique: Bool
+        
+    }
+    
     
     var items =  [Item]()
     
-    init() {
+    init(_ gameLevel: Int) {
         
-        let emojis = Array(emojiDict.keys)
+        if gameLevel == 1 {
+            createLevelOneGame()
+        }
+        
+        else if gameLevel == 2 {
+            createLevelTwoGame()
+        }
+        
+        else if gameLevel == 3 {
+            createLevelThreeGame()
+        }
+        else if gameLevel == 4 {
+            createLevelFourGame()
+        }
+        
+    }
+    
+    private mutating func createLevelOneGame() {
+        
+        let emojis = Array(EmojiBank.emojis.keys)
         
         let randomEmojis = emojis.randomElements(2)
         
         let randomNumber = Int.random(in: 2...3)
         
-        items.append(Item(content: randomEmojis[0]))
+        items.append(Item(content: randomEmojis[0], isUnique: true))
         
         for _ in 0..<randomNumber {
-            items.append(Item(content: randomEmojis[1]))
+            items.append(Item(content: randomEmojis[1], isUnique: false))
         }
         
         items.shuffle()
     }
     
+    private mutating func createLevelTwoGame() {
+        
+        items.append(Item(content: EmojiBank.nonAnimalEmojis.randomElement()!.key, isUnique: true))
+        
+        let randomAnimalEmojis = EmojiBank.animalEmojis.randomElements(Int.random(in: 2...3))
+        
+        for emoji in randomAnimalEmojis {
+            items.append(Item(content: emoji.key, isUnique: false))
+        }
+        
+        items.shuffle()
+
+    }
+    
+    private mutating func createLevelThreeGame() {
+        
+        items.append(Item(content: EmojiBank.nonFoodEmojis.randomElement()!.key, isUnique: true))
+        
+        let randomFoodEmojis = EmojiBank.foodEmojis.randomElements(Int.random(in: 2...3))
+        
+        for emoji in randomFoodEmojis {
+            items.append(Item(content: emoji.key, isUnique: false))
+        }
+        
+        items.shuffle()
+
+    }
+    
+    private mutating func createLevelFourGame() {
+        
+        items.append(Item(content: EmojiBank.nonVehicleEmojis.randomElement()!.key, isUnique: true))
+        
+        let randomVehicleEmojis = EmojiBank.vehicleEmojis.randomElements(Int.random(in: 2...3))
+        
+        for emoji in randomVehicleEmojis {
+            items.append(Item(content: emoji.key, isUnique: false))
+        }
+        
+        items.shuffle()
+
+    }
+    
     var rightAnswer: String {
         
-        let contents = items.map { $0.content }
+        let contents = items.filter { $0.isUnique == true}
         
-        var uniqueNames = Set(contents)
+        return contents.first?.content ?? ""
         
-        let firstName = uniqueNames.removeFirst()
-        let secondName = uniqueNames.removeFirst()
-
-        let firstItemListCount = contents.filter { $0 == firstName}.count
-        let secondItemListCount = contents.filter { $0 == secondName}.count
-        
-        return firstItemListCount < secondItemListCount ? firstName : secondName
-
     }
     
     var options: [String] {
         []
     }
     
-    static func getProblems(count: Int) -> [ClassifyingProblem] {
+    static func getProblems(count: Int, gameLevel: Int) -> [ClassifyingProblem] {
         
         var problems = [ClassifyingProblem]()
         
         for _ in 0..<count {
-            problems.append(ClassifyingProblem())
+            problems.append(ClassifyingProblem(gameLevel))
         }
         
         return problems
     }
-    
-    
-    private let emojiDict =  ["🐶": "Dog", "🐰": "Mouse", "🐻": "Bear", "🦁": "Lion", "🐵": "Monkey", "🦉": "Owl", "🐢": "Turtle", "🐬": "Dolphin", "🦒": "Giraffe", "🐑": "Sheep", "🐿": "Squirrel", "🐓": "Chicken", "🐫": "Camel", "🦍": "Gorilla", "🦘": "Kangaroo", "🌻": "Sunflower", "🌈": "Rainbow", "🍎": "Apple", "🥦": "Brocolli", "🥨": "Pretzel", "🍔": "Burger", "🍕": "Pizza", "🍩": "Donut", "🏀": "Basket Ball", "🚗": "Car", "🚌": "Bus", "✈️": "Airplane", "🏠": "House", "🧸": "Teddy Bear"]
-    
-    struct Item: Identifiable {
-        var id = UUID()
-        var content: String
-    }
-    
 }
 

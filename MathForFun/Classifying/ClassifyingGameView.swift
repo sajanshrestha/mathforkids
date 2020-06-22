@@ -14,6 +14,13 @@ struct ClassifyingGameView: View {
     
     @State private var answerCorrect = false
     
+    @State private var levelUp = false
+    
+    @EnvironmentObject var playerLevel: PlayerLevel
+
+    var level: Int
+
+    
     var body: some View {
         
         let problem = game.problems[game.index] as! ClassifyingProblem
@@ -38,7 +45,8 @@ struct ClassifyingGameView: View {
             
             CorrectIcon(correct: self.$answerCorrect)
                         
-            
+            LevelUpView(levelUp: $levelUp)
+
         }
         
     }
@@ -61,6 +69,11 @@ struct ClassifyingGameView: View {
                     
                     withAnimation(Animation.spring()) {
                         self.answerCorrect = self.game.submitAnswer(with: item.content)
+                    }
+                    
+                    if self.game.index == self.game.problems.count - 1 && self.game.score > 7 {
+                        self.playerLevel.updateLevel(for: .classifying, playingLevel: self.level)
+                        self.levelUp = true
                     }
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -88,6 +101,6 @@ struct ClassifyingGameView: View {
 
 struct ClassifyingProblemView_Previews: PreviewProvider {
     static var previews: some View {
-        ClassifyingGameView(game: GameModel())
+        ClassifyingGameView(game: GameModel(), level: 2)
     }
 }

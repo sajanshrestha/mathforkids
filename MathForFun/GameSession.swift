@@ -55,7 +55,7 @@ struct GameSession {
             problems.append(contentsOf: PositionProblem.getProblems(count: numberOfProblems))
 
         case .classifying:
-            problems.append(contentsOf: ClassifyingProblem.getProblems(count: numberOfProblems))
+            problems.append(contentsOf: ClassifyingProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
         }
     }
 }

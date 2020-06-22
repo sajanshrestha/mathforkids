@@ -22,7 +22,6 @@
 		A137C2272487EEC900BEC96D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C2262487EEC900BEC96D /* SceneDelegate.swift */; };
 		A137C22B2487EECA00BEC96D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A137C22A2487EECA00BEC96D /* Assets.xcassets */; };
 		A137C22E2487EECA00BEC96D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A137C22D2487EECA00BEC96D /* Preview Assets.xcassets */; };
-		A137C2312487EECA00BEC96D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A137C22F2487EECA00BEC96D /* LaunchScreen.storyboard */; };
 		A137C23C2487EECA00BEC96D /* MathForFunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C23B2487EECA00BEC96D /* MathForFunTests.swift */; };
 		A137C2472487EECA00BEC96D /* MathForFunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C2462487EECA00BEC96D /* MathForFunUITests.swift */; };
 		A137C265248802CD00BEC96D /* CountingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C264248802CD00BEC96D /* CountingGameView.swift */; };
@@ -49,6 +48,8 @@
 		A1D90EAD249EC375004919BF /* PlayerLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D90EAC249EC375004919BF /* PlayerLevel.swift */; };
 		A1D90EB1249EC4A5004919BF /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D90EB0249EC4A5004919BF /* LevelView.swift */; };
 		A1D90EB3249EDD8A004919BF /* LevelUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D90EB2249EDD8A004919BF /* LevelUpView.swift */; };
+		A1D90EC024A02A20004919BF /* EmojiBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D90EBF24A02A20004919BF /* EmojiBank.swift */; };
+		A1D90F1424A12A6E004919BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D90F1324A12A6E004919BF /* LaunchScreen.storyboard */; };
 		A1F288A4248E60AE004F0C40 /* ClassifyingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F288A3248E60AE004F0C40 /* ClassifyingProblem.swift */; };
 		A1F288A6248E69D7004F0C40 /* ClassifyingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F288A5248E69D7004F0C40 /* ClassifyingGameView.swift */; };
 /* End PBXBuildFile section */
@@ -88,7 +89,6 @@
 		A137C2262487EEC900BEC96D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A137C22A2487EECA00BEC96D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A137C22D2487EECA00BEC96D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A137C2302487EECA00BEC96D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A137C2322487EECA00BEC96D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A137C2372487EECA00BEC96D /* MathForFunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathForFunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A137C23B2487EECA00BEC96D /* MathForFunTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathForFunTests.swift; sourceTree = "<group>"; };
@@ -120,6 +120,8 @@
 		A1D90EAC249EC375004919BF /* PlayerLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLevel.swift; sourceTree = "<group>"; };
 		A1D90EB0249EC4A5004919BF /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		A1D90EB2249EDD8A004919BF /* LevelUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpView.swift; sourceTree = "<group>"; };
+		A1D90EBF24A02A20004919BF /* EmojiBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiBank.swift; sourceTree = "<group>"; };
+		A1D90F1324A12A6E004919BF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1F288A3248E60AE004F0C40 /* ClassifyingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyingProblem.swift; sourceTree = "<group>"; };
 		A1F288A5248E69D7004F0C40 /* ClassifyingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyingGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,9 +154,9 @@
 		A109520C248B2DBE00234225 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				A1D90F1324A12A6E004919BF /* LaunchScreen.storyboard */,
 				A137C2242487EEC900BEC96D /* AppDelegate.swift */,
 				A137C2262487EEC900BEC96D /* SceneDelegate.swift */,
-				A137C22F2487EECA00BEC96D /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -203,6 +205,7 @@
 				A137C22C2487EECA00BEC96D /* Preview Content */,
 				A1D90EBB249FDAD9004919BF /* Extensions */,
 				A1D90EBC249FDADF004919BF /* Fonts */,
+				A1D90EBF24A02A20004919BF /* EmojiBank.swift */,
 			);
 			path = MathForFun;
 			sourceTree = "<group>";
@@ -438,7 +441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A137C2312487EECA00BEC96D /* LaunchScreen.storyboard in Resources */,
+				A1D90F1424A12A6E004919BF /* LaunchScreen.storyboard in Resources */,
 				A137C22E2487EECA00BEC96D /* Preview Assets.xcassets in Resources */,
 				A137C22B2487EECA00BEC96D /* Assets.xcassets in Resources */,
 			);
@@ -495,6 +498,7 @@
 				A137C26D2488177E00BEC96D /* Grid.swift in Sources */,
 				A13F51F3248FE12A00326745 /* Array + RandomElements.swift in Sources */,
 				A11C286F248C4B320036D1AB /* GameSession.swift in Sources */,
+				A1D90EC024A02A20004919BF /* EmojiBank.swift in Sources */,
 				A1F288A4248E60AE004F0C40 /* ClassifyingProblem.swift in Sources */,
 				A1AE1035248963900039F068 /* CorrectIcon.swift in Sources */,
 				A1AE10372489705F0039F068 /* CardView.swift in Sources */,
@@ -537,17 +541,6 @@
 			targetProxy = A137C2432487EECA00BEC96D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		A137C22F2487EECA00BEC96D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A137C2302487EECA00BEC96D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A137C2492487EECA00BEC96D /* Debug */ = {

@@ -41,6 +41,8 @@ struct GameList {
                 return 3
             case .identifyingShape:
                 return 2
+            case .classifying:
+                return 4
             default:
                 return 4
             }

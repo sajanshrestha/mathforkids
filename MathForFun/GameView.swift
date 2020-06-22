@@ -44,7 +44,7 @@ struct GameView: View {
                 PositionProblemGameView(game: GameModel())
             }
             else if gameType == .classifying {
-                ClassifyingGameView(game: GameModel())
+                ClassifyingGameView(game: GameModel(), level: level)
             }
             
             else {

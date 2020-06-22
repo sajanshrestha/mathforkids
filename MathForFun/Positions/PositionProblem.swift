@@ -23,7 +23,7 @@ struct PositionProblem: Problem {
         
         self.orientation = [Orientation.vertical, Orientation.horizontal].randomElement()!
         
-        let emojiList = Array(emojis)
+        let emojiList = Array(EmojiBank.emojis)
         
         let randomEmojis = emojiList.randomElements(3)
         
@@ -102,9 +102,5 @@ struct PositionProblem: Problem {
         return problems
     }
     
-    
-    private let emojis =  ["🐶": "Dog", "🐰": "Bunny", "🐻": "Bear", "🦁": "Lion", "🐵": "Monkey", "🦉": "Owl", "🐢": "Turtle", "🐬": "Dolphin", "🦒": "Giraffe", "🐑": "Sheep", "🐿": "Squirrel", "🐓": "Chicken", "🐫": "Camel", "🦍": "Gorilla", "🦘": "Kangaroo", "🌻": "Sunflower", "🌈": "Rainbow", "🍎": "Apple", "🥦": "Brocolli", "🥨": "Pretzel", "🍔": "Burger", "🍕": "Pizza", "🍩": "Donut", "🏀": "Basket Ball", "🚗": "Car", "🚌": "Bus", "✈️": "Airplane", "🏠": "House", "🧸": "Teddy Bear"]
-    
-
 }
 

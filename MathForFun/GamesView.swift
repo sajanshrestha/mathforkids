@@ -20,7 +20,7 @@ struct GamesView: View {
                 
                 NavigationLink(destination: LevelView(gameType: game.gameType), label: {
                     GameRow(game: game)
-                })
+                    })
             }
             .navigationBarTitle(Text("Fun Games"))
         }
