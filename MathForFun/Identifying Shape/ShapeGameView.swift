@@ -74,9 +74,12 @@ struct ShapeGameView: View {
                 self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
             }
             
-            if self.game.index == self.game.problems.count - 1 && self.game.score > 7 {
-                self.playerLevel.updateLevel(for: .identifyingShape, playingLevel: self.level)
-                self.levelUp = true
+            if self.game.lastProblemOn && self.game.score > 7 {
+                
+                if self.level == self.playerLevel.getCurrentLevel(for: .identifyingShape) {
+                    self.playerLevel.updateLevel(for: .identifyingShape, playingLevel: self.level)
+                    self.levelUp = true
+                }
             }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {

@@ -36,6 +36,8 @@ class GameModel: ObservableObject {
     
     var processingAnswer: Bool { game.processingAnswer }
     
+    var lastProblemOn: Bool { game.lastProblem }
+    
     func submitAnswer(with answer: String) -> Bool {
         game.processingAnswer = true
         return game.submitAnswer(with: answer)

@@ -20,3 +20,19 @@ extension Array where Element: Identifiable {
         return nil
     }
 }
+
+extension Array where Element: Hashable {
+    
+    func uniqueElement() -> Element? {
+        
+        let elementSet = Set(self)
+        
+        for element in elementSet {
+            let count = self.filter { $0 == element }.count
+            if count == 1 {
+                return element
+            }
+        }
+        return nil
+    }
+}

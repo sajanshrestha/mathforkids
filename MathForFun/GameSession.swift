@@ -25,6 +25,10 @@ struct GameSession {
     var sessionCompleted = false
     var processingAnswer = false
     
+    var lastProblem: Bool {
+        currentIndex == problems.count - 1
+    }
+    
     private let numberOfProblems = 10
     
     init(gameType: GameList.GameType, gameLevel: Int) {

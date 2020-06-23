@@ -71,9 +71,11 @@ struct ClassifyingGameView: View {
                         self.answerCorrect = self.game.submitAnswer(with: item.content)
                     }
                     
-                    if self.game.index == self.game.problems.count - 1 && self.game.score > 7 {
-                        self.playerLevel.updateLevel(for: .classifying, playingLevel: self.level)
-                        self.levelUp = true
+                    if self.game.lastProblemOn && self.game.score > 7 {
+                        if self.level == self.playerLevel.getCurrentLevel(for: .classifying) {
+                            self.playerLevel.updateLevel(for: .classifying, playingLevel: self.level)
+                            self.levelUp = true
+                        }
                     }
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {

@@ -72,10 +72,7 @@ struct ComparingGameView: View {
                     
                     self.submitAnswer(with: ComparingProblem.ComparingSet.firstSet.rawValue)
                     
-                    if self.game.index == self.game.problems.count - 1 && self.game.score > 7 {
-                        self.playerLevel.updateLevel(for: .comparing, playingLevel: self.level)
-                        self.levelUp = true
-                    }
+                    self.updateLevel()
                     
             }
             
@@ -85,17 +82,24 @@ struct ComparingGameView: View {
                     
                     self.submitAnswer(with: ComparingProblem.ComparingSet.secondSet.rawValue)
                     
-                    if self.game.index == self.game.problems.count - 1 && self.game.score > 7 {
-                        self.playerLevel.updateLevel(for: .comparing, playingLevel: self.level)
-                        self.levelUp = true
-                    }
-                    
+                    self.updateLevel()
                     
             }
             
         }
         .disabled(self.game.gameCompleted)
     }
+    
+    
+    private func updateLevel() {
+        if self.game.lastProblemOn && self.game.score > 7 {
+            if self.level == self.playerLevel.getCurrentLevel(for: .comparing) {
+                self.playerLevel.updateLevel(for: .comparing, playingLevel: self.level)
+                self.levelUp = true
+            }
+        }
+    }
+    
     
     func view(for emoji: String, _ count: Int) -> some View {
         

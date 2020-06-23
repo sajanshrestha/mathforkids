@@ -55,6 +55,8 @@ struct CountingGameView: View {
             
             ResultView(score: game.score).opacity(game.gameCompleted ? 1 : 0)
             
+             
+            
             LevelUpView(levelUp: $levelUp)
             
         }
@@ -68,17 +70,23 @@ struct CountingGameView: View {
             
             self.answerCorrect = self.game.submitAnswer(with: self.selectedAnswer)
             
-            if self.game.index == self.game.problems.count - 1 && self.game.score > 7 {
-                self.playerLevel.updateLevel(for: .counting, playingLevel: self.level)
-                self.levelUp = true
+            if self.game.lastProblemOn && self.game.score > 7 {
+                self.updateLevel()
             }
-            
+        
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 withAnimation(Animation.spring()) {
                     self.answerCorrect = false
                     self.game.next()
                 }
             }
+        }
+    }
+    
+    private func updateLevel() {
+        if self.level == self.playerLevel.getCurrentLevel(for: .counting) {
+            self.playerLevel.updateLevel(for: .counting, playingLevel: self.level)
+            self.levelUp = true
         }
     }
     

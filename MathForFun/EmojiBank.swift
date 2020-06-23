@@ -43,7 +43,11 @@ struct EmojiBank {
         "🥬": "KalLe",
         "🥒": "Cucumber",
         "🥕": "Carrot",
-        "🧅": "Onion"
+        "🧅": "Onion",
+        "🌶": "Chilli",
+        "🌽": "Corn",
+        "🍅": "Tomato",
+        "🥔": "Potato"
     ]
     
     static let fastFood = [
@@ -70,6 +74,38 @@ struct EmojiBank {
         "🛵": "Scooter"
     ]
     
+    static let electronics = [
+        "📱": "Phone",
+        "💻": "Laptop",
+        "🖥": "Screen",
+        "🖨": "Printer",
+        "🖲": "Mouse",
+        "💾": "Floppy Disk",
+        "📀": "CD",
+        "📷": "Camera",
+        "☎️": "Telephone",
+        "📻": "Radio"
+    ]
+    
+    static let tools = [
+        "🔨": "Hammer",
+        "🪓": "Axe",
+        "🔑": "Key",
+        "📎": "Paper Clip",
+        "📌": "Thumb Pin",
+        "🔒": "Lock"
+    ]
+    
+    static let sports = [
+        "⚽️": "Soocer Ball",
+        "🏀": "Basket Ball",
+        "🏈": "Football",
+        "⚾️": "Baseball",
+        "🎾": "Tennis Ball",
+        "🏐": "Volley Ball",
+        "🏏": "Cricket"
+    ]
+    
     static var foodEmojis: [String: String] {
         
         var emojis = [String: String]()
@@ -81,36 +117,7 @@ struct EmojiBank {
 
         return emojis
     }
-    
-    
-    
-    static var nonFoodEmojis: [String: String] {
-        
-        var emojis = [String: String]()
-        
-        animalEmojis.forEach { emojis[$0.key] = $0.value }
-        vehicleEmojis.forEach { emojis[$0.key] = $0.value }
-
-        return emojis
-    }
-    
-    static var nonAnimalEmojis: [String: String] {
-        var emojis = [String: String]()
-        
-        foodEmojis.forEach { emojis[$0.key] = $0.value }
-        vehicleEmojis.forEach { emojis[$0.key] = $0.value }
-
-        return emojis
-    }
-    
-    static var nonVehicleEmojis: [String: String] {
-        var emojis = [String: String]()
-        
-        animalEmojis.forEach { emojis[$0.key] = $0.value }
-        foodEmojis.forEach { emojis[$0.key] = $0.value }
-
-        return emojis
-    }
+   
     
     static var emojis: [String: String] {
         
