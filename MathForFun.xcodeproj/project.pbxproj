@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A109520E248B2EF100234225 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109520D248B2EF100234225 /* GameModel.swift */; };
-		A10AC6CB24A2B6DC0072C584 /* AdditionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC6CA24A2B6DC0072C584 /* AdditionAnimation.swift */; };
+		A10AC6CB24A2B6DC0072C584 /* ArithmeticAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC6CA24A2B6DC0072C584 /* ArithmeticAnimation.swift */; };
 		A10AC6CE24A2C8C10072C584 /* AdditionGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC6CD24A2C8C10072C584 /* AdditionGameView.swift */; };
 		A10AC6D024A2CA570072C584 /* AdditionProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC6CF24A2CA570072C584 /* AdditionProblem.swift */; };
 		A11C2869248BFA9B0036D1AB /* CountingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2868248BFA9B0036D1AB /* CountingProblem.swift */; };
@@ -84,7 +84,7 @@
 /* Begin PBXFileReference section */
 		A101E0D224983D3F00C2D8EF /* Noteworthy.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Noteworthy.ttc; sourceTree = "<group>"; };
 		A109520D248B2EF100234225 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
-		A10AC6CA24A2B6DC0072C584 /* AdditionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionAnimation.swift; sourceTree = "<group>"; };
+		A10AC6CA24A2B6DC0072C584 /* ArithmeticAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticAnimation.swift; sourceTree = "<group>"; };
 		A10AC6CD24A2C8C10072C584 /* AdditionGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionGameView.swift; sourceTree = "<group>"; };
 		A10AC6CF24A2CA570072C584 /* AdditionProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionProblem.swift; sourceTree = "<group>"; };
 		A11C2868248BFA9B0036D1AB /* CountingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingProblem.swift; sourceTree = "<group>"; };
@@ -282,7 +282,7 @@
 				A1D90EA3249EBF38004919BF /* ComparingAnimation.swift */,
 				A1D90EA4249EBF38004919BF /* PositionAnimation.swift */,
 				A1D90EA5249EBF38004919BF /* CountingAnimation.swift */,
-				A10AC6CA24A2B6DC0072C584 /* AdditionAnimation.swift */,
+				A10AC6CA24A2B6DC0072C584 /* ArithmeticAnimation.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -533,7 +533,7 @@
 				A13F51F7248FFB6F00326745 /* ScoreView.swift in Sources */,
 				A109520E248B2EF100234225 /* GameModel.swift in Sources */,
 				A11C2869248BFA9B0036D1AB /* CountingProblem.swift in Sources */,
-				A10AC6CB24A2B6DC0072C584 /* AdditionAnimation.swift in Sources */,
+				A10AC6CB24A2B6DC0072C584 /* ArithmeticAnimation.swift in Sources */,
 				A137C26F2488381A00BEC96D /* Array+Identifiable.swift in Sources */,
 				A1D90EA6249EBF38004919BF /* ShapeAnimation.swift in Sources */,
 				A1D90EA9249EBF38004919BF /* ComparingAnimation.swift in Sources */,

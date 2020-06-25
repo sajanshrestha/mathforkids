@@ -16,7 +16,9 @@ class ArithmeticProblem {
     var secondNumber: Int
     
     init(for level: Int) {
+        
         switch level {
+            
         case 1:
             let numbers = levelOneNumbers.randomElements(2)
             (firstNumber, secondNumber) = (numbers[0], numbers[1])

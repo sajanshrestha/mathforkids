@@ -56,7 +56,9 @@ struct GameRow: View {
     }
     
     func animationView(for gameType: GameList.GameType) -> some View {
+        
         Group {
+            
             
             if gameType == .counting {
                 CountingAnimation()
@@ -84,15 +86,16 @@ struct GameRow: View {
                 
             }
             if gameType == .addition {
-                AdditionAnimation()
+                ArithmeticAnimation(for: ArithmeticOperation.addition)
             }
             
             if gameType == .subtraction {
-                SubtractionAnimation()
+                ArithmeticAnimation(for: ArithmeticOperation.subtraction)
+
             }
             
             if gameType == .multiplication {
-                MultiplicationAnimation()
+                ArithmeticAnimation(for: ArithmeticOperation.multiplication)
             }
             
         }.frame(height: height)

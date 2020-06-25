@@ -47,7 +47,7 @@ struct AdditionGameView: View {
                 optionsView(for: additionProblem)
                     .frame(height: optionsSectionHeight)
                     .disabled(self.game.gameCompleted || self.game.processingAnswer)
-                .opacity(self.game.processingAnswer ? opacity : 1)
+                    .opacity(self.game.processingAnswer ? opacity : 1)
             }
             
             
