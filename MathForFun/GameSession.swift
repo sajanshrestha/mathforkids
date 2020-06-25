@@ -62,14 +62,13 @@ struct GameSession {
             problems.append(contentsOf: ClassifyingProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
             
         case .addition:
-            problems.append(contentsOf: AdditionProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
+            problems.append(contentsOf: ArithmeticProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel, for: .addition))
             
         case .subtraction:
-            problems.append(contentsOf: SubtractionProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
-            
-        case .multiplication:
-            problems.append(contentsOf: MultiplicationProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
+            problems.append(contentsOf: ArithmeticProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel, for: .subtraction))
 
+        case .multiplication:
+            problems.append(contentsOf: ArithmeticProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel, for: .multiplication))
         }
     }
 }

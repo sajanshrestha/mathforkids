@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct AdditionGameView: View {
+struct ArithmeticGameView: View {
     
     @ObservedObject var game: GameModel
     
@@ -25,7 +25,11 @@ struct AdditionGameView: View {
     
     var body: some View {
         
-        let additionProblem = game.problems[game.index] as! AdditionProblem
+        let arithmeticProblem = game.problems[game.index] as! ArithmeticProblem
+        
+        let operation = getOperationType()
+        
+        let question = getQuestionText()
         
         return ZStack {
             
@@ -35,16 +39,16 @@ struct AdditionGameView: View {
                 
                 Spacer()
                                 
-                OperationView(firstNumber: additionProblem.firstNumber, secondNumber: additionProblem.secondNumber, operation: .addition)
+                OperationView(firstNumber: arithmeticProblem.firstNumber, secondNumber: arithmeticProblem.secondNumber, operation: operation)
                 
                 
                 Spacer()
                 
                 
-                Text("What is the sum?")
+                Text(question)
                     .modifier(QuestionText())
                 
-                optionsView(for: additionProblem)
+                optionsView(for: arithmeticProblem)
                     .frame(height: optionsSectionHeight)
                     .disabled(self.game.gameCompleted || self.game.processingAnswer)
                     .opacity(self.game.processingAnswer ? opacity : 1)
@@ -60,9 +64,9 @@ struct AdditionGameView: View {
         }
     }
     
-    func optionsView(for additionProblem: AdditionProblem) -> some View {
+    func optionsView(for arithmeticProblem: ArithmeticProblem) -> some View {
         
-        OptionsView(options: additionProblem.options) { option in
+        OptionsView(options: arithmeticProblem.options) { option in
             
             self.selectedAnswer = option
             
@@ -82,9 +86,35 @@ struct AdditionGameView: View {
     }
     
     private func updateLevel() {
-        if self.level == self.playerLevel.getCurrentLevel(for: .addition) {
-            self.playerLevel.updateLevel(for: .addition, playingLevel: self.level)
+        if self.level == self.playerLevel.getCurrentLevel(for: GameModel.gameType) {
+            self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level)
             self.levelUp = true
+        }
+    }
+    
+    private func getOperationType() -> OperationType {
+        switch GameModel.gameType {
+        case .addition:
+            return .addition
+        case .subtraction:
+            return .subtraction
+        case .multiplication:
+            return .multiplication
+        default:
+            return .addition
+        }
+    }
+    
+    private func getQuestionText() -> String {
+        switch GameModel.gameType {
+        case .addition:
+            return "What is the sum?"
+        case .subtraction:
+            return "What is the difference?"
+        case .multiplication:
+            return "What is the product?"
+        default:
+            return "What is the sum?"
         }
     }
     
@@ -96,6 +126,6 @@ struct AdditionGameView: View {
 
 struct AdditionGameView_Previews: PreviewProvider {
     static var previews: some View {
-        AdditionGameView(game: GameModel(), level: 1)
+        ArithmeticGameView(game: GameModel(), level: 1)
     }
 }

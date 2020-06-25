@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		A109520E248B2EF100234225 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109520D248B2EF100234225 /* GameModel.swift */; };
 		A10AC6CB24A2B6DC0072C584 /* ArithmeticAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC6CA24A2B6DC0072C584 /* ArithmeticAnimation.swift */; };
-		A10AC6CE24A2C8C10072C584 /* AdditionGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC6CD24A2C8C10072C584 /* AdditionGameView.swift */; };
-		A10AC6D024A2CA570072C584 /* AdditionProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC6CF24A2CA570072C584 /* AdditionProblem.swift */; };
+		A10AC6CE24A2C8C10072C584 /* ArithmeticGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC6CD24A2C8C10072C584 /* ArithmeticGameView.swift */; };
+		A10AC6D024A2CA570072C584 /* ArithmeticProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC6CF24A2CA570072C584 /* ArithmeticProblem.swift */; };
 		A11C2869248BFA9B0036D1AB /* CountingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2868248BFA9B0036D1AB /* CountingProblem.swift */; };
 		A11C286B248BFABA0036D1AB /* IdentifyingColorProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C286A248BFABA0036D1AB /* IdentifyingColorProblem.swift */; };
 		A11C286D248C352D0036D1AB /* IdentifyingShapeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C286C248C352D0036D1AB /* IdentifyingShapeProblem.swift */; };
@@ -18,6 +18,7 @@
 		A11C2871248C75F20036D1AB /* ComparingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2870248C75F20036D1AB /* ComparingProblem.swift */; };
 		A11C2873248D41E70036D1AB /* PositionProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2872248D41E70036D1AB /* PositionProblem.swift */; };
 		A11C2875248D5B580036D1AB /* PositionProblemGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2874248D5B580036D1AB /* PositionProblemGameView.swift */; };
+		A123CDB224A54D4D00BE7D25 /* ArithmeticProblemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A123CDB124A54D4D00BE7D25 /* ArithmeticProblemTests.swift */; };
 		A12A940A24A16AFD000AE837 /* ClassifyingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A940924A16AFD000AE837 /* ClassifyingGameTests.swift */; };
 		A135AAD6248AAC9B00EBC8C2 /* ShapeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */; };
 		A135AAD8248AACA300EBC8C2 /* ColorGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */; };
@@ -36,11 +37,6 @@
 		A13F51F5248FE26800326745 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13F51F4248FE26800326745 /* ArrayTests.swift */; };
 		A13F51F7248FFB6F00326745 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13F51F6248FFB6F00326745 /* ScoreView.swift */; };
 		A13F51F92490011000326745 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13F51F82490011000326745 /* ResultView.swift */; };
-		A14BD44C24A4C5B500A160AD /* ArithmeticProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14BD44B24A4C5B500A160AD /* ArithmeticProblem.swift */; };
-		A15810EC24A4261700273E2A /* SubtractionProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15810EB24A4261700273E2A /* SubtractionProblem.swift */; };
-		A15810EE24A4290400273E2A /* SubtractionGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15810ED24A4290400273E2A /* SubtractionGameView.swift */; };
-		A15810F124A43EC000273E2A /* MultiplicationProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15810F024A43EC000273E2A /* MultiplicationProblem.swift */; };
-		A15810F324A43F0A00273E2A /* MultiplicationGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15810F224A43F0A00273E2A /* MultiplicationGameView.swift */; };
 		A192C74324A3985E00BA7101 /* QuestionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192C74224A3985E00BA7101 /* QuestionText.swift */; };
 		A192C74524A39D1B00BA7101 /* OperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192C74424A39D1B00BA7101 /* OperationView.swift */; };
 		A1A585F82490375400AAAFC8 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A585F72490375400AAAFC8 /* OptionsView.swift */; };
@@ -85,8 +81,8 @@
 		A101E0D224983D3F00C2D8EF /* Noteworthy.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Noteworthy.ttc; sourceTree = "<group>"; };
 		A109520D248B2EF100234225 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		A10AC6CA24A2B6DC0072C584 /* ArithmeticAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticAnimation.swift; sourceTree = "<group>"; };
-		A10AC6CD24A2C8C10072C584 /* AdditionGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionGameView.swift; sourceTree = "<group>"; };
-		A10AC6CF24A2CA570072C584 /* AdditionProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionProblem.swift; sourceTree = "<group>"; };
+		A10AC6CD24A2C8C10072C584 /* ArithmeticGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticGameView.swift; sourceTree = "<group>"; };
+		A10AC6CF24A2CA570072C584 /* ArithmeticProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticProblem.swift; sourceTree = "<group>"; };
 		A11C2868248BFA9B0036D1AB /* CountingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingProblem.swift; sourceTree = "<group>"; };
 		A11C286A248BFABA0036D1AB /* IdentifyingColorProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyingColorProblem.swift; sourceTree = "<group>"; };
 		A11C286C248C352D0036D1AB /* IdentifyingShapeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyingShapeProblem.swift; sourceTree = "<group>"; };
@@ -94,6 +90,7 @@
 		A11C2870248C75F20036D1AB /* ComparingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparingProblem.swift; sourceTree = "<group>"; };
 		A11C2872248D41E70036D1AB /* PositionProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionProblem.swift; sourceTree = "<group>"; };
 		A11C2874248D5B580036D1AB /* PositionProblemGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionProblemGameView.swift; sourceTree = "<group>"; };
+		A123CDB124A54D4D00BE7D25 /* ArithmeticProblemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticProblemTests.swift; sourceTree = "<group>"; };
 		A12A940924A16AFD000AE837 /* ClassifyingGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyingGameTests.swift; sourceTree = "<group>"; };
 		A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeGameView.swift; sourceTree = "<group>"; };
 		A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGameView.swift; sourceTree = "<group>"; };
@@ -118,11 +115,6 @@
 		A13F51F4248FE26800326745 /* ArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
 		A13F51F6248FFB6F00326745 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		A13F51F82490011000326745 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
-		A14BD44B24A4C5B500A160AD /* ArithmeticProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticProblem.swift; sourceTree = "<group>"; };
-		A15810EB24A4261700273E2A /* SubtractionProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionProblem.swift; sourceTree = "<group>"; };
-		A15810ED24A4290400273E2A /* SubtractionGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionGameView.swift; sourceTree = "<group>"; };
-		A15810F024A43EC000273E2A /* MultiplicationProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationProblem.swift; sourceTree = "<group>"; };
-		A15810F224A43F0A00273E2A /* MultiplicationGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationGameView.swift; sourceTree = "<group>"; };
 		A192C74224A3985E00BA7101 /* QuestionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionText.swift; sourceTree = "<group>"; };
 		A192C74424A39D1B00BA7101 /* OperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationView.swift; sourceTree = "<group>"; };
 		A1A585F72490375400AAAFC8 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
@@ -184,13 +176,8 @@
 		A10AC6CC24A2B9100072C584 /* Arithmetic Games */ = {
 			isa = PBXGroup;
 			children = (
-				A14BD44B24A4C5B500A160AD /* ArithmeticProblem.swift */,
-				A10AC6CD24A2C8C10072C584 /* AdditionGameView.swift */,
-				A10AC6CF24A2CA570072C584 /* AdditionProblem.swift */,
-				A15810EB24A4261700273E2A /* SubtractionProblem.swift */,
-				A15810ED24A4290400273E2A /* SubtractionGameView.swift */,
-				A15810F024A43EC000273E2A /* MultiplicationProblem.swift */,
-				A15810F224A43F0A00273E2A /* MultiplicationGameView.swift */,
+				A10AC6CD24A2C8C10072C584 /* ArithmeticGameView.swift */,
+				A10AC6CF24A2CA570072C584 /* ArithmeticProblem.swift */,
 			);
 			path = "Arithmetic Games";
 			sourceTree = "<group>";
@@ -260,6 +247,7 @@
 				A137C23D2487EECA00BEC96D /* Info.plist */,
 				A13F51F4248FE26800326745 /* ArrayTests.swift */,
 				A12A940924A16AFD000AE837 /* ClassifyingGameTests.swift */,
+				A123CDB124A54D4D00BE7D25 /* ArithmeticProblemTests.swift */,
 			);
 			path = MathForFunTests;
 			sourceTree = "<group>";
@@ -506,11 +494,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A15810F324A43F0A00273E2A /* MultiplicationGameView.swift in Sources */,
 				A192C74524A39D1B00BA7101 /* OperationView.swift in Sources */,
 				A1D90EAA249EBF38004919BF /* PositionAnimation.swift in Sources */,
-				A15810EC24A4261700273E2A /* SubtractionProblem.swift in Sources */,
-				A15810EE24A4290400273E2A /* SubtractionGameView.swift in Sources */,
 				A1D90EA8249EBF38004919BF /* ColorAnimation.swift in Sources */,
 				A137C27124883D9D00BEC96D /* GameView.swift in Sources */,
 				A137C2252487EEC900BEC96D /* AppDelegate.swift in Sources */,
@@ -520,7 +505,7 @@
 				A135AAD8248AACA300EBC8C2 /* ColorGameView.swift in Sources */,
 				A137C2272487EEC900BEC96D /* SceneDelegate.swift in Sources */,
 				A1AE103B248988520039F068 /* GamesView.swift in Sources */,
-				A10AC6CE24A2C8C10072C584 /* AdditionGameView.swift in Sources */,
+				A10AC6CE24A2C8C10072C584 /* ArithmeticGameView.swift in Sources */,
 				A11C2873248D41E70036D1AB /* PositionProblem.swift in Sources */,
 				A11C2875248D5B580036D1AB /* PositionProblemGameView.swift in Sources */,
 				A1D90EAD249EC375004919BF /* PlayerLevel.swift in Sources */,
@@ -528,7 +513,6 @@
 				A1D11F63248B0B35005674CF /* GameList.swift in Sources */,
 				A1D90EAB249EBF38004919BF /* CountingAnimation.swift in Sources */,
 				A137C26B2488177700BEC96D /* GridLayout.swift in Sources */,
-				A15810F124A43EC000273E2A /* MultiplicationProblem.swift in Sources */,
 				A137C265248802CD00BEC96D /* CountingGameView.swift in Sources */,
 				A13F51F7248FFB6F00326745 /* ScoreView.swift in Sources */,
 				A109520E248B2EF100234225 /* GameModel.swift in Sources */,
@@ -540,7 +524,7 @@
 				A1D90EA7249EBF38004919BF /* ClassifyAnimation.swift in Sources */,
 				A1D90EB3249EDD8A004919BF /* LevelUpView.swift in Sources */,
 				A192C74324A3985E00BA7101 /* QuestionText.swift in Sources */,
-				A10AC6D024A2CA570072C584 /* AdditionProblem.swift in Sources */,
+				A10AC6D024A2CA570072C584 /* ArithmeticProblem.swift in Sources */,
 				A135AAD6248AAC9B00EBC8C2 /* ShapeGameView.swift in Sources */,
 				A137C26D2488177E00BEC96D /* Grid.swift in Sources */,
 				A13F51F3248FE12A00326745 /* Array + RandomElements.swift in Sources */,
@@ -552,7 +536,6 @@
 				A11C286B248BFABA0036D1AB /* IdentifyingColorProblem.swift in Sources */,
 				A11C2871248C75F20036D1AB /* ComparingProblem.swift in Sources */,
 				A1CEAF9A2489AF6C00AE7425 /* ComparingGameView.swift in Sources */,
-				A14BD44C24A4C5B500A160AD /* ArithmeticProblem.swift in Sources */,
 				A1F288A6248E69D7004F0C40 /* ClassifyingGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A13F51F5248FE26800326745 /* ArrayTests.swift in Sources */,
+				A123CDB224A54D4D00BE7D25 /* ArithmeticProblemTests.swift in Sources */,
 				A137C23C2487EECA00BEC96D /* MathForFunTests.swift in Sources */,
 				A12A940A24A16AFD000AE837 /* ClassifyingGameTests.swift in Sources */,
 			);
