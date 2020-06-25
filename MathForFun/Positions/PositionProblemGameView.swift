@@ -31,7 +31,9 @@ struct PositionProblemGameView: View {
                     self.questionView(for: positionProblem, of: geometry.size)
                     Spacer()
                     
-                    Text(positionProblem.questionText).padding().font(.title)
+                    Text(positionProblem.questionText)
+                        .modifier(QuestionText())
+
                     
                     self.optionsView(for: positionProblem)
                         .frame(height: self.optionsSectionHeight)

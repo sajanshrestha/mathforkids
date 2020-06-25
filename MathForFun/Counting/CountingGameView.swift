@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CountingGameView: View {
     
-    @ObservedObject var game: GameModel
+    @ObservedObject var gameSession: GameModel
         
     @State private var selectedAnswer = "0"
     
@@ -24,36 +24,35 @@ struct CountingGameView: View {
         
     var body: some View {
         
-        let countingProblem = game.problems[game.index] as! CountingProblem
-        
+        let countingProblem = gameSession.problems[gameSession.index] as! CountingProblem
         
         return ZStack {
             
             VStack {
                 
-                ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
+                ScoreView(answerCorrect: self.$answerCorrect, score: self.gameSession.score)
                 
                 Spacer()
                 
                 QuestionView(countingProblem: countingProblem)
                 
                 Text("How many \(countingProblem.emojiName.lowercased())s are there?")
-                    .padding(padding)
+                    .modifier(QuestionText())
                     .animation(nil)
                                 
                 optionsView(for: countingProblem).frame(height: optionsSectionHeight)
-                    .disabled(self.game.gameCompleted || self.game.processingAnswer)
-                    .opacity(self.game.processingAnswer ? opacity : 1)
+                    .disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
+                    .opacity(self.gameSession.processingAnswer ? opacity : 1)
                 
                 
             }
             .foregroundColor(.black)
             .font(.title)
-            .opacity(game.gameCompleted ? opacity : 1)
+            .opacity(gameSession.gameCompleted ? opacity : 1)
             
             CorrectIcon(correct: $answerCorrect)
             
-            ResultView(score: game.score).opacity(game.gameCompleted ? 1 : 0)
+            ResultView(score: gameSession.score).opacity(gameSession.gameCompleted ? 1 : 0)
             
              
             
@@ -68,16 +67,16 @@ struct CountingGameView: View {
             
             self.selectedAnswer = option
             
-            self.answerCorrect = self.game.submitAnswer(with: self.selectedAnswer)
+            self.answerCorrect = self.gameSession.submitAnswer(with: self.selectedAnswer)
             
-            if self.game.lastProblemOn && self.game.score > 7 {
+            if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
                 self.updateLevel()
             }
         
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 withAnimation(Animation.spring()) {
                     self.answerCorrect = false
-                    self.game.next()
+                    self.gameSession.next()
                 }
             }
         }
@@ -92,7 +91,6 @@ struct CountingGameView: View {
     
     //  MARK: CONSTANTS
     private let spacing: CGFloat = 4
-    private let padding: CGFloat = 20
     private let optionsSectionHeight: CGFloat = 60
     private let opacity = 0.2
     
@@ -102,7 +100,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let game = GameModel()
         GameModel.gameType = .counting
-        return CountingGameView(game: game, level: 2)
+        return CountingGameView(gameSession: game, level: 2)
     }
 }
 
@@ -126,9 +124,6 @@ struct QuestionView: View {
     }
     
 }
-
-
-
 
 struct EmojiView: Identifiable {
     var id: Int

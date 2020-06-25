@@ -34,7 +34,8 @@ struct ColorGameView: View {
                 
                 questionView(for: colorProblem)
                 
-                Text("What color is this?").font(.title).padding()
+                Text("What color is this?")
+                    .modifier(QuestionText())
                 
                 Spacer()
                 

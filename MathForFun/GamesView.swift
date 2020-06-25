@@ -18,7 +18,7 @@ struct GamesView: View {
             
             List(gameList.games) { game in
                 
-                NavigationLink(destination: LevelView(gameType: game.gameType), label: {
+                NavigationLink(destination: LevelView(for: game), label: {
                     GameRow(game: game)
                     })
             }
@@ -39,7 +39,7 @@ struct GameRow: View {
     
     var body: some View {
         
-        ZStack(alignment: .center) {
+        ZStack {
             
             RoundedRectangle(cornerRadius: cornerRadius)
                 .frame(height: height)
@@ -50,7 +50,6 @@ struct GameRow: View {
             Text(game.gameType.name)
                 .font(Font.custom("Noteworthy", size: textSize))
                 .bold()
-                .foregroundColor(.black)
                 .offset(y: textOffsetFactor)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
         }
@@ -84,6 +83,18 @@ struct GameRow: View {
                 ClassifyAnimation()
                 
             }
+            if gameType == .addition {
+                AdditionAnimation()
+            }
+            
+            if gameType == .subtraction {
+                SubtractionAnimation()
+            }
+            
+            if gameType == .multiplication {
+                MultiplicationAnimation()
+            }
+            
         }.frame(height: height)
     }
     

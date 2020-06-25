@@ -1,7 +1,13 @@
 //
 //  HomeView.swift
 //  MathForFun
-//
+
+/*
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+*/
+
 //  Created by Sajan Shrestha on 6/3/20.
 //  Copyright © 2020 Sajan Shrestha. All rights reserved.
 //
@@ -9,12 +15,15 @@
 import SwiftUI
 
 struct GameView: View {
-    
-    @State private var showGameView = false
-    
+        
     var gameType: GameList.GameType
         
     var level: Int
+    
+    init(for gameType: GameList.GameType, inLevel level: Int) {
+        self.gameType = gameType
+        self.level = level
+    }
     
     var body: some View {
         
@@ -29,7 +38,7 @@ struct GameView: View {
         
         return Group {
             if gameType == .counting {
-                CountingGameView(game: GameModel(), level: level)
+                CountingGameView(gameSession: GameModel(), level: level)
             }
             else if gameType == .comparing {
                 ComparingGameView(game: GameModel(), level: level)
@@ -47,17 +56,22 @@ struct GameView: View {
                 ClassifyingGameView(game: GameModel(), level: level)
             }
             
-            else {
-                Text("Game Coming Soon")
+            else if gameType == .addition {
+                AdditionGameView(game: GameModel(), level: level)
+            }
+            else if gameType == .subtraction {
+                SubtractionGameView(game: GameModel(), level: level)
+            }
+            else if gameType == .multiplication {
+                MultiplicationGameView(game: GameModel(), level: level)
             }
         }
-         
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(gameType: GameList.GameType.comparing, level: 2)
+        GameView(for: .counting, inLevel: 1)
     }
 }
 

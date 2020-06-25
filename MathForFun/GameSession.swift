@@ -60,6 +60,16 @@ struct GameSession {
 
         case .classifying:
             problems.append(contentsOf: ClassifyingProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
+            
+        case .addition:
+            problems.append(contentsOf: AdditionProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
+            
+        case .subtraction:
+            problems.append(contentsOf: SubtractionProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
+            
+        case .multiplication:
+            problems.append(contentsOf: MultiplicationProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
+
         }
     }
 }

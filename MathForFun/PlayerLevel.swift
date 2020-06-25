@@ -29,7 +29,9 @@ class PlayerLevel: ObservableObject {
     
     func updateLevel(for gameType: GameList.GameType, playingLevel: Int) {
         
-        if playingLevel == currentLevels[gameType.rawValue]! {
+        guard let currentLevel = currentLevels[gameType.rawValue] else { return }
+        
+        if playingLevel == currentLevel {
             currentLevels[gameType.rawValue]! += 1
             UserDefaults.standard.set(currentLevels, forKey: "PlayerLevel")
         }

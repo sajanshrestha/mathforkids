@@ -36,3 +36,22 @@ extension Array where Element: Hashable {
         return nil
     }
 }
+
+
+extension String {
+    
+    static func getOptions(for rightAnswer: String) -> [String] {
+        
+        var options = [String]()
+        
+        let rightAnswerInt = Int(rightAnswer)!
+        
+        let firstOption = rightAnswerInt > 1 ? rightAnswerInt - 1 : rightAnswerInt + 1
+        let secondOption = rightAnswerInt > 2 ? rightAnswerInt - 2 : rightAnswerInt + 2
+        let thirdOption = rightAnswerInt > 3 ? rightAnswerInt - 3 : rightAnswerInt + 3
+        
+        options.append(contentsOf: [rightAnswer, String(firstOption), String(secondOption), String(thirdOption)])
+        
+        return options.shuffled()
+    }
+}

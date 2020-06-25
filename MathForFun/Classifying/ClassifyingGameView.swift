@@ -37,7 +37,9 @@ struct ClassifyingGameView: View {
                 
                 Spacer()
                 
-                Text("Tap The different item!").font(.title).padding()
+                Text("Tap The different item!")
+                    .modifier(QuestionText())
+
                 
             }.opacity(self.game.gameCompleted ? opacity : 1)
             

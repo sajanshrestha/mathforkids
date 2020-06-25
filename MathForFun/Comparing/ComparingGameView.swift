@@ -39,6 +39,7 @@ struct ComparingGameView: View {
                     
                     
                     Text("Which box has more?")
+                    .modifier(QuestionText())
                     
                 }
                 .font(.title)

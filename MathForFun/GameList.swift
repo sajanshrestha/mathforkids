@@ -20,12 +20,17 @@ struct GameList {
     }
     
     enum GameType: String, CaseIterable {
+        
         case counting = "Counting"
         case comparing = "Comparing"
         case identifyingColor = "Identifying Color"
         case identifyingShape = "Identifying Shape"
         case position = "Positions"
         case classifying = "Classifying"
+        case addition = "Addition"
+        case subtraction = "Subtraction"
+        case multiplication = "Multiplication"
+
 
         var name: String {
             self.rawValue
@@ -43,6 +48,12 @@ struct GameList {
                 return 2
             case .classifying:
                 return 5
+            case .addition:
+                return 3
+            case .subtraction:
+                return 3
+            case .multiplication:
+                return 3
             default:
                 return 4
             }

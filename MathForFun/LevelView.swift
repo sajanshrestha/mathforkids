@@ -1,22 +1,40 @@
-//
 //  LevelView.swift
 //  MathForFun
-//
+
+/*
+----------------------------------------------------------------
+this view displays all the available levels for a selected game
+
+initially, only Level One will be unlocked but the player can get a good
+score and unlock the next level.
+
+For any game, only the levels that are unlocked will appear green
+----------------------------------------------------------------
+*/
+
 //  Created by Sajan Shrestha on 6/20/20.
 //  Copyright © 2020 Sajan Shrestha. All rights reserved.
-//
+
 
 import SwiftUI
-
+ 
 struct LevelView: View {
     
-    var gameType: GameList.GameType
+    var game: GameList.Game
     
     @EnvironmentObject var playerLevel: PlayerLevel
     
+    init(for game: GameList.Game) {
+        self.game = game
+    }
+    
     var body: some View {
-        List(1...gameType.numberOfLevels, id: \.self) { level in
-            NavigationLink(destination: GameView(gameType: self.gameType, level: level), label: {
+        
+        let numberOfLevels = self.game.gameType.numberOfLevels
+        
+        return List(1...numberOfLevels, id: \.self) { level in
+            
+            NavigationLink(destination: GameView(for: self.game.gameType, inLevel: level), label: {
                 Text("Level \(level)")
                     .font(Font.custom("Noteworthy", size: self.textSize))
                     .bold()
@@ -26,7 +44,7 @@ struct LevelView: View {
     }
     
     func isHigherLevel(_ level: Int) -> Bool {
-        level > self.playerLevel.getCurrentLevel(for: self.gameType)
+        level > self.playerLevel.getCurrentLevel(for: self.game.gameType)
     }
     
     // MARK: CONSTANTS
@@ -35,6 +53,6 @@ struct LevelView: View {
 
 struct LevelView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelView(gameType: .comparing)
+        LevelView(for: GameList.Game(id: 1, gameType: .counting))
     }
 }

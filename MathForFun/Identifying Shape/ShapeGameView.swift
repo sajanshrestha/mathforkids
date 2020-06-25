@@ -42,7 +42,9 @@ struct ShapeGameView: View {
                     
                     Spacer()
                     
-                    Text("What shape is this?").font(.title).padding(self.padding)
+                    Text("What shape is this?")
+                        .modifier(QuestionText())
+
 
                     self.optionsView(for: shapeProblem)
                         .frame(height: self.optionsSectionHeight)
