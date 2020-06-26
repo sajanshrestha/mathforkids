@@ -28,7 +28,7 @@ struct ComparingGameView: View {
         return GeometryReader { geometry in
             
             ZStack {
-                
+                                
                 VStack(spacing: self.spacing) {
                     
                     ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)

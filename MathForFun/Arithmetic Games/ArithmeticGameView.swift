@@ -32,7 +32,7 @@ struct ArithmeticGameView: View {
         let question = getQuestionText()
         
         return ZStack {
-            
+                        
             VStack {
                 
                 ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)

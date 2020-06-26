@@ -28,6 +28,7 @@ struct CountingGameView: View {
         
         return ZStack {
             
+            
             VStack {
                 
                 ScoreView(answerCorrect: self.$answerCorrect, score: self.gameSession.score)

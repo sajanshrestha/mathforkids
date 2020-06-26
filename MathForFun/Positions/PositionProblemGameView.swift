@@ -21,7 +21,7 @@ struct PositionProblemGameView: View {
         return GeometryReader { geometry in
             
             ZStack {
-                
+                                
                 VStack {
                     
                     ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)

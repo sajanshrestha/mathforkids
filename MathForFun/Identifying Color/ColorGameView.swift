@@ -28,6 +28,7 @@ struct ColorGameView: View {
         let colorProblem = game.problems[game.index] as! IdentifyingColorProblem
         
         return ZStack {
+            
             VStack {
                 
                 ScoreView(answerCorrect: $answerCorrect, score: game.score)

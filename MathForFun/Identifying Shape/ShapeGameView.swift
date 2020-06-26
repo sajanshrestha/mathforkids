@@ -31,6 +31,7 @@ struct ShapeGameView: View {
             
             ZStack {
                 
+                
                 VStack {
                     
                     ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
