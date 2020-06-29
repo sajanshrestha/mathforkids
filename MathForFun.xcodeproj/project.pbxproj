@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,9 @@
 		A11C2875248D5B580036D1AB /* PositionProblemGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2874248D5B580036D1AB /* PositionProblemGameView.swift */; };
 		A123CDB224A54D4D00BE7D25 /* ArithmeticProblemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A123CDB124A54D4D00BE7D25 /* ArithmeticProblemTests.swift */; };
 		A12A940A24A16AFD000AE837 /* ClassifyingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A940924A16AFD000AE837 /* ClassifyingGameTests.swift */; };
+		A13079C124AA429900722F90 /* OnboardingViewOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13079C024AA429900722F90 /* OnboardingViewOne.swift */; };
+		A13079C324AA43BE00722F90 /* OnboardingViewTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13079C224AA43BE00722F90 /* OnboardingViewTwo.swift */; };
+		A13079C524AA447100722F90 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13079C424AA447100722F90 /* OnboardingView.swift */; };
 		A135AAD6248AAC9B00EBC8C2 /* ShapeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */; };
 		A135AAD8248AACA300EBC8C2 /* ColorGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */; };
 		A137C2252487EEC900BEC96D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A137C2242487EEC900BEC96D /* AppDelegate.swift */; };
@@ -43,6 +46,10 @@
 		A1AE1035248963900039F068 /* CorrectIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE1034248963900039F068 /* CorrectIcon.swift */; };
 		A1AE10372489705F0039F068 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE10362489705F0039F068 /* CardView.swift */; };
 		A1AE103B248988520039F068 /* GamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE103A248988520039F068 /* GamesView.swift */; };
+		A1BACEA324A8DA3B00795909 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A1BACEA224A8DA3B00795909 /* Lottie */; };
+		A1BACEA624A8DA6C00795909 /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = A1BACEA524A8DA6C00795909 /* confetti.json */; };
+		A1BACEA824A8DACC00795909 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BACEA724A8DACC00795909 /* LottieView.swift */; };
+		A1BACEAA24A9025F00795909 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = A1BACEA924A9025F00795909 /* colors.json */; };
 		A1CEAF9A2489AF6C00AE7425 /* ComparingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEAF992489AF6C00AE7425 /* ComparingGameView.swift */; };
 		A1D11F63248B0B35005674CF /* GameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D11F62248B0B35005674CF /* GameList.swift */; };
 		A1D90EA6249EBF38004919BF /* ShapeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D90EA0249EBF38004919BF /* ShapeAnimation.swift */; };
@@ -92,6 +99,9 @@
 		A11C2874248D5B580036D1AB /* PositionProblemGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionProblemGameView.swift; sourceTree = "<group>"; };
 		A123CDB124A54D4D00BE7D25 /* ArithmeticProblemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticProblemTests.swift; sourceTree = "<group>"; };
 		A12A940924A16AFD000AE837 /* ClassifyingGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyingGameTests.swift; sourceTree = "<group>"; };
+		A13079C024AA429900722F90 /* OnboardingViewOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewOne.swift; sourceTree = "<group>"; };
+		A13079C224AA43BE00722F90 /* OnboardingViewTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewTwo.swift; sourceTree = "<group>"; };
+		A13079C424AA447100722F90 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeGameView.swift; sourceTree = "<group>"; };
 		A135AAD7248AACA300EBC8C2 /* ColorGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGameView.swift; sourceTree = "<group>"; };
 		A137C2212487EEC800BEC96D /* MathForFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathForFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +131,9 @@
 		A1AE1034248963900039F068 /* CorrectIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorrectIcon.swift; sourceTree = "<group>"; };
 		A1AE10362489705F0039F068 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A1AE103A248988520039F068 /* GamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
+		A1BACEA524A8DA6C00795909 /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
+		A1BACEA724A8DACC00795909 /* LottieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		A1BACEA924A9025F00795909 /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
 		A1CEAF992489AF6C00AE7425 /* ComparingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparingGameView.swift; sourceTree = "<group>"; };
 		A1D11F62248B0B35005674CF /* GameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameList.swift; sourceTree = "<group>"; };
 		A1D90EA0249EBF38004919BF /* ShapeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeAnimation.swift; sourceTree = "<group>"; };
@@ -143,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1BACEA324A8DA3B00795909 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +196,16 @@
 			path = "Arithmetic Games";
 			sourceTree = "<group>";
 		};
+		A13079BF24AA428200722F90 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A13079C424AA447100722F90 /* OnboardingView.swift */,
+				A13079C024AA429900722F90 /* OnboardingViewOne.swift */,
+				A13079C224AA43BE00722F90 /* OnboardingViewTwo.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		A137C2182487EEC800BEC96D = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +229,8 @@
 		A137C2232487EEC800BEC96D /* MathForFun */ = {
 			isa = PBXGroup;
 			children = (
+				A13079BF24AA428200722F90 /* Onboarding */,
+				A1BACEA724A8DACC00795909 /* LottieView.swift */,
 				A1D90EBA249FDACA004919BF /* Supporting Views */,
 				A109520C248B2DBE00234225 /* SupportingFiles */,
 				A1D11F62248B0B35005674CF /* GameList.swift */,
@@ -226,7 +252,7 @@
 				A137C2322487EECA00BEC96D /* Info.plist */,
 				A137C22C2487EECA00BEC96D /* Preview Content */,
 				A1D90EBB249FDAD9004919BF /* Extensions */,
-				A1D90EBC249FDADF004919BF /* Fonts */,
+				A1D90EBC249FDADF004919BF /* Extras */,
 				A1D90EBF24A02A20004919BF /* EmojiBank.swift */,
 			);
 			path = MathForFun;
@@ -355,12 +381,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A1D90EBC249FDADF004919BF /* Fonts */ = {
+		A1D90EBC249FDADF004919BF /* Extras */ = {
 			isa = PBXGroup;
 			children = (
+				A1BACEA924A9025F00795909 /* colors.json */,
+				A1BACEA524A8DA6C00795909 /* confetti.json */,
 				A101E0D224983D3F00C2D8EF /* Noteworthy.ttc */,
 			);
-			path = Fonts;
+			path = Extras;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +407,9 @@
 			dependencies = (
 			);
 			name = MathForFun;
+			packageProductDependencies = (
+				A1BACEA224A8DA3B00795909 /* Lottie */,
+			);
 			productName = MathForFun;
 			productReference = A137C2212487EEC800BEC96D /* MathForFun.app */;
 			productType = "com.apple.product-type.application";
@@ -451,6 +482,9 @@
 				Base,
 			);
 			mainGroup = A137C2182487EEC800BEC96D;
+			packageReferences = (
+				A1BACEA124A8DA3B00795909 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = A137C2222487EEC800BEC96D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -468,6 +502,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1D90F1424A12A6E004919BF /* LaunchScreen.storyboard in Resources */,
+				A1BACEAA24A9025F00795909 /* colors.json in Resources */,
+				A1BACEA624A8DA6C00795909 /* confetti.json in Resources */,
 				A137C22E2487EECA00BEC96D /* Preview Assets.xcassets in Resources */,
 				A137C22B2487EECA00BEC96D /* Assets.xcassets in Resources */,
 			);
@@ -500,6 +536,7 @@
 				A137C27124883D9D00BEC96D /* GameView.swift in Sources */,
 				A137C2252487EEC900BEC96D /* AppDelegate.swift in Sources */,
 				A13F51F92490011000326745 /* ResultView.swift in Sources */,
+				A13079C124AA429900722F90 /* OnboardingViewOne.swift in Sources */,
 				A1A585F82490375400AAAFC8 /* OptionsView.swift in Sources */,
 				A11C286D248C352D0036D1AB /* IdentifyingShapeProblem.swift in Sources */,
 				A135AAD8248AACA300EBC8C2 /* ColorGameView.swift in Sources */,
@@ -515,6 +552,7 @@
 				A137C26B2488177700BEC96D /* GridLayout.swift in Sources */,
 				A137C265248802CD00BEC96D /* CountingGameView.swift in Sources */,
 				A13F51F7248FFB6F00326745 /* ScoreView.swift in Sources */,
+				A13079C324AA43BE00722F90 /* OnboardingViewTwo.swift in Sources */,
 				A109520E248B2EF100234225 /* GameModel.swift in Sources */,
 				A11C2869248BFA9B0036D1AB /* CountingProblem.swift in Sources */,
 				A10AC6CB24A2B6DC0072C584 /* ArithmeticAnimation.swift in Sources */,
@@ -525,9 +563,11 @@
 				A1D90EB3249EDD8A004919BF /* LevelUpView.swift in Sources */,
 				A192C74324A3985E00BA7101 /* QuestionText.swift in Sources */,
 				A10AC6D024A2CA570072C584 /* ArithmeticProblem.swift in Sources */,
+				A1BACEA824A8DACC00795909 /* LottieView.swift in Sources */,
 				A135AAD6248AAC9B00EBC8C2 /* ShapeGameView.swift in Sources */,
 				A137C26D2488177E00BEC96D /* Grid.swift in Sources */,
 				A13F51F3248FE12A00326745 /* Array + RandomElements.swift in Sources */,
+				A13079C524AA447100722F90 /* OnboardingView.swift in Sources */,
 				A11C286F248C4B320036D1AB /* GameSession.swift in Sources */,
 				A1D90EC024A02A20004919BF /* EmojiBank.swift in Sources */,
 				A1F288A4248E60AE004F0C40 /* ClassifyingProblem.swift in Sources */,
@@ -853,6 +893,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A1BACEA124A8DA3B00795909 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A1BACEA224A8DA3B00795909 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1BACEA124A8DA3B00795909 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A137C2192487EEC800BEC96D /* Project object */;
 }

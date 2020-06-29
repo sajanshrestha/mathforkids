@@ -55,8 +55,6 @@ struct CountingGameView: View {
             
             ResultView(score: gameSession.score).opacity(gameSession.gameCompleted ? 1 : 0)
             
-             
-            
             LevelUpView(levelUp: $levelUp)
             
         }
@@ -93,7 +91,7 @@ struct CountingGameView: View {
     //  MARK: CONSTANTS
     private let spacing: CGFloat = 4
     private let optionsSectionHeight: CGFloat = 60
-    private let opacity = 0.2
+    private let opacity = 0.1
     
 }
 

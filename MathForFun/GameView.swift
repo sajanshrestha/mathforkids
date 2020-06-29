@@ -56,7 +56,7 @@ struct GameView: View {
                 ClassifyingGameView(game: GameModel(), level: level)
             }
             
-            else if gameType == .addition || gameType == .subtraction || gameType == .multiplication {
+            else if gameType == .addition || gameType == .subtraction || gameType == .multiplication || gameType == .division {
                 ArithmeticGameView(game: GameModel(), level: level)
             }
             

@@ -51,6 +51,17 @@ class ArithmeticProblemTests: XCTestCase {
         // then
         XCTAssertEqual(firstNumber, 20)
     }
+    
+    func test_division_20dividedby10shouldbe2() throws {
+        // given
+        let problem = ArithmeticProblem.division(firstNumber: 20, secondNumber: 10)
+        
+        // when
+        let rightAnswer = problem.rightAnswer
+        
+        // then
+        XCTAssertEqual(rightAnswer, "2")
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

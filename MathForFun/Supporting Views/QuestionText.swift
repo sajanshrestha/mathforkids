@@ -13,13 +13,13 @@ struct QuestionText: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(Font.custom("Noteworthy", size: 28))
+            .font(Font.custom("Noteworthy", size: textSize))
             .padding(padding)
     }
     
     // MARK: CONSTANTS
     
-    private let textSize: CGFloat = 28
+    private let textSize: CGFloat = 40
     private let padding: CGFloat = 20
     
 }

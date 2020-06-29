@@ -30,6 +30,8 @@ struct GameList {
         case addition = "Addition"
         case subtraction = "Subtraction"
         case multiplication = "Multiplication"
+        case division = "Division"
+
 
 
         var name: String {
@@ -38,24 +40,14 @@ struct GameList {
         
         var numberOfLevels: Int {
             switch self {
-            case .counting:
+            case .counting, .classifying:
                 return 5
-            case .comparing:
-                return 3
-            case .identifyingColor:
+            case .comparing, .identifyingColor, .addition, .multiplication, .subtraction, .division:
                 return 3
             case .identifyingShape:
                 return 2
-            case .classifying:
-                return 5
-            case .addition:
-                return 3
-            case .subtraction:
-                return 3
-            case .multiplication:
-                return 3
-            default:
-                return 4
+            case .position:
+                return 1
             }
         }
         
@@ -70,7 +62,6 @@ struct GameList {
         for gameType in GameType.allCases {
             games.append(Game(id: id, gameType: gameType))
             id += 1
-            
         }
         
         return games

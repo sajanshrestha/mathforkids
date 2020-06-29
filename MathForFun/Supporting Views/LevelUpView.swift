@@ -13,7 +13,8 @@ struct LevelUpView: View {
     @Binding var levelUp: Bool
     
     var body: some View {
-        Text("Level Up")
+        ZStack {
+            Text("Level Up")
             .font(Font.custom("Noteworthy", size: fontSize))
             .bold()
             .opacity(levelUp ? 1 : 0)
@@ -21,6 +22,14 @@ struct LevelUpView: View {
             .animation(Animation.easeInOut(duration: 2.0))
             .offset(x: 0, y: offsetFactor)
             .foregroundColor(.green)
+            
+            if levelUp {
+                LottieView(filename: "confetti")
+                    .offset(x: 0, y: -250)
+            }
+            
+            
+        }
            
     }
     

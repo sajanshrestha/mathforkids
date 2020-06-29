@@ -69,6 +69,10 @@ struct GameSession {
 
         case .multiplication:
             problems.append(contentsOf: ArithmeticProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel, for: .multiplication))
+            
+        case .division:
+            problems.append(contentsOf: ArithmeticProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel, for: .division))
+            
         }
     }
 }

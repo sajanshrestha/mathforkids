@@ -25,9 +25,9 @@ struct ArithmeticAnimation: View {
         }
     }
     
-    private let operatorSymbol: [ArithmeticOperation: String] = [.addition: "plus.circle", .subtraction: "minus.circle", .multiplication: "multiply.circle"]
+    private let operatorSymbol: [ArithmeticOperation: String] = [.addition: "plus.circle", .subtraction: "minus.circle", .multiplication: "multiply.circle", .division: "divide.circle"]
     
-    private let operatorColor: [ArithmeticOperation: Color] = [.addition: .green, .subtraction: .blue, .multiplication: .purple]
+    private let operatorColor: [ArithmeticOperation: Color] = [.addition: .green, .subtraction: .blue, .multiplication: .purple, .division: .orange]
 }
 
 struct ArithmeticAnimation_Previews: PreviewProvider {
@@ -40,4 +40,5 @@ enum ArithmeticOperation {
     case addition
     case subtraction
     case multiplication
+    case division
 }

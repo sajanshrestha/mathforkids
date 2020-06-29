@@ -13,7 +13,7 @@ struct OperationView: View {
     var firstNumber: Int
     var secondNumber: Int
     
-    var operation: OperationType
+    var operation: ArithmeticProblem.ArithmeticOperation
     
     var body: some View {
         
@@ -22,8 +22,9 @@ struct OperationView: View {
                 Image(systemName: "\(self.firstNumber).circle.fill")
                     .resizable()
                     .frame(width: geometry.size.width * 0.3, height: geometry.size.width * 0.3)
-                self.symbol(for: self.operation)
                 
+                self.symbol(for: self.operation, size: geometry.size)
+
                 Image(systemName: "\(self.secondNumber).circle.fill")
                 .resizable()
                 .frame(width: geometry.size.width * 0.3, height: geometry.size.width * 0.3)
@@ -33,16 +34,24 @@ struct OperationView: View {
         .foregroundColor(.blue)
     }
     
-    func symbol(for operation: OperationType) -> some View {
+    func symbol(for operation: ArithmeticProblem.ArithmeticOperation, size: CGSize) -> some View {
         switch operation {
         case .addition:
             return Image(systemName: "plus")
+                .resizable()
+                .frame(width: size.width * 0.2, height: size.width * 0.15)
         case .subtraction:
             return Image(systemName: "minus")
+                .resizable()
+                .frame(width: size.width * 0.15, height: 10)
         case .multiplication:
             return Image(systemName: "multiply")
+                .resizable()
+                .frame(width: size.width * 0.1, height: size.width * 0.1)
         case .division:
             return Image(systemName: "divide")
+                .resizable()
+                .frame(width: size.width * 0.1, height: size.width * 0.1)
         }
     }
     

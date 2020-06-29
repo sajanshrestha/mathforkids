@@ -20,17 +20,19 @@ struct ArithmeticGameView: View {
 
     @EnvironmentObject var playerLevel: PlayerLevel
     
-    
     var level: Int
+    
+    private var resultTitleText:  String {
+        
+        let resultTitles: [GameList.GameType: String] = [.addition: "sum", .subtraction: "difference", .multiplication: "product"]
+        return resultTitles[GameModel.gameType] ?? "result"
+        
+    }
     
     var body: some View {
         
         let arithmeticProblem = game.problems[game.index] as! ArithmeticProblem
-        
-        let operation = getOperationType()
-        
-        let question = getQuestionText()
-        
+                        
         return ZStack {
                         
             VStack {
@@ -39,13 +41,12 @@ struct ArithmeticGameView: View {
                 
                 Spacer()
                                 
-                OperationView(firstNumber: arithmeticProblem.firstNumber, secondNumber: arithmeticProblem.secondNumber, operation: operation)
-                
+                OperationView(firstNumber: arithmeticProblem.firstNumber, secondNumber: arithmeticProblem.secondNumber, operation: arithmeticProblem.arithmeticOperation)
                 
                 Spacer()
                 
                 
-                Text(question)
+                Text("What is the \(self.resultTitleText)?")
                     .modifier(QuestionText())
                 
                 optionsView(for: arithmeticProblem)
@@ -92,31 +93,7 @@ struct ArithmeticGameView: View {
         }
     }
     
-    private func getOperationType() -> OperationType {
-        switch GameModel.gameType {
-        case .addition:
-            return .addition
-        case .subtraction:
-            return .subtraction
-        case .multiplication:
-            return .multiplication
-        default:
-            return .addition
-        }
-    }
-    
-    private func getQuestionText() -> String {
-        switch GameModel.gameType {
-        case .addition:
-            return "What is the sum?"
-        case .subtraction:
-            return "What is the difference?"
-        case .multiplication:
-            return "What is the product?"
-        default:
-            return "What is the sum?"
-        }
-    }
+    // MARK: CONSTANTS
     
     private let optionsSectionHeight: CGFloat = 60
     private let opacity = 0.2

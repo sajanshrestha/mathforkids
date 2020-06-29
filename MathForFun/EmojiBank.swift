@@ -31,31 +31,28 @@ struct EmojiBank {
         "🍌": "Banana",
         "🍉": "Watermelon",
         "🍇": "Grape",
-        "🍓": "Strawberry",
-        "🍒": "Cherry",
-        "🍑": "Peach",
         "🍍": "Pineapple",
         "🥝": "Kiwi"
     ]
     
     static let vegetableEmojis = [
         "🥦": "Brocolli",
-        "🥬": "KalLe",
+        "🥬": "Kale",
         "🥒": "Cucumber",
         "🥕": "Carrot",
         "🧅": "Onion",
         "🌶": "Chilli",
-        "🌽": "Corn",
-        "🍅": "Tomato",
-        "🥔": "Potato"
+        "🌽": "Corn"
+        //"🍅": "Tomato",
+        //"🥔": "Potato"
     ]
     
     static let fastFood = [
         "🌭": "Hot Dog",
         "🍔": "Burger",
-        "🍟": "Fries",
+        //"🍟": "Fries",
         "🍕": "Pizza",
-        "🥪": "Sanwich",
+        // "🥪": "Sanwich",
         "🌮": "Taco",
         "🌯": "Burrito"
     ]

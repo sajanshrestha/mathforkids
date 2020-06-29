@@ -69,7 +69,7 @@ struct GameRow: View {
                 
             }
             if gameType == .identifyingColor {
-                ColorAnimation()
+                LottieView(filename: "colors")
                 
             }
             
@@ -96,6 +96,9 @@ struct GameRow: View {
             
             if gameType == .multiplication {
                 ArithmeticAnimation(for: ArithmeticOperation.multiplication)
+            }
+            if gameType == .division {
+                ArithmeticAnimation(for: ArithmeticOperation.division)
             }
             
         }.frame(height: height)
