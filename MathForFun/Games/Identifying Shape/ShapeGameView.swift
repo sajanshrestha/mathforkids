@@ -54,9 +54,7 @@ struct ShapeGameView: View {
                     
                 }
                 .opacity(self.game.gameCompleted ? self.opacity : 1)
-                
-                ResultView(score: self.game.score).opacity(self.game.gameCompleted ? 1 : 0)
-                
+                                
                 CorrectIcon(correct: self.$answerCorrect)
                 
                 LevelUpView(levelUp: self.$levelUp)

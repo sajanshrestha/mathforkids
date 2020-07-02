@@ -32,14 +32,15 @@ struct LevelView: View {
         
         let numberOfLevels = self.game.gameType.numberOfLevels
         
-        return List(1...numberOfLevels, id: \.self) { level in
+        return List(1...numberOfLevels, id: \.self) { currentLevel in
             
-            NavigationLink(destination: GameView(for: self.game.gameType, inLevel: level), label: {
-                Text("Level \(level)")
+            NavigationLink(destination: GameView(for: self.game.gameType, in: currentLevel), label: {
+                
+                Text("Level \(currentLevel)")
                     .font(Font.custom("Noteworthy", size: self.textSize))
                     .bold()
-                    .foregroundColor(self.isHigherLevel(level) ? .gray : .green)
-            }).disabled(self.isHigherLevel(level))
+                    .foregroundColor(self.isHigherLevel(currentLevel) ? .gray : .green)
+            }).disabled(self.isHigherLevel(currentLevel))
         }
     }
     

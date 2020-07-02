@@ -47,9 +47,7 @@ struct ComparingGameView: View {
                 
                 
                 CorrectIcon(correct: self.$answerCorrect)
-                
-                ResultView(score: self.game.score).opacity(self.game.gameCompleted ? 1 : 0)
-                
+                                
                 LevelUpView(levelUp: self.$levelUp)
 
                 

@@ -47,8 +47,6 @@ struct ColorGameView: View {
             }
             .opacity(game.gameCompleted ? opacity : 1)
             
-            ResultView(score: game.score).opacity(game.gameCompleted ? 1 : 0)
-
             CorrectIcon(correct: $answerCorrect)
             
             LevelUpView(levelUp: $levelUp)

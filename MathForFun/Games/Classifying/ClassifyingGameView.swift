@@ -42,9 +42,7 @@ struct ClassifyingGameView: View {
 
                 
             }.opacity(self.game.gameCompleted ? opacity : 1)
-            
-            ResultView(score: game.score).opacity(game.gameCompleted ? 1 : 0)
-            
+                        
             CorrectIcon(correct: self.$answerCorrect)
                         
             LevelUpView(levelUp: $levelUp)

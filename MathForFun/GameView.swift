@@ -20,7 +20,7 @@ struct GameView: View {
         
     var level: Int
     
-    init(for gameType: GameList.GameType, inLevel level: Int) {
+    init(for gameType: GameList.GameType, in level: Int) {
         self.gameType = gameType
         self.level = level
     }
@@ -66,7 +66,7 @@ struct GameView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(for: .counting, inLevel: 1)
+        GameView(for: .counting, in: 1)
     }
 }
 

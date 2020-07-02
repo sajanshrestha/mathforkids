@@ -46,9 +46,7 @@ struct PositionProblemGameView: View {
                 
                 
                 CorrectIcon(correct: self.$answerCorrect)
-                
-                ResultView(score: self.game.score).opacity(self.game.gameCompleted ? 1 : 0)
-                
+                                
             }
         }
     }

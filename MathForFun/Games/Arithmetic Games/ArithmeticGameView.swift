@@ -57,9 +57,7 @@ struct ArithmeticGameView: View {
             
             
             CorrectIcon(correct: $answerCorrect)
-            
-            ResultView(score: game.score).opacity(game.gameCompleted ? 1 : 0)
-            
+                        
             LevelUpView(levelUp: $levelUp)
             
         }

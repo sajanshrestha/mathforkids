@@ -32,8 +32,6 @@ struct GameList {
         case multiplication = "Multiplication"
         case division = "Division"
 
-
-
         var name: String {
             self.rawValue
         }

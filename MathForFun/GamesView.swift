@@ -20,9 +20,15 @@ struct GamesView: View {
                 
                 NavigationLink(destination: LevelView(for: game), label: {
                     GameRow(game: game)
-                    })
+                })
             }
             .navigationBarTitle(Text("Fun Games"))
+            .navigationBarItems(
+                trailing: NavigationLink(destination: SettingsView(), label: {
+                    Image(systemName: "pencil.circle")
+                    .font(.largeTitle)
+                })
+            )
         }
     }
 }
@@ -43,7 +49,8 @@ struct GameRow: View {
             
             RoundedRectangle(cornerRadius: cornerRadius)
                 .frame(height: height)
-                .foregroundColor(.red).opacity(rectangleOpacity)
+                .border(Color.blue)
+                .foregroundColor(.white)
             
             animationView(for: game.gameType)
             
@@ -69,7 +76,7 @@ struct GameRow: View {
                 
             }
             if gameType == .identifyingColor {
-                LottieView(filename: "colors")
+                ColorAnimation()
                 
             }
             

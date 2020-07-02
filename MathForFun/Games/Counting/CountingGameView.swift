@@ -28,7 +28,6 @@ struct CountingGameView: View {
         
         return ZStack {
             
-            
             VStack {
                 
                 ScoreView(answerCorrect: self.$answerCorrect, score: self.gameSession.score)
@@ -52,9 +51,7 @@ struct CountingGameView: View {
             .opacity(gameSession.gameCompleted ? opacity : 1)
             
             CorrectIcon(correct: $answerCorrect)
-            
-            ResultView(score: gameSession.score).opacity(gameSession.gameCompleted ? 1 : 0)
-            
+                        
             LevelUpView(levelUp: $levelUp)
             
         }

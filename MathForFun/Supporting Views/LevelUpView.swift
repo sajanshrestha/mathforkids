@@ -12,16 +12,19 @@ struct LevelUpView: View {
     
     @Binding var levelUp: Bool
     
+    @State private var name = UserDefaults.standard.value(forKey: "user_name") as? String ?? "player"
+    
     var body: some View {
         ZStack {
-            Text("Level Up")
-            .font(Font.custom("Noteworthy", size: fontSize))
-            .bold()
-            .opacity(levelUp ? 1 : 0)
-            .rotationEffect(.degrees(levelUp ? 3*360 : 0))
-            .animation(Animation.easeInOut(duration: 2.0))
-            .offset(x: 0, y: offsetFactor)
-            .foregroundColor(.green)
+            Text("Congratulations \(name), your level is up 😊")
+                .font(Font.custom("Noteworthy", size: fontSize))
+                .bold()
+                .opacity(levelUp ? 1 : 0)
+                .scaleEffect(levelUp ? 1: 0.5)
+                .animation(Animation.easeInOut(duration: 2.0))
+                .offset(x: 0, y: offsetFactor)
+                .foregroundColor(.green)
+                .padding()
             
             if levelUp {
                 LottieView(filename: "confetti")
