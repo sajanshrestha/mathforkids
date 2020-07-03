@@ -10,56 +10,48 @@ import SwiftUI
 
 struct ShapeGameView: View {
     
-    @ObservedObject var game: GameModel
-    
+    @ObservedObject var gameSession = GameModel()
+
     @EnvironmentObject var playerLevel: PlayerLevel
 
     @State private var answerSelected = ""
     
-    @State private var answerCorrect = false
+    @Binding var answerCorrect: Bool
     
-    @State private var levelUp = false
+    @Binding var levelUp: Bool
     
     
-    var level: Int
-    
+    var level = GameModel.gameLevel
+
     var body: some View {
         
-        let shapeProblem = game.problems[game.index] as! IdentifyingShapeProblem
+        let shapeProblem = gameSession.problems[gameSession.index] as! IdentifyingShapeProblem
         
         return GeometryReader { geometry in
             
-            ZStack {
+            VStack {
+                
+                ScoreView(answerCorrect: self.$answerCorrect, score: self.gameSession.score)
+                
+                Spacer()
+                
+                Text(shapeProblem.shapeEmoji)
+                    .font(Font.system(size: min(geometry.size.width, geometry.size.height) * self.shapeScalingFactor))
+                
+                Spacer()
+                
+                Text("What shape is this?")
+                    .modifier(QuestionText())
                 
                 
-                VStack {
-                    
-                    ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
-
-                    Spacer()
-                    
-                    Text(shapeProblem.shapeEmoji)
-                        .font(Font.system(size: min(geometry.size.width, geometry.size.height) * self.shapeScalingFactor))
-                    
-                    Spacer()
-                    
-                    Text("What shape is this?")
-                        .modifier(QuestionText())
-
-
-                    self.optionsView(for: shapeProblem)
-                        .frame(height: self.optionsSectionHeight)
-                        .disabled(self.game.gameCompleted || self.game.processingAnswer)
-                        .opacity(self.game.processingAnswer ? self.opacity : 1)
-                    
-                }
-                .opacity(self.game.gameCompleted ? self.opacity : 1)
-                                
-                CorrectIcon(correct: self.$answerCorrect)
+                self.optionsView(for: shapeProblem)
+                    .frame(height: self.optionsSectionHeight)
+                    .disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
+                    .opacity(self.gameSession.processingAnswer ? self.opacity : 1)
                 
-                LevelUpView(levelUp: self.$levelUp)
-
             }
+            .opacity(self.gameSession.gameCompleted ? self.opacity : 1)
+            
         }
         
     }
@@ -72,20 +64,17 @@ struct ShapeGameView: View {
             
             withAnimation(Animation.spring()) {
 
-                self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
+                self.answerCorrect  = self.gameSession.submitAnswer(with: self.answerSelected)
             }
             
-            if self.game.lastProblemOn && self.game.score > 7 {
+            if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
                 
-                if self.level == self.playerLevel.getCurrentLevel(for: .identifyingShape) {
-                    self.playerLevel.updateLevel(for: .identifyingShape, playingLevel: self.level)
-                    self.levelUp = true
-                }
+                self.levelUp = self.playerLevel.updateLevel(for: .identifyingShape, playingLevel: self.level)
             }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.game.next()
+            DispatchQueue.actionOnMain(after: 1.0) {
                 self.answerCorrect = false
+                self.gameSession.next()
             }
         }
     }
@@ -97,10 +86,4 @@ struct ShapeGameView: View {
     private let optionsSectionHeight: CGFloat = 60
     private let padding: CGFloat = 20
 
-}
-
-struct ShapeGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShapeGameView(game: GameModel(), level: 2)
-    }
 }

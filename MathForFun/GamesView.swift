@@ -12,6 +12,8 @@ struct GamesView: View {
     
     var gameList: GameList
     
+    @State private var showSettingsView = false
+    
     var body: some View {
         
         NavigationView {
@@ -22,13 +24,18 @@ struct GamesView: View {
                     GameRow(game: game)
                 })
             }
-            .navigationBarTitle(Text("Fun Games"))
+            .navigationBarTitle(Text("Math Games"))
             .navigationBarItems(
-                trailing: NavigationLink(destination: SettingsView(), label: {
-                    Image(systemName: "pencil.circle")
+                trailing: Image(systemName: "pencil.circle")
                     .font(.largeTitle)
-                })
+                    .foregroundColor(.blue)
+                    .onTapGesture {
+                        self.showSettingsView = true
+                }
             )
+                .popover(isPresented: $showSettingsView) {
+                    SettingsView()
+            }
         }
     }
 }

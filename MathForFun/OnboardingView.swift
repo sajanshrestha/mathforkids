@@ -68,7 +68,7 @@ struct FirstScreenView: View {
         
         withAnimation(Animation.spring()) {
             
-            UserDefaults.standard.set(name, forKey: "user_name")
+            UserDefaults.updateUserName(with: name)
             
             self.secondScreen = true
             

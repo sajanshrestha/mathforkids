@@ -10,44 +10,38 @@ import SwiftUI
 
 struct PositionProblemGameView: View {
     
-    @ObservedObject var game: GameModel
-    
-    @State private var answerCorrect = false
+    @ObservedObject var gameSession = GameModel()
+
+    @Binding var answerCorrect: Bool
     
     var body: some View {
         
-        let positionProblem = game.problems[game.index] as! PositionProblem
+        let positionProblem = gameSession.problems[gameSession.index] as! PositionProblem
         
         return GeometryReader { geometry in
             
-            ZStack {
-                                
-                VStack {
-                    
-                    ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
-                    
-                    Spacer()
-                    
-                    self.questionView(for: positionProblem, of: geometry.size)
-                    Spacer()
-                    
-                    Text(positionProblem.questionText)
-                        .modifier(QuestionText())
-
-                    
-                    self.optionsView(for: positionProblem)
-                        .frame(height: self.optionsSectionHeight)
-                        .disabled(self.game.gameCompleted || self.game.processingAnswer)
-                        .opacity(self.game.processingAnswer ? self.opacity : 1)
-                    
-                }
-                .padding()
-                .opacity(self.game.gameCompleted ? self.opacity : 1)
+            VStack {
+                
+                ScoreView(answerCorrect: self.$answerCorrect, score: self.gameSession.score)
+                
+                Spacer()
+                
+                self.questionView(for: positionProblem, of: geometry.size)
+                Spacer()
+                
+                Text(positionProblem.questionText)
+                    .modifier(QuestionText())
                 
                 
-                CorrectIcon(correct: self.$answerCorrect)
-                                
+                self.optionsView(for: positionProblem)
+                    .frame(height: self.optionsSectionHeight)
+                    .disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
+                    .opacity(self.gameSession.processingAnswer ? self.opacity : 1)
+                
             }
+            .padding()
+            .opacity(self.gameSession.gameCompleted ? self.opacity : 1)
+            
         }
     }
     
@@ -78,12 +72,12 @@ struct PositionProblemGameView: View {
         OptionsView(options: problem.options) { selectedOption in
             
             withAnimation(Animation.spring()) {
-                self.answerCorrect = self.game.submitAnswer(with: selectedOption)
+                self.answerCorrect = self.gameSession.submitAnswer(with: selectedOption)
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.game.next()
+            DispatchQueue.actionOnMain(after: 1.0) {
                 self.answerCorrect = false
+                self.gameSession.next()
             }
         }
     }
@@ -96,10 +90,4 @@ struct PositionProblemGameView: View {
     
     
     
-}
-
-struct PositionProblemGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        PositionProblemGameView(game: GameModel())
-    }
 }

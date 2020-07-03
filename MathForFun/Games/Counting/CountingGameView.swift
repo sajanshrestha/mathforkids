@@ -10,25 +10,23 @@ import SwiftUI
 
 struct CountingGameView: View {
     
-    @ObservedObject var gameSession: GameModel
+    @ObservedObject var gameSession = GameModel()
         
     @State private var selectedAnswer = "0"
     
-    @State private var answerCorrect = false
+    @Binding var answerCorrect: Bool
     
-    @State private var levelUp = false
+    @Binding var levelUp: Bool
 
     @EnvironmentObject var playerLevel: PlayerLevel
     
-    var level: Int
-        
+    var level = GameModel.gameLevel
+
     var body: some View {
         
         let countingProblem = gameSession.problems[gameSession.index] as! CountingProblem
         
-        return ZStack {
-            
-            VStack {
+        return VStack {
                 
                 ScoreView(answerCorrect: self.$answerCorrect, score: self.gameSession.score)
                 
@@ -49,12 +47,6 @@ struct CountingGameView: View {
             .foregroundColor(.black)
             .font(.title)
             .opacity(gameSession.gameCompleted ? opacity : 1)
-            
-            CorrectIcon(correct: $answerCorrect)
-                        
-            LevelUpView(levelUp: $levelUp)
-            
-        }
     }
     
     func optionsView(for countingProblem: CountingProblem) -> some View {
@@ -66,38 +58,22 @@ struct CountingGameView: View {
             self.answerCorrect = self.gameSession.submitAnswer(with: self.selectedAnswer)
             
             if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
-                self.updateLevel()
+                self.levelUp = self.playerLevel.updateLevel(for: .counting, playingLevel: self.level)
             }
-        
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                withAnimation(Animation.spring()) {
-                    self.answerCorrect = false
-                    self.gameSession.next()
-                }
+            
+            DispatchQueue.actionOnMain(after: 1.0) {
+                self.answerCorrect = false
+                self.gameSession.next()
             }
         }
     }
-    
-    private func updateLevel() {
-        if self.level == self.playerLevel.getCurrentLevel(for: .counting) {
-            self.playerLevel.updateLevel(for: .counting, playingLevel: self.level)
-            self.levelUp = true
-        }
-    }
+   
     
     //  MARK: CONSTANTS
     private let spacing: CGFloat = 4
     private let optionsSectionHeight: CGFloat = 60
     private let opacity = 0.1
     
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        let game = GameModel()
-        GameModel.gameType = .counting
-        return CountingGameView(gameSession: game, level: 2)
-    }
 }
 
 

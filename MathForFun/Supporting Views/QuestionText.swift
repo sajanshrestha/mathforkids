@@ -19,7 +19,7 @@ struct QuestionText: ViewModifier {
     
     // MARK: CONSTANTS
     
-    private let textSize: CGFloat = 40
+    private let textSize: CGFloat = 32
     private let padding: CGFloat = 20
     
 }

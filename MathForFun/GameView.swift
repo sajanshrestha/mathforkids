@@ -15,6 +15,9 @@
 import SwiftUI
 
 struct GameView: View {
+    
+    @State private var answerCorrect = false
+    @State private var levelUp = false
         
     var gameType: GameList.GameType
         
@@ -27,7 +30,15 @@ struct GameView: View {
     
     var body: some View {
         
-        self.view(for: gameType)
+        ZStack {
+            
+            self.view(for: gameType)
+            
+            CorrectIcon(correct: $answerCorrect)
+            
+            LevelUpView(levelUp: $levelUp)
+        }
+        
     }
     
     func view(for gameType: GameList.GameType) -> some View {
@@ -38,26 +49,26 @@ struct GameView: View {
         
         return Group {
             if gameType == .counting {
-                CountingGameView(gameSession: GameModel(), level: level)
+                CountingGameView(answerCorrect: $answerCorrect, levelUp: $levelUp)
             }
             else if gameType == .comparing {
-                ComparingGameView(game: GameModel(), level: level)
+                ComparingGameView(answerCorrect: $answerCorrect, levelUp: $levelUp)
             }
             else if gameType == .identifyingColor {
-                ColorGameView(game: GameModel(), level: level)
+                ColorGameView(answerCorrect: $answerCorrect, levelUp: $levelUp)
             }
             else if gameType == .identifyingShape {
-                ShapeGameView(game: GameModel(), level: level)
+                ShapeGameView(answerCorrect: $answerCorrect, levelUp: $levelUp)
             }
             else if gameType == .position {
-                PositionProblemGameView(game: GameModel())
+                PositionProblemGameView(answerCorrect: $answerCorrect)
             }
             else if gameType == .classifying {
-                ClassifyingGameView(game: GameModel(), level: level)
+                ClassifyingGameView(answerCorrect: $answerCorrect, levelUp: $levelUp)
             }
             
             else if gameType == .addition || gameType == .subtraction || gameType == .multiplication || gameType == .division {
-                ArithmeticGameView(game: GameModel(), level: level)
+                ArithmeticGameView(answerCorrect: $answerCorrect, levelUp: $levelUp)
             }
             
         }
@@ -66,7 +77,7 @@ struct GameView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(for: .counting, in: 1)
+        GameView(for: .comparing, in: 3)
     }
 }
 

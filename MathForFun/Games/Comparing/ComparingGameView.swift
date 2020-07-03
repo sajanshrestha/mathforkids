@@ -10,54 +10,41 @@ import SwiftUI
 
 struct ComparingGameView: View {
     
-    @ObservedObject var game: GameModel
+    @ObservedObject var gameSession = GameModel()
     
-    @State private var answerCorrect = false
+    @Binding var answerCorrect: Bool
     
-    @State private var levelUp = false
+    @Binding var levelUp: Bool
     
     @EnvironmentObject var playerLevel: PlayerLevel
     
-    var level: Int
+    var level = GameModel.gameLevel
 
     
     var body: some View {
         
-        let comparingProblem = game.problems[game.index] as! ComparingProblem
+        let comparingProblem = gameSession.problems[gameSession.index] as! ComparingProblem
         
         return GeometryReader { geometry in
             
-            ZStack {
-                                
-                VStack(spacing: self.spacing) {
-                    
-                    ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
-                    
-                    self.optionsView(for: comparingProblem)
-                        .disabled(self.game.gameCompleted || self.game.processingAnswer)
-                        .opacity(self.game.processingAnswer ? self.opacity : 1)
-                    
-                    
-                    Text("Which box has more?")
+            VStack(spacing: self.spacing) {
+                
+                ScoreView(answerCorrect: self.$answerCorrect, score: self.gameSession.score)
+                
+                Spacer()
+                
+                self.optionsView(for: comparingProblem)
+                    .disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
+                    .opacity(self.gameSession.processingAnswer ? self.opacity : 1)
+                
+                
+                Text("Which box has more?")
                     .modifier(QuestionText())
-                    
-                }
-                .font(.title)
-                .opacity(self.game.gameCompleted ? self.opacity : 1)
-                
-                
-                CorrectIcon(correct: self.$answerCorrect)
-                                
-                LevelUpView(levelUp: self.$levelUp)
-
                 
             }
-            .padding()
-            .frame(height: geometry.size.height * self.scalingFactor)
-            
-            
+            .font(.title)
+            .opacity(self.gameSession.gameCompleted ? self.opacity : 1)
         }
-        
     }
     
     func optionsView(for problem: ComparingProblem) -> some View {
@@ -71,8 +58,10 @@ struct ComparingGameView: View {
                     
                     self.submitAnswer(with: ComparingProblem.ComparingSet.firstSet.rawValue)
                     
-                    self.updateLevel()
-                    
+                    if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
+                        self.levelUp = self.playerLevel.updateLevel(for: .comparing, playingLevel: self.level)
+                    }
+                                        
             }
             
             self.view(for: problem.secondSetEmoji, problem.secondSetCount)
@@ -81,22 +70,15 @@ struct ComparingGameView: View {
                     
                     self.submitAnswer(with: ComparingProblem.ComparingSet.secondSet.rawValue)
                     
-                    self.updateLevel()
+                    if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
+                        self.levelUp = self.playerLevel.updateLevel(for: .comparing, playingLevel: self.level)
+                    }
                     
+
             }
             
         }
-        .disabled(self.game.gameCompleted)
-    }
-    
-    
-    private func updateLevel() {
-        if self.game.lastProblemOn && self.game.score > 7 {
-            if self.level == self.playerLevel.getCurrentLevel(for: .comparing) {
-                self.playerLevel.updateLevel(for: .comparing, playingLevel: self.level)
-                self.levelUp = true
-            }
-        }
+        .disabled(self.gameSession.gameCompleted)
     }
     
     
@@ -123,14 +105,14 @@ struct ComparingGameView: View {
     
     
     func submitAnswer(with answer: String) {
-        answerCorrect = game.submitAnswer(with: answer)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            withAnimation(Animation.spring()) {
-                self.answerCorrect = false
-                self.game.next()
-            }
+        answerCorrect = gameSession.submitAnswer(with: answer)
+        
+        DispatchQueue.actionOnMain(after: 1.0) {
+            self.answerCorrect = false
+            self.gameSession.next()
         }
+        
     }
     
     
@@ -143,13 +125,3 @@ struct ComparingGameView: View {
 
 
 }
-
-struct ComparingGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        ComparingGameView(game: GameModel(), level: 2)
-    }
-}
-
-
-
-

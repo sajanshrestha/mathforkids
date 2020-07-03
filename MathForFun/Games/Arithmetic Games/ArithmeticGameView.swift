@@ -10,17 +10,17 @@ import SwiftUI
 
 struct ArithmeticGameView: View {
     
-    @ObservedObject var game: GameModel
+    @ObservedObject var game = GameModel()
     
     @State private var selectedAnswer = "0"
 
-    @State private var answerCorrect = false
+    @Binding var answerCorrect: Bool
     
-    @State private var levelUp = false
+    @Binding var levelUp: Bool
 
     @EnvironmentObject var playerLevel: PlayerLevel
     
-    var level: Int
+    var level = GameModel.gameLevel
     
     private var resultTitleText:  String {
         
@@ -32,34 +32,25 @@ struct ArithmeticGameView: View {
     var body: some View {
         
         let arithmeticProblem = game.problems[game.index] as! ArithmeticProblem
-                        
-        return ZStack {
-                        
-            VStack {
-                
-                ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
-                
-                Spacer()
-                                
-                OperationView(firstNumber: arithmeticProblem.firstNumber, secondNumber: arithmeticProblem.secondNumber, operation: arithmeticProblem.arithmeticOperation)
-                
-                Spacer()
-                
-                
-                Text("What is the \(self.resultTitleText)?")
-                    .modifier(QuestionText())
-                
-                optionsView(for: arithmeticProblem)
-                    .frame(height: optionsSectionHeight)
-                    .disabled(self.game.gameCompleted || self.game.processingAnswer)
-                    .opacity(self.game.processingAnswer ? opacity : 1)
-            }
+        
+        return VStack {
+            
+            ScoreView(answerCorrect: self.$answerCorrect, score: self.game.score)
+            
+            Spacer()
+            
+            OperationView(firstNumber: arithmeticProblem.firstNumber, secondNumber: arithmeticProblem.secondNumber, operation: arithmeticProblem.arithmeticOperation)
+            
+            Spacer()
             
             
-            CorrectIcon(correct: $answerCorrect)
-                        
-            LevelUpView(levelUp: $levelUp)
+            Text("What is the \(self.resultTitleText)?")
+                .modifier(QuestionText())
             
+            optionsView(for: arithmeticProblem)
+                .frame(height: optionsSectionHeight)
+                .disabled(self.game.gameCompleted || self.game.processingAnswer)
+                .opacity(self.game.processingAnswer ? opacity : 1)
         }
     }
     
@@ -72,24 +63,16 @@ struct ArithmeticGameView: View {
             self.answerCorrect = self.game.submitAnswer(with: self.selectedAnswer)
             
             if self.game.lastProblemOn && self.game.score > 7 {
-                self.updateLevel()
+                self.levelUp = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level)
             }
-        
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                withAnimation(Animation.spring()) {
-                    self.answerCorrect = false
-                    self.game.next()
-                }
+            
+            DispatchQueue.actionOnMain(after: 1.0) {
+                self.answerCorrect = false
+                self.game.next()
             }
         }
     }
     
-    private func updateLevel() {
-        if self.level == self.playerLevel.getCurrentLevel(for: GameModel.gameType) {
-            self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level)
-            self.levelUp = true
-        }
-    }
     
     // MARK: CONSTANTS
     
@@ -101,6 +84,7 @@ struct ArithmeticGameView: View {
 
 struct AdditionGameView_Previews: PreviewProvider {
     static var previews: some View {
-        ArithmeticGameView(game: GameModel(), level: 1)
+        ArithmeticGameView(game: GameModel(), answerCorrect: .constant(false), levelUp: .constant(false), level: 2)
     }
 }
+

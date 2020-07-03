@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class GameModel: ObservableObject {
     
     
@@ -35,25 +34,31 @@ class GameModel: ObservableObject {
     var gameCompleted: Bool { game.sessionCompleted }
     
     var processingAnswer: Bool { game.processingAnswer }
-    
+        
     var lastProblemOn: Bool { game.lastProblem }
     
     func submitAnswer(with answer: String) -> Bool {
-        game.processingAnswer = true
-        return game.submitAnswer(with: answer)
         
+        game.processingAnswer = true
+        let answerCorrect = game.submitAnswer(with: answer)
+        
+        notifyUser(for: answerCorrect)
+        
+        return answerCorrect
     }
     
     func next()  {
         game.processingAnswer = false
         game.incrementIndex()
     }
-
+    
+    private func notifyUser(for answerCorrect: Bool) {
+        if answerCorrect {
+            AudioPlayer.playCorrectSound()
+        }
+        else {
+            AudioPlayer.playIncorrectSound()
+        }
+    }
     
 }
-
-
-
-
-
-

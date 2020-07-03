@@ -13,12 +13,13 @@ class PlayerLevel: ObservableObject {
     @Published var currentLevels: [String: Int]
     
     init() {
-        guard let playerGameLevels = UserDefaults.standard.value(forKey: "PlayerLevel") as? [String: Int] else {
+        guard let playerGameLevels = UserDefaults.getPlayerLevel() else {
             currentLevels = [:]
             GameList.GameType.allCases.forEach { gameType in
                 currentLevels[gameType.rawValue] = 1
             }
             return
+            
         }
         self.currentLevels = playerGameLevels
     }
@@ -27,14 +28,18 @@ class PlayerLevel: ObservableObject {
         currentLevels[gameType.rawValue] ?? 1
     }
     
-    func updateLevel(for gameType: GameList.GameType, playingLevel: Int) {
+    @discardableResult
+    func updateLevel(for gameType: GameList.GameType, playingLevel: Int) -> Bool {
         
-        guard let currentLevel = currentLevels[gameType.rawValue] else { return }
+        let currentLevel = getCurrentLevel(for: gameType)
         
         if playingLevel == currentLevel {
             currentLevels[gameType.rawValue]! += 1
-            UserDefaults.standard.set(currentLevels, forKey: "PlayerLevel")
+            UserDefaults.updatePlayerLevel(with: currentLevels)
+            AudioPlayer.playCelebrationSound()
+            return true
         }
+        return false
     }
     
 }

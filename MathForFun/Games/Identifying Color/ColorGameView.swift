@@ -10,48 +10,40 @@ import SwiftUI
 
 struct ColorGameView: View {
     
-    @ObservedObject var game: GameModel
+    @ObservedObject var game = GameModel()
     
     @State private var answerSelected = ""
     
-    @State private var answerCorrect = false
+    @Binding var answerCorrect: Bool
     
-    @State private var levelUp = false
+    @Binding var levelUp: Bool
     
     @EnvironmentObject var playerLevel: PlayerLevel
 
-    var level: Int
+    var level = GameModel.gameLevel
 
     
     var body: some View {
         
         let colorProblem = game.problems[game.index] as! IdentifyingColorProblem
         
-        return ZStack {
+        return VStack {
             
-            VStack {
-                
-                ScoreView(answerCorrect: $answerCorrect, score: game.score)
-                
-                questionView(for: colorProblem)
-                
-                Text("What color is this?")
-                    .modifier(QuestionText())
-                
-                Spacer()
-                
-                optionsView(for: colorProblem)
-                    .frame(height: optionsSectionHeight)
-                    .disabled(self.game.gameCompleted || self.game.processingAnswer)
-                    .opacity(self.game.processingAnswer ? opacity : 1)
-            }
-            .opacity(game.gameCompleted ? opacity : 1)
+            ScoreView(answerCorrect: $answerCorrect, score: game.score)
             
-            CorrectIcon(correct: $answerCorrect)
+            questionView(for: colorProblem)
             
-            LevelUpView(levelUp: $levelUp)
-
+            Text("What color is this?")
+                .modifier(QuestionText())
+            
+            Spacer()
+            
+            optionsView(for: colorProblem)
+                .frame(height: optionsSectionHeight)
+                .disabled(self.game.gameCompleted || self.game.processingAnswer)
+                .opacity(self.game.processingAnswer ? opacity : 1)
         }
+        .opacity(game.gameCompleted ? opacity : 1)
         
     }
     
@@ -82,10 +74,7 @@ struct ColorGameView: View {
             }
             
             if self.game.lastProblemOn && self.game.score > 7 {
-                if self.level == self.playerLevel.getCurrentLevel(for: .identifyingColor) {
-                    self.playerLevel.updateLevel(for: .identifyingColor, playingLevel: self.level)
-                    self.levelUp = true
-                }
+                self.levelUp = self.playerLevel.updateLevel(for: .identifyingColor, playingLevel: self.level)
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -103,11 +92,3 @@ struct ColorGameView: View {
     private let optionsSectionHeight: CGFloat = 60
 
 }
-
-struct ColorGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        ColorGameView(game: GameModel(), level: 2)
-    }
-}
-
-
