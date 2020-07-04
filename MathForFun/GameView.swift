@@ -32,11 +32,15 @@ struct GameView: View {
         
         ZStack {
             
-            self.view(for: gameType)
-            
-            CorrectIcon(correct: $answerCorrect)
-            
-            LevelUpView(levelUp: $levelUp)
+            if !levelUp {
+                
+                self.view(for: gameType)
+                
+                CorrectIcon(correct: $answerCorrect)
+            }
+            else {
+                LevelUpView(levelUp: $levelUp, newLevel: level + 1)
+            }
         }
         
     }

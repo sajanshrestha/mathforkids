@@ -12,28 +12,34 @@ struct LevelUpView: View {
     
     @Binding var levelUp: Bool
     
-    @State private var name = UserDefaults.standard.value(forKey: "user_name") as? String ?? "player"
+    @State private var name = UserDefaults.getUserName()
+
+    @Environment(\.presentationMode) var presentation
+    
+    var newLevel: Int
     
     var body: some View {
         ZStack {
-            Text("Congratulations \(name), your level is up 😊")
+            Text("Congratulations \(name) 😊, you unlocked Level \(newLevel)")
                 .font(Font.custom("Noteworthy", size: fontSize))
                 .bold()
                 .opacity(levelUp ? 1 : 0)
                 .scaleEffect(levelUp ? 1: 0.5)
                 .animation(Animation.easeInOut(duration: 2.0))
-                .offset(x: 0, y: offsetFactor)
                 .foregroundColor(.green)
                 .padding()
+                .offset(x: 0, y: -100)
             
             if levelUp {
                 LottieView(filename: "confetti")
-                    .offset(x: 0, y: -250)
             }
             
-            
+            Button(action: {
+                self.presentation.wrappedValue.dismiss()
+            }, label: {
+                Text("Play Next Level").font(.title)
+            })
         }
-           
     }
     
     // MARK: CONSTANTS
@@ -43,7 +49,7 @@ struct LevelUpView: View {
 
 struct LevelUpView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelUpView(levelUp: .constant(true))
+        LevelUpView(levelUp: .constant(true), newLevel: 1)
     }
 }
 

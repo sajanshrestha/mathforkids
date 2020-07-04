@@ -33,7 +33,7 @@ class PlayerLevel: ObservableObject {
         
         let currentLevel = getCurrentLevel(for: gameType)
         
-        if playingLevel == currentLevel {
+        if playingLevel == currentLevel && gameType.numberOfLevels > playingLevel {
             currentLevels[gameType.rawValue]! += 1
             UserDefaults.updatePlayerLevel(with: currentLevels)
             AudioPlayer.playCelebrationSound()
