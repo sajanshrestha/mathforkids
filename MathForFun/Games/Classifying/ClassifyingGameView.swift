@@ -11,7 +11,7 @@ import SwiftUI
 struct ClassifyingGameView: View {
     
     @ObservedObject var gameSession = GameModel()
-
+    
     @Binding var answerCorrect: Bool
     
     @Binding var levelUp: Bool
@@ -19,7 +19,7 @@ struct ClassifyingGameView: View {
     @EnvironmentObject var playerLevel: PlayerLevel
     
     var level = GameModel.gameLevel
-
+    
     
     var body: some View {
         
@@ -46,41 +46,27 @@ struct ClassifyingGameView: View {
     
     func body(for problem: ClassifyingProblem) -> some View {
         
-        GeometryReader { geometry in
+        Grid(problem.items) { item in
             
-            self.body(for: problem, of: geometry.size)
-        }
-    }
-    
-    func body(for problem: ClassifyingProblem, of size: CGSize) -> some View {
-        
-        HStack(spacing: spacing) {
-            
-            ForEach(problem.items) { item in
-                
-                Button(action: {
-                    
+            CardView(title: item.content)
+                .padding()
+                .disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
+                .opacity(self.gameSession.processingAnswer ? self.opacity : 1)
+                .onTapGesture {
                     withAnimation(Animation.spring()) {
                         self.answerCorrect = self.gameSession.submitAnswer(with: item.content)
                     }
                     
                     if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
-                        self.levelUp = self.playerLevel.updateLevel(for: .classifying, playingLevel: self.level)
+                        DispatchQueue.actionOnMain(after: 0.5) {
+                            self.levelUp = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level)
+                        }
                     }
                     
                     DispatchQueue.actionOnMain(after: 1.0) {
                         self.answerCorrect = false
                         self.gameSession.next()
                     }
-                    
-                }, label: {
-                    
-                    Text(item.content).font(Font.system(size: size.width * self.textScalingFactor)).padding().border(Color.blue)
-                    
-                })
-                    .disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
-                    .opacity(self.gameSession.processingAnswer ? self.opacity : 1)
-                    
             }
         }
     }
@@ -88,5 +74,8 @@ struct ClassifyingGameView: View {
     // MARK: CONSTANTS
     private let spacing: CGFloat = 8
     private let opacity = 0.3
-    private let textScalingFactor: CGFloat = 0.15
+    private let textScalingFactor: CGFloat = 0.10
 }
+
+
+

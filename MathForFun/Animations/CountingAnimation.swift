@@ -30,6 +30,7 @@ struct CountingAnimation: View {
             HStack {
                 
                 ForEach(self.imageNames.indices, id: \.self) { index in
+                    
                     Image(systemName: self.imageNames[index])
                         .offset(x: 0, y: self.move ? self.randomOffsetValues[index] : -self.randomOffsetValues[index])
                         .foregroundColor(Color(self.randomColors[index]))

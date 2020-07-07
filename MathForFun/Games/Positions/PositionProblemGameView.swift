@@ -63,7 +63,8 @@ struct PositionProblemGameView: View {
     
     func view(for positionalElements: [String], size: CGSize) -> some View {
         ForEach(positionalElements, id: \.self) { content in
-            Text(content).font(Font.system(size: min(size.width, size.height) * self.textScalingFactor)).padding().border(Color.blue)
+            CardView(title: content)
+                .frame(width: 100, height: 100)
         }
     }
     

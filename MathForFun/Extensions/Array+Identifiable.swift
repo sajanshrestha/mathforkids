@@ -38,6 +38,7 @@ extension Array where Element: Hashable {
 }
 
 
+
 extension String {
     
     static func getOptions(for rightAnswer: String) -> [String] {

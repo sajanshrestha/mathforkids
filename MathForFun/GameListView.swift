@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct GamesView: View {
+struct GameListView: View {
     
     var gameList: GameList
     
@@ -26,11 +26,8 @@ struct GamesView: View {
             }
             .navigationBarTitle(Text("Math Games"))
             .navigationBarItems(
-                trailing: Image(systemName: "pencil.circle")
-                    .font(.largeTitle)
-                    .foregroundColor(.blue)
-                    .onTapGesture {
-                        self.showSettingsView = true
+                trailing: Button("Edit") {
+                    self.showSettingsView = true
                 }
             )
                 .popover(isPresented: $showSettingsView) {
@@ -42,7 +39,7 @@ struct GamesView: View {
 
 struct PreKHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        GamesView(gameList: GameList())
+        GameListView(gameList: GameList())
     }
 }
 
@@ -83,12 +80,11 @@ struct GameRow: View {
                 
             }
             if gameType == .identifyingColor {
-                ColorAnimation()
-                
+                LottieView(filename: "colors")
             }
             
             if gameType == .identifyingShape {
-                ShapeAnimation()
+                LottieView(filename: "shapes")
                 
             }
             if gameType == .position {

@@ -18,40 +18,41 @@ struct OperationView: View {
     var body: some View {
         
         GeometryReader { geometry in
+            
             HStack(spacing: self.spacing) {
-                Image(systemName: "\(self.firstNumber).circle.fill")
-                    .resizable()
-                    .frame(width: geometry.size.width * 0.3, height: geometry.size.width * 0.3)
+                
+                CardView(title: "\(self.firstNumber)")
+                    .frame(width: geometry.size.width * 0.2, height: geometry.size.width * 0.2)
+                    
+                    .animation(nil)
                 
                 self.symbol(for: self.operation, size: geometry.size)
-
-                Image(systemName: "\(self.secondNumber).circle.fill")
-                .resizable()
-                .frame(width: geometry.size.width * 0.3, height: geometry.size.width * 0.3)
+                    .foregroundColor(.black)
+                
+                CardView(title: "\(self.secondNumber)")
+                    .frame(width: min(geometry.size.width, geometry.size.height) * 0.2, height: min(geometry.size.width, geometry.size.height) * 0.2)
+                    .animation(nil)
+                
+                
             }.padding()
         }
         .font(.largeTitle)
-        .foregroundColor(.blue)
     }
     
     func symbol(for operation: ArithmeticProblem.ArithmeticOperation, size: CGSize) -> some View {
         switch operation {
         case .addition:
             return Image(systemName: "plus")
-                .resizable()
-                .frame(width: size.width * 0.2, height: size.width * 0.15)
+            
         case .subtraction:
             return Image(systemName: "minus")
-                .resizable()
-                .frame(width: size.width * 0.15, height: 10)
+            
         case .multiplication:
             return Image(systemName: "multiply")
-                .resizable()
-                .frame(width: size.width * 0.1, height: size.width * 0.1)
+            
         case .division:
             return Image(systemName: "divide")
-                .resizable()
-                .frame(width: size.width * 0.1, height: size.width * 0.1)
+            
         }
     }
     

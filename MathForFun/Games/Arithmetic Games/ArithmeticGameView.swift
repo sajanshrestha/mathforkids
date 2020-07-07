@@ -12,19 +12,19 @@ struct ArithmeticGameView: View {
     
     @ObservedObject var game = GameModel()
     
+    @EnvironmentObject var playerLevel: PlayerLevel
+    
     @State private var selectedAnswer = "0"
 
     @Binding var answerCorrect: Bool
     
     @Binding var levelUp: Bool
 
-    @EnvironmentObject var playerLevel: PlayerLevel
-    
     var level = GameModel.gameLevel
     
     private var resultTitleText:  String {
         
-        let resultTitles: [GameList.GameType: String] = [.addition: "sum", .subtraction: "difference", .multiplication: "product"]
+        let resultTitles: [GameList.GameType: String] = [.addition: "sum", .subtraction: "difference", .multiplication: "product", .division: "quotient"]
         return resultTitles[GameModel.gameType] ?? "result"
         
     }
@@ -52,6 +52,7 @@ struct ArithmeticGameView: View {
                 .disabled(self.game.gameCompleted || self.game.processingAnswer)
                 .opacity(self.game.processingAnswer ? opacity : 1)
         }
+        .opacity(game.gameCompleted ? opacity : 1)
     }
     
     func optionsView(for arithmeticProblem: ArithmeticProblem) -> some View {
@@ -63,7 +64,9 @@ struct ArithmeticGameView: View {
             self.answerCorrect = self.game.submitAnswer(with: self.selectedAnswer)
             
             if self.game.lastProblemOn && self.game.score > 7 {
-                self.levelUp = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level)
+                DispatchQueue.actionOnMain(after: 0.5) {
+                    self.levelUp = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level)
+                }
             }
             
             DispatchQueue.actionOnMain(after: 1.0) {

@@ -63,7 +63,6 @@ struct ClassifyingProblem: Problem {
         var id = UUID()
         var content: String
         var isUnique: Bool
-        
     }
 }
 

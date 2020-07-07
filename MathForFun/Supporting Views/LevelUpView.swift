@@ -12,15 +12,15 @@ struct LevelUpView: View {
     
     @Binding var levelUp: Bool
     
-    @State private var name = UserDefaults.getUserName()
+    var name = UserDefaults.getUserName()
 
     @Environment(\.presentationMode) var presentation
     
-    var newLevel: Int
+    var level: Int
     
     var body: some View {
         ZStack {
-            Text("Congratulations \(name) 😊, you unlocked Level \(newLevel)")
+            Text("Congratulations \(name) 😊, you unlocked Level \(level + 1)")
                 .font(Font.custom("Noteworthy", size: fontSize))
                 .bold()
                 .opacity(levelUp ? 1 : 0)
@@ -49,7 +49,7 @@ struct LevelUpView: View {
 
 struct LevelUpView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelUpView(levelUp: .constant(true), newLevel: 1)
+        LevelUpView(levelUp: .constant(true), level: 1)
     }
 }
 

@@ -58,7 +58,9 @@ struct CountingGameView: View {
             self.answerCorrect = self.gameSession.submitAnswer(with: self.selectedAnswer)
             
             if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
-                self.levelUp = self.playerLevel.updateLevel(for: .counting, playingLevel: self.level)
+                DispatchQueue.actionOnMain(after: 0.5) {
+                    self.levelUp = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level)
+                }
             }
             
             DispatchQueue.actionOnMain(after: 1.0) {

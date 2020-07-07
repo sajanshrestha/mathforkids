@@ -33,15 +33,19 @@ struct LevelView: View {
         let numberOfLevels = self.game.gameType.numberOfLevels
         
         return List(1...numberOfLevels, id: \.self) { currentLevel in
-            
-            NavigationLink(destination: GameView(for: self.game.gameType, in: currentLevel), label: {
-                
-                Text("Level \(currentLevel)")
-                    .font(Font.custom("Noteworthy", size: self.textSize))
-                    .bold()
-                    .foregroundColor(self.isHigherLevel(currentLevel) ? .gray : .green)
-            }).disabled(self.isHigherLevel(currentLevel))
+            self.view(for: currentLevel)
         }
+    }
+    
+    private func view(for currentLevel: Int) -> some View {
+        
+        NavigationLink(destination: GameView(for: game.gameType, in: currentLevel) , label: {
+            
+            Text("Level \(currentLevel)")
+                .font(Font.custom("Noteworthy", size: textSize))
+                .bold()
+                .foregroundColor(isHigherLevel(currentLevel) ? .gray : .green)
+        }).disabled(isHigherLevel(currentLevel))
     }
     
     func isHigherLevel(_ level: Int) -> Bool {

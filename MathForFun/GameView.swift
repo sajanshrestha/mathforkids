@@ -38,8 +38,9 @@ struct GameView: View {
                 
                 CorrectIcon(correct: $answerCorrect)
             }
+                
             else {
-                LevelUpView(levelUp: $levelUp, newLevel: level + 1)
+                LevelUpView(levelUp: $levelUp, level: level)
             }
         }
         

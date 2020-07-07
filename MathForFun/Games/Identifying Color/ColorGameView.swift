@@ -21,7 +21,6 @@ struct ColorGameView: View {
     @EnvironmentObject var playerLevel: PlayerLevel
 
     var level = GameModel.gameLevel
-
     
     var body: some View {
         
@@ -74,7 +73,9 @@ struct ColorGameView: View {
             }
             
             if self.game.lastProblemOn && self.game.score > 7 {
-                self.levelUp = self.playerLevel.updateLevel(for: .identifyingColor, playingLevel: self.level)
+                DispatchQueue.actionOnMain(after: 0.5) {
+                    self.levelUp = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level)
+                }
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {

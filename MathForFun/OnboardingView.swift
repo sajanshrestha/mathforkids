@@ -7,21 +7,25 @@
 //
 
 import SwiftUI
+import Combine
 
 struct OnboardingView: View {
     
     @State private var name = ""
-    @State private var secondScreen = false
+    @State private var secondScreenVisible = false
     
     var body: some View {
         
         ZStack {
-            if !secondScreen {
-                FirstScreenView(name: $name, secondScreen: $secondScreen)
+            
+            if !secondScreenVisible {
+                
+                FirstScreenView(name: $name, secondScreenVisible: $secondScreenVisible)
                     .transition(.move(edge: .leading))
             }
             
-            SecondScreenView(name: name).offset(x: secondScreen ? 0 : UIScreen.main.bounds.width)
+            SecondScreenView(name: name)
+                .offset(x: secondScreenVisible ? 0 : UIScreen.main.bounds.width)
         }
     }
 }
@@ -29,7 +33,9 @@ struct OnboardingView: View {
 struct FirstScreenView: View {
     
     @Binding var name: String
-    @Binding var secondScreen: Bool
+    @Binding var secondScreenVisible: Bool
+    
+    @State private var keyboardHeight: CGFloat = 0
     
     var body: some View {
         
@@ -44,10 +50,11 @@ struct FirstScreenView: View {
             Text("Please enter you name to get started")
                 .font(.custom(fontFamily, size: textSize))
             
-            
             TextField("", text: $name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.horizontal)
+                .padding(.bottom, keyboardHeight)
+                .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
             
             Spacer()
             
@@ -70,7 +77,7 @@ struct FirstScreenView: View {
             
             UserDefaults.updateUserName(with: name)
             
-            self.secondScreen = true
+            self.secondScreenVisible = true
             
         }
     }
@@ -97,8 +104,8 @@ struct SecondScreenView: View {
                         .frame(width: imageWidth, height: imageHeight)
                     
                     VStack(spacing: spacing) {
-                        Text("Hi \(name)").bold().foregroundColor(.green)
-                        Text("Have fun playing all the games and learning along the way")
+                        Text("Hi, \(name)!").bold().foregroundColor(.green)
+                        Text("Have fun playing all the games and learning along the way!")
                         
                     }
                     .font(.custom(fontFamily, size: textSize))
@@ -122,7 +129,7 @@ struct SecondScreenView: View {
             }
             else {
                 
-                GamesView(gameList: GameList()).environmentObject(PlayerLevel())
+                GameListView(gameList: GameList()).environmentObject(PlayerLevel())
                     .transition(.move(edge: .trailing))
             }
         }

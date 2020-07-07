@@ -17,26 +17,28 @@ struct SettingsView: View {
     
     @Environment(\.presentationMode) var presentation
 
-    
     var body: some View {
         ZStack {
             Form {
-                TextField("Username", text: $username)
-                Button("Save") {
-                    guard !self.username.isEmpty else {
-                        self.showAlert = true
-                        return
-                    }
-                    self.saveUserName(self.username)
-                    self.dismiss()
-                }.foregroundColor(.green)
                 
-                Button("Cancel") {
-                    self.dismiss(after: 0.3)
-                }.foregroundColor(.red)
+                Section(header: Text("Enter you username")) {
+                    TextField("Username", text: $username)
+                    Button("Save") {
+                        guard !self.username.isEmpty else {
+                            self.showAlert = true
+                            return
+                        }
+                        self.saveUserName(self.username)
+                        self.dismiss()
+                    }.foregroundColor(.green)
+                    
+                    Button("Cancel") {
+                        self.dismiss(after: 0.3)
+                    }.foregroundColor(.red)
+                }
             }
             
-            CorrectIcon(correct: $saved)
+            CorrectIcon(correct: $saved, color: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1))
         }
         .onAppear {
             self.username = UserDefaults.getUserName()

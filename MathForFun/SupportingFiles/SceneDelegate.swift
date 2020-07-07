@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
             
             let gameList = GameList()
-            let gamesView = GamesView(gameList: gameList).environmentObject(playerLevel)
+            let gamesView = GameListView(gameList: gameList).environmentObject(playerLevel)
             window.rootViewController = UIHostingController(rootView: gamesView)
 
             self.window = window

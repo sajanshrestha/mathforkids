@@ -44,6 +44,7 @@ class GameModel: ObservableObject {
         
         notifyUser(for: answerCorrect)
         
+        
         return answerCorrect
     }
     
@@ -60,5 +61,4 @@ class GameModel: ObservableObject {
             AudioPlayer.playIncorrectSound()
         }
     }
-    
 }

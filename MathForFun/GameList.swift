@@ -40,10 +40,12 @@ struct GameList {
             switch self {
             case .counting, .classifying:
                 return 5
-            case .comparing, .identifyingColor, .addition, .multiplication, .subtraction, .division:
+            case .comparing, .identifyingColor:
                 return 3
             case .identifyingShape:
                 return 2
+            case .addition, .multiplication, .subtraction, .division:
+                return 8
             case .position:
                 return 1
             }

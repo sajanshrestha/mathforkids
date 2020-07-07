@@ -69,7 +69,9 @@ struct ShapeGameView: View {
             
             if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
                 
-                self.levelUp = self.playerLevel.updateLevel(for: .identifyingShape, playingLevel: self.level)
+                DispatchQueue.actionOnMain(after: 0.5) {
+                    self.levelUp = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level)
+                }
             }
 
             DispatchQueue.actionOnMain(after: 1.0) {
@@ -81,7 +83,7 @@ struct ShapeGameView: View {
     
     // MARK: CONSTANTS
     
-    private let shapeScalingFactor: CGFloat = 0.3
+    private let shapeScalingFactor: CGFloat = 0.4
     private let opacity = 0.3
     private let optionsSectionHeight: CGFloat = 60
     private let padding: CGFloat = 20

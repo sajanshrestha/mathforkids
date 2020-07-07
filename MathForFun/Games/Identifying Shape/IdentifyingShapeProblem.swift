@@ -19,24 +19,15 @@ struct IdentifyingShapeProblem: Problem {
     
     var options: [String] {
         
-        var options = [String]()
+        ["Square", "Triangle", "Rectangle", "Circle"].shuffled()
         
-        // var shapes = ["Square", "Triangle", "Rectangle", "Circle", "Cylinder", "Cube"]
-        
-        options.append(shape)
-                
-        options.append(contentsOf: ["Square", "Triangle", "Rectangle"])
-        
-        options.shuffle()
-        
-        return options
     }
     
     
     static func getProblems(count: Int, level: Int) -> [IdentifyingShapeProblem] {
         
         
-        let shapes = getShapes(count: count, for : level)
+        let shapes = getShapes(count: count, for: level)
         
         var problems = [IdentifyingShapeProblem]()
                
@@ -75,16 +66,21 @@ struct IdentifyingShapeProblem: Problem {
     
     private static let levelTwoShapes = [
         "❇️": "Square",
-        "🎲": "Cube",
         "🔟": "Square",
         "🎇": "Square",
         "🌁": "Square",
         "🏙": "Square",
-        "🔋": "Cylinder",
         "⚽️": "Circle",
         "💵": "Rectangle",
         "🎚": "Rectangle",
-        "🛢":"Cylinder"
+        "⬜️": "Square",
+        "🔳": "Square",
+        "🖼": "Square",
+        "🚺": "Square",
+        "📐": "Triangle",
+        "⚠️": "Triangle",
+        "🔺": "Triangle",
+        "💳": "Rectangle"
     ]
     
 }

@@ -12,12 +12,14 @@ struct CorrectIcon: View {
     
     @Binding var correct: Bool
     
+    var color: UIColor = .green
+    
     var body: some View {
         
         GeometryReader { geometry in
             Image(systemName: "checkmark.circle.fill")
                 .font(Font.system(size: min(geometry.size.width, geometry.size.height) * self.scaleFactor))
-                .foregroundColor(Color.green)
+                .foregroundColor(Color(self.color))
                 .opacity(self.correct ? 1 : 0)
                 .rotationEffect(.degrees(self.correct ? 360 : 0))
                 .scaleEffect(self.correct ? 2 : 1)
@@ -34,6 +36,6 @@ struct CorrectIcon: View {
 
 struct CorrectIcon_Previews: PreviewProvider {
     static var previews: some View {
-        CorrectIcon(correct: .constant(true))
+        CorrectIcon(correct: .constant(true), color: UIColor.green)
     }
 }

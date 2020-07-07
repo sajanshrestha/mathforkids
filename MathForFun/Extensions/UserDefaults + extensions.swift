@@ -6,7 +6,8 @@
 //  Copyright © 2020 Sajan Shrestha. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import Combine
 
 extension UserDefaults {
     
@@ -18,7 +19,7 @@ extension UserDefaults {
     }
     
     static func getUserName() -> String {
-        UserDefaults.standard.value(forKey: UserDefaults.USERNAME_KEY) as! String
+        UserDefaults.standard.value(forKey: UserDefaults.USERNAME_KEY) as? String ?? "User"
     }
     
     static func updatePlayerLevel(with currentLevels: [String: Int]) {

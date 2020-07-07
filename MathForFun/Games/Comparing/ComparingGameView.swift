@@ -34,6 +34,7 @@ struct ComparingGameView: View {
                 Spacer()
                 
                 self.optionsView(for: comparingProblem)
+                    .padding(.horizontal)
                     .disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
                     .opacity(self.gameSession.processingAnswer ? self.opacity : 1)
                 
@@ -59,7 +60,9 @@ struct ComparingGameView: View {
                     self.submitAnswer(with: ComparingProblem.ComparingSet.firstSet.rawValue)
                     
                     if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
-                        self.levelUp = self.playerLevel.updateLevel(for: .comparing, playingLevel: self.level)
+                        DispatchQueue.actionOnMain(after: 0.5) {
+                            self.levelUp = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level)
+                        }
                     }
                                         
             }
@@ -71,7 +74,9 @@ struct ComparingGameView: View {
                     self.submitAnswer(with: ComparingProblem.ComparingSet.secondSet.rawValue)
                     
                     if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
-                        self.levelUp = self.playerLevel.updateLevel(for: .comparing, playingLevel: self.level)
+                        DispatchQueue.actionOnMain(after: 0.5) {
+                            self.levelUp = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level)
+                        }
                     }
                     
 
