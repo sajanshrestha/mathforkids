@@ -124,10 +124,18 @@ extension ArithmeticProblem {
         var problems = [ArithmeticProblem]()
         
         for _ in 0..<count {
-            problems.append(ArithmeticProblem.division(firstNumber: self.randomMultiple(of: gameLevel+1), secondNumber: gameLevel+1))
+            problems.append(ArithmeticProblem.division(firstNumber: divisor(for: gameLevel), secondNumber: dividend(for: gameLevel)))
         }
         
         return problems
+    }
+    
+    private static func divisor(for level: Int) -> Int {
+        randomMultiple(of: level+1)
+    }
+    
+    private static func dividend(for level: Int) -> Int {
+        level+1
     }
     
     private static func randomMultiple(of number: Int) -> Int {

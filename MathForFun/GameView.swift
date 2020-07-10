@@ -40,6 +40,7 @@ struct GameView: View {
             }
                 
             else {
+                
                 LevelUpView(levelUp: $levelUp, level: level)
             }
         }

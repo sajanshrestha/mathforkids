@@ -26,8 +26,12 @@ struct GameListView: View {
             }
             .navigationBarTitle(Text("Math Games"))
             .navigationBarItems(
-                trailing: Button("Edit") {
-                    self.showSettingsView = true
+                trailing:
+                Image(systemName: "person.circle")
+                    .font(.title)
+                    .foregroundColor(.blue)
+                    .onTapGesture {
+                        self.showSettingsView = true
                 }
             )
                 .popover(isPresented: $showSettingsView) {
@@ -52,8 +56,7 @@ struct GameRow: View {
         ZStack {
             
             RoundedRectangle(cornerRadius: cornerRadius)
-                .frame(height: height)
-                .border(Color.blue)
+                .stroke(Color.blue, lineWidth: 3)
                 .foregroundColor(.white)
             
             animationView(for: game.gameType)
@@ -101,7 +104,7 @@ struct GameRow: View {
             
             if gameType == .subtraction {
                 ArithmeticAnimation(for: ArithmeticOperation.subtraction)
-
+                
             }
             
             if gameType == .multiplication {
