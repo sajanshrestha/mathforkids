@@ -16,7 +16,7 @@ struct SettingsView: View {
     @State private var showAlert = false
     
     @Environment(\.presentationMode) var presentation
-
+    
     var body: some View {
         ZStack {
             Form {

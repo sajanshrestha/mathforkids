@@ -34,6 +34,7 @@ struct FirstScreenView: View {
     
     @Binding var name: String
     @Binding var secondScreenVisible: Bool
+    @State var nameEmptyAlert = false
     
     @State private var keyboardHeight: CGFloat = 0
     
@@ -67,11 +68,17 @@ struct FirstScreenView: View {
                     .font(.title)
             })
         }
+        .alert(isPresented: $nameEmptyAlert) {
+            Alert(title: Text("Field Empty"), message: Text("Please enter your name"), dismissButton: .default(Text("Ok")))
+        }
     }
     
     private func showSecondScreen() {
         
-        guard !name.isEmpty else { return }
+        guard !name.isEmpty else {
+            nameEmptyAlert = true
+            return
+        }
         
         withAnimation(Animation.spring()) {
             

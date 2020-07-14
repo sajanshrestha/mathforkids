@@ -39,7 +39,8 @@ struct ClassifyingGameView: View {
                 .modifier(QuestionText())
             
             
-        }.opacity(self.gameSession.gameCompleted ? opacity : 1)
+        }.disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
+        .opacity(self.gameSession.processingAnswer ? self.opacity : 1)
         
         
     }
@@ -50,8 +51,6 @@ struct ClassifyingGameView: View {
             
             CardView(title: item.content)
                 .padding()
-                .disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
-                .opacity(self.gameSession.processingAnswer ? self.opacity : 1)
                 .onTapGesture {
                     withAnimation(Animation.spring()) {
                         self.answerCorrect = self.gameSession.submitAnswer(with: item.content)

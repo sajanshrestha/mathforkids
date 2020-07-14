@@ -44,7 +44,9 @@ enum ArithmeticProblem: Problem {
         }
     }
     
-    var options: [String] { String.getOptions(for: rightAnswer) }
+    var options: [String] {
+        String.getOptions(for: rightAnswer)
+    }
     
     static func getProblems(count: Int, gameLevel: Int, for operation: ArithmeticOperation) -> [ArithmeticProblem] {
                 

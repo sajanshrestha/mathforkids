@@ -48,7 +48,6 @@ struct ArithmeticGameView: View {
                 .modifier(QuestionText())
             
             optionsView(for: arithmeticProblem)
-                .frame(height: optionsSectionHeight)
                 .disabled(self.game.gameCompleted || self.game.processingAnswer)
                 .opacity(self.game.processingAnswer ? opacity : 1)
         }
@@ -79,7 +78,6 @@ struct ArithmeticGameView: View {
     
     // MARK: CONSTANTS
     
-    private let optionsSectionHeight: CGFloat = 60
     private let opacity = 0.2
 
 

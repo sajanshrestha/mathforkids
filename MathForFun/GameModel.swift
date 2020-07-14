@@ -40,10 +40,10 @@ class GameModel: ObservableObject {
     func submitAnswer(with answer: String) -> Bool {
         
         game.processingAnswer = true
+        
         let answerCorrect = game.submitAnswer(with: answer)
         
         notifyUser(for: answerCorrect)
-        
         
         return answerCorrect
     }

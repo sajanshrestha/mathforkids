@@ -38,7 +38,7 @@ struct CountingGameView: View {
                     .modifier(QuestionText())
                     .animation(nil)
                                 
-                optionsView(for: countingProblem).frame(height: optionsSectionHeight)
+                optionsView(for: countingProblem)
                     .disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
                     .opacity(self.gameSession.processingAnswer ? opacity : 1)
                 
@@ -71,7 +71,7 @@ struct CountingGameView: View {
     }
    
     
-    //  MARK: CONSTANTS
+    //  MARK:- CONSTANTS
     private let spacing: CGFloat = 4
     private let optionsSectionHeight: CGFloat = 60
     private let opacity = 0.1

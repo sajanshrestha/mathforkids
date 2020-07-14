@@ -45,7 +45,6 @@ struct ShapeGameView: View {
                 
                 
                 self.optionsView(for: shapeProblem)
-                    .frame(height: self.optionsSectionHeight)
                     .disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
                     .opacity(self.gameSession.processingAnswer ? self.opacity : 1)
                 
@@ -85,7 +84,6 @@ struct ShapeGameView: View {
     
     private let shapeScalingFactor: CGFloat = 0.4
     private let opacity = 0.3
-    private let optionsSectionHeight: CGFloat = 60
     private let padding: CGFloat = 20
 
 }

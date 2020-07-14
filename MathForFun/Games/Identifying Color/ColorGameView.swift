@@ -38,7 +38,6 @@ struct ColorGameView: View {
             Spacer()
             
             optionsView(for: colorProblem)
-                .frame(height: optionsSectionHeight)
                 .disabled(self.game.gameCompleted || self.game.processingAnswer)
                 .opacity(self.game.processingAnswer ? opacity : 1)
         }
@@ -63,6 +62,7 @@ struct ColorGameView: View {
     }
     
     func optionsView(for problem: IdentifyingColorProblem) -> some View {
+        
         OptionsView(options: problem.options) { option in
             
             self.answerSelected = option
