@@ -12,7 +12,11 @@ struct GameListView: View {
     
     var gameList: GameList
     
+    @State private var resetAlert = false
+    
     @State private var showSettingsView = false
+    
+    @EnvironmentObject var playerLevel: PlayerLevel
     
     var body: some View {
         
@@ -26,6 +30,10 @@ struct GameListView: View {
             }
             .navigationBarTitle(Text("Math Games"))
             .navigationBarItems(
+                leading:
+                Button("Reset") {
+                    self.resetAlert = true
+                },
                 trailing:
                 Image(systemName: "person.circle")
                     .font(.title)
@@ -34,10 +42,18 @@ struct GameListView: View {
                         self.showSettingsView = true
                 }
             )
+                .alert(isPresented: $resetAlert) {
+                    Alert(title: Text("Reset"), message: Text("This will reset all your levels"), primaryButton: .default(Text("Reset"), action: {
+                        self.playerLevel.resetLevels()
+                    }), secondaryButton: .cancel(Text("Cancel")))
+            }
                 .popover(isPresented: $showSettingsView) {
-                    SettingsView()
+                SettingsView()
+                
             }
         }
+        
+        
     }
 }
 

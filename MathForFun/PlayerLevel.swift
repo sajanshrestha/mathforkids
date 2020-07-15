@@ -10,14 +10,13 @@ import Foundation
 
 class PlayerLevel: ObservableObject {
     
-    @Published var currentLevels: [String: Int]
+    @Published var currentLevels = [String: Int]()
     
     init() {
         guard let playerGameLevels = UserDefaults.getPlayerLevel() else {
-            currentLevels = [:]
-            GameList.GameType.allCases.forEach { gameType in
-                currentLevels[gameType.rawValue] = 1
-            }
+            
+            resetLevels()
+            
             return
             
         }
@@ -29,7 +28,7 @@ class PlayerLevel: ObservableObject {
     }
     
     @discardableResult
-    func updateLevel(for gameType: GameList.GameType, playingLevel: Int) -> Bool {
+    func levelUp(for gameType: GameList.GameType, playingLevel: Int) -> Bool {
         
         let currentLevel = getCurrentLevel(for: gameType)
         
@@ -40,6 +39,20 @@ class PlayerLevel: ObservableObject {
             return true
         }
         return false
+    }
+    
+    func resetLevels() {
+        
+        var restartLevels: [String: Int] = [:]
+        
+        GameList.GameType.allCases.forEach { gameType in
+            restartLevels[gameType.rawValue] = 1
+        }
+        
+        currentLevels = restartLevels
+        
+        UserDefaults.updatePlayerLevel(with: currentLevels)
+        
     }
     
 }

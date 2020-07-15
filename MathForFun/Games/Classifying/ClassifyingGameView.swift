@@ -58,7 +58,7 @@ struct ClassifyingGameView: View {
                     
                     if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
                         DispatchQueue.actionOnMain(after: 0.5) {
-                            self.levelUp = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level)
+                            self.levelUp = self.playerLevel.levelUp(for: GameModel.gameType, playingLevel: self.level)
                         }
                     }
                     

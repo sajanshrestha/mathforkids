@@ -20,7 +20,7 @@ struct IdentifyingColorProblem: Problem {
         
         var options = [String]()
         
-        var colorNames = ["Red", "Green", "Yellow", "Blue", "Pink", "Black", "Magenta", "Yale", "Ruby", "Olympic", "Forest Green", "Gold", "Orchid", "Sky Blue", "Maroon", "Coral", "Papaya Whip",]
+        var colorNames = ["Red", "Green", "Yellow", "Blue", "Pink", "Black", "Magenta", "Yale", "Ruby", "Olympic", "Forest Green", "Gold", "Orchid", "Sky Blue", "Maroon", "Coral", "Papaya Whip"]
         
         options.append(colorName)
         

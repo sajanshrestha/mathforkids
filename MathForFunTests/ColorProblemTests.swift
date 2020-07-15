@@ -1,16 +1,15 @@
 //
-//  ArrayTests.swift
+//  ColorProblemTests.swift
 //  MathForFunTests
 //
-//  Created by Sajan Shrestha on 6/9/20.
+//  Created by Sajan Shrestha on 7/14/20.
 //  Copyright © 2020 Sajan Shrestha. All rights reserved.
 //
 
 import XCTest
-
 @testable import MathForFun
 
-class ArrayTests: XCTestCase {
+class ColorProblemTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -20,14 +19,9 @@ class ArrayTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testShouldReturnDifferentRandomElements() throws {
-        
-        let sut = [1, 2, 3, 4, 5, 6]
-        
-        let randomIntegers = sut.randomElements(2)
-        
-        XCTAssertNotEqual(randomIntegers[0], randomIntegers[1])
-        
+    func testExample() throws {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
     func testPerformanceExample() throws {
