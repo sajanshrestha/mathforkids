@@ -8,10 +8,19 @@
   
   Onboarding screen one: The user is asked to enter a user name, which will be persisted across different app launches. Since this is a simple (small size) string to be stored, I used UserDefaults. I simply extended UserDefaults class to include getUserName() and updateUserName(with:) methods.
 (Concepts used: UserDefaults, Extension)
+
   <hr>
  
   
 <image src="https://user-images.githubusercontent.com/38868680/87585984-d8f81400-c6ad-11ea-8e8b-d35484013237.png" width=100 height=200>
+  
+  There is not much to this screen. It simply displays greeting for the user and a welcome message. From here, you can navigate to the game list with the tap of “Get Started” button.
+
+Another thing, the onboarding screen only appears the first time of the app launch. After the user enters the username during the first visit of the app, there is no need to enter user name again . This condition is checked in SceneDelegate class.
+
+If UserDefaults.getUserName() returns nil, the onboarding screen appears. If it returns a username (String), you already have set the username. You are ready for the games!
+
+  <hr>
 
 <image src="https://user-images.githubusercontent.com/38868680/87585995-dc8b9b00-c6ad-11ea-911d-624aaa023a90.png" width=100 height=200>
 
