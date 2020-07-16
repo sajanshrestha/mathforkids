@@ -1,11 +1,14 @@
 # mathforkids
 
   An app for kids over 2 years old which helps them to learn counting, comparing, identifying colors, positions, classifying items and mathematical exercises like addition, subtraction, multiplication and division.
+  
+  <hr>
 
 <image src="https://user-images.githubusercontent.com/38868680/87585982-d5fd2380-c6ad-11ea-96b1-d4b3cf650468.png" width=100 height=200>
   
   Onboarding screen one: The user is asked to enter a user name, which will be persisted across different app launches. Since this is a simple (small size) string to be stored, I used UserDefaults. I simply extended UserDefaults class to include getUserName() and updateUserName(with:) methods.
 (Concepts used: UserDefaults, Extension)
+  <hr>
  
   
 <image src="https://user-images.githubusercontent.com/38868680/87585984-d8f81400-c6ad-11ea-8e8b-d35484013237.png" width=100 height=200>
