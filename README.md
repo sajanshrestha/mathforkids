@@ -3,14 +3,7 @@
   An app for kids over 2 years old which helps them to learn counting, comparing, identifying colors, positions, classifying items and mathematical exercises like addition, subtraction, multiplication and division.
   
  <html>
-  <head>
-    <style>
-      body {
-      backgroundColor: red;
-      }
-      </style>
-    
-    </head>
+ 
   <body>
      <hr>
 
