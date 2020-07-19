@@ -20,7 +20,7 @@ Another thing, the onboarding screen only appears the first time of the app laun
 
   <hr>
 
-<image src="https://user-images.githubusercontent.com/38868680/87585995-dc8b9b00-c6ad-11ea-911d-624aaa023a90.png" width=100 height=200>
+<image src="https://user-images.githubusercontent.com/38868680/87884831-08c15780-c9df-11ea-8ed9-6d815d28fef8.png" width=100 height=220>
   
   All the available games are displayed on this view. There is a trailing navigation item in this view which lets the user change username. For example, if the user mistypes username on the onboarding screen, it can be changed here. For each of the game rows, I have used animations. Some of them I created using SwiftUI and for some I used Lottie animations.
   
