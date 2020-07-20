@@ -13,8 +13,9 @@ struct QuestionText: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(Font.custom("Noteworthy", size: textSize))
+            .font(Font.custom(MathForKids.fontFamily, size: textSize))
             .padding(padding)
+            .animation(nil)
     }
     
     // MARK: CONSTANTS

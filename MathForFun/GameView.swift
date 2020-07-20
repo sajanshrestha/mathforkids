@@ -17,7 +17,7 @@ import SwiftUI
 struct GameView: View {
     
     @State private var answerCorrect = false
-    @State private var levelUp = false
+    @State private var levelStatus: LevelStatus = .none
         
     var gameType: GameList.GameType
         
@@ -32,19 +32,18 @@ struct GameView: View {
         
         ZStack {
             
-            if !levelUp {
+            if levelStatus == .none {
                 
                 self.view(for: gameType)
+                    .foregroundColor(.gray)
                 
                 CorrectIcon(correct: $answerCorrect)
             }
-                
+            
             else {
-                
-                LevelUpView(levelUp: $levelUp, level: level)
+                LevelStatusView(levelStatus: $levelStatus, level: level)
             }
         }
-        
     }
     
     func view(for gameType: GameList.GameType) -> some View {
@@ -55,30 +54,31 @@ struct GameView: View {
         
         return Group {
             if gameType == .counting {
-                CountingGameView(answerCorrect: $answerCorrect, levelUp: $levelUp)
+                CountingGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             else if gameType == .comparing {
-                ComparingGameView(answerCorrect: $answerCorrect, levelUp: $levelUp)
+                ComparingGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             else if gameType == .identifyingColor {
-                ColorGameView(answerCorrect: $answerCorrect, levelUp: $levelUp)
+                ColorGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             else if gameType == .identifyingShape {
-                ShapeGameView(answerCorrect: $answerCorrect, levelUp: $levelUp)
+                ShapeGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             else if gameType == .position {
-                PositionProblemGameView(answerCorrect: $answerCorrect)
+                PositionProblemGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             else if gameType == .classifying {
-                ClassifyingGameView(answerCorrect: $answerCorrect, levelUp: $levelUp)
+                ClassifyingGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             
             else if gameType == .addition || gameType == .subtraction || gameType == .multiplication || gameType == .division {
-                ArithmeticGameView(answerCorrect: $answerCorrect, levelUp: $levelUp)
+                ArithmeticGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             
         }
     }
+    
 }
 
 struct HomeView_Previews: PreviewProvider {
@@ -86,6 +86,5 @@ struct HomeView_Previews: PreviewProvider {
         GameView(for: .comparing, in: 3)
     }
 }
-
 
 

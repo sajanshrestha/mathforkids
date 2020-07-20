@@ -22,8 +22,11 @@ struct SettingsView: View {
             Form {
                 
                 Section(header: Text("Enter you username")) {
+                    
                     TextField("Username", text: $username)
+                    
                     Button("Save") {
+                        
                         guard !self.username.isEmpty else {
                             self.showAlert = true
                             return
@@ -41,7 +44,7 @@ struct SettingsView: View {
             CorrectIcon(correct: $saved, color: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1))
         }
         .onAppear {
-            self.username = UserDefaults.getUserName()
+            self.username = UserDefaults.getUserName() ?? "User"
         }
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Field Empty"), message: Text("Please enter a username"), dismissButton: .default(Text("Ok")))

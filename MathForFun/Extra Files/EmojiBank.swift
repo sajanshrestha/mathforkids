@@ -129,3 +129,31 @@ struct EmojiBank {
     }
      
 }
+
+
+struct AlphabetBank {
+    
+    static var alphabets: [String: String] {
+        var result = [String: String]()
+        let alphas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".compactMap { String($0) }
+        alphas.forEach {
+            result[$0] = $0
+        }
+        return result
+    }
+        
+}
+
+
+struct NumberBank {
+    
+    static var numbers: [String: String] {
+        var result = [String: String]()
+        let alphas = (0...9).compactMap { String($0) }
+        alphas.forEach {
+            result[$0] = $0
+        }
+        return result
+    }
+        
+}

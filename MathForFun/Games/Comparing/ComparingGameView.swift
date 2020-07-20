@@ -14,7 +14,7 @@ struct ComparingGameView: View {
     
     @Binding var answerCorrect: Bool
     
-    @Binding var levelUp: Bool
+    @Binding var levelStatus: LevelStatus
     
     @EnvironmentObject var playerLevel: PlayerLevel
     
@@ -39,7 +39,7 @@ struct ComparingGameView: View {
                     .opacity(self.gameSession.processingAnswer ? self.opacity : 1)
                 
                 
-                Text("Which box has more?")
+                Text(comparingProblem.questionText)
                     .modifier(QuestionText())
                 
             }
@@ -59,9 +59,9 @@ struct ComparingGameView: View {
                     
                     self.submitAnswer(with: ComparingProblem.ComparingSet.firstSet.rawValue)
                     
-                    if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
+                    if self.gameSession.lastProblemOn {
                         DispatchQueue.actionOnMain(after: 0.5) {
-                            self.levelUp = self.playerLevel.levelUp(for: GameModel.gameType, playingLevel: self.level)
+                            self.levelStatus = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level, with: self.gameSession.score)
                         }
                     }
                                         
@@ -73,9 +73,9 @@ struct ComparingGameView: View {
                     
                     self.submitAnswer(with: ComparingProblem.ComparingSet.secondSet.rawValue)
                     
-                    if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
+                    if self.gameSession.lastProblemOn {
                         DispatchQueue.actionOnMain(after: 0.5) {
-                            self.levelUp = self.playerLevel.levelUp(for: GameModel.gameType, playingLevel: self.level)
+                            self.levelStatus = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level, with: self.gameSession.score)
                         }
                     }
                     

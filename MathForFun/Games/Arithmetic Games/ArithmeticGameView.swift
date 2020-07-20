@@ -18,7 +18,7 @@ struct ArithmeticGameView: View {
 
     @Binding var answerCorrect: Bool
     
-    @Binding var levelUp: Bool
+    @Binding var levelStatus: LevelStatus
 
     var level = GameModel.gameLevel
     
@@ -62,9 +62,9 @@ struct ArithmeticGameView: View {
             
             self.answerCorrect = self.game.submitAnswer(with: self.selectedAnswer)
             
-            if self.game.lastProblemOn && self.game.score > 7 {
+            if self.game.lastProblemOn  {
                 DispatchQueue.actionOnMain(after: 0.5) {
-                    self.levelUp = self.playerLevel.levelUp(for: GameModel.gameType, playingLevel: self.level)
+                    self.levelStatus = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level, with: self.game.score)
                 }
             }
             
@@ -85,7 +85,7 @@ struct ArithmeticGameView: View {
 
 struct AdditionGameView_Previews: PreviewProvider {
     static var previews: some View {
-        ArithmeticGameView(game: GameModel(), answerCorrect: .constant(false), levelUp: .constant(false), level: 2)
+        ArithmeticGameView(answerCorrect: .constant(true), levelStatus: .constant(.levelUp))
     }
 }
 

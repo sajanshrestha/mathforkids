@@ -18,7 +18,7 @@ struct ShapeGameView: View {
     
     @Binding var answerCorrect: Bool
     
-    @Binding var levelUp: Bool
+    @Binding var levelStatus: LevelStatus
     
     
     var level = GameModel.gameLevel
@@ -66,10 +66,10 @@ struct ShapeGameView: View {
                 self.answerCorrect  = self.gameSession.submitAnswer(with: self.answerSelected)
             }
             
-            if self.gameSession.lastProblemOn && self.gameSession.score > 7 {
+            if self.gameSession.lastProblemOn {
                 
                 DispatchQueue.actionOnMain(after: 0.5) {
-                    self.levelUp = self.playerLevel.levelUp(for: GameModel.gameType, playingLevel: self.level)
+                    self.levelStatus = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level, with: self.gameSession.score)
                 }
             }
 

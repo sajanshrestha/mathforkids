@@ -43,10 +43,13 @@
 		A13F51F3248FE12A00326745 /* Array + RandomElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13F51F2248FE12A00326745 /* Array + RandomElements.swift */; };
 		A13F51F7248FFB6F00326745 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13F51F6248FFB6F00326745 /* ScoreView.swift */; };
 		A169154F24B389F500637BB8 /* Publishers and Notifications .swift in Sources */ = {isa = PBXBuildFile; fileRef = A169154E24B389F500637BB8 /* Publishers and Notifications .swift */; };
+		A17A8E7F24C61D9B00C7467D /* MathForKids.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17A8E7E24C61D9B00C7467D /* MathForKids.swift */; };
+		A17A8E8124C6216300C7467D /* Problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17A8E8024C6216300C7467D /* Problem.swift */; };
 		A180B94624B1142400B2953F /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = A180B94524B1142400B2953F /* colors.json */; };
 		A180B94A24B1158C00B2953F /* shapes.json in Resources */ = {isa = PBXBuildFile; fileRef = A180B94924B1158C00B2953F /* shapes.json */; };
 		A192C74324A3985E00BA7101 /* QuestionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192C74224A3985E00BA7101 /* QuestionText.swift */; };
 		A192C74524A39D1B00BA7101 /* OperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192C74424A39D1B00BA7101 /* OperationView.swift */; };
+		A192EE5124C4D23900F4E73C /* levelUp.json in Resources */ = {isa = PBXBuildFile; fileRef = A192EE5024C4D23900F4E73C /* levelUp.json */; };
 		A1AE1035248963900039F068 /* CorrectIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE1034248963900039F068 /* CorrectIcon.swift */; };
 		A1AE10372489705F0039F068 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE10362489705F0039F068 /* CardView.swift */; };
 		A1AE103B248988520039F068 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE103A248988520039F068 /* GameListView.swift */; };
@@ -61,10 +64,13 @@
 		A1D90EAB249EBF38004919BF /* CountingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D90EA5249EBF38004919BF /* CountingAnimation.swift */; };
 		A1D90EAD249EC375004919BF /* PlayerLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D90EAC249EC375004919BF /* PlayerLevel.swift */; };
 		A1D90EB1249EC4A5004919BF /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D90EB0249EC4A5004919BF /* LevelView.swift */; };
-		A1D90EB3249EDD8A004919BF /* LevelUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D90EB2249EDD8A004919BF /* LevelUpView.swift */; };
+		A1D90EB3249EDD8A004919BF /* LevelStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D90EB2249EDD8A004919BF /* LevelStatusView.swift */; };
 		A1D90EC024A02A20004919BF /* EmojiBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D90EBF24A02A20004919BF /* EmojiBank.swift */; };
 		A1D90F1424A12A6E004919BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D90F1324A12A6E004919BF /* LaunchScreen.storyboard */; };
 		A1D9ABD224ACC1C3002AEA7A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9ABD124ACC1C3002AEA7A /* SettingsView.swift */; };
+		A1E6FC5B24C49E17001CFED0 /* student.json in Resources */ = {isa = PBXBuildFile; fileRef = A1E6FC5A24C49E16001CFED0 /* student.json */; };
+		A1E6FC5D24C49F64001CFED0 /* kids.json in Resources */ = {isa = PBXBuildFile; fileRef = A1E6FC5C24C49F64001CFED0 /* kids.json */; };
+		A1E6FC5F24C49FF4001CFED0 /* doggie.json in Resources */ = {isa = PBXBuildFile; fileRef = A1E6FC5E24C49FF3001CFED0 /* doggie.json */; };
 		A1F288A4248E60AE004F0C40 /* ClassifyingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F288A3248E60AE004F0C40 /* ClassifyingProblem.swift */; };
 		A1F288A6248E69D7004F0C40 /* ClassifyingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F288A5248E69D7004F0C40 /* ClassifyingGameView.swift */; };
 /* End PBXBuildFile section */
@@ -130,10 +136,13 @@
 		A13F51F2248FE12A00326745 /* Array + RandomElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + RandomElements.swift"; sourceTree = "<group>"; };
 		A13F51F6248FFB6F00326745 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		A169154E24B389F500637BB8 /* Publishers and Notifications .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers and Notifications .swift"; sourceTree = "<group>"; };
+		A17A8E7E24C61D9B00C7467D /* MathForKids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathForKids.swift; sourceTree = "<group>"; };
+		A17A8E8024C6216300C7467D /* Problem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem.swift; sourceTree = "<group>"; };
 		A180B94524B1142400B2953F /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
 		A180B94924B1158C00B2953F /* shapes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shapes.json; sourceTree = "<group>"; };
 		A192C74224A3985E00BA7101 /* QuestionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionText.swift; sourceTree = "<group>"; };
 		A192C74424A39D1B00BA7101 /* OperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationView.swift; sourceTree = "<group>"; };
+		A192EE5024C4D23900F4E73C /* levelUp.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = levelUp.json; sourceTree = "<group>"; };
 		A1AE1034248963900039F068 /* CorrectIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorrectIcon.swift; sourceTree = "<group>"; };
 		A1AE10362489705F0039F068 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A1AE103A248988520039F068 /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
@@ -147,10 +156,13 @@
 		A1D90EA5249EBF38004919BF /* CountingAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingAnimation.swift; sourceTree = "<group>"; };
 		A1D90EAC249EC375004919BF /* PlayerLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLevel.swift; sourceTree = "<group>"; };
 		A1D90EB0249EC4A5004919BF /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
-		A1D90EB2249EDD8A004919BF /* LevelUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpView.swift; sourceTree = "<group>"; };
+		A1D90EB2249EDD8A004919BF /* LevelStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelStatusView.swift; sourceTree = "<group>"; };
 		A1D90EBF24A02A20004919BF /* EmojiBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiBank.swift; sourceTree = "<group>"; };
 		A1D90F1324A12A6E004919BF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1D9ABD124ACC1C3002AEA7A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A1E6FC5A24C49E16001CFED0 /* student.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = student.json; sourceTree = "<group>"; };
+		A1E6FC5C24C49F64001CFED0 /* kids.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kids.json; sourceTree = "<group>"; };
+		A1E6FC5E24C49FF3001CFED0 /* doggie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doggie.json; sourceTree = "<group>"; };
 		A1F288A3248E60AE004F0C40 /* ClassifyingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyingProblem.swift; sourceTree = "<group>"; };
 		A1F288A5248E69D7004F0C40 /* ClassifyingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyingGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,6 +252,7 @@
 				A1D90EB0249EC4A5004919BF /* LevelView.swift */,
 				A11C286E248C4B320036D1AB /* GameSession.swift */,
 				A109520D248B2EF100234225 /* GameModel.swift */,
+				A17A8E8024C6216300C7467D /* Problem.swift */,
 				A1D90EAC249EC375004919BF /* PlayerLevel.swift */,
 				A137C27024883D9D00BEC96D /* GameView.swift */,
 				A1D9ABD124ACC1C3002AEA7A /* SettingsView.swift */,
@@ -359,7 +372,7 @@
 				A1AE1034248963900039F068 /* CorrectIcon.swift */,
 				A1AE10362489705F0039F068 /* CardView.swift */,
 				A13F51F6248FFB6F00326745 /* ScoreView.swift */,
-				A1D90EB2249EDD8A004919BF /* LevelUpView.swift */,
+				A1D90EB2249EDD8A004919BF /* LevelStatusView.swift */,
 				A192C74224A3985E00BA7101 /* QuestionText.swift */,
 				A192C74424A39D1B00BA7101 /* OperationView.swift */,
 				A1209BBF24BE12F500A5E5DD /* OptionsView.swift */,
@@ -382,11 +395,16 @@
 		A1D90EBC249FDADF004919BF /* Extra Files */ = {
 			isa = PBXGroup;
 			children = (
+				A1E6FC5A24C49E16001CFED0 /* student.json */,
 				A180B94524B1142400B2953F /* colors.json */,
+				A192EE5024C4D23900F4E73C /* levelUp.json */,
+				A1E6FC5E24C49FF3001CFED0 /* doggie.json */,
+				A1E6FC5C24C49F64001CFED0 /* kids.json */,
 				A180B94924B1158C00B2953F /* shapes.json */,
 				A1D90EBF24A02A20004919BF /* EmojiBank.swift */,
 				A1BACEA524A8DA6C00795909 /* confetti.json */,
 				A101E0D224983D3F00C2D8EF /* Noteworthy.ttc */,
+				A17A8E7E24C61D9B00C7467D /* MathForKids.swift */,
 			);
 			path = "Extra Files";
 			sourceTree = "<group>";
@@ -515,13 +533,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1E6FC5D24C49F64001CFED0 /* kids.json in Resources */,
 				A1D90F1424A12A6E004919BF /* LaunchScreen.storyboard in Resources */,
+				A1E6FC5B24C49E17001CFED0 /* student.json in Resources */,
 				A123690C24AF7616000B18B0 /* error_tone.mp3 in Resources */,
 				A1BACEA624A8DA6C00795909 /* confetti.json in Resources */,
 				A137C22E2487EECA00BEC96D /* Preview Assets.xcassets in Resources */,
+				A1E6FC5F24C49FF4001CFED0 /* doggie.json in Resources */,
 				A137C22B2487EECA00BEC96D /* Assets.xcassets in Resources */,
 				A180B94A24B1158C00B2953F /* shapes.json in Resources */,
 				A123691324AF7EC2000B18B0 /* clap.mp3 in Resources */,
+				A192EE5124C4D23900F4E73C /* levelUp.json in Resources */,
 				A123690A24AF73F1000B18B0 /* correct_tone.mp3 in Resources */,
 				A180B94624B1142400B2953F /* colors.json in Resources */,
 			);
@@ -576,13 +598,15 @@
 				A137C26F2488381A00BEC96D /* Array+Identifiable.swift in Sources */,
 				A1D90EA9249EBF38004919BF /* ComparingAnimation.swift in Sources */,
 				A169154F24B389F500637BB8 /* Publishers and Notifications .swift in Sources */,
+				A17A8E8124C6216300C7467D /* Problem.swift in Sources */,
 				A1D90EA7249EBF38004919BF /* ClassifyAnimation.swift in Sources */,
-				A1D90EB3249EDD8A004919BF /* LevelUpView.swift in Sources */,
+				A1D90EB3249EDD8A004919BF /* LevelStatusView.swift in Sources */,
 				A192C74324A3985E00BA7101 /* QuestionText.swift in Sources */,
 				A10AC6D024A2CA570072C584 /* ArithmeticProblem.swift in Sources */,
 				A1BACEA824A8DACC00795909 /* LottieView.swift in Sources */,
 				A135AAD6248AAC9B00EBC8C2 /* ShapeGameView.swift in Sources */,
 				A137C26D2488177E00BEC96D /* Grid.swift in Sources */,
+				A17A8E7F24C61D9B00C7467D /* MathForKids.swift in Sources */,
 				A13F51F3248FE12A00326745 /* Array + RandomElements.swift in Sources */,
 				A13079C524AA447100722F90 /* OnboardingView.swift in Sources */,
 				A11C286F248C4B320036D1AB /* GameSession.swift in Sources */,

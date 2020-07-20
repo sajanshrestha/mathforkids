@@ -22,7 +22,6 @@ struct ScoreView: View {
             Text("\(score)")
                 .scaleEffect(answerCorrect ? 2 : 1)
                 .foregroundColor(answerCorrect ? .green : .gray)
-                .animation(Animation.spring())
             Spacer()
             
         }

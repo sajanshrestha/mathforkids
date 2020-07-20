@@ -34,8 +34,8 @@ struct FirstScreenView: View {
     
     @Binding var name: String
     @Binding var secondScreenVisible: Bool
-    @State var nameEmptyAlert = false
     
+    @State var nameEmptyAlert = false
     @State private var keyboardHeight: CGFloat = 0
     
     var body: some View {
@@ -48,8 +48,8 @@ struct FirstScreenView: View {
                 .resizable()
                 .frame(width: imageWidth, height: imageHeight)
             
-            Text("Please enter you name to get started")
-                .font(.custom(fontFamily, size: textSize))
+            Text("Please enter your name to get started")
+                .font(.custom(MathForKids.fontFamily, size: textSize))
             
             TextField("", text: $name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -115,7 +115,7 @@ struct SecondScreenView: View {
                         Text("Have fun playing all the games and learning along the way!")
                         
                     }
-                    .font(.custom(fontFamily, size: textSize))
+                    .font(.custom(MathForKids.fontFamily, size: textSize))
                     .padding()
                     
                     Spacer()
@@ -154,8 +154,6 @@ struct OnboardingView_Previews: PreviewProvider {
 
 fileprivate let imageOne = "babyOne"
 fileprivate let imageTwo = "babyTwo"
-
-fileprivate let fontFamily = "Noteworthy"
 
 fileprivate let imageWidth: CGFloat = 200
 fileprivate let imageHeight: CGFloat = 300

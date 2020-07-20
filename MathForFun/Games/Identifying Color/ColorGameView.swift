@@ -16,7 +16,7 @@ struct ColorGameView: View {
     
     @Binding var answerCorrect: Bool
     
-    @Binding var levelUp: Bool
+    @Binding var levelStatus: LevelStatus
     
     @EnvironmentObject var playerLevel: PlayerLevel
 
@@ -72,9 +72,9 @@ struct ColorGameView: View {
                 self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
             }
             
-            if self.game.lastProblemOn && self.game.score > 7 {
+            if self.game.lastProblemOn {
                 DispatchQueue.actionOnMain(after: 0.5) {
-                    self.levelUp = self.playerLevel.levelUp(for: GameModel.gameType, playingLevel: self.level)
+                    self.levelStatus = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level, with: self.game.score)
                 }
             }
             

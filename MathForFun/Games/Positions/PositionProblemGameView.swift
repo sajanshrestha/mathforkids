@@ -14,6 +14,12 @@ struct PositionProblemGameView: View {
 
     @Binding var answerCorrect: Bool
     
+    @Binding var levelStatus: LevelStatus
+    
+    @EnvironmentObject var playerLevel: PlayerLevel
+    
+    var level = GameModel.gameLevel
+    
     var body: some View {
         
         let positionProblem = gameSession.problems[gameSession.index] as! PositionProblem
@@ -76,6 +82,12 @@ struct PositionProblemGameView: View {
                 self.answerCorrect = self.gameSession.submitAnswer(with: selectedOption)
             }
             
+            if self.gameSession.lastProblemOn {
+                DispatchQueue.actionOnMain(after: 0.5) {
+                    self.levelStatus = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level, with: self.gameSession.score)
+                }
+            }
+            
             DispatchQueue.actionOnMain(after: 1.0) {
                 self.answerCorrect = false
                 self.gameSession.next()
@@ -88,7 +100,4 @@ struct PositionProblemGameView: View {
     private let optionsSectionHeight: CGFloat = 60
     private let spacing: CGFloat = 20
     private let textScalingFactor: CGFloat = 0.15
-    
-    
-    
 }

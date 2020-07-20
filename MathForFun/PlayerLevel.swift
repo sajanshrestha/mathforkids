@@ -8,14 +8,23 @@
 
 import Foundation
 
+enum LevelStatus {
+    case none
+    case levelUp
+    case levelAlreadyUp
+    case levelNotUp
+    case levelsComplete
+}
+
 class PlayerLevel: ObservableObject {
     
     @Published var currentLevels = [String: Int]()
     
     init() {
+        
         guard let playerGameLevels = UserDefaults.getPlayerLevel() else {
             
-            resetLevels()
+            initialLevels()
             
             return
             
@@ -24,35 +33,48 @@ class PlayerLevel: ObservableObject {
     }
         
     func getCurrentLevel(for gameType: GameList.GameType) -> Int {
+        
         currentLevels[gameType.rawValue] ?? 1
     }
     
+    
     @discardableResult
-    func levelUp(for gameType: GameList.GameType, playingLevel: Int) -> Bool {
+    func updateLevel(for gameType: GameList.GameType, playingLevel: Int, with score: Int) -> LevelStatus {
         
         let currentLevel = getCurrentLevel(for: gameType)
         
-        if playingLevel == currentLevel && gameType.numberOfLevels > playingLevel {
-            currentLevels[gameType.rawValue]! += 1
-            UserDefaults.updatePlayerLevel(with: currentLevels)
-            AudioPlayer.playCelebrationSound()
-            return true
+        if score > MathForKids.levelUnlockingScore {
+            
+            if playingLevel == currentLevel && gameType.numberOfLevels > playingLevel {
+                
+                currentLevels[gameType.rawValue]! += 1
+                UserDefaults.updatePlayerLevel(with: currentLevels)
+                AudioPlayer.playCelebrationSound()
+                return .levelUp
+            }
+                
+            else {
+                return playingLevel < currentLevel ? .levelAlreadyUp : .levelsComplete
+            }
         }
-        return false
+            
+        else {
+            
+            return playingLevel < currentLevel ? .levelAlreadyUp : .levelNotUp
+        }
     }
     
-    func resetLevels() {
+    func initialLevels() {
         
-        var restartLevels: [String: Int] = [:]
+        var levels: [String: Int] = [:]
         
         GameList.GameType.allCases.forEach { gameType in
-            restartLevels[gameType.rawValue] = 1
+            
+            levels[gameType.rawValue] = 1
         }
         
-        currentLevels = restartLevels
+        currentLevels = levels
         
         UserDefaults.updatePlayerLevel(with: currentLevels)
-        
     }
-    
 }

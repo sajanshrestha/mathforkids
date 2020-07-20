@@ -19,13 +19,14 @@ struct PositionProblem: Problem {
     
     private var elementChosen: Element
 
-    init() {
+    init(for gameLevel: Int) {
         
         self.orientation = [Orientation.vertical, Orientation.horizontal].randomElement()!
         
-        let emojiList = Array(EmojiBank.emojis)
         
-        let randomEmojis = emojiList.randomElements(3)
+        let elementList = PositionProblem.getElements(for: gameLevel)
+        
+        let randomEmojis = elementList.randomElements(3)
         
         let first = randomEmojis[0]
         let second = randomEmojis[1]
@@ -52,6 +53,19 @@ struct PositionProblem: Problem {
     var questionText: String {
         let prepositionInTheQuestion = preposition(for: elementChosen.position)
         return "What is \(prepositionInTheQuestion) the \(elementChosen.position.rawValue)?"
+    }
+    
+    private static func getElements(for gameLevel: Int) -> [(key: String, value: String)] {
+        
+        var elementList = [(key: String, value: String)]()
+        
+        switch gameLevel {
+        case 1: elementList = Array(AlphabetBank.alphabets)
+        case 2: elementList = Array(NumberBank.numbers)
+        case 3: elementList = Array(EmojiBank.emojis)
+        default: elementList = Array(EmojiBank.emojis)
+        }
+        return elementList
     }
     
     private func preposition(for position: Position) -> String {
@@ -91,12 +105,12 @@ struct PositionProblem: Problem {
         let position: Position
     }
     
-    static func getProblems(count: Int) -> [PositionProblem] {
+    static func getProblems(count: Int, gameLevel: Int) -> [PositionProblem] {
         
         var problems = [PositionProblem]()
         
         for _ in 0..<count {
-            problems.append(PositionProblem())
+            problems.append(PositionProblem(for: gameLevel))
         }
         
         return problems

@@ -6,7 +6,7 @@
 this view displays all the available levels for a selected game
 
 initially, only Level One will be unlocked but the player can get a good
-score and unlock the next level.
+score (8 or above) and unlock the next level.
 
 For any game, only the levels that are unlocked will appear green
 ----------------------------------------------------------------
@@ -42,7 +42,7 @@ struct LevelView: View {
         NavigationLink(destination: GameView(for: game.gameType, in: currentLevel) , label: {
             
             Text("Level \(currentLevel)")
-                .font(Font.custom("Noteworthy", size: textSize))
+                .font(.custom(MathForKids.fontFamily, size: textSize))
                 .bold()
                 .foregroundColor(isHigherLevel(currentLevel) ? .gray : .green)
         }).disabled(isHigherLevel(currentLevel))

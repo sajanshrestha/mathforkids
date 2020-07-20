@@ -18,8 +18,8 @@ extension UserDefaults {
         UserDefaults.standard.setValue(username, forKey: UserDefaults.USERNAME_KEY)
     }
     
-    static func getUserName() -> String {
-        UserDefaults.standard.value(forKey: UserDefaults.USERNAME_KEY) as? String ?? "User"
+    static func getUserName() -> String? {
+        UserDefaults.standard.value(forKey: UserDefaults.USERNAME_KEY) as? String
     }
     
     static func updatePlayerLevel(with currentLevels: [String: Int]) {

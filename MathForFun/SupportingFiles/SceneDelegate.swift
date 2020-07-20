@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let window = UIWindow(windowScene: windowScene)
             
-            guard let _ = UserDefaults.standard.value(forKey: "user_name") as? String else {
+            guard let _ = UserDefaults.getUserName() else {
                 window.rootViewController = UIHostingController(rootView: OnboardingView())
                 self.window = window
                 window.makeKeyAndVisible()

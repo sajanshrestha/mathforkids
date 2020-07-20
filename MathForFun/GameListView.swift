@@ -18,6 +18,10 @@ struct GameListView: View {
     
     @EnvironmentObject var playerLevel: PlayerLevel
     
+    var username: String {
+        UserDefaults.getUserName() ?? ""
+    }
+    
     var body: some View {
         
         NavigationView {
@@ -28,7 +32,7 @@ struct GameListView: View {
                     GameRow(game: game)
                 })
             }
-            .navigationBarTitle(Text("Math Games"))
+            .navigationBarTitle(Text("\(username)'s Games"))
             .navigationBarItems(
                 leading:
                 Button("Reset") {
@@ -44,7 +48,7 @@ struct GameListView: View {
             )
                 .alert(isPresented: $resetAlert) {
                     Alert(title: Text("Reset"), message: Text("This will reset all your levels"), primaryButton: .default(Text("Reset"), action: {
-                        self.playerLevel.resetLevels()
+                        self.playerLevel.initialLevels()
                     }), secondaryButton: .cancel(Text("Cancel")))
             }
                 .popover(isPresented: $showSettingsView) {
@@ -72,13 +76,12 @@ struct GameRow: View {
         ZStack {
             
             RoundedRectangle(cornerRadius: cornerRadius)
-                .stroke(Color.blue, lineWidth: 3)
-                .foregroundColor(.white)
+                .stroke(Color.blue, lineWidth: lineWidth)
             
             animationView(for: game.gameType)
             
             Text(game.gameType.name)
-                .font(Font.custom("Noteworthy", size: textSize))
+                .font(Font.custom(MathForKids.fontFamily, size: textSize))
                 .bold()
                 .offset(y: textOffsetFactor)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
@@ -135,6 +138,7 @@ struct GameRow: View {
     
     // MARK: CONSTANTS
     private let cornerRadius: CGFloat = 10
+    private let lineWidth: CGFloat = 3
     private let height: CGFloat = UIScreen.main.bounds.height / 3
     private let rectangleOpacity = 0.3
     private let textSize: CGFloat = 20

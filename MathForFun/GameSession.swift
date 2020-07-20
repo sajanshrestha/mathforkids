@@ -8,12 +8,6 @@
 
 import UIKit
 
-protocol Problem {
-    var rightAnswer: String { get }
-    var options: [String] { get }
-}
-
-
 struct GameSession {
     
     var problems = [Problem]()
@@ -56,7 +50,7 @@ struct GameSession {
             problems.append(contentsOf: ComparingProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
 
         case .position:
-            problems.append(contentsOf: PositionProblem.getProblems(count: numberOfProblems))
+            problems.append(contentsOf: PositionProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
 
         case .classifying:
             problems.append(contentsOf: ClassifyingProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))

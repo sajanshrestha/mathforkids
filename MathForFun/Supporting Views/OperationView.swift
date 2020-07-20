@@ -27,7 +27,6 @@ struct OperationView: View {
                     .animation(nil)
                 
                 self.symbol(for: self.operation, size: geometry.size)
-                    .foregroundColor(.black)
                 
                 CardView(title: "\(self.secondNumber)")
                     .frame(width: min(geometry.size.width, geometry.size.height) * 0.2, height: min(geometry.size.width, geometry.size.height) * 0.2)
