@@ -4,7 +4,6 @@
   
  <html>
  
-  <body>
      <hr>
 
 <image src="https://user-images.githubusercontent.com/38868680/87585982-d5fd2380-c6ad-11ea-96b1-d4b3cf650468.png" width=100 height=200>
@@ -53,7 +52,7 @@ Another thing, the onboarding screen only appears the first time of the app laun
           <img alt="Screen Shot 2020-07-16 at 1 02 50 PM" src="https://user-images.githubusercontent.com/38868680/87884891-6655a400-c9df-11ea-9c23-d5e4ac046186.png" width=100 height=200> 
           <hr>
   
-    </body>
+ 
   </html>
   
  
