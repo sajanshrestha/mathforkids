@@ -36,6 +36,7 @@ struct GameView: View {
                 
                 self.view(for: gameType)
                     .foregroundColor(.gray)
+                    .padding()
                 
                 CorrectIcon(correct: $answerCorrect)
             }

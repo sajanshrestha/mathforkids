@@ -41,8 +41,6 @@ struct ColorGameView: View {
                 .disabled(self.game.gameCompleted || self.game.processingAnswer)
                 .opacity(self.game.processingAnswer ? opacity : 1)
         }
-        .opacity(game.gameCompleted ? opacity : 1)
-        
     }
     
     func questionView(for problem: IdentifyingColorProblem) -> some View {
@@ -67,10 +65,7 @@ struct ColorGameView: View {
             
             self.answerSelected = option
             
-            withAnimation(Animation.spring()) {
-                
-                self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
-            }
+            self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
             
             if self.game.lastProblemOn {
                 DispatchQueue.actionOnMain(after: 0.5) {
@@ -89,7 +84,7 @@ struct ColorGameView: View {
     // MARK: CONSTANTS
     
     private let circleScalingFactor: CGFloat = 0.6
-    private let opacity = 0.3
+    private let opacity = 0.0
     private let optionsSectionHeight: CGFloat = 60
 
 }

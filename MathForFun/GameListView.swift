@@ -39,11 +39,8 @@ struct GameListView: View {
                     self.resetAlert = true
                 },
                 trailing:
-                Image(systemName: "person.circle")
-                    .font(.title)
-                    .foregroundColor(.blue)
-                    .onTapGesture {
-                        self.showSettingsView = true
+                Button("Profile") {
+                    self.showSettingsView = true
                 }
             )
                 .alert(isPresented: $resetAlert) {
@@ -51,10 +48,12 @@ struct GameListView: View {
                         self.playerLevel.initialLevels()
                     }), secondaryButton: .cancel(Text("Cancel")))
             }
-                .popover(isPresented: $showSettingsView) {
+            .sheet(isPresented: $showSettingsView) {
                 SettingsView()
-                
             }
+    
+            Text("Select a Game")
+                .font(.largeTitle)
         }
         
         

@@ -47,7 +47,7 @@ struct OptionsView: View {
                             }, label: {
                                 
                                 Text(option)
-                                    .padding(self.padding)
+                                .padding()
                                     .frame(width: geometry.size.width/CGFloat(self.options.count) - self.spacing)
                                     .background(Color(#colorLiteral(red: 0, green: 0.9437479973, blue: 0.8790259957, alpha: 1)))
                                     .cornerRadius(4)

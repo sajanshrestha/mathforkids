@@ -29,7 +29,7 @@ struct CountingProblem: Problem {
         
         for _ in 0..<count {
             let randomEmoji = EmojiBank.emojis.randomElement()!
-            let count = Int.random(in: 1...highestNumberOfItems)
+            let count = Int.random(in: 2...highestNumberOfItems)
             problems.append(CountingProblem(emoji: randomEmoji.key, emojiCount: count, emojiName: randomEmoji.value))
         }
         
@@ -39,7 +39,7 @@ struct CountingProblem: Problem {
     private static func getHighestNumberOfItems(for level: Int) -> Int {
         switch level {
         case 1:
-            return 3
+            return 5
         case 2:
             return 7
         case 3:

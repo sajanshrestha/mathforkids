@@ -41,7 +41,7 @@ struct GameList {
             case .counting: return 5
             case .comparing: return 6
             case .identifyingColor: return 3
-            case .identifyingShape: return 2
+            case .identifyingShape: return 3
             case .position: return 3
             case .classifying: return 5
             case .addition, .multiplication, .subtraction, .division: return 8

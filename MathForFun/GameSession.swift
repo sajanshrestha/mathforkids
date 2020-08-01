@@ -42,7 +42,6 @@ struct GameSession {
         case .identifyingColor:
             problems.append(contentsOf: IdentifyingColorProblem.getProblems(count: numberOfProblems, level: gameLevel))
 
-            
         case .identifyingShape:
             problems.append(contentsOf: IdentifyingShapeProblem.getProblems(count: numberOfProblems, level: gameLevel))
 

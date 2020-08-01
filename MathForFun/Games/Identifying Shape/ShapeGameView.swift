@@ -35,8 +35,7 @@ struct ShapeGameView: View {
                 
                 Spacer()
                 
-                Text(shapeProblem.shapeEmoji)
-                    .font(Font.system(size: min(geometry.size.width, geometry.size.height) * self.shapeScalingFactor))
+                ShapeView(shape: shapeProblem.shapeImageName)
                 
                 Spacer()
                 
@@ -61,10 +60,9 @@ struct ShapeGameView: View {
             
             self.answerSelected = selectedOption
             
-            withAnimation(Animation.spring()) {
-
-                self.answerCorrect  = self.gameSession.submitAnswer(with: self.answerSelected)
-            }
+            
+            self.answerCorrect  = self.gameSession.submitAnswer(with: self.answerSelected)
+            
             
             if self.gameSession.lastProblemOn {
                 
@@ -72,7 +70,7 @@ struct ShapeGameView: View {
                     self.levelStatus = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level, with: self.gameSession.score)
                 }
             }
-
+            
             DispatchQueue.actionOnMain(after: 1.0) {
                 self.answerCorrect = false
                 self.gameSession.next()
@@ -83,7 +81,7 @@ struct ShapeGameView: View {
     // MARK: CONSTANTS
     
     private let shapeScalingFactor: CGFloat = 0.4
-    private let opacity = 0.3
+    private let opacity = 0.0
     private let padding: CGFloat = 20
 
 }

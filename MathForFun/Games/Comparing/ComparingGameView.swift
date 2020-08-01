@@ -122,7 +122,7 @@ struct ComparingGameView: View {
     
     
     // MARK: COSNTANTS
-    private let opacity = 0.3
+    private let opacity = 0.2
     private let spacing: CGFloat = 30
     private let scalingFactor: CGFloat = 0.75
     private let cornerRadius: CGFloat = 10

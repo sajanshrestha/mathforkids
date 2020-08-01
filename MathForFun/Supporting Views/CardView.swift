@@ -21,7 +21,7 @@ struct CardView: View {
                     .fill(Color(#colorLiteral(red: 0, green: 0.9437479973, blue: 0.8790259957, alpha: 1)))
                 
                 Text(self.title)
-                    .font(self.title.count > 1 ? .largeTitle : Font.system(size: min(geometry.size.width, geometry.size.height) * 0.50))
+                    .font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.50))
                     .foregroundColor(.black)
                 
             }

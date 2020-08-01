@@ -60,8 +60,8 @@ enum ComparingProblem: Problem {
     
     var questionText: String {
         switch self {
-        case .greaterThan(_, _, _, _): return "Which box has more?"
-        case .lesserThan(_, _, _, _): return "Which box has less?"
+        case .greaterThan(_, _, _, _): return "Which box has more items?"
+        case .lesserThan(_, _, _, _): return "Which box has less items?"
         }
     }
     

@@ -76,10 +76,9 @@ struct ArithmeticGameView: View {
     }
     
     
-    // MARK: CONSTANTS
+    // MARK:- CONSTANTS
     
-    private let opacity = 0.2
-
+    private let opacity = 0.0
 
 }
 

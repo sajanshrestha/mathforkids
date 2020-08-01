@@ -12,14 +12,25 @@ import UIKit
 
 struct IdentifyingShapeProblem: Problem {
     
-    var shapeEmoji: String
-    var shape: String
+    var shapeImageName: String
     
-    var rightAnswer: String { shape }
+    var rightAnswer: String { shapeImageName.capitalized }
     
     var options: [String] {
         
-        ["Square", "Triangle", "Rectangle", "Circle"].shuffled()
+        var options = [String]()
+        
+        var colorNames = ["circle", "square", "triangle", "rectangle", "oval", "diamond", "star", "hexagon"].map { $0.capitalized }
+        
+        options.append(shapeImageName.capitalized)
+        
+        colorNames.removeAll { $0 == shapeImageName.capitalized }
+        
+        options.append(contentsOf: colorNames.randomElements(3))
+        
+        options.shuffle()
+        
+        return options
         
     }
     
@@ -27,69 +38,38 @@ struct IdentifyingShapeProblem: Problem {
     static func getProblems(count: Int, level: Int) -> [IdentifyingShapeProblem] {
         
         
-        let shapes = getShapes(count: count, for: level)
+        let shapesImageNames = getShapeImageNames(count: count, for: level)
         
         var problems = [IdentifyingShapeProblem]()
                
-        for (shape, name) in shapes {
-            problems.append(IdentifyingShapeProblem(shapeEmoji: shape, shape: name))
+        for shapeImageName in shapesImageNames {
+            problems.append(IdentifyingShapeProblem(shapeImageName: shapeImageName))
         }
         
         return problems
     }
     
-    private static func getShapes(count: Int, for level: Int) -> [(key: String, value: String)] {
+    private static func getShapeImageNames(count: Int, for level: Int) -> [String] {
         switch level {
         case 1:
-            return levelOneShapes.randomElements(count)
+            return (1...count).map { _ in levelOneShapes.randomElement()! }
         case 2:
-            return levelTwoShapes.randomElements(count)
+            return (1...count).map { _ in levelTwoShapes.randomElement()! }
+        case 3:
+            return (1...count).map { _ in levelThreeShapes.randomElement()! }
         default:
-            return levelTwoShapes.randomElements(count)
+            return []
         }
     }
     
-    private static let levelOneShapes = [
-        "🔴": "Circle",
-        "🚫": "Circle",
-        "⚪️": "Circle",
-        "💿": "Circle",
-        "⬜️": "Square",
-        "🔳": "Square",
-        "🖼": "Square",
-        "🚺": "Square",
-        "📐": "Triangle",
-        "⚠️": "Triangle",
-        "🔺": "Triangle",
-        "💳": "Rectangle"
-    ]
+    private static let levelOneShapes = ["circle", "square", "triangle", "rectangle"]
     
-    private static let levelTwoShapes = [
-        "❇️": "Square",
-        "🔟": "Square",
-        "🎇": "Square",
-        "🌁": "Square",
-        "🏙": "Square",
-        "⚽️": "Circle",
-        "💵": "Rectangle",
-        "🎚": "Rectangle",
-        "⬜️": "Square",
-        "🔳": "Square",
-        "🖼": "Square",
-        "🚺": "Square",
-        "📐": "Triangle",
-        "⚠️": "Triangle",
-        "🔺": "Triangle",
-        "💳": "Rectangle"
-    ]
+    private static var levelTwoShapes: [String] {
+        levelOneShapes + ["oval", "diamond", "star", "hexagon"]
+    }
+    
+    private static var levelThreeShapes: [String] {
+        levelTwoShapes + ["pentagon", "cone", "octagon", "crescent", "cube"]
+    }
     
 }
-
-// "🛢":"Cylinder",
-// "🔋": "Cylinder"
-// "🎲": "Cube",
-
-
-
-
-
