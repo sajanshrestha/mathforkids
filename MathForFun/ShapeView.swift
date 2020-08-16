@@ -15,9 +15,9 @@ struct ShapeView: View {
     var body: some View {
         GeometryReader { geometry in
             Image(self.shape)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-                .frame(height: geometry.size.height * 0.5)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: geometry.size.height * 0.7)
         }
     }
 }

@@ -87,5 +87,3 @@ struct HomeView_Previews: PreviewProvider {
         GameView(for: .comparing, in: 3)
     }
 }
-
-

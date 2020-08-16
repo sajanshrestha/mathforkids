@@ -40,7 +40,7 @@ struct GameList {
             switch self {
             case .counting: return 5
             case .comparing: return 6
-            case .identifyingColor: return 3
+            case .identifyingColor: return 5
             case .identifyingShape: return 3
             case .position: return 3
             case .classifying: return 5

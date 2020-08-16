@@ -34,17 +34,22 @@ struct LevelView: View {
         
         return List(1...numberOfLevels, id: \.self) { currentLevel in
             self.view(for: currentLevel)
-        }
+        }.navigationBarTitle(game.gameType.rawValue)
     }
     
     private func view(for currentLevel: Int) -> some View {
         
         NavigationLink(destination: GameView(for: game.gameType, in: currentLevel) , label: {
-            
-            Text("Level \(currentLevel)")
-                .font(.custom(MathForKids.fontFamily, size: textSize))
-                .bold()
-                .foregroundColor(isHigherLevel(currentLevel) ? .gray : .green)
+            HStack {
+                
+                LevelRow(level: currentLevel)
+                    .opacity(isHigherLevel(currentLevel) ? 0.2 : 1)
+                
+                Spacer()
+                Image(systemName: isHigherLevel(currentLevel) ? "lock.fill" : "lock.open.fill").font(.headline).foregroundColor(.red)
+
+            }
+
         }).disabled(isHigherLevel(currentLevel))
     }
     
@@ -61,3 +66,4 @@ struct LevelView_Previews: PreviewProvider {
         LevelView(for: GameList.Game(id: 1, gameType: .counting))
     }
 }
+

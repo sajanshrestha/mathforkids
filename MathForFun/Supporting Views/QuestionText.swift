@@ -18,9 +18,8 @@ struct QuestionText: ViewModifier {
             .animation(nil)
     }
     
-    // MARK: CONSTANTS
-    
-    private let textSize: CGFloat = 32
+    // MARK:- CONSTANTS
+    private let textSize: CGFloat = UIScreen.main.bounds.width / 16
     private let padding: CGFloat = 20
     
 }

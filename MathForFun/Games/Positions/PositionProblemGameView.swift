@@ -70,7 +70,7 @@ struct PositionProblemGameView: View {
     func view(for positionalElements: [String], size: CGSize) -> some View {
         ForEach(positionalElements, id: \.self) { content in
             CardView(title: content)
-                .frame(width: 100, height: 100)
+                .frame(width: min(size.width, size.height) * 0.2, height: min(size.width, size.height) * 0.2)
         }
     }
     
@@ -96,7 +96,7 @@ struct PositionProblemGameView: View {
     }
     
     // MARK: CONSTANTS
-    private let opacity = 0.3
+    private let opacity = 0.0
     private let optionsSectionHeight: CGFloat = 60
     private let spacing: CGFloat = 20
     private let textScalingFactor: CGFloat = 0.15

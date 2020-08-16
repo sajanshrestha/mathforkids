@@ -39,9 +39,12 @@ struct GameListView: View {
                     self.resetAlert = true
                 },
                 trailing:
-                Button("Profile") {
+                ImageButton(named: "person") {
                     self.showSettingsView = true
                 }
+                    .font(.title)
+                    .foregroundColor(.blue)
+
             )
                 .alert(isPresented: $resetAlert) {
                     Alert(title: Text("Reset"), message: Text("This will reset all your levels"), primaryButton: .default(Text("Reset"), action: {
@@ -105,11 +108,11 @@ struct GameRow: View {
             }
             
             if gameType == .identifyingShape {
-                LottieView(filename: "shapes")
+                LottieView(filename: "identifying_shapes")
                 
             }
             if gameType == .position {
-                PositionAnimation()
+                LottieView(filename: "positions")
                 
             }
             if gameType == .classifying {

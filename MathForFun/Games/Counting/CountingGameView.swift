@@ -11,41 +11,41 @@ import SwiftUI
 struct CountingGameView: View {
     
     @ObservedObject var gameSession = GameModel()
-        
+    
     @State private var selectedAnswer = "0"
     
     @Binding var answerCorrect: Bool
     
     @Binding var levelStatus: LevelStatus
-
+    
     @EnvironmentObject var playerLevel: PlayerLevel
     
     var level = GameModel.gameLevel
-
+    
     var body: some View {
         
         let countingProblem = gameSession.problems[gameSession.index] as! CountingProblem
         
         return VStack {
-                
-                ScoreView(answerCorrect: self.$answerCorrect, score: self.gameSession.score)
-                
-                Spacer()
-                
-                QuestionView(countingProblem: countingProblem)
-                
-                Text("How many \(countingProblem.emojiName.lowercased())s are there?")
-                    .modifier(QuestionText())
-                    .animation(nil)
-                                
-                optionsView(for: countingProblem)
-                    .disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
-                    .opacity(self.gameSession.processingAnswer ? opacity : 1)
-                
-                
-            }
-            .font(.title)
-            .opacity(gameSession.gameCompleted ? opacity : 1)
+            
+            
+            ScoreView(answerCorrect: self.$answerCorrect, score: self.gameSession.score)
+            
+            Spacer()
+            
+            QuestionView(countingProblem: countingProblem)
+            
+            Text("How many \(countingProblem.emojiName.lowercased())s are there?")
+                .modifier(QuestionText())
+                .animation(nil)
+            
+            optionsView(for: countingProblem)
+                .disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
+                .opacity(self.gameSession.processingAnswer ? opacity : 1)
+            
+            
+        }
+        .opacity(gameSession.gameCompleted ? opacity : 1)
     }
     
     func optionsView(for countingProblem: CountingProblem) -> some View {
@@ -68,11 +68,10 @@ struct CountingGameView: View {
             }
         }
     }
-   
+    
     
     //  MARK:- CONSTANTS
     private let spacing: CGFloat = 4
-    private let optionsSectionHeight: CGFloat = 60
     private let opacity = 0.0
     
 }

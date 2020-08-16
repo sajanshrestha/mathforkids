@@ -9,6 +9,8 @@
 import Foundation
 
 protocol Problem {
+    
     var rightAnswer: String { get }
     var options: [String] { get }
 }
+

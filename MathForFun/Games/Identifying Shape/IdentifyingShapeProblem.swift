@@ -38,7 +38,7 @@ struct IdentifyingShapeProblem: Problem {
     static func getProblems(count: Int, level: Int) -> [IdentifyingShapeProblem] {
         
         
-        let shapesImageNames = getShapeImageNames(count: count, for: level)
+        let shapesImageNames = getShapeImageNames(for: level)
         
         var problems = [IdentifyingShapeProblem]()
                
@@ -49,27 +49,27 @@ struct IdentifyingShapeProblem: Problem {
         return problems
     }
     
-    private static func getShapeImageNames(count: Int, for level: Int) -> [String] {
+    private static func getShapeImageNames(for level: Int) -> [String] {
         switch level {
         case 1:
-            return (1...count).map { _ in levelOneShapes.randomElement()! }
+            return levelOneShapes
         case 2:
-            return (1...count).map { _ in levelTwoShapes.randomElement()! }
+            return levelTwoShapes
         case 3:
-            return (1...count).map { _ in levelThreeShapes.randomElement()! }
+            return levelThreeShapes
         default:
             return []
         }
     }
     
-    private static let levelOneShapes = ["circle", "square", "triangle", "rectangle"]
+    private static let levelOneShapes = ["circle", "square", "triangle", "rectangle","circle", "square", "triangle", "rectangle", "circle", "square"]
     
     private static var levelTwoShapes: [String] {
-        levelOneShapes + ["oval", "diamond", "star", "hexagon"]
+        ["circle", "oval", "square", "diamond", "triangle", "star", "rectangle", "hexagon", "diamond", "oval"]
     }
     
     private static var levelThreeShapes: [String] {
-        levelTwoShapes + ["pentagon", "cone", "octagon", "crescent", "cube"]
+         ["pentagon", "circle", "cone", "oval", "octagon", "crescent", "diamond", "cube", "oval", "triangle"]
     }
     
 }

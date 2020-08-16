@@ -18,7 +18,9 @@ struct SettingsView: View {
     @Environment(\.presentationMode) var presentation
     
     var body: some View {
+        
         ZStack {
+            
             Form {
                 
                 Section(header: Text("Enter you username")) {

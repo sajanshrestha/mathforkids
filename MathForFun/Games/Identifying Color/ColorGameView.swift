@@ -83,8 +83,7 @@ struct ColorGameView: View {
     
     // MARK: CONSTANTS
     
-    private let circleScalingFactor: CGFloat = 0.6
+    private let circleScalingFactor: CGFloat = 0.7
     private let opacity = 0.0
-    private let optionsSectionHeight: CGFloat = 60
 
 }

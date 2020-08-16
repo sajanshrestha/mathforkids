@@ -47,7 +47,7 @@ struct LevelStatusView: View {
                 VStack(spacing: 40) {
                     
                     LottieView(filename: "doggie")
-                    .frame(width: lottieAnimationWidth, height: lottieAnimationHeight)
+                    .frame(width: lottieAnimationWidth - 100, height: lottieAnimationHeight - 100)
                     
                     Text("You had already unlocked \(level + 1). But practicing more is always good.")
                         .bold()

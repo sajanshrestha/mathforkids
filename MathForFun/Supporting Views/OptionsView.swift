@@ -63,7 +63,6 @@ struct OptionsView: View {
     }
     
     //MARK:- constants
-    //  MARK: CONSTANTS
     private let spacing: CGFloat = 4
     private let padding: CGFloat = 8
 }

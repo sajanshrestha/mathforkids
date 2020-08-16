@@ -29,7 +29,7 @@ struct OperationView: View {
                 self.symbol(for: self.operation, size: geometry.size)
                 
                 CardView(title: "\(self.secondNumber)")
-                    .frame(width: min(geometry.size.width, geometry.size.height) * 0.2, height: min(geometry.size.width, geometry.size.height) * 0.2)
+                    .frame(width: geometry.size.width * 0.2, height: geometry.size.width * 0.2)
                     .animation(nil)
                 
                 
