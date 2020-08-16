@@ -4,8 +4,7 @@
   
  <html>
  
-  <body>
-     <hr>
+ <hr>
 
 <image src="https://user-images.githubusercontent.com/38868680/87585982-d5fd2380-c6ad-11ea-96b1-d4b3cf650468.png" width=100 height=200>
   
@@ -37,8 +36,10 @@ Another thing, the onboarding screen only appears the first time of the app laun
 <hr>
 
 <image src="https://user-images.githubusercontent.com/38868680/87884876-53db6a80-c9df-11ea-9dc0-9e4bad39a4d9.png" width=100 height=200> 
+  The user gets 10 questions and each question has random number of items (the maximum number of items depends on the level). I have used CountingProblem struct to represent each problem in this game. The counting problem with all other problems in this app conforms to "Problem" protocol. "Problem" protocol has two requirements: (rightAnswer) and (options) properties.
   <hr>
   <image src="https://user-images.githubusercontent.com/38868680/87884879-56d65b00-c9df-11ea-9190-ebf8ad1ac100.png" width=100 height=200> 
+    The comparing game has questions in which user has to choose which box has less or more items. The ComparingProblem is also a struct which conforms to "Problem" protocol.
     <hr>
     <image src="https://user-images.githubusercontent.com/38868680/87884884-5a69e200-c9df-11ea-86d5-efd8ab7df7ee.png" width=100 height=200>
       <hr>
@@ -51,7 +52,7 @@ Another thing, the onboarding screen only appears the first time of the app laun
           <img alt="Screen Shot 2020-07-16 at 1 02 50 PM" src="https://user-images.githubusercontent.com/38868680/87884891-6655a400-c9df-11ea-9c23-d5e4ac046186.png" width=100 height=200> 
           <hr>
   
-    </body>
+ 
   </html>
   
  
