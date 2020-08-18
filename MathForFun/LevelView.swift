@@ -33,7 +33,9 @@ struct LevelView: View {
         let numberOfLevels = self.game.gameType.numberOfLevels
         
         return List(1...numberOfLevels, id: \.self) { currentLevel in
+            
             self.view(for: currentLevel)
+            
         }.navigationBarTitle(game.gameType.rawValue)
     }
     

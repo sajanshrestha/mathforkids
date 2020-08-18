@@ -10,7 +10,7 @@ import SwiftUI
 
 struct OptionsView: View {
     
-    var options: [String]
+    let options: [String]
     var action: (String) -> Void
     
     var body: some View {

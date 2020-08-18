@@ -10,10 +10,8 @@ import Foundation
 
 class GameModel: ObservableObject {
     
-    
     static var gameType: GameList.GameType = .comparing
     static var gameLevel = 1
-
 
     @Published private var game: GameSession = GameModel.createGame()
     

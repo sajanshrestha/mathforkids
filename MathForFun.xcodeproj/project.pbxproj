@@ -77,6 +77,7 @@
 		A1E6FC5F24C49FF4001CFED0 /* doggie.json in Resources */ = {isa = PBXBuildFile; fileRef = A1E6FC5E24C49FF3001CFED0 /* doggie.json */; };
 		A1F288A4248E60AE004F0C40 /* ClassifyingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F288A3248E60AE004F0C40 /* ClassifyingProblem.swift */; };
 		A1F288A6248E69D7004F0C40 /* ClassifyingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F288A5248E69D7004F0C40 /* ClassifyingGameView.swift */; };
+		A1FC4EA624EC12C200A34D69 /* CountingProblemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC4EA524EC12C200A34D69 /* CountingProblemTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +174,7 @@
 		A1E6FC5E24C49FF3001CFED0 /* doggie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doggie.json; sourceTree = "<group>"; };
 		A1F288A3248E60AE004F0C40 /* ClassifyingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyingProblem.swift; sourceTree = "<group>"; };
 		A1F288A5248E69D7004F0C40 /* ClassifyingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyingGameView.swift; sourceTree = "<group>"; };
+		A1FC4EA524EC12C200A34D69 /* CountingProblemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingProblemTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,7 +276,6 @@
 				A137C22A2487EECA00BEC96D /* Assets.xcassets */,
 				A137C2322487EECA00BEC96D /* Info.plist */,
 				A137C22C2487EECA00BEC96D /* Preview Content */,
-				A11CC84124D5A7720078C959 /* ShapeView.swift */,
 			);
 			path = MathForFun;
 			sourceTree = "<group>";
@@ -293,6 +294,7 @@
 				A137C23B2487EECA00BEC96D /* MathForFunTests.swift */,
 				A137C23D2487EECA00BEC96D /* Info.plist */,
 				A1209BC324BE3C6600A5E5DD /* ColorProblemTests.swift */,
+				A1FC4EA524EC12C200A34D69 /* CountingProblemTests.swift */,
 			);
 			path = MathForFunTests;
 			sourceTree = "<group>";
@@ -374,6 +376,7 @@
 		A1D90EBA249FDACA004919BF /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
+				A11CC84124D5A7720078C959 /* ShapeView.swift */,
 				A1BACEA724A8DACC00795909 /* LottieView.swift */,
 				A137C26C2488177E00BEC96D /* Grid.swift */,
 				A137C26A2488177700BEC96D /* GridLayout.swift */,
@@ -643,6 +646,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A137C23C2487EECA00BEC96D /* MathForFunTests.swift in Sources */,
+				A1FC4EA624EC12C200A34D69 /* CountingProblemTests.swift in Sources */,
 				A1209BC424BE3C6600A5E5DD /* ColorProblemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
