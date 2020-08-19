@@ -11,9 +11,7 @@ import SwiftUI
 struct ColorGameView: View {
     
     @ObservedObject var game = GameModel()
-    
-    @State private var answerSelected = ""
-    
+        
     @Binding var answerCorrect: Bool
     
     @Binding var levelStatus: LevelStatus
@@ -49,23 +47,23 @@ struct ColorGameView: View {
                 
                 Circle()
                     .opacity(self.opacity)
+                    .foregroundColor(.red)
                 
                 Circle()
-                    .padding()
+                    .padding(EdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4))
+                    .foregroundColor(Color(problem.color))
                 
             }.frame(width: min(geometry.size.width, geometry.size.height) * self.circleScalingFactor, height: min(geometry.size.width, geometry.size.height) * self.circleScalingFactor)
         }
         .padding()
-        .foregroundColor(Color(problem.color))
+        
     }
     
     func optionsView(for problem: IdentifyingColorProblem) -> some View {
         
         OptionsView(options: problem.options) { option in
-            
-            self.answerSelected = option
-            
-            self.answerCorrect  = self.game.submitAnswer(with: self.answerSelected)
+                        
+            self.answerCorrect  = self.game.submitAnswer(with: option)
             
             if self.game.lastProblemOn {
                 DispatchQueue.actionOnMain(after: 0.5) {
@@ -84,6 +82,6 @@ struct ColorGameView: View {
     // MARK: CONSTANTS
     
     private let circleScalingFactor: CGFloat = 0.7
-    private let opacity = 0.0
+    private let opacity = 0.5
 
 }

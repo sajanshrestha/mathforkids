@@ -96,7 +96,7 @@ struct PositionProblemGameView: View {
     }
     
     // MARK: CONSTANTS
-    private let opacity = 0.0
+    private let opacity = 0.5
     private let optionsSectionHeight: CGFloat = 60
     private let spacing: CGFloat = 20
     private let textScalingFactor: CGFloat = 0.15

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct LevelRow: View {
-        
+    
     var level: Int
     
     private let levelImages = ["Ant", "Bee", "Cow", "Doggy", "Elephant", "Fox", "Giraffe", "Horse", "Iguana", "Jaguar", "Koala", "Lion", "Monkey", "Piggy", "Kitty"]
@@ -21,6 +21,7 @@ struct LevelRow: View {
             Image(levelImages[level - 1])
                 .resizable()
                 .frame(width: 100, height: 100)
+                .cornerRadius(8)
                 .aspectRatio(contentMode: .fit)
             
             Text("Level \(levelImages[level - 1])")

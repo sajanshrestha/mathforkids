@@ -16,24 +16,7 @@ struct IdentifyingShapeProblem: Problem {
     
     var rightAnswer: String { shapeImageName.capitalized }
     
-    var options: [String] {
-        
-        var options = [String]()
-        
-        var colorNames = ["circle", "square", "triangle", "rectangle", "oval", "diamond", "star", "hexagon"].map { $0.capitalized }
-        
-        options.append(shapeImageName.capitalized)
-        
-        colorNames.removeAll { $0 == shapeImageName.capitalized }
-        
-        options.append(contentsOf: colorNames.randomElements(3))
-        
-        options.shuffle()
-        
-        return options
-        
-    }
-    
+    var options: [String]
     
     static func getProblems(count: Int, level: Int) -> [IdentifyingShapeProblem] {
         
@@ -43,7 +26,9 @@ struct IdentifyingShapeProblem: Problem {
         var problems = [IdentifyingShapeProblem]()
                
         for shapeImageName in shapesImageNames {
-            problems.append(IdentifyingShapeProblem(shapeImageName: shapeImageName))
+            let options = IdentifyingShapeProblem.getShapeOptions(for: shapeImageName)
+            let identifyingShapeProblem = IdentifyingShapeProblem(shapeImageName: shapeImageName, options: options)
+            problems.append(identifyingShapeProblem)
         }
         
         return problems
@@ -60,6 +45,24 @@ struct IdentifyingShapeProblem: Problem {
         default:
             return []
         }
+    }
+    
+    private static func getShapeOptions(for shapeName: String) -> [String] {
+        
+        var options = [String]()
+        
+        var shapeNames = ["circle", "square", "triangle", "rectangle", "oval", "diamond", "star", "hexagon"].map { $0.capitalized }
+        
+        options.append(shapeName.capitalized)
+        
+        shapeNames.removeAll { $0 == shapeName.capitalized }
+        
+        options.append(contentsOf: shapeNames.randomElements(3))
+        
+        options.shuffle()
+        
+        return options
+        
     }
     
     private static let levelOneShapes = ["circle", "square", "triangle", "rectangle","circle", "square", "triangle", "rectangle", "circle", "square"]

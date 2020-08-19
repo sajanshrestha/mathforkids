@@ -16,9 +16,7 @@ struct CountingProblem: Problem {
     
     var rightAnswer: String { String(emojiCount) }
     
-    var options: [String] {
-        String.getOptions(for: rightAnswer)
-    }
+    var options: [String]
     
     
     static func getProblems(count: Int, gameLevel: Int) -> [CountingProblem] {
@@ -28,9 +26,11 @@ struct CountingProblem: Problem {
         let highestNumberOfItems = getHighestNumberOfItems(for: gameLevel)
         
         for _ in 0..<count {
+            
             let randomEmoji = EmojiBank.emojis.randomElement()!
             let count = Int.random(in: 2...highestNumberOfItems)
-            problems.append(CountingProblem(emoji: randomEmoji.key, emojiCount: count, emojiName: randomEmoji.value))
+            let options = count.generateOptions()
+            problems.append(CountingProblem(emoji: randomEmoji.key, emojiCount: count, emojiName: randomEmoji.value, options: options))
         }
         
         return problems

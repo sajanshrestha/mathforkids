@@ -16,23 +16,7 @@ struct IdentifyingColorProblem: Problem {
     
     var rightAnswer: String { colorName }
     
-    var options: [String] {
-        
-        var options = [String]()
-        
-        var colorNames = ["Red", "Green", "Yellow", "Blue", "Pink", "Black", "Magenta", "Yale", "Ruby", "Olympic", "Forest Green", "Gold", "Orchid", "Sky Blue", "Maroon", "Coral", "Papaya Whip"]
-        
-        options.append(colorName)
-        
-        colorNames.removeAll { $0 == colorName }
-        
-        options.append(contentsOf: colorNames.randomElements(3))
-        
-        options.shuffle()
-        
-        return options
-        
-    }
+    var options: [String]
     
     static func getProblems(count: Int, level: Int) -> [IdentifyingColorProblem] {
         
@@ -42,7 +26,9 @@ struct IdentifyingColorProblem: Problem {
         
         for color in colors {
             
-            problems.append(IdentifyingColorProblem(color: color.UIColor, colorName: color))
+            let options = IdentifyingColorProblem.getColorOptions(for: color)
+            let identifyingColorProblem = IdentifyingColorProblem(color: color.UIColor, colorName: color, options: options)
+            problems.append(identifyingColorProblem)
         }
         
         return problems
@@ -65,6 +51,23 @@ struct IdentifyingColorProblem: Problem {
             return levelFiveColorNames
             
         }
+    }
+    
+    private static func getColorOptions(for color: String) -> [String] {
+        
+        var options = [String]()
+        
+        var colorNames = ["Red", "Green", "Yellow", "Blue", "Pink", "Black", "Magenta", "Yale", "Ruby", "Olympic", "Forest Green", "Gold", "Orchid", "Sky Blue", "Maroon", "Coral", "Papaya Whip"]
+        
+        options.append(color)
+        
+        colorNames.removeAll { $0 == color }
+        
+        options.append(contentsOf: colorNames.randomElements(3))
+        
+        options.shuffle()
+        
+        return options
     }
     
     

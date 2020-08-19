@@ -57,10 +57,8 @@ struct ArithmeticGameView: View {
     func optionsView(for arithmeticProblem: ArithmeticProblem) -> some View {
         
         OptionsView(options: arithmeticProblem.options) { option in
-            
-            self.selectedAnswer = option
-            
-            self.answerCorrect = self.game.submitAnswer(with: self.selectedAnswer)
+                        
+            self.answerCorrect = self.game.submitAnswer(with: option)
             
             if self.game.lastProblemOn  {
                 DispatchQueue.actionOnMain(after: 0.5) {

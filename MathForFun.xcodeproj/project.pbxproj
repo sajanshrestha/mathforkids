@@ -72,6 +72,9 @@
 		A1D90EC024A02A20004919BF /* EmojiBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D90EBF24A02A20004919BF /* EmojiBank.swift */; };
 		A1D90F1424A12A6E004919BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D90F1324A12A6E004919BF /* LaunchScreen.storyboard */; };
 		A1D9ABD224ACC1C3002AEA7A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9ABD124ACC1C3002AEA7A /* SettingsView.swift */; };
+		A1DDD0AD24ED5C010084AD76 /* GameListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DDD0AC24ED5C010084AD76 /* GameListTests.swift */; };
+		A1DDD0AF24ED92D20084AD76 /* PositionProblemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DDD0AE24ED92D20084AD76 /* PositionProblemTests.swift */; };
+		A1DDD0B124ED9DD30084AD76 /* ArithmeticProblemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DDD0B024ED9DD30084AD76 /* ArithmeticProblemTests.swift */; };
 		A1E6FC5B24C49E17001CFED0 /* student.json in Resources */ = {isa = PBXBuildFile; fileRef = A1E6FC5A24C49E16001CFED0 /* student.json */; };
 		A1E6FC5D24C49F64001CFED0 /* kids.json in Resources */ = {isa = PBXBuildFile; fileRef = A1E6FC5C24C49F64001CFED0 /* kids.json */; };
 		A1E6FC5F24C49FF4001CFED0 /* doggie.json in Resources */ = {isa = PBXBuildFile; fileRef = A1E6FC5E24C49FF3001CFED0 /* doggie.json */; };
@@ -169,6 +172,9 @@
 		A1D90EBF24A02A20004919BF /* EmojiBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiBank.swift; sourceTree = "<group>"; };
 		A1D90F1324A12A6E004919BF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1D9ABD124ACC1C3002AEA7A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A1DDD0AC24ED5C010084AD76 /* GameListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListTests.swift; sourceTree = "<group>"; };
+		A1DDD0AE24ED92D20084AD76 /* PositionProblemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionProblemTests.swift; sourceTree = "<group>"; };
+		A1DDD0B024ED9DD30084AD76 /* ArithmeticProblemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticProblemTests.swift; sourceTree = "<group>"; };
 		A1E6FC5A24C49E16001CFED0 /* student.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = student.json; sourceTree = "<group>"; };
 		A1E6FC5C24C49F64001CFED0 /* kids.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kids.json; sourceTree = "<group>"; };
 		A1E6FC5E24C49FF3001CFED0 /* doggie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doggie.json; sourceTree = "<group>"; };
@@ -295,6 +301,9 @@
 				A137C23D2487EECA00BEC96D /* Info.plist */,
 				A1209BC324BE3C6600A5E5DD /* ColorProblemTests.swift */,
 				A1FC4EA524EC12C200A34D69 /* CountingProblemTests.swift */,
+				A1DDD0AC24ED5C010084AD76 /* GameListTests.swift */,
+				A1DDD0AE24ED92D20084AD76 /* PositionProblemTests.swift */,
+				A1DDD0B024ED9DD30084AD76 /* ArithmeticProblemTests.swift */,
 			);
 			path = MathForFunTests;
 			sourceTree = "<group>";
@@ -645,9 +654,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1DDD0AF24ED92D20084AD76 /* PositionProblemTests.swift in Sources */,
 				A137C23C2487EECA00BEC96D /* MathForFunTests.swift in Sources */,
 				A1FC4EA624EC12C200A34D69 /* CountingProblemTests.swift in Sources */,
 				A1209BC424BE3C6600A5E5DD /* ColorProblemTests.swift in Sources */,
+				A1DDD0AD24ED5C010084AD76 /* GameListTests.swift in Sources */,
+				A1DDD0B124ED9DD30084AD76 /* ArithmeticProblemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

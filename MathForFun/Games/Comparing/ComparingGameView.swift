@@ -54,7 +54,6 @@ struct ComparingGameView: View {
         HStack {
             
             self.view(for: problem.firstSetEmoji, problem.firstSetCount)
-                .background(Color.white)
                 .onTapGesture {
                     
                     self.submitAnswer(with: ComparingProblem.ComparingSet.firstSet.rawValue)
@@ -68,7 +67,6 @@ struct ComparingGameView: View {
             }
             
             self.view(for: problem.secondSetEmoji, problem.secondSetCount)
-                .background(Color.white)
                 .onTapGesture {
                     
                     self.submitAnswer(with: ComparingProblem.ComparingSet.secondSet.rawValue)

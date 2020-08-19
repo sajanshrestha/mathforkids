@@ -81,7 +81,7 @@ struct ShapeGameView: View {
     // MARK: CONSTANTS
     
     private let shapeScalingFactor: CGFloat = 0.4
-    private let opacity = 0.0
+    private let opacity = 0.5
     private let padding: CGFloat = 20
 
 }

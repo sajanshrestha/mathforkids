@@ -56,3 +56,19 @@ extension String {
         return options.shuffled()
     }
 }
+
+extension Int {
+    
+    func generateOptions() -> [String] {
+        
+        var options = [String]()
+                
+        let firstOption = self > 1 ? self - 1 : self + 1
+        let secondOption = self > 2 ? self - 2 : self + 2
+        let thirdOption = self > 3 ? self - 3 : self + 3
+        
+        options.append(contentsOf: [String(self), String(firstOption), String(secondOption), String(thirdOption)])
+        
+        return options.shuffled()
+    }
+}
