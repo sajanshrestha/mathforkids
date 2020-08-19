@@ -71,7 +71,7 @@ struct CountingGameView: View {
     
     //  MARK:- CONSTANTS
     private let spacing: CGFloat = 4
-    private let opacity = 0.0
+    private let opacity = 0.2
     
 }
 

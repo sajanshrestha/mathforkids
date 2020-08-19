@@ -24,6 +24,7 @@ struct CorrectIcon: View {
                 .rotationEffect(.degrees(self.correct ? 360 : 0))
                 .scaleEffect(self.correct ? 2 : 1)
                 .animation(Animation.easeInOut)
+
         }
         
         

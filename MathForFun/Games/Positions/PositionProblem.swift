@@ -11,18 +11,17 @@ import Foundation
 
 struct PositionProblem: Problem {
     
-    var orientation: Orientation
+    var orientation = [Orientation.vertical, Orientation.horizontal].randomElement()!
     
     private var firstElement: Element
     private var secondElement: Element
     private var thirdElement: Element
     
     private var elementChosen: Element
+    
+    var options: [String]
 
     init(for gameLevel: Int) {
-        
-        self.orientation = [Orientation.vertical, Orientation.horizontal].randomElement()!
-        
         
         let elementList = PositionProblem.getElements(for: gameLevel)
         
@@ -47,6 +46,8 @@ struct PositionProblem: Problem {
         }
         
         elementChosen = [firstElement, secondElement, thirdElement].randomElement()!
+        
+        options = [firstElement, secondElement, thirdElement].map {$0.name}.shuffled()
         
     }
     
@@ -87,11 +88,7 @@ struct PositionProblem: Problem {
     var rightAnswer: String {
         elementChosen.name
     }
-    
-    var options: [String] {
-        [firstElement, secondElement, thirdElement].map {$0.name}.shuffled()
-    }
-    
+        
     enum Orientation {
         case vertical
         case horizontal
@@ -110,6 +107,7 @@ struct PositionProblem: Problem {
         var problems = [PositionProblem]()
         
         for _ in 0..<count {
+            
             problems.append(PositionProblem(for: gameLevel))
         }
         
