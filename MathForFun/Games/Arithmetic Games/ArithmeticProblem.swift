@@ -11,41 +11,46 @@ import Foundation
 
 enum ArithmeticProblem: Problem {
 
-    case addition(firstNumber: Int, secondNumber: Int)
-    case subtraction(firstNumber: Int, secondNumber: Int)
-    case multiplication(firstNumber: Int, secondNumber: Int)
-    case division(firstNumber: Int, secondNumber: Int)
+    case addition(firstNumber: Int, secondNumber: Int, options: [String])
+    case subtraction(firstNumber: Int, secondNumber: Int, options: [String])
+    case multiplication(firstNumber: Int, secondNumber: Int, options: [String])
+    case division(firstNumber: Int, secondNumber: Int, options: [String])
     
     var firstNumber: Int {
         switch self {
-        case .addition(let first, _): return first
-        case .subtraction(let first, let second): return max(first, second)
-        case .multiplication(let first, _): return first
-        case .division(let first, _): return first
+        case .addition(let first, _, _): return first
+        case .subtraction(let first, let second, _): return max(first, second)
+        case .multiplication(let first, _, _): return first
+        case .division(let first, _, _): return first
         }
     }
     
     var secondNumber: Int {
         switch self {
-        case .addition(_, let second): return second
-        case .subtraction(let first, let second): return min(first, second)
-        case .multiplication(_, let second): return second
-        case .division(_, let second): return second
+        case .addition(_, let second, _): return second
+        case .subtraction(let first, let second, _): return min(first, second)
+        case .multiplication(_, let second, _): return second
+        case .division(_, let second, _): return second
         }
     }
     
     var rightAnswer: String {
         
         switch self {
-        case .addition(let first, let second): return "\(first + second)"
-        case .subtraction(let first, let second): return "\(abs(first - second))"
-        case .multiplication(let first, let second): return "\(first * second)"
-        case .division(let first, let second): return "\(Int(first/second))"
+        case .addition(let first, let second, _): return "\(first + second)"
+        case .subtraction(let first, let second, _): return "\(abs(first - second))"
+        case .multiplication(let first, let second, _): return "\(first * second)"
+        case .division(let first, let second, _): return "\(Int(first/second))"
         }
     }
     
     var options: [String] {
-        String.getOptions(for: rightAnswer)
+        switch self {
+        case .addition(_, _, let options): return options
+        case .subtraction(_, _, let options): return options
+        case .multiplication(_, _, let options): return options
+        case .division(_, _, let options): return options
+        }
     }
     
     static func getProblems(count: Int, gameLevel: Int, for operation: ArithmeticOperation) -> [ArithmeticProblem] {
@@ -69,10 +74,10 @@ enum ArithmeticProblem: Problem {
     
     var arithmeticOperation: ArithmeticOperation {
         switch self {
-        case .addition(_, _): return .addition
-        case .subtraction(_, _): return .subtraction
-        case .multiplication(_, _): return .multiplication
-        case .division(_, _): return .division
+        case .addition(_, _, _): return .addition
+        case .subtraction(_, _, _): return .subtraction
+        case .multiplication(_, _, _): return .multiplication
+        case .division(_, _, _): return .division
         }
     }
     
@@ -93,7 +98,10 @@ extension ArithmeticProblem {
         var problems = [ArithmeticProblem]()
         
         for _ in 0..<count {
-            problems.append(ArithmeticProblem.addition(firstNumber: Int.random(in: 0...gameLevel*2), secondNumber: Int.random(in: 0...gameLevel*2)))
+            let first = Int.random(in: 0...gameLevel*2)
+            let second = Int.random(in: 0...gameLevel*2)
+            let options = (first + second).generateOptions()
+            problems.append(ArithmeticProblem.addition(firstNumber: first, secondNumber: second, options: options))
         }
         
         return problems
@@ -104,7 +112,10 @@ extension ArithmeticProblem {
         var problems = [ArithmeticProblem]()
         
         for _ in 0..<count {
-            problems.append(ArithmeticProblem.subtraction(firstNumber: Int.random(in: 0...gameLevel*2), secondNumber: Int.random(in: 0...gameLevel*2)))
+            let first = Int.random(in: 0...gameLevel*2)
+            let second = Int.random(in: 0...gameLevel*2)
+            let options = (first - second).generateOptions()
+            problems.append(ArithmeticProblem.subtraction(firstNumber: first, secondNumber: second, options: options))
         }
         
         return problems
@@ -115,7 +126,10 @@ extension ArithmeticProblem {
         var problems = [ArithmeticProblem]()
         
         for _ in 0..<count {
-            problems.append(ArithmeticProblem.multiplication(firstNumber: Int.random(in: 0...gameLevel*2), secondNumber: Int.random(in: 0...gameLevel*2)))
+            let first = Int.random(in: 0...gameLevel*2)
+            let second = Int.random(in: 0...gameLevel*2)
+            let options = (first * second).generateOptions()
+            problems.append(ArithmeticProblem.multiplication(firstNumber: first, secondNumber: second, options: options))
         }
         
         return problems
@@ -126,7 +140,10 @@ extension ArithmeticProblem {
         var problems = [ArithmeticProblem]()
         
         for _ in 0..<count {
-            problems.append(ArithmeticProblem.division(firstNumber: divisor(for: gameLevel), secondNumber: dividend(for: gameLevel)))
+            let first = divisor(for: gameLevel)
+            let second = dividend(for: gameLevel)
+            let options = Int(first/second).generateOptions()
+            problems.append(ArithmeticProblem.division(firstNumber: first, secondNumber: second, options: options))
         }
         
         return problems

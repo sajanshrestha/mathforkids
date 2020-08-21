@@ -42,6 +42,7 @@ struct LevelView: View {
     private func view(for currentLevel: Int) -> some View {
         
         NavigationLink(destination: GameView(for: game.gameType, in: currentLevel) , label: {
+            
             HStack {
                 
                 LevelRow(level: currentLevel)

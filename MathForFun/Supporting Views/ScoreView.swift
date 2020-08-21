@@ -12,7 +12,6 @@ struct ScoreView: View {
     
     @Binding var answerCorrect: Bool
     
-    
     let score: Int
     
     var body: some View {

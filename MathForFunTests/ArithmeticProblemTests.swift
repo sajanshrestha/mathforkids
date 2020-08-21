@@ -18,29 +18,47 @@ class ArithmeticProblemTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func test_Addition_2And2ShouldGiveFour() throws {
-        let additionProblem = ArithmeticProblem.addition(firstNumber: 2, secondNumber: 2)
-        XCTAssertEqual(additionProblem.rightAnswer, "4")
+    
+    func test_WhenInitialized_SetsFirstSecondAndOptions() throws {
+        let options = 20.generateOptions()
+        let sut = ArithmeticProblem.addition(firstNumber: 10, secondNumber: 10, options: options)
+        XCTAssertEqual(sut.firstNumber, 10)
+        XCTAssertEqual(sut.secondNumber, 10)
+        XCTAssertEqual(sut.options, options)
     }
-
-    func test_Subtraction_6Minus2ShouldGiveFour() throws {
-        let subtractionProblem = ArithmeticProblem.subtraction(firstNumber: 6, secondNumber: 2)
-        XCTAssertEqual(subtractionProblem.rightAnswer, "4")
+ 
+    
+    func test_AdditionProblem_RightAnswerShouldBe20() throws {
+        let sut = ArithmeticProblem.addition(firstNumber: 10, secondNumber: 10, options: 20.generateOptions())
+        XCTAssertEqual(sut.rightAnswer, "20")
+        
     }
     
-    func test_Multiplication_6Multiply2ShouldGive12() throws {
-        let multiplicationProblem = ArithmeticProblem.multiplication(firstNumber: 6, secondNumber: 2)
-        XCTAssertEqual(multiplicationProblem.rightAnswer, "12")
-    }
-
-    func test_Division_6DividedBy2ShouldGive3() throws {
-        let divisionProblem = ArithmeticProblem.division(firstNumber: 6, secondNumber: 2)
-        XCTAssertEqual(divisionProblem.rightAnswer, "3")
+    func test_SubtractionProblem_RightAnswerShouldBe10() throws {
+        let sut = ArithmeticProblem.subtraction(firstNumber: 20, secondNumber: 10, options: 10.generateOptions())
+        XCTAssertEqual(sut.rightAnswer, "10")
+        
     }
     
-    func test_InitSetsOptions() throws {
-        let problem = ArithmeticProblem.addition(firstNumber: 2, secondNumber: 2)
-        XCTAssertEqual(problem.options.count, 4)
+    func test_MultiplicationProblem_RightAnswerShouldBe100() throws {
+        let sut = ArithmeticProblem.multiplication(firstNumber: 10, secondNumber: 10, options: 100.generateOptions())
+        XCTAssertEqual(sut.rightAnswer, "100")
+        
+    }
+    
+    func test_AdditionProblem_RightAnswerShouldBe2() throws {
+        let sut = ArithmeticProblem.division(firstNumber: 4, secondNumber: 2, options: 2.generateOptions())
+        XCTAssertEqual(sut.rightAnswer, "2")
+        
+    }
+    
+    func test_GetProblems_ShouldReturn10Problems() throws {
+        let sut = ArithmeticProblem.getProblems(count: 10, gameLevel: 1, for: .addition)
+        XCTAssertEqual(sut.count, 10)
+    }
+    
+    func test_WhenDivisionProblemIsInitialize_OperationShouldBeDivision() throws {
+        let sut = ArithmeticProblem.division(firstNumber: 10, secondNumber: 2, options: 5.generateOptions())
+        XCTAssertEqual(sut.arithmeticOperation, ArithmeticProblem.ArithmeticOperation.division)
     }
 }

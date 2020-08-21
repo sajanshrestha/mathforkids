@@ -11,9 +11,7 @@ import SwiftUI
 struct CountingGameView: View {
     
     @ObservedObject var gameSession = GameModel()
-        
-    @State private var selectedAnswer = "0"
-    
+            
     @Binding var answerCorrect: Bool
     
     @Binding var levelStatus: LevelStatus
@@ -42,7 +40,6 @@ struct CountingGameView: View {
                     .disabled(self.gameSession.gameCompleted || self.gameSession.processingAnswer)
                     .opacity(self.gameSession.processingAnswer ? opacity : 1)
                 
-                
             }
             .opacity(gameSession.gameCompleted ? opacity : 1)
     }
@@ -51,9 +48,7 @@ struct CountingGameView: View {
         
         OptionsView(options: countingProblem.options) { option in
             
-            self.selectedAnswer = option
-            
-            self.answerCorrect = self.gameSession.submitAnswer(with: self.selectedAnswer)
+            self.answerCorrect = self.gameSession.submitAnswer(with: option)
             
             if self.gameSession.lastProblemOn {
                 DispatchQueue.actionOnMain(after: 0.5) {

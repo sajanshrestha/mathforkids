@@ -12,7 +12,7 @@ struct GameListView: View {
     
     var gameList: GameList
     
-    @State private var resetAlert = false
+    @State private var showResetAlert = false
     
     @State private var showSettingsView = false
     
@@ -36,7 +36,7 @@ struct GameListView: View {
             .navigationBarItems(
                 leading:
                 Button("Reset") {
-                    self.resetAlert = true
+                    self.showResetAlert = true
                 },
                 trailing:
                 ImageButton(named: "person") {
@@ -46,7 +46,7 @@ struct GameListView: View {
                     .foregroundColor(.blue)
 
             )
-                .alert(isPresented: $resetAlert) {
+                .alert(isPresented: $showResetAlert) {
                     Alert(title: Text("Reset"), message: Text("This will reset all your levels"), primaryButton: .default(Text("Reset"), action: {
                         self.playerLevel.initialLevels()
                     }), secondaryButton: .cancel(Text("Cancel")))
@@ -60,12 +60,6 @@ struct GameListView: View {
         }
         
         
-    }
-}
-
-struct PreKHomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        GameListView(gameList: GameList())
     }
 }
 
