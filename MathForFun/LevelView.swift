@@ -30,18 +30,18 @@ struct LevelView: View {
     
     var body: some View {
         
-        let numberOfLevels = self.game.gameType.numberOfLevels
+        let numberOfLevels = self.game.numberOfLevels
         
         return List(1...numberOfLevels, id: \.self) { currentLevel in
             
             self.view(for: currentLevel)
             
-        }.navigationBarTitle(game.gameType.rawValue)
+        }.navigationBarTitle(game.name)
     }
     
     private func view(for currentLevel: Int) -> some View {
         
-        NavigationLink(destination: GameView(for: game.gameType, in: currentLevel) , label: {
+        NavigationLink(destination: GameView(for: game, in: currentLevel) , label: {
             
             HStack {
                 
@@ -57,7 +57,7 @@ struct LevelView: View {
     }
     
     func isHigherLevel(_ level: Int) -> Bool {
-        level > self.playerLevel.getCurrentLevel(for: self.game.gameType)
+        level > self.playerLevel.getCurrentLevel(for: self.game)
     }
     
     // MARK: CONSTANTS
@@ -66,7 +66,7 @@ struct LevelView: View {
 
 struct LevelView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelView(for: GameList.Game(id: 1, gameType: .counting))
+        LevelView(for: GameList.Game.addition)
     }
 }
 

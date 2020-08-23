@@ -10,13 +10,13 @@ import Foundation
 
 class GameModel: ObservableObject {
     
-    static var gameType: GameList.GameType = .comparing
+    static var game: GameList.Game = .comparing
     static var gameLevel = 1
 
     @Published private var game: GameSession = GameModel.createGame()
     
     private static func createGame() -> GameSession {
-        GameSession(gameType: gameType, gameLevel: gameLevel)
+        GameSession(game: game, gameLevel: gameLevel)
     }
     
     // MARK: ACCESS(ES)

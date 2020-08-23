@@ -24,8 +24,8 @@ struct ArithmeticGameView: View {
     
     private var resultTitleText:  String {
         
-        let resultTitles: [GameList.GameType: String] = [.addition: "sum", .subtraction: "difference", .multiplication: "product", .division: "quotient"]
-        return resultTitles[GameModel.gameType] ?? "result"
+        let resultTitles: [GameList.Game: String] = [.addition: "sum", .subtraction: "difference", .multiplication: "product", .division: "quotient"]
+        return resultTitles[GameModel.game] ?? "result"
         
     }
     
@@ -62,7 +62,7 @@ struct ArithmeticGameView: View {
             
             if self.game.lastProblemOn  {
                 DispatchQueue.actionOnMain(after: 0.5) {
-                    self.levelStatus = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level, with: self.game.score)
+                    self.levelStatus = self.playerLevel.updateLevel(for: GameModel.game, playingLevel: self.level, with: self.game.score)
                 }
             }
             

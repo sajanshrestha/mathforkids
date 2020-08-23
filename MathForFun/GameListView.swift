@@ -42,9 +42,9 @@ struct GameListView: View {
                 ImageButton(named: "person") {
                     self.showSettingsView = true
                 }
-                    .font(.title)
-                    .foregroundColor(.blue)
-
+                .font(.title)
+                .foregroundColor(.blue)
+                
             )
                 .alert(isPresented: $showResetAlert) {
                     Alert(title: Text("Reset"), message: Text("This will reset all your levels"), primaryButton: .default(Text("Reset"), action: {
@@ -54,7 +54,7 @@ struct GameListView: View {
             .sheet(isPresented: $showSettingsView) {
                 SettingsView()
             }
-    
+            
             Text("Select a Game")
                 .font(.largeTitle)
         }
@@ -74,9 +74,9 @@ struct GameRow: View {
             RoundedRectangle(cornerRadius: cornerRadius)
                 .stroke(Color.blue, lineWidth: lineWidth)
             
-            animationView(for: game.gameType)
+            animationView(for: game)
             
-            Text(game.gameType.name)
+            Text(game.name)
                 .font(Font.custom(MathForKids.fontFamily, size: textSize))
                 .bold()
                 .offset(y: textOffsetFactor)
@@ -84,48 +84,48 @@ struct GameRow: View {
         }
     }
     
-    func animationView(for gameType: GameList.GameType) -> some View {
+    func animationView(for game: GameList.Game) -> some View {
         
         Group {
             
             
-            if gameType == .counting {
+            if game == .counting {
                 CountingAnimation()
                 
             }
-            if gameType == .comparing {
+            if game == .comparing {
                 ComparingAnimation()
                 
             }
-            if gameType == .identifyingColor {
+            if game == .identifyingColor {
                 LottieView(filename: "colors")
             }
             
-            if gameType == .identifyingShape {
+            if game == .identifyingShape {
                 LottieView(filename: "identifying_shapes")
                 
             }
-            if gameType == .position {
+            if game == .position {
                 LottieView(filename: "positions")
                 
             }
-            if gameType == .classifying {
+            if game == .classifying {
                 ClassifyAnimation()
                 
             }
-            if gameType == .addition {
+            if game == .addition {
                 ArithmeticAnimation(for: ArithmeticOperation.addition)
             }
             
-            if gameType == .subtraction {
+            if game == .subtraction {
                 ArithmeticAnimation(for: ArithmeticOperation.subtraction)
                 
             }
             
-            if gameType == .multiplication {
+            if game == .multiplication {
                 ArithmeticAnimation(for: ArithmeticOperation.multiplication)
             }
-            if gameType == .division {
+            if game == .division {
                 ArithmeticAnimation(for: ArithmeticOperation.division)
             }
             

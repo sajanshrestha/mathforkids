@@ -84,7 +84,7 @@ struct PositionProblemGameView: View {
             
             if self.gameSession.lastProblemOn {
                 DispatchQueue.actionOnMain(after: 0.5) {
-                    self.levelStatus = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level, with: self.gameSession.score)
+                    self.levelStatus = self.playerLevel.updateLevel(for: GameModel.game, playingLevel: self.level, with: self.gameSession.score)
                 }
             }
             

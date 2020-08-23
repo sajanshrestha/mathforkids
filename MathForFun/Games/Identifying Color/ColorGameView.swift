@@ -67,7 +67,7 @@ struct ColorGameView: View {
             
             if self.game.lastProblemOn {
                 DispatchQueue.actionOnMain(after: 0.5) {
-                    self.levelStatus = self.playerLevel.updateLevel(for: GameModel.gameType, playingLevel: self.level, with: self.game.score)
+                    self.levelStatus = self.playerLevel.updateLevel(for: GameModel.game, playingLevel: self.level, with: self.game.score)
                 }
             }
             

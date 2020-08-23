@@ -23,7 +23,7 @@ struct SettingsView: View {
             
             Form {
                 
-                Section(header: Text("Enter you username")) {
+                Section(header: Text("Enter your username")) {
                     
                     TextField("Username", text: $username)
                     

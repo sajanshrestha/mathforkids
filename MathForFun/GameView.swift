@@ -19,12 +19,12 @@ struct GameView: View {
     @State private var answerCorrect = false
     @State private var levelStatus: LevelStatus = .none
         
-    var gameType: GameList.GameType
+    var game: GameList.Game
         
     var level: Int
     
-    init(for gameType: GameList.GameType, in level: Int) {
-        self.gameType = gameType
+    init(for game: GameList.Game, in level: Int) {
+        self.game = game
         self.level = level
     }
     
@@ -34,7 +34,7 @@ struct GameView: View {
             
             if levelStatus == .none {
                 
-                self.view(for: gameType)
+                self.view(for: game)
                     .foregroundColor(.gray)
                     .padding()
                 
@@ -47,33 +47,33 @@ struct GameView: View {
         }
     }
     
-    func view(for gameType: GameList.GameType) -> some View {
+    func view(for game: GameList.Game) -> some View {
         
         // sets the game to the selected game type
-        GameModel.gameType = gameType
+        GameModel.game = game
         GameModel.gameLevel = level
         
         return Group {
-            if gameType == .counting {
+            if game == .counting {
                 CountingGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
-            else if gameType == .comparing {
+            else if game == .comparing {
                 ComparingGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
-            else if gameType == .identifyingColor {
+            else if game == .identifyingColor {
                 ColorGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
-            else if gameType == .identifyingShape {
+            else if game == .identifyingShape {
                 ShapeGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
-            else if gameType == .position {
+            else if game == .position {
                 PositionProblemGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
-            else if gameType == .classifying {
+            else if game == .classifying {
                 ClassifyingGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             
-            else if gameType == .addition || gameType == .subtraction || gameType == .multiplication || gameType == .division {
+            else if game == .addition || game == .subtraction || game == .multiplication || game == .division {
                 ArithmeticGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             

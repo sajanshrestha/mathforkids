@@ -12,7 +12,7 @@ struct GameSession {
     
     var problems = [Problem]()
     
-    var gameType: GameList.GameType
+    var game: GameList.Game
     
     var currentIndex = 0
     var score = 0
@@ -25,16 +25,16 @@ struct GameSession {
     
     private let numberOfProblems = 10
     
-    init(gameType: GameList.GameType, gameLevel: Int) {
+    init(game: GameList.Game, gameLevel: Int) {
         
-        self.gameType = gameType
+        self.game = game
         self.createGame(for: gameLevel)
          
     }
     
     private mutating func createGame(for gameLevel: Int) {
         
-        switch gameType {
+        switch game {
             
         case .counting:
             problems.append(contentsOf: CountingProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))

@@ -11,15 +11,10 @@ import Foundation
 struct GameList {
         
     var games: [Game] {
-        getGames()
+        Game.allCases
     }
     
-    struct Game: Identifiable {
-        var id: Int
-        var gameType: GameType
-    }
-    
-    enum GameType: String, CaseIterable {
+    enum Game: String, CaseIterable, Identifiable {
         
         case counting = "Counting"
         case comparing = "Comparing"
@@ -36,6 +31,10 @@ struct GameList {
             self.rawValue
         }
         
+        var id: String {
+            self.rawValue
+        }
+        
         var numberOfLevels: Int {
             switch self {
             case .counting: return 5
@@ -47,19 +46,5 @@ struct GameList {
             case .addition, .multiplication, .subtraction, .division: return 8
             }
         }
-    }
-    
-    private func getGames() -> [Game] {
-        
-        var games = [Game]()
-        
-        var id = 0
-        
-        for gameType in GameType.allCases {
-            games.append(Game(id: id, gameType: gameType))
-            id += 1
-        }
-        
-        return games
     }
 }

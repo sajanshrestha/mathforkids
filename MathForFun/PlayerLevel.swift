@@ -32,22 +32,22 @@ class PlayerLevel: ObservableObject {
         self.currentLevels = playerGameLevels
     }
         
-    func getCurrentLevel(for gameType: GameList.GameType) -> Int {
+    func getCurrentLevel(for game: GameList.Game) -> Int {
         
-        currentLevels[gameType.rawValue] ?? 1
+        currentLevels[game.rawValue] ?? 1
     }
     
     
     @discardableResult
-    func updateLevel(for gameType: GameList.GameType, playingLevel: Int, with score: Int) -> LevelStatus {
+    func updateLevel(for game: GameList.Game, playingLevel: Int, with score: Int) -> LevelStatus {
         
-        let currentLevel = getCurrentLevel(for: gameType)
+        let currentLevel = getCurrentLevel(for: game)
         
         if score > MathForKids.levelUnlockingScore {
             
-            if playingLevel == currentLevel && gameType.numberOfLevels > playingLevel {
+            if playingLevel == currentLevel && game.numberOfLevels > playingLevel {
                 
-                currentLevels[gameType.rawValue]! += 1
+                currentLevels[game.rawValue]! += 1
                 UserDefaults.updatePlayerLevel(with: currentLevels)
                 AudioPlayer.playCelebrationSound()
                 return .levelUp
@@ -68,7 +68,7 @@ class PlayerLevel: ObservableObject {
         
         var levels: [String: Int] = [:]
         
-        GameList.GameType.allCases.forEach { gameType in
+        GameList.Game.allCases.forEach { gameType in
             
             levels[gameType.rawValue] = 1
         }
