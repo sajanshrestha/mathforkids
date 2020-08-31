@@ -11,12 +11,8 @@ import SwiftUI
 struct GameListView: View {
     
     var gameList: GameList
-    
-    @State private var showResetAlert = false
-    
+        
     @State private var showSettingsView = false
-    
-    @EnvironmentObject var playerLevel: PlayerLevel
     
     var username: String {
         UserDefaults.getUserName() ?? ""
@@ -34,23 +30,14 @@ struct GameListView: View {
             }
             .navigationBarTitle(Text("\(username)'s Games"))
             .navigationBarItems(
-                leading:
-                Button("Reset") {
-                    self.showResetAlert = true
-                },
                 trailing:
-                ImageButton(named: "person") {
+                ImageButton(named: "pencil.circle.fill") {
                     self.showSettingsView = true
                 }
                 .font(.title)
                 .foregroundColor(.blue)
                 
             )
-                .alert(isPresented: $showResetAlert) {
-                    Alert(title: Text("Reset"), message: Text("This will reset all your levels"), primaryButton: .default(Text("Reset"), action: {
-                        self.playerLevel.initialLevels()
-                    }), secondaryButton: .cancel(Text("Cancel")))
-            }
             .sheet(isPresented: $showSettingsView) {
                 SettingsView()
             }
@@ -71,8 +58,9 @@ struct GameRow: View {
         
         ZStack {
             
+            
             RoundedRectangle(cornerRadius: cornerRadius)
-                .stroke(Color.blue, lineWidth: lineWidth)
+                .stroke(Color(#colorLiteral(red: 0, green: 0.6461454034, blue: 0.5623964667, alpha: 1)), lineWidth: lineWidth)
             
             animationView(for: game)
             
@@ -113,28 +101,36 @@ struct GameRow: View {
                 ClassifyAnimation()
                 
             }
-            if game == .addition {
-                ArithmeticAnimation(for: ArithmeticOperation.addition)
-            }
             
-            if game == .subtraction {
-                ArithmeticAnimation(for: ArithmeticOperation.subtraction)
+            Group {
                 
+                if game == .addition {
+                    ArithmeticAnimation(for: ArithmeticOperation.addition)
+                }
+                
+                if game == .subtraction {
+                    ArithmeticAnimation(for: ArithmeticOperation.subtraction)
+                    
+                }
+                
+                if game == .multiplication {
+                    ArithmeticAnimation(for: ArithmeticOperation.multiplication)
+                }
+                if game == .division {
+                    ArithmeticAnimation(for: ArithmeticOperation.division)
+                }
             }
             
-            if game == .multiplication {
-                ArithmeticAnimation(for: ArithmeticOperation.multiplication)
-            }
-            if game == .division {
-                ArithmeticAnimation(for: ArithmeticOperation.division)
+            if game == .recognizingAnimals {
+                LottieView(filename: "positions")
             }
             
         }.frame(height: height)
     }
     
     // MARK: CONSTANTS
-    private let cornerRadius: CGFloat = 10
-    private let lineWidth: CGFloat = 3
+    private let cornerRadius: CGFloat = 4
+    private let lineWidth: CGFloat = 2
     private let height: CGFloat = UIScreen.main.bounds.height / 3
     private let rectangleOpacity = 0.3
     private let textSize: CGFloat = 20

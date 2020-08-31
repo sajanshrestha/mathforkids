@@ -13,29 +13,41 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-        let playerLevel = PlayerLevel()
-        
+                
         if let windowScene = scene as? UIWindowScene {
             
             let window = UIWindow(windowScene: windowScene)
             
-            guard let _ = UserDefaults.getUserName() else {
-                window.rootViewController = UIHostingController(rootView: OnboardingView())
-                self.window = window
-                window.makeKeyAndVisible()
+            guard usernameEnteredAlready else {
+                
+                loadOnboardingView(in: window)
                 return
             }
             
-            let gameList = GameList()
-            let gamesView = GameListView(gameList: gameList).environmentObject(playerLevel)
-            window.rootViewController = UIHostingController(rootView: gamesView)
-
-            self.window = window
-            window.makeKeyAndVisible()
+            loadGameListView(in: window)
         }
+    }
+    
+    var usernameEnteredAlready: Bool {
+        UserDefaults.getUserName() != nil
+    }
+    
+    private func loadOnboardingView(in window: UIWindow) {
+        window.rootViewController = UIHostingController(rootView: OnboardingView())
+        self.window = window
+        window.makeKeyAndVisible()
+    }
+    
+    private func loadGameListView(in window: UIWindow) {
+        let gameList = GameList()
+        let playerLevel = PlayerLevel()
+
+        let gameListView = GameListView(gameList: gameList).environmentObject(playerLevel)
+        window.rootViewController = UIHostingController(rootView: gameListView)
+
+        self.window = window
+        window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

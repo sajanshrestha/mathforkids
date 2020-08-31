@@ -22,6 +22,8 @@ struct LevelView: View {
     
     var game: GameList.Game
     
+    @State private var showResetAlert = false
+    
     @EnvironmentObject var playerLevel: PlayerLevel
     
     init(for game: GameList.Game) {
@@ -36,7 +38,19 @@ struct LevelView: View {
             
             self.view(for: currentLevel)
             
-        }.navigationBarTitle(game.name)
+        }
+            .navigationBarTitle(game.name)
+            .navigationBarItems(trailing:
+                Button("Reset") {
+                    self.showResetAlert = true
+            })
+            .alert(isPresented: $showResetAlert) {
+                    Alert(title: Text("Reset"), message: Text("This will reset all your levels"), primaryButton: .default(Text("Reset"), action: {
+                        withAnimation(Animation.easeInOut) {
+                            self.playerLevel.resetLevel(for: self.game)
+                        }
+                    }), secondaryButton: .cancel(Text("Cancel")))
+            }
     }
     
     private func view(for currentLevel: Int) -> some View {

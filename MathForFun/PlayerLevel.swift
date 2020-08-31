@@ -24,17 +24,35 @@ class PlayerLevel: ObservableObject {
         
         guard let playerGameLevels = UserDefaults.getPlayerLevel() else {
             
-            initialLevels()
+            setInitialLevels()
             
             return
             
         }
         self.currentLevels = playerGameLevels
     }
+    
+    private func setInitialLevels() {
+        
+        currentLevels = initialLevels
+        
+        UserDefaults.updatePlayerLevel(with: currentLevels)
+    }
+    
+    var initialLevels: [String: Int] {
+        
+        var levels: [String: Int] = [:]
+        
+        for game in GameList.Game.allCases {
+            levels[game.name] = 1
+        }
+        
+        return levels
+    }
         
     func getCurrentLevel(for game: GameList.Game) -> Int {
         
-        currentLevels[game.rawValue] ?? 1
+        currentLevels[game.name] ?? 1
     }
     
     
@@ -64,17 +82,10 @@ class PlayerLevel: ObservableObject {
         }
     }
     
-    func initialLevels() {
+    func resetLevel(for game: GameList.Game) {
         
-        var levels: [String: Int] = [:]
-        
-        GameList.Game.allCases.forEach { gameType in
-            
-            levels[gameType.rawValue] = 1
-        }
-        
-        currentLevels = levels
-        
+        currentLevels[game.name] = 1
         UserDefaults.updatePlayerLevel(with: currentLevels)
     }
+    
 }

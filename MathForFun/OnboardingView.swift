@@ -85,7 +85,6 @@ struct FirstScreenView: View {
             UserDefaults.updateUserName(with: name)
             
             self.secondScreenVisible = true
-            
         }
     }
 }

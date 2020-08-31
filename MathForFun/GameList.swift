@@ -26,6 +26,7 @@ struct GameList {
         case subtraction = "Subtraction"
         case multiplication = "Multiplication"
         case division = "Division"
+        case recognizingAnimals = "Recognizing Animals"
 
         var name: String {
             self.rawValue
@@ -44,6 +45,7 @@ struct GameList {
             case .position: return 3
             case .classifying: return 5
             case .addition, .multiplication, .subtraction, .division: return 8
+            case .recognizingAnimals: return 1
             }
         }
     }

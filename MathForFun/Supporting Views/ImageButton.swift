@@ -18,7 +18,10 @@ struct ImageButton: View {
         self.action = action
     }
     var body: some View {
-        Image(systemName: name).onTapGesture {
+        Image(systemName: name)
+            .foregroundColor(.green)
+            .font(.largeTitle)
+            .onTapGesture {
             self.action()
         }
     }

@@ -77,6 +77,10 @@ struct GameView: View {
                 ArithmeticGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             
+            else if game == .recognizingAnimals {
+                Text("Recognizing Animals Game Coming Soon!")
+            }
+            
         }
     }
     

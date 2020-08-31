@@ -66,6 +66,9 @@ struct GameSession {
         case .division:
             problems.append(contentsOf: ArithmeticProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel, for: .division))
             
+        case .recognizingAnimals:
+            problems.append(contentsOf: RecognizingAnimalProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
+            
         }
     }
 }
