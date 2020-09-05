@@ -16,6 +16,7 @@ struct GameList {
     
     enum Game: String, CaseIterable, Identifiable {
         
+        case identifyingObjects = "Identifying Objects"
         case counting = "Counting"
         case comparing = "Comparing"
         case identifyingColor = "Identifying Color"
@@ -26,7 +27,6 @@ struct GameList {
         case subtraction = "Subtraction"
         case multiplication = "Multiplication"
         case division = "Division"
-        case recognizingAnimals = "Recognizing Animals"
 
         var name: String {
             self.rawValue
@@ -45,7 +45,7 @@ struct GameList {
             case .position: return 3
             case .classifying: return 5
             case .addition, .multiplication, .subtraction, .division: return 8
-            case .recognizingAnimals: return 1
+            case .identifyingObjects: return 4
             }
         }
     }

@@ -36,7 +36,6 @@ struct GameView: View {
                 
                 self.view(for: game)
                     .foregroundColor(.gray)
-                    .padding()
                 
                 CorrectIcon(correct: $answerCorrect)
             }
@@ -77,8 +76,8 @@ struct GameView: View {
                 ArithmeticGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             
-            else if game == .recognizingAnimals {
-                Text("Recognizing Animals Game Coming Soon!")
+            else if game == .identifyingObjects {
+                IdentifyingObjectsGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             
         }

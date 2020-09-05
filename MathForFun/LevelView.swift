@@ -44,13 +44,7 @@ struct LevelView: View {
                 Button("Reset") {
                     self.showResetAlert = true
             })
-            .alert(isPresented: $showResetAlert) {
-                    Alert(title: Text("Reset"), message: Text("This will reset all your levels"), primaryButton: .default(Text("Reset"), action: {
-                        withAnimation(Animation.easeInOut) {
-                            self.playerLevel.resetLevel(for: self.game)
-                        }
-                    }), secondaryButton: .cancel(Text("Cancel")))
-            }
+            .alert(isPresented: $showResetAlert) { alertView }
     }
     
     private func view(for currentLevel: Int) -> some View {
@@ -70,7 +64,15 @@ struct LevelView: View {
         }).disabled(isHigherLevel(currentLevel))
     }
     
-    func isHigherLevel(_ level: Int) -> Bool {
+    private var alertView: Alert {
+        Alert(title: Text("Reset"), message: Text("This will reset all your levels for this game"), primaryButton: .default(Text("Reset"), action: {
+            withAnimation(Animation.easeInOut) {
+                self.playerLevel.resetLevel(for: self.game)
+            }
+        }), secondaryButton: .cancel(Text("Cancel")))
+    }
+    
+    private func isHigherLevel(_ level: Int) -> Bool {
         level > self.playerLevel.getCurrentLevel(for: self.game)
     }
     

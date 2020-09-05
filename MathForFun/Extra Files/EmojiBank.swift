@@ -22,8 +22,56 @@ struct EmojiBank {
         "🐈": "Cat",
         "🐅": "Tiger",
         "🐸": "Frog",
-        "🐿": "Squirrel"
+        "🐿": "Squirrel",
+        "🐒": "Monkey",
+        "🐗": "Boar",
+        "🐺": "Wolf",
+        "🦧": "Orangutan",
+        "🦏": "Rhinoceros",
+        "🐫": "Camel",
+        "🦌": "Deer",
+        "🦥": "Sloth",
+        "🐁": "Mouse",
+        "🐀": "Rat",
+        "🦔": "Hedgehog",
+        "🦦": "Otter"
     ]
+    
+    static let insectsEmojisAndBirdsEmojis = [
+        "🐞": "Ladybug",
+        "🐜": "Ant",
+        "🕷": "Spider",
+        "🦉": "Owl",
+        "🦆": "Duck",
+        "🦜": "Parrot",
+        "🦢": "Swan",
+        "🦩": "Flamingo",
+        "🐧": "Penguin",
+        "🦅": "Eagle",
+        "🦃": "Turkey",
+        "🦚": "Peacock",
+        "🐝": "Bee",
+        "🦋": "Butterfly",
+        "🐌": "Snail",
+        "🦂": "Scorpion",
+        "🦇": "Bat"
+    ]
+    
+    static let aquaticAnimalEmojis = [
+        "🦀": "Crab",
+        "🐡": "Blowfish",
+        "🐬": "Dolphin",
+        "🐳": "Whale",
+        "🦈": "Shark",
+        "🐊": "Crocodile",
+        "🐢": "Turtle",
+        "🐙": "Octopus",
+        "🐧": "Penguin",
+        "🦑": "Squid",
+        "🦐": "Shrimp",
+        "🦞": "Lobster"
+    ]
+    
     
     static let fruitEmojis = [
         "🍎": "Apple",
@@ -50,9 +98,7 @@ struct EmojiBank {
     static let fastFood = [
         "🌭": "Hot Dog",
         "🍔": "Burger",
-        //"🍟": "Fries",
         "🍕": "Pizza",
-        // "🥪": "Sanwich",
         "🌮": "Taco",
         "🌯": "Burrito"
     ]
@@ -83,6 +129,16 @@ struct EmojiBank {
         "☎️": "Telephone",
         "📻": "Radio"
     ]
+    
+    static var dailyObjects: [String: String] {
+        
+        var emojis = [String: String]()
+        
+        vehicleEmojis.forEach { emojis[$0.key] = $0.value }
+        electronics.forEach { emojis[$0.key] = $0.value }
+
+        return emojis
+    }
     
     static let tools = [
         "🔨": "Hammer",
@@ -123,9 +179,21 @@ struct EmojiBank {
         foodEmojis.forEach { emojis[$0.key] = $0.value }
         animalEmojis.forEach { emojis[$0.key] = $0.value }
         vehicleEmojis.forEach { emojis[$0.key] = $0.value }
+        insectsEmojisAndBirdsEmojis.forEach { emojis[$0.key] = $0.value }
+        aquaticAnimalEmojis.forEach { emojis[$0.key] = $0.value }
+
 
         return emojis
         
+    }
+    
+    static func key(for value: String) -> String? {
+        for (k, v) in emojis {
+            if value.lowercased() == v.lowercased() {
+                return k
+            }
+        }
+        return nil
     }
      
 }

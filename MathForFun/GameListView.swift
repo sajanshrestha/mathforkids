@@ -31,7 +31,7 @@ struct GameListView: View {
             .navigationBarTitle(Text("\(username)'s Games"))
             .navigationBarItems(
                 trailing:
-                ImageButton(named: "pencil.circle.fill") {
+                ImageButton(named: "pencil.circle") {
                     self.showSettingsView = true
                 }
                 .font(.title)
@@ -57,7 +57,6 @@ struct GameRow: View {
     var body: some View {
         
         ZStack {
-            
             
             RoundedRectangle(cornerRadius: cornerRadius)
                 .stroke(Color(#colorLiteral(red: 0, green: 0.6461454034, blue: 0.5623964667, alpha: 1)), lineWidth: lineWidth)
@@ -121,8 +120,8 @@ struct GameRow: View {
                 }
             }
             
-            if game == .recognizingAnimals {
-                LottieView(filename: "positions")
+            if game == .identifyingObjects {
+                LottieView(filename: "dog_two")
             }
             
         }.frame(height: height)
