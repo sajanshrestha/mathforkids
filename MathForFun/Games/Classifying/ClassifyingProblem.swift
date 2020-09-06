@@ -143,7 +143,7 @@ extension ClassifyingProblem {
     
     private var levelThreeEmojiPool: [[String: String]] {
         [
-            EmojiBank.fastFood,
+            EmojiBank.fastFoodEmojis,
             EmojiBank.fruitEmojis,
             EmojiBank.vegetableEmojis
         ]
@@ -151,9 +151,9 @@ extension ClassifyingProblem {
     
     private var levelFourEmojiPool: [[String: String]] {
         [
-            EmojiBank.tools,
-            EmojiBank.electronics,
-            EmojiBank.sports
+            EmojiBank.toolEmojis,
+            EmojiBank.electronicsEmojis,
+            EmojiBank.sportsEmojis
         ]
     }
     
@@ -162,12 +162,12 @@ extension ClassifyingProblem {
             EmojiBank.animalEmojis,
             EmojiBank.foodEmojis,
             EmojiBank.vehicleEmojis,
-            EmojiBank.fastFood,
+            EmojiBank.fastFoodEmojis,
             EmojiBank.fruitEmojis,
             EmojiBank.vegetableEmojis,
-            EmojiBank.tools,
-            EmojiBank.electronics,
-            EmojiBank.sports
+            EmojiBank.toolEmojis,
+            EmojiBank.electronicsEmojis,
+            EmojiBank.sportsEmojis
             
         ]
     }

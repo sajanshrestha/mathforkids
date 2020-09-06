@@ -22,13 +22,23 @@ class PlayerLevel: ObservableObject {
     
     init() {
         
-        guard let playerGameLevels = UserDefaults.getPlayerLevel() else {
+        guard var playerGameLevels = UserDefaults.getPlayerLevel() else {
             
             setInitialLevels()
             
             return
             
         }
+        
+        for game in GameList.Game.allCases {
+            
+            if !playerGameLevels.keys.contains(game.name) {
+                
+                playerGameLevels[game.name] = 1
+                UserDefaults.updatePlayerLevel(with: playerGameLevels)
+            }
+        }
+        
         self.currentLevels = playerGameLevels
     }
     

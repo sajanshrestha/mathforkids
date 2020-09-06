@@ -23,6 +23,7 @@ struct IdentifyingObjectsGameView: View {
     var dropDelegate = TextDropDelegate()
     
     @State private var draggedEmoji = ""
+    @State private var draggedEmojiLocation = CGPoint.zero
     
     private var randomAlignment: Alignment {
         let alignments: [Alignment] = [.bottom, .bottomLeading, .bottomTrailing, .top, .topLeading, .topTrailing]
@@ -31,7 +32,7 @@ struct IdentifyingObjectsGameView: View {
     
     var body: some View {
         
-        let problem = gameSession.problems[gameSession.index] as! IdentifyingObjectsProblem
+        let problem = gameSession.problems[gameSession.index] as! IdentifyingObjectProblem
         
         return VStack {
             
@@ -39,19 +40,24 @@ struct IdentifyingObjectsGameView: View {
             
             Spacer()
             
-            ZStack(alignment: randomAlignment) {
-                
-                Image(problem.backgroundImageName)
-                    .resizable()
-                    .onDrop(of: ["public.text"], delegate: dropDelegate)
-                
-                Text(draggedEmoji)
-                    .font(Font.custom("", size: 60))
+            GeometryReader { geometry in
+                ZStack(alignment: self.randomAlignment) {
+                    
+                    Image(problem.backgroundImageName)
+                        .resizable()
+                        .saturation(0.7)
+                        .onDrop(of: ["public.text"], delegate: self.dropDelegate)
+                    
+                    Text(self.draggedEmoji)
+                        .font(Font.custom("", size: 60))
+                        .position(CGPoint(x: self.draggedEmojiLocation.x, y: geometry.convert(self.draggedEmojiLocation, from: .global).y))
+                    
+                }
             }
             
             HStack(spacing: 20) {
                 
-                ForEach(problem.creatures) { creature in
+                ForEach(problem.options) { creature in
                     
                     Text(creature.emoji)
                         .font(Font.custom("", size: 60))
@@ -65,7 +71,7 @@ struct IdentifyingObjectsGameView: View {
         }.onReceive(dropDelegate.$droppedText.dropFirst()) { value in
             
             withAnimation {
-                self.draggedEmoji = EmojiBank.key(for: value) ?? ""
+                self.draggedEmoji = EmojiBank.IdentifyingObjects.key(for: value) ?? ""
             }
             
             self.answerCorrect = self.gameSession.submitAnswer(with: value)
@@ -82,6 +88,9 @@ struct IdentifyingObjectsGameView: View {
                 self.gameSession.next()
             }
         }
+        .onReceive(dropDelegate.$location) { value in
+            self.draggedEmojiLocation = value
+        }
     }
 }
 
@@ -90,10 +99,12 @@ struct IdentifyingObjectsGameView: View {
 class TextDropDelegate: DropDelegate {
     
     @Published var droppedText: String = ""
+    @Published var location: CGPoint = CGPoint.zero
     
     func performDrop(info: DropInfo) -> Bool {
         
         let items = info.itemProviders(for: ["public.text"])
+        
         
         for item in items {
             
@@ -101,6 +112,7 @@ class TextDropDelegate: DropDelegate {
                 
                 DispatchQueue.main.async {
                     self.droppedText = value ?? ""
+                    self.location = info.location
                 }
             })
         }
@@ -108,4 +120,13 @@ class TextDropDelegate: DropDelegate {
     }
     
     
+}
+
+
+extension GeometryProxy {
+    // converts from some other coordinate space to the proxy's own
+    func convert(_ point: CGPoint, from coordinateSpace: CoordinateSpace) -> CGPoint {
+        let frame = self.frame(in: coordinateSpace)
+        return CGPoint(x: point.x-frame.origin.x, y: point.y-frame.origin.y)
+    }
 }

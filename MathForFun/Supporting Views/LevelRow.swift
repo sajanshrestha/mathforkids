@@ -24,6 +24,7 @@ struct LevelRow: View {
                 .cornerRadius(8)
                 .aspectRatio(contentMode: .fit)
             
+            
             Text("Level \(levelImages[level - 1])")
                 .font(Font.custom("Noteworthy", size: 24))
                 .padding(.horizontal)

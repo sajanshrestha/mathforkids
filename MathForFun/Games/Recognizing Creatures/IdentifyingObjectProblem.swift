@@ -13,7 +13,7 @@ struct IdentifyingObjectProblem: Problem {
     struct Object: Identifiable {
         var name: String
         var emoji: String
-        var id = UUID()
+        var id: String
     }
     
     var object: Object
@@ -33,16 +33,14 @@ struct IdentifyingObjectProblem: Problem {
         var problems = [IdentifyingObjectProblem]()
         
         for _ in 1...10 {
+            
             let options = getOptions(for: gameLevel)
             let selectedOption = options.randomElement()!
-            problems.append(IdentifyingObjectProblem(object: selectedOption, options: options, backgroundImageName: getBackgroundImage(for: gameLevel)))
+            let backgroundImageName = getBackgroundImage(for: gameLevel)
+            problems.append(IdentifyingObjectProblem(object: selectedOption, options: options, backgroundImageName: backgroundImageName))
         }
         
         return problems
-    }
-    
-    private static func creature(for level: Int) -> Object {
-        getOptions(for: level).randomElement()!
     }
     
     private static func getOptions(for level: Int) -> [Object] {
@@ -69,17 +67,17 @@ struct IdentifyingObjectProblem: Problem {
         "identifyingObject_\(level)"
     }
     
-    private static var levelOneObjects = EmojiBank.IdentifyingObjects.levelOneEmojis.map { Object(name: $0.value.lowercased(), emoji: $0.key) }
+    private static var levelOneObjects = EmojiBank.IdentifyingObjects.levelOneEmojis.map { Object(name: $0.value.lowercased(), emoji: $0.key, id: $0.key) }
     
-    private static var levelTwoObjects = EmojiBank.IdentifyingObjects.levelTwoEmojis.map { Object(name: $0.value.lowercased(), emoji: $0.key) }
+    private static var levelTwoObjects = EmojiBank.IdentifyingObjects.levelTwoEmojis.map { Object(name: $0.value.lowercased(), emoji: $0.key, id: $0.key) }
     
-    private static var levelThreeObjects = EmojiBank.IdentifyingObjects.levelThreeEmojis.map { Object(name: $0.value.lowercased(), emoji: $0.key) }
+    private static var levelThreeObjects = EmojiBank.IdentifyingObjects.levelThreeEmojis.map { Object(name: $0.value.lowercased(), emoji: $0.key, id: $0.key) }
     
-    private static var levelFourObjects = EmojiBank.IdentifyingObjects.levelFourEmojis.map {  Object(name: $0.value.lowercased(), emoji: $0.key) }
+    private static var levelFourObjects = EmojiBank.IdentifyingObjects.levelFourEmojis.map {  Object(name: $0.value.lowercased(), emoji: $0.key, id: $0.key) }
     
     
-    private static var levelFiveObjects = EmojiBank.IdentifyingObjects.levelFiveEmojis.map { Object(name: $0.value, emoji: $0.key)}
+    private static var levelFiveObjects = EmojiBank.IdentifyingObjects.levelFiveEmojis.map { Object(name: $0.value, emoji: $0.key, id: $0.key)}
     
-    private static var levelSixObjects = EmojiBank.IdentifyingObjects.levelSixEmojis.map { Object(name: $0.value, emoji: $0.key)}
+    private static var levelSixObjects = EmojiBank.IdentifyingObjects.levelSixEmojis.map { Object(name: $0.value, emoji: $0.key, id: $0.key)}
 
 }

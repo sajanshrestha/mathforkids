@@ -51,7 +51,8 @@
 		A13F51F7248FFB6F00326745 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13F51F6248FFB6F00326745 /* ScoreView.swift */; };
 		A13F940F2502FF5F0019E0B5 /* dog_two.json in Resources */ = {isa = PBXBuildFile; fileRef = A13F940E2502FF5E0019E0B5 /* dog_two.json */; };
 		A169154F24B389F500637BB8 /* Publishers and Notifications .swift in Sources */ = {isa = PBXBuildFile; fileRef = A169154E24B389F500637BB8 /* Publishers and Notifications .swift */; };
-		A16B34D824F6F0EA006DC486 /* IdentifyingObjectsProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B34D724F6F0EA006DC486 /* IdentifyingObjectsProblem.swift */; };
+		A16B34D824F6F0EA006DC486 /* IdentifyingObjectProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B34D724F6F0EA006DC486 /* IdentifyingObjectProblem.swift */; };
+		A16D68F125053E0A005CC7E5 /* IdentifyingObjectsProblemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D68F025053E0A005CC7E5 /* IdentifyingObjectsProblemTests.swift */; };
 		A17A8E7F24C61D9B00C7467D /* MathForKids.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17A8E7E24C61D9B00C7467D /* MathForKids.swift */; };
 		A17A8E8124C6216300C7467D /* Problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17A8E8024C6216300C7467D /* Problem.swift */; };
 		A180B94624B1142400B2953F /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = A180B94524B1142400B2953F /* colors.json */; };
@@ -157,7 +158,8 @@
 		A13F51F6248FFB6F00326745 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		A13F940E2502FF5E0019E0B5 /* dog_two.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dog_two.json; sourceTree = "<group>"; };
 		A169154E24B389F500637BB8 /* Publishers and Notifications .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers and Notifications .swift"; sourceTree = "<group>"; };
-		A16B34D724F6F0EA006DC486 /* IdentifyingObjectsProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyingObjectsProblem.swift; sourceTree = "<group>"; };
+		A16B34D724F6F0EA006DC486 /* IdentifyingObjectProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyingObjectProblem.swift; sourceTree = "<group>"; };
+		A16D68F025053E0A005CC7E5 /* IdentifyingObjectsProblemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyingObjectsProblemTests.swift; sourceTree = "<group>"; };
 		A17A8E7E24C61D9B00C7467D /* MathForKids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathForKids.swift; sourceTree = "<group>"; };
 		A17A8E8024C6216300C7467D /* Problem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem.swift; sourceTree = "<group>"; };
 		A180B94524B1142400B2953F /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				A135CE9E24F2D673001EEFBF /* PatternProblemTests.swift */,
 				A137C23D2487EECA00BEC96D /* Info.plist */,
 				A1B3F95924F32269005850C7 /* PlayerLevelTests.swift */,
+				A16D68F025053E0A005CC7E5 /* IdentifyingObjectsProblemTests.swift */,
 			);
 			path = MathForFunTests;
 			sourceTree = "<group>";
@@ -331,7 +334,7 @@
 		A16B34D624F6F0D5006DC486 /* Recognizing Creatures */ = {
 			isa = PBXGroup;
 			children = (
-				A16B34D724F6F0EA006DC486 /* IdentifyingObjectsProblem.swift */,
+				A16B34D724F6F0EA006DC486 /* IdentifyingObjectProblem.swift */,
 				A13B0A812502AF140004F2D9 /* IdentifyingObjectsGameView.swift */,
 			);
 			path = "Recognizing Creatures";
@@ -632,7 +635,7 @@
 				A137C2272487EEC900BEC96D /* SceneDelegate.swift in Sources */,
 				A123690E24AF79B7000B18B0 /* AudioPlayer.swift in Sources */,
 				A1AE103B248988520039F068 /* GameListView.swift in Sources */,
-				A16B34D824F6F0EA006DC486 /* IdentifyingObjectsProblem.swift in Sources */,
+				A16B34D824F6F0EA006DC486 /* IdentifyingObjectProblem.swift in Sources */,
 				A10AC6CE24A2C8C10072C584 /* ArithmeticGameView.swift in Sources */,
 				A11C2873248D41E70036D1AB /* PositionProblem.swift in Sources */,
 				A11C2875248D5B580036D1AB /* PositionProblemGameView.swift in Sources */,
@@ -688,6 +691,7 @@
 				A135CE9B24F2C124001EEFBF /* GameListTests.swift in Sources */,
 				A1FC4EA624EC12C200A34D69 /* CountingProblemTests.swift in Sources */,
 				A1DDD0B124ED9DD30084AD76 /* ArithmeticProblemTests.swift in Sources */,
+				A16D68F125053E0A005CC7E5 /* IdentifyingObjectsProblemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

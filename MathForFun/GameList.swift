@@ -19,8 +19,8 @@ struct GameList {
         case identifyingObjects = "Identifying Objects"
         case counting = "Counting"
         case comparing = "Comparing"
-        case identifyingColor = "Identifying Color"
-        case identifyingShape = "Identifying Shape"
+        case identifyingColor = "Identifying Colors"
+        case identifyingShape = "Identifying Shapes"
         case position = "Positions"
         case classifying = "Classifying"
         case addition = "Addition"
@@ -45,7 +45,7 @@ struct GameList {
             case .position: return 3
             case .classifying: return 5
             case .addition, .multiplication, .subtraction, .division: return 8
-            case .identifyingObjects: return 4
+            case .identifyingObjects: return 6
             }
         }
     }
