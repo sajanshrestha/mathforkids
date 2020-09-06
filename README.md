@@ -22,15 +22,15 @@ Another thing, the onboarding screen only appears the first time of the app laun
 
   <hr>
 
-<image src="https://user-images.githubusercontent.com/38868680/87884831-08c15780-c9df-11ea-8ed9-6d815d28fef8.png" width=100 height=220>
+<image src="https://user-images.githubusercontent.com/38868680/92332124-4b9bc500-f049-11ea-9402-6885a2a7d3ab.png" width=100 height=220>
   
   All the available games are displayed on this view. There is a trailing navigation item in this view which lets the user change username. For example, if the user mistypes username on the onboarding screen, it can be changed here. For each of the game rows, I have used animations. Some of them I created using SwiftUI and for some I used Lottie animations.
   
   <hr>
 
-<image src="https://user-images.githubusercontent.com/38868680/87585999-deedf500-c6ad-11ea-9feb-e5d16a9adcee.png" width=100 height=200>
+<image src="https://user-images.githubusercontent.com/38868680/92332126-4f2f4c00-f049-11ea-9992-55b09c6ac74a.png" width=100 height=200>
   
-  This view will display available levels for each game. Initially, only level one is unlocked. If the user scores 8 or more in any level, next level gets unlocked. To store levels for each game, I again used UserDefaults because all I need for this is to store a dictionary ([gameNames: String, currentLevel: Int]).
+  This view will display available levels for each game. Initially, only first level (Level Ant) is unlocked. If the user scores 8 or more in any level, next level gets unlocked. To store levels for each game, I again used UserDefaults because all I need for this is to store a dictionary ([gameNames: String, currentLevel: Int]).
   
   
 <hr>
@@ -41,6 +41,8 @@ Another thing, the onboarding screen only appears the first time of the app laun
   <image src="https://user-images.githubusercontent.com/38868680/87884879-56d65b00-c9df-11ea-9190-ebf8ad1ac100.png" width=100 height=200> 
     The comparing game has questions in which user has to choose which box has less or more items. The ComparingProblem is also a struct which conforms to "Problem" protocol.
     <hr>
+    <image src="https://user-images.githubusercontent.com/38868680/92332221-1e9be200-f04a-11ea-84b1-c7f70aa2fcea.png" width=100 height=200>
+      <hr>
     <image src="https://user-images.githubusercontent.com/38868680/87884884-5a69e200-c9df-11ea-86d5-efd8ab7df7ee.png" width=100 height=200>
       <hr>
       <image src="https://user-images.githubusercontent.com/38868680/87884886-5d64d280-c9df-11ea-8bbf-b3fa855d78c7.png" width=100 height=200>
