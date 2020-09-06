@@ -105,6 +105,34 @@ struct EmojiBank {
             "📵":"no mobile phones symbol",
         ]
         
+        static let levelSevenEmojis = [
+            "☢️": "symbol of radioactive",
+            "⛔️":"no entry sign",
+            "🚯":"no littering symbol",
+            "🚸":"children crossing symbol",
+            "♻️":"recycling symbol",
+            "❌":"cross mark",
+            "🇩🇿":"flag of Algeria",
+            "🇧🇩":"flag of Bangladesh",
+            "🇧🇬":"flag of Bulgaria",
+            "🇫🇷":"flag of France",
+            "💳":"credit card",
+            "🔨":"hammer",
+            "🔬":"microscope",
+            "💊":"pill",
+            "🧬":"DNA",
+            "🦠":"microbe",
+            "🧻":"roll of paper",
+            "🔑":"key",
+            "🚎":"trolleybus",
+            "🚜":"tractor",
+            "🎸":"guitar",
+            "🥁":"drum",
+            "🏆":"trophy",
+            "🥟":"dumpling"
+            
+        ]
+        
         
         static var emojis: [String: String] {
             

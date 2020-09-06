@@ -58,6 +58,8 @@ struct IdentifyingObjectProblem: Problem {
             return levelFiveObjects.randomElements(4)
         case 6:
             return levelSixObjects.randomElements(4)
+        case 7:
+            return levelSevenObjects.randomElements(4)
         default:
             return levelOneObjects.randomElements(4)
         }
@@ -79,5 +81,7 @@ struct IdentifyingObjectProblem: Problem {
     private static var levelFiveObjects = EmojiBank.IdentifyingObjects.levelFiveEmojis.map { Object(name: $0.value, emoji: $0.key, id: $0.key)}
     
     private static var levelSixObjects = EmojiBank.IdentifyingObjects.levelSixEmojis.map { Object(name: $0.value, emoji: $0.key, id: $0.key)}
+    
+    private static var levelSevenObjects = EmojiBank.IdentifyingObjects.levelSevenEmojis.map { Object(name: $0.value, emoji: $0.key, id: $0.key)}
 
 }

@@ -31,7 +31,7 @@ struct OptionsView: View {
                         OptionButton(title: options[3], action: action)
 
                     }
-                }
+                }.padding()
             }
             else {
                 GeometryReader { geometry in

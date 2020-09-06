@@ -133,7 +133,7 @@ struct GameRow: View {
     private let height: CGFloat = UIScreen.main.bounds.height / 3
     private let rectangleOpacity = 0.3
     private let textSize: CGFloat = 20
-    private var textOffsetFactor: CGFloat { height / 2 }
+    private var textOffsetFactor: CGFloat { height / 2.1 }
 }
 
 
