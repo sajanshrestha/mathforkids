@@ -122,6 +122,7 @@ struct SecondScreenView: View {
                     Button(action: {
                         withAnimation(Animation.spring()) {
                             self.showGameView = true
+
                         }
                         
                     }, label: {

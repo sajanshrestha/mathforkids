@@ -133,7 +133,7 @@
 		A135CE9A24F2C124001EEFBF /* GameListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListTests.swift; sourceTree = "<group>"; };
 		A135CE9C24F2CA6B001EEFBF /* GameListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewTests.swift; sourceTree = "<group>"; };
 		A135CE9E24F2D673001EEFBF /* PatternProblemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternProblemTests.swift; sourceTree = "<group>"; };
-		A137C2212487EEC800BEC96D /* MathForFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathForFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A137C2212487EEC800BEC96D /* LearningKid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningKid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A137C2242487EEC900BEC96D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A137C2262487EEC900BEC96D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A137C22A2487EECA00BEC96D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 		A137C2222487EEC800BEC96D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A137C2212487EEC800BEC96D /* MathForFun.app */,
+				A137C2212487EEC800BEC96D /* LearningKid.app */,
 				A137C2372487EECA00BEC96D /* MathForFunTests.xctest */,
 				A137C2422487EECA00BEC96D /* MathForFunUITests.xctest */,
 			);
@@ -493,7 +493,7 @@
 				A1BACEA224A8DA3B00795909 /* Lottie */,
 			);
 			productName = MathForFun;
-			productReference = A137C2212487EEC800BEC96D /* MathForFun.app */;
+			productReference = A137C2212487EEC800BEC96D /* LearningKid.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A137C2362487EECA00BEC96D /* MathForFunTests */ = {
@@ -539,7 +539,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "Sajan Shrestha";
 				TargetAttributes = {
 					A137C2202487EEC800BEC96D = {
@@ -555,7 +555,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A137C21C2487EEC800BEC96D /* Build configuration list for PBXProject "LearnAndPlay" */;
+			buildConfigurationList = A137C21C2487EEC800BEC96D /* Build configuration list for PBXProject "LearningKid" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -745,6 +745,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -805,6 +806,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -838,7 +840,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MathForFun/Preview Content\"";
 				DEVELOPMENT_TEAM = 48AX4GN775;
 				ENABLE_PREVIEWS = YES;
@@ -847,9 +849,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sajan.MathForFun;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LearningKid;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -860,7 +862,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MathForFun/Preview Content\"";
 				DEVELOPMENT_TEAM = 48AX4GN775;
 				ENABLE_PREVIEWS = YES;
@@ -869,9 +871,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sajan.MathForFun;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LearningKid;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -964,7 +966,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A137C21C2487EEC800BEC96D /* Build configuration list for PBXProject "LearnAndPlay" */ = {
+		A137C21C2487EEC800BEC96D /* Build configuration list for PBXProject "LearningKid" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A137C2492487EECA00BEC96D /* Debug */,
