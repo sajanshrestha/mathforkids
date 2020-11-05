@@ -11,13 +11,13 @@ import SwiftUI
 struct ColorGameView: View {
     
     @ObservedObject var game = GameModel()
-        
+    
     @Binding var answerCorrect: Bool
     
     @Binding var levelStatus: LevelStatus
     
     @EnvironmentObject var playerLevel: PlayerLevel
-
+    
     var level = GameModel.gameLevel
     
     var body: some View {
@@ -42,27 +42,23 @@ struct ColorGameView: View {
     }
     
     func questionView(for problem: IdentifyingColorProblem) -> some View {
-        GeometryReader { geometry in
-            ZStack {
-                
-                Circle()
-                    .opacity(self.opacity)
-                    .foregroundColor(.red)
-                
-                Circle()
-                    .padding(EdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4))
-                    .foregroundColor(Color(problem.color))
-                
-            }.frame(width: min(geometry.size.width, geometry.size.height) * self.circleScalingFactor, height: min(geometry.size.width, geometry.size.height) * self.circleScalingFactor)
-        }
-        .padding()
-        
+        ZStack {
+            
+            Circle()
+                .opacity(self.opacity)
+                .foregroundColor(.red)
+            
+            
+            Circle()
+                .padding(EdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4))
+                .foregroundColor(Color(problem.color))
+        }.padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
     }
     
     func optionsView(for problem: IdentifyingColorProblem) -> some View {
         
         OptionsView(options: problem.options) { option in
-                        
+            
             self.answerCorrect  = self.game.submitAnswer(with: option)
             
             if self.game.lastProblemOn {
@@ -83,5 +79,5 @@ struct ColorGameView: View {
     
     private let circleScalingFactor: CGFloat = 0.7
     private let opacity = 0.5
-
+    
 }

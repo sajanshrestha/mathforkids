@@ -11,7 +11,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @State private var username = ""
+    @Binding var username: String
     @State private var saved = false
     @State private var showAlert = false
     
@@ -45,9 +45,6 @@ struct SettingsView: View {
             
             CorrectIcon(correct: $saved, color: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1))
         }
-        .onAppear {
-            self.username = UserDefaults.getUserName() ?? "User"
-        }
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Field Empty"), message: Text("Please enter a username"), dismissButton: .default(Text("Ok")))
         }
@@ -72,6 +69,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(username: .constant(""))
     }
 }

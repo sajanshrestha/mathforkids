@@ -17,24 +17,23 @@ struct OperationView: View {
     
     var body: some View {
         
-        GeometryReader { geometry in
+        
+        HStack(spacing: self.spacing) {
             
-            HStack(spacing: self.spacing) {
+            CardView(title: "\(self.firstNumber)")
+                .frame(width: 150, height: 150)
                 
-                CardView(title: "\(self.firstNumber)")
-                    .frame(width: geometry.size.width * 0.2, height: geometry.size.width * 0.2)
-                    
-                    .animation(nil)
-                
-                self.symbol(for: self.operation, size: geometry.size)
-                
-                CardView(title: "\(self.secondNumber)")
-                    .frame(width: geometry.size.width * 0.2, height: geometry.size.width * 0.2)
-                    .animation(nil)
-                
-                
-            }.padding()
-        }
+                .animation(nil)
+            
+            self.symbol(for: self.operation, size: CGSize(width: 150, height: 150))
+            
+            CardView(title: "\(self.secondNumber)")
+                .frame(width: 150, height: 150)
+                .animation(nil)
+            
+            
+        }.padding()
+        
         .font(.largeTitle)
     }
     

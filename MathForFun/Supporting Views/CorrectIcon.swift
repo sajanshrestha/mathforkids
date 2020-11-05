@@ -16,23 +16,14 @@ struct CorrectIcon: View {
     
     var body: some View {
         
-        GeometryReader { geometry in
-            Image(systemName: "checkmark.circle.fill")
-                .font(Font.system(size: min(geometry.size.width, geometry.size.height) * self.scaleFactor))
-                .foregroundColor(Color(self.color))
-                .opacity(self.correct ? 1 : 0)
-                .rotationEffect(.degrees(self.correct ? 360 : 0))
-                .scaleEffect(self.correct ? 2 : 1)
-                .animation(Animation.easeInOut)
-
-        }
-        
-        
-        
+        Image(systemName: "checkmark.circle.fill")
+            .font(Font.system(size: 50))
+            .foregroundColor(Color(self.color))
+            .opacity(self.correct ? 1 : 0)
+            .rotationEffect(.degrees(self.correct ? 360 : 0))
+            .scaleEffect(self.correct ? 2 : 1)
+            .animation(Animation.easeInOut)
     }
-    
-    // MARK: CONSTANTS
-    private let scaleFactor: CGFloat = 0.1
 }
 
 struct CorrectIcon_Previews: PreviewProvider {

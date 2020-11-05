@@ -36,7 +36,6 @@ struct FirstScreenView: View {
     @Binding var secondScreenVisible: Bool
     
     @State var nameEmptyAlert = false
-    @State private var keyboardHeight: CGFloat = 0
     
     var body: some View {
         
@@ -54,9 +53,7 @@ struct FirstScreenView: View {
             TextField("", text: $name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.horizontal)
-                .padding(.bottom, keyboardHeight)
-                .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
-            
+                
             Spacer()
             
             Button(action: {

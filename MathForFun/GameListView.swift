@@ -14,9 +14,8 @@ struct GameListView: View {
         
     @State private var showSettingsView = false
     
-    var username: String {
-        UserDefaults.getUserName() ?? ""
-    }
+    
+    @State private var username = UserDefaults.getUserName() ?? ""
     
     var body: some View {
         
@@ -28,6 +27,7 @@ struct GameListView: View {
                     GameRow(game: game)
                 })
             }
+            .listStyle(GroupedListStyle())
             .navigationBarTitle(Text("\(username)'s Games"))
             .navigationBarItems(
                 trailing:
@@ -39,7 +39,7 @@ struct GameListView: View {
                 
             )
             .sheet(isPresented: $showSettingsView) {
-                SettingsView()
+                SettingsView(username: $username)
             }
             
             Text("Select a Game")
@@ -75,15 +75,23 @@ struct GameRow: View {
         
         Group {
             
+            if game == .identifyingObjects {
+                LottieView(filename: "dog_two")
+            }
+            
             
             if game == .counting {
-                CountingAnimation()
-                
+                LottieView(filename: "counting")
             }
+            
             if game == .comparing {
-                ComparingAnimation()
-                
+                LottieView(filename: "comparing")
             }
+            
+            if game == .classifying {
+                LottieView(filename: "classifying")
+            }
+            
             if game == .identifyingColor {
                 LottieView(filename: "colors")
             }
@@ -96,34 +104,25 @@ struct GameRow: View {
                 LottieView(filename: "positions")
                 
             }
-            if game == .classifying {
-                ClassifyAnimation()
-                
-            }
             
             Group {
                 
                 if game == .addition {
-                    ArithmeticAnimation(for: ArithmeticOperation.addition)
+                    LottieView(filename: "add")
                 }
                 
                 if game == .subtraction {
-                    ArithmeticAnimation(for: ArithmeticOperation.subtraction)
-                    
+                    LottieView(filename: "subtract")
                 }
                 
                 if game == .multiplication {
-                    ArithmeticAnimation(for: ArithmeticOperation.multiplication)
+                    LottieView(filename: "multiply")
                 }
+                
                 if game == .division {
-                    ArithmeticAnimation(for: ArithmeticOperation.division)
+                    LottieView(filename: "divide")
                 }
             }
-            
-            if game == .identifyingObjects {
-                LottieView(filename: "dog_two")
-            }
-            
         }.frame(height: height)
     }
     

@@ -13,12 +13,10 @@ struct ShapeView: View {
     var shape: String
     
     var body: some View {
-        GeometryReader { geometry in
-            Image(self.shape)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: geometry.size.height * 0.7)
-        }
+        Image(self.shape)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .padding()
     }
 }
 
