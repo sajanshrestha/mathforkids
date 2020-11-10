@@ -14,7 +14,7 @@
 		A10AC6D024A2CA570072C584 /* ArithmeticProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC6CF24A2CA570072C584 /* ArithmeticProblem.swift */; };
 		A11C2869248BFA9B0036D1AB /* CountingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2868248BFA9B0036D1AB /* CountingProblem.swift */; };
 		A11C286B248BFABA0036D1AB /* IdentifyingColorProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C286A248BFABA0036D1AB /* IdentifyingColorProblem.swift */; };
-		A11C286D248C352D0036D1AB /* IdentifyingShapeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C286C248C352D0036D1AB /* IdentifyingShapeProblem.swift */; };
+		A11C286D248C352D0036D1AB /* ShapeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C286C248C352D0036D1AB /* ShapeProblem.swift */; };
 		A11C286F248C4B320036D1AB /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C286E248C4B320036D1AB /* GameSession.swift */; };
 		A11C2871248C75F20036D1AB /* ComparingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2870248C75F20036D1AB /* ComparingProblem.swift */; };
 		A11C2873248D41E70036D1AB /* PositionProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C2872248D41E70036D1AB /* PositionProblem.swift */; };
@@ -82,6 +82,10 @@
 		A1D90EC024A02A20004919BF /* EmojiBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D90EBF24A02A20004919BF /* EmojiBank.swift */; };
 		A1D90F1424A12A6E004919BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D90F1324A12A6E004919BF /* LaunchScreen.storyboard */; };
 		A1D9ABD224ACC1C3002AEA7A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9ABD124ACC1C3002AEA7A /* SettingsView.swift */; };
+		A1DA947F255B27AC001CE4C5 /* ShapedObjectProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA947E255B27AC001CE4C5 /* ShapedObjectProblem.swift */; };
+		A1DA9484255B2AFA001CE4C5 /* ShapedObjectGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA9483255B2AFA001CE4C5 /* ShapedObjectGameView.swift */; };
+		A1DA948C255B2EAC001CE4C5 /* ShapedObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA948B255B2EAC001CE4C5 /* ShapedObjectView.swift */; };
+		A1DA9494255B33AC001CE4C5 /* ShapedObjectsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA9493255B33AC001CE4C5 /* ShapedObjectsGridView.swift */; };
 		A1DDD0AF24ED92D20084AD76 /* PositionProblemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DDD0AE24ED92D20084AD76 /* PositionProblemTests.swift */; };
 		A1DDD0B124ED9DD30084AD76 /* ArithmeticProblemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DDD0B024ED9DD30084AD76 /* ArithmeticProblemTests.swift */; };
 		A1E6FC5B24C49E17001CFED0 /* student.json in Resources */ = {isa = PBXBuildFile; fileRef = A1E6FC5A24C49E16001CFED0 /* student.json */; };
@@ -118,7 +122,7 @@
 		A10AC6CF24A2CA570072C584 /* ArithmeticProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticProblem.swift; sourceTree = "<group>"; };
 		A11C2868248BFA9B0036D1AB /* CountingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingProblem.swift; sourceTree = "<group>"; };
 		A11C286A248BFABA0036D1AB /* IdentifyingColorProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyingColorProblem.swift; sourceTree = "<group>"; };
-		A11C286C248C352D0036D1AB /* IdentifyingShapeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyingShapeProblem.swift; sourceTree = "<group>"; };
+		A11C286C248C352D0036D1AB /* ShapeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeProblem.swift; sourceTree = "<group>"; };
 		A11C286E248C4B320036D1AB /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 		A11C2870248C75F20036D1AB /* ComparingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparingProblem.swift; sourceTree = "<group>"; };
 		A11C2872248D41E70036D1AB /* PositionProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionProblem.swift; sourceTree = "<group>"; };
@@ -191,6 +195,10 @@
 		A1D90EBF24A02A20004919BF /* EmojiBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiBank.swift; sourceTree = "<group>"; };
 		A1D90F1324A12A6E004919BF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1D9ABD124ACC1C3002AEA7A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A1DA947E255B27AC001CE4C5 /* ShapedObjectProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapedObjectProblem.swift; sourceTree = "<group>"; };
+		A1DA9483255B2AFA001CE4C5 /* ShapedObjectGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapedObjectGameView.swift; sourceTree = "<group>"; };
+		A1DA948B255B2EAC001CE4C5 /* ShapedObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapedObjectView.swift; sourceTree = "<group>"; };
+		A1DA9493255B33AC001CE4C5 /* ShapedObjectsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapedObjectsGridView.swift; sourceTree = "<group>"; };
 		A1DDD0AE24ED92D20084AD76 /* PositionProblemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionProblemTests.swift; sourceTree = "<group>"; };
 		A1DDD0B024ED9DD30084AD76 /* ArithmeticProblemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticProblemTests.swift; sourceTree = "<group>"; };
 		A1E6FC5A24C49E16001CFED0 /* student.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = student.json; sourceTree = "<group>"; };
@@ -376,7 +384,11 @@
 			isa = PBXGroup;
 			children = (
 				A135AAD5248AAC9B00EBC8C2 /* ShapeGameView.swift */,
-				A11C286C248C352D0036D1AB /* IdentifyingShapeProblem.swift */,
+				A11C286C248C352D0036D1AB /* ShapeProblem.swift */,
+				A1DA9483255B2AFA001CE4C5 /* ShapedObjectGameView.swift */,
+				A1DA947E255B27AC001CE4C5 /* ShapedObjectProblem.swift */,
+				A1DA948B255B2EAC001CE4C5 /* ShapedObjectView.swift */,
+				A1DA9493255B33AC001CE4C5 /* ShapedObjectsGridView.swift */,
 			);
 			path = "Identifying Shape";
 			sourceTree = "<group>";
@@ -635,9 +647,11 @@
 				A11CC84224D5A7720078C959 /* ShapeView.swift in Sources */,
 				A192C74524A39D1B00BA7101 /* OperationView.swift in Sources */,
 				A1089B7324AE90C400C70A83 /* DispatchQueue.swift in Sources */,
+				A1DA9484255B2AFA001CE4C5 /* ShapedObjectGameView.swift in Sources */,
 				A137C27124883D9D00BEC96D /* GameView.swift in Sources */,
 				A137C2252487EEC900BEC96D /* AppDelegate.swift in Sources */,
-				A11C286D248C352D0036D1AB /* IdentifyingShapeProblem.swift in Sources */,
+				A1DA948C255B2EAC001CE4C5 /* ShapedObjectView.swift in Sources */,
+				A11C286D248C352D0036D1AB /* ShapeProblem.swift in Sources */,
 				A1D9ABD224ACC1C3002AEA7A /* SettingsView.swift in Sources */,
 				A135AAD8248AACA300EBC8C2 /* ColorGameView.swift in Sources */,
 				A137C2272487EEC900BEC96D /* SceneDelegate.swift in Sources */,
@@ -650,6 +664,7 @@
 				A1D90EAD249EC375004919BF /* PlayerLevel.swift in Sources */,
 				A1D90EB1249EC4A5004919BF /* LevelView.swift in Sources */,
 				A1D11F63248B0B35005674CF /* GameList.swift in Sources */,
+				A1DA947F255B27AC001CE4C5 /* ShapedObjectProblem.swift in Sources */,
 				A137C26B2488177700BEC96D /* GridLayout.swift in Sources */,
 				A137C265248802CD00BEC96D /* CountingGameView.swift in Sources */,
 				A13F51F7248FFB6F00326745 /* ScoreView.swift in Sources */,
@@ -657,6 +672,7 @@
 				A109520E248B2EF100234225 /* GameModel.swift in Sources */,
 				A11C2869248BFA9B0036D1AB /* CountingProblem.swift in Sources */,
 				A137C26F2488381A00BEC96D /* Array+Identifiable.swift in Sources */,
+				A1DA9494255B33AC001CE4C5 /* ShapedObjectsGridView.swift in Sources */,
 				A1A0E5A524E9C39A00C68631 /* LevelRow.swift in Sources */,
 				A169154F24B389F500637BB8 /* Publishers and Notifications .swift in Sources */,
 				A13B0A822502AF140004F2D9 /* IdentifyingObjectsGameView.swift in Sources */,

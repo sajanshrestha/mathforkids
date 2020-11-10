@@ -12,7 +12,7 @@ struct LevelRow: View {
     
     var level: Int
     
-    private let levelImages = ["Ant", "Bee", "Cow", "Doggy", "Elephant", "Fox", "Giraffe", "Horse", "Iguana", "Jaguar", "Koala", "Lion", "Monkey", "Piggy", "Kitty"]
+    private let levelImages = ["Ant", "Bee", "Cow", "Dog", "Elephant", "Fox", "Giraffe", "Horse", "Iguana", "Jaguar", "Koala", "Lion", "Monkey", "Piggy", "Kitty"]
     
     var body: some View {
         

@@ -16,6 +16,7 @@ struct ShapedObjectView: View {
     var body: some View {
         Image(shapedObject.image)
             .resizable()
+            .padding()
             .onTapGesture {
                 action(shapedObject.shape.rawValue)
             }

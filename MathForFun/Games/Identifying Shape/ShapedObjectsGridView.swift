@@ -35,5 +35,4 @@ struct ShapedObjectsGridView: View {
     
     //MARK:- constants
     private let spacing: CGFloat = 4
-    private let padding: CGFloat = 8
 }
