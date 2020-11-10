@@ -43,8 +43,12 @@ struct GameSession {
             problems.append(contentsOf: IdentifyingColorProblem.getProblems(count: numberOfProblems, level: gameLevel))
 
         case .identifyingShape:
-            problems.append(contentsOf: IdentifyingShapeProblem.getProblems(count: numberOfProblems, level: gameLevel))
-
+            if gameLevel < 4 {
+                problems.append(contentsOf: ShapeProblem.getProblems(count: numberOfProblems, level: gameLevel))
+            }
+            else {
+                problems.append(contentsOf: ShapedObjectProblem.getProblems(count: numberOfProblems))
+            }
         case .comparing:
             problems.append(contentsOf: ComparingProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
 

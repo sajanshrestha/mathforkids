@@ -63,9 +63,14 @@ struct GameView: View {
                 ColorGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             else if game == .identifyingShape {
-                ShapeGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
+                if level < 4 {
+                    ShapeGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
+                }
+                else {
+                    ShapedObjectGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
+                }
             }
-            else if game == .position {
+            else if game == .position  {
                 PositionProblemGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             else if game == .classifying {

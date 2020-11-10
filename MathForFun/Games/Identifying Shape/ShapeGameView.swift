@@ -25,7 +25,7 @@ struct ShapeGameView: View {
 
     var body: some View {
         
-        let shapeProblem = gameSession.problems[gameSession.index] as! IdentifyingShapeProblem
+        let shapeProblem = gameSession.problems[gameSession.index] as! ShapeProblem
         
         return GeometryReader { geometry in
             
@@ -54,7 +54,7 @@ struct ShapeGameView: View {
         
     }
     
-    func optionsView(for problem: IdentifyingShapeProblem) -> some View {
+    func optionsView(for problem: ShapeProblem) -> some View {
         
         OptionsView(options: problem.options) { selectedOption in
             
