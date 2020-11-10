@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-struct IdentifyingShapeProblem: Problem {
+struct ShapeProblem: Problem {
     
     var shapeImageName: String
     
@@ -18,16 +18,16 @@ struct IdentifyingShapeProblem: Problem {
     
     var options: [String]
     
-    static func getProblems(count: Int, level: Int) -> [IdentifyingShapeProblem] {
+    static func getProblems(count: Int, level: Int) -> [ShapeProblem] {
         
         
         let shapesImageNames = getShapeImageNames(for: level)
         
-        var problems = [IdentifyingShapeProblem]()
+        var problems = [ShapeProblem]()
                
         for shapeImageName in shapesImageNames {
-            let options = IdentifyingShapeProblem.getShapeOptions(for: shapeImageName)
-            let identifyingShapeProblem = IdentifyingShapeProblem(shapeImageName: shapeImageName, options: options)
+            let options = ShapeProblem.getShapeOptions(for: shapeImageName)
+            let identifyingShapeProblem = ShapeProblem(shapeImageName: shapeImageName, options: options)
             problems.append(identifyingShapeProblem)
         }
         
