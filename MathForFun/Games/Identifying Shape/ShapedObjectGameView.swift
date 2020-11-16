@@ -54,7 +54,7 @@ struct ShapedObjectGameView: View {
             
             Text("Tap the item which is in a shape of \(shapeProblem.rightAnswer)!")
                 .modifier(QuestionText())
-            
+                        
         }
     }
 }

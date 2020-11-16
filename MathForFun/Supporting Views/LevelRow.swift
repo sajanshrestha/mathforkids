@@ -20,7 +20,7 @@ struct LevelRow: View {
             
             Image(levelImages[level - 1])
                 .resizable()
-                .frame(width: 100, height: 100)
+                .frame(width: 60, height: 60)
                 .cornerRadius(8)
                 .aspectRatio(contentMode: .fit)
             

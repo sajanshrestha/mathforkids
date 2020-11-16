@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ComparingGameView: View {
+struct ComparingNumbersGameView: View {
     
     @ObservedObject var gameSession = GameModel()
     
@@ -23,11 +23,9 @@ struct ComparingGameView: View {
     
     var body: some View {
         
-        let comparingProblem = gameSession.problems[gameSession.index] as! ComparingProblem
+        let comparingProblem = gameSession.problems[gameSession.index] as! ComparingNumbersProblem
         
-        return GeometryReader { geometry in
-            
-            VStack(spacing: self.spacing) {
+        return VStack(spacing: self.spacing) {
                 
                 ScoreView(answerCorrect: self.$answerCorrect, score: self.gameSession.score)
                 
@@ -45,10 +43,9 @@ struct ComparingGameView: View {
             }
             .font(.title)
             .opacity(self.gameSession.gameCompleted ? self.opacity : 1)
-        }
     }
     
-    func optionsView(for problem: ComparingProblem) -> some View {
+    func optionsView(for problem: ComparingNumbersProblem) -> some View {
         
         
         HStack {
@@ -56,7 +53,7 @@ struct ComparingGameView: View {
             self.view(for: problem.firstSetEmoji, problem.firstSetCount)
                 .onTapGesture {
                     
-                    self.submitAnswer(with: ComparingProblem.ComparingSet.firstSet.rawValue)
+                    self.submitAnswer(with: ComparingNumbersProblem.ComparingSet.firstSet.rawValue)
                     
                     if self.gameSession.lastProblemOn {
                         DispatchQueue.actionOnMain(after: 0.5) {
@@ -69,7 +66,7 @@ struct ComparingGameView: View {
             self.view(for: problem.secondSetEmoji, problem.secondSetCount)
                 .onTapGesture {
                     
-                    self.submitAnswer(with: ComparingProblem.ComparingSet.secondSet.rawValue)
+                    self.submitAnswer(with: ComparingNumbersProblem.ComparingSet.secondSet.rawValue)
                     
                     if self.gameSession.lastProblemOn {
                         DispatchQueue.actionOnMain(after: 0.5) {

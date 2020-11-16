@@ -22,7 +22,6 @@ struct GameListView: View {
         NavigationView {
             
             List(gameList.games) { game in
-                
                 NavigationLink(destination: LevelView(for: game), label: {
                     GameRow(game: game)
                 })
@@ -41,6 +40,7 @@ struct GameListView: View {
             .sheet(isPresented: $showSettingsView) {
                 SettingsView(username: $username)
             }
+            
             
             Text("Select a Game")
                 .font(.largeTitle)

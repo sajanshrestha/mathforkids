@@ -23,7 +23,7 @@ struct LevelStatusView: View {
             
             if levelStatus == .levelUp {
                 ZStack {
-                    Text("Congratulations! You have unlocked level \(level + 1).")
+                    Text("Congratulations! You scored more than 7 and unlocked next level.")
                         .bold()
                         .modifier(StatusText())
                         .opacity(levelStatus == .levelUp ? 1 : 0)

@@ -21,14 +21,13 @@ struct OperationView: View {
         HStack(spacing: self.spacing) {
             
             CardView(title: "\(self.firstNumber)")
-                .frame(width: 150, height: 150)
-                
+                .frame(width: 100, height: 100)
                 .animation(nil)
             
             self.symbol(for: self.operation, size: CGSize(width: 150, height: 150))
             
             CardView(title: "\(self.secondNumber)")
-                .frame(width: 150, height: 150)
+                .frame(width: 100, height: 100)
                 .animation(nil)
             
             

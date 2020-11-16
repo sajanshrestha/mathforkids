@@ -57,7 +57,12 @@ struct GameView: View {
                 CountingGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
             }
             else if game == .comparing {
-                ComparingGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
+                if level < 5 {
+                    ComparingNumbersGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
+                }
+                else {
+                    ComparingAttributesGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)
+                }
             }
             else if game == .identifyingColor {
                 ColorGameView(answerCorrect: $answerCorrect, levelStatus: $levelStatus)

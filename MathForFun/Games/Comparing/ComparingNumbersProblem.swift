@@ -10,7 +10,7 @@
 import Foundation
 
 
-enum ComparingProblem: Problem {
+enum ComparingNumbersProblem: Problem {
     
     enum ComparingSet: String {
         case firstSet
@@ -69,11 +69,11 @@ enum ComparingProblem: Problem {
 
 
 
-extension ComparingProblem {
+extension ComparingNumbersProblem {
     
-    static func getProblems(count: Int, gameLevel: Int) -> [ComparingProblem] {
+    static func getProblems(count: Int, gameLevel: Int) -> [ComparingNumbersProblem] {
         
-        var problems = [ComparingProblem]()
+        var problems = [ComparingNumbersProblem]()
         
         let highestNumberOfElements = getHighestNumberOfItems(for: gameLevel)
         
@@ -84,10 +84,10 @@ extension ComparingProblem {
             let randomEmojis = EmojiBank.emojis.randomElements(2)
             
             if gameLevel % 2 == 0 {
-                problems.append(ComparingProblem.lesserThan(firstSetCount: randomCounts[0], secondSetCount: randomCounts[1], firstSetEmoji: randomEmojis[0].key, secondSetEmoji: randomEmojis[1].key))
+                problems.append(ComparingNumbersProblem.lesserThan(firstSetCount: randomCounts[0], secondSetCount: randomCounts[1], firstSetEmoji: randomEmojis[0].key, secondSetEmoji: randomEmojis[1].key))
             }
             else {
-                problems.append(ComparingProblem.greaterThan(firstSetCount: randomCounts[0], secondSetCount: randomCounts[1], firstSetEmoji: randomEmojis[0].key, secondSetEmoji: randomEmojis[1].key))
+                problems.append(ComparingNumbersProblem.greaterThan(firstSetCount: randomCounts[0], secondSetCount: randomCounts[1], firstSetEmoji: randomEmojis[0].key, secondSetEmoji: randomEmojis[1].key))
             }
         }
         
@@ -104,10 +104,6 @@ extension ComparingProblem {
             return 5
         case 4:
             return 5
-        case 5:
-            return 7
-        case 6:
-            return 7
         default:
             return 12
         }

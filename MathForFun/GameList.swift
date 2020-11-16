@@ -15,10 +15,9 @@ struct GameList {
     }
     
     enum Game: String, CaseIterable, Identifiable {
-        
-        case identifyingObjects = "Identifying Creatures and Objects"
         case counting = "Counting"
         case comparing = "Comparing"
+        case identifyingObjects = "Identifying Creatures and Objects"
         case identifyingColor = "Identifying Colors"
         case identifyingShape = "Identifying Shapes"
         case position = "Positions"
@@ -39,9 +38,9 @@ struct GameList {
         var numberOfLevels: Int {
             switch self {
             case .counting: return 5
-            case .comparing: return 6
+            case .comparing: return 7
             case .identifyingColor: return 5
-            case .identifyingShape: return 4
+            case .identifyingShape: return 5
             case .position: return 3
             case .classifying: return 5
             case .addition, .multiplication, .subtraction, .division: return 8

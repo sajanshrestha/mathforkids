@@ -22,6 +22,9 @@ struct ScoreView: View {
                 .scaleEffect(answerCorrect ? 2 : 1)
                 .foregroundColor(answerCorrect ? .green : .gray)
             Spacer()
+            Text("out of 10")
+                .foregroundColor(.blue)
+                .font(.subheadline)
             
         }
         .padding()

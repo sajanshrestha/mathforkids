@@ -47,10 +47,16 @@ struct GameSession {
                 problems.append(contentsOf: ShapeProblem.getProblems(count: numberOfProblems, level: gameLevel))
             }
             else {
-                problems.append(contentsOf: ShapedObjectProblem.getProblems(count: numberOfProblems))
+                problems.append(contentsOf: ShapedObjectProblem.getProblems(count: numberOfProblems, level: gameLevel))
             }
         case .comparing:
-            problems.append(contentsOf: ComparingProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
+            if gameLevel < 5 {
+                problems.append(contentsOf: ComparingNumbersProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
+            }
+            else {
+                problems.append(contentsOf: ComparingAttributesProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
+            }
+            
 
         case .position:
             problems.append(contentsOf: PositionProblem.getProblems(count: numberOfProblems, gameLevel: gameLevel))
