@@ -60,6 +60,4 @@ Another thing, the onboarding screen only appears the first time of the app laun
       
   </html>
   
- 
- )
   
