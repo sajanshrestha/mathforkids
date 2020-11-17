@@ -49,21 +49,17 @@ Another thing, the onboarding screen only appears the first time of the app laun
         <hr>
         <image src="https://user-images.githubusercontent.com/38868680/87884887-5fc72c80-c9df-11ea-8e63-b68e41196535.png" width=100 height=200> 
           <hr>
-          <img alt="Screen Shot 2020-07-16 at 1 03 30 PM" src="https://user-images.githubusercontent.com/38868680/87884889-62298680-c9df-11ea-9887-fa55038a34d3.png" width=100 height=200>
+          <img src="https://user-images.githubusercontent.com/38868680/87884889-62298680-c9df-11ea-9887-fa55038a34d3.png" width=100 height=200>
           <hr>
-          <img alt="Screen Shot 2020-07-16 at 1 02 50 PM" src="https://user-images.githubusercontent.com/38868680/87884891-6655a400-c9df-11ea-9c23-d5e4ac046186.png" width=100 height=200> 
+          <img src="https://user-images.githubusercontent.com/38868680/87884891-6655a400-c9df-11ea-9c23-d5e4ac046186.png" width=100 height=200> 
           <hr>
-          
-          <img alt="Screen Shot 2020-07-16 at 1 02 50 PM" src="https://user-images.githubusercontent.com/38868680/99437387-665ba700-28e0-11eb-9e55-06daf03f729c.png" width=100 height=200> 
           <hr>
-          
-          <img alt="Screen Shot 2020-07-16 at 1 02 50 PM" src="https://user-images.githubusercontent.com/38868680/99437396-68be0100-28e0-11eb-8248-0d7343c44578.png" width=100 height=200> 
-          <hr>
-  
- 
+      <image src="https://user-images.githubusercontent.com/38868680/99437387-665ba700-28e0-11eb-9e55-06daf03f729c.png" width=100 height=200>
+        <hr>
+      <image src="https://user-images.githubusercontent.com/38868680/99437396-68be0100-28e0-11eb-8248-0d7343c44578.png" width=100 height=200>
+      
   </html>
   
- 
  
  )
   
